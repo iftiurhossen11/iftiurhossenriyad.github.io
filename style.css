@@ -1264,6 +1264,14 @@ input, textarea { font-family: inherit; }
   text-align: center;
 }
 
+.mygenie-project-links {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0 24px;
+  margin: -22px auto 34px;
+}
+
 .mygenie-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));

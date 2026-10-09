@@ -52,3 +52,5 @@ screenshots from `screenshots/cropped/`. IR Prohori uses four cropped 16:9 scree
 Other proposal-based projects use clearly labeled interface mockups from
 `screenshots/mockups/`; these illustrate proposed product screens and are not
 captures of deployed products.
+The MyGenie section uses four application screenshots from `Project SS.docx`
+and links to its live website and GitHub repository.

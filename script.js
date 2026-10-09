@@ -306,13 +306,6 @@
         : '';
       return `<article class="project-card">${screenshots}${header}<p class="project-desc">${contentMarkup(project.descriptionKey, project.description)}</p>${features}${tech}${context}${link}</article>`;
     }).join('');
-    container.querySelectorAll('.project-screenshot-gallery').forEach((gallery) => {
-      gallery.addEventListener('click', (event) => {
-        const thumb = event.target.closest('.screenshot-thumb');
-        if (!thumb || !gallery.contains(thumb)) return;
-        setProjectScreenshot(gallery, Number(thumb.dataset.index));
-      });
-    });
   }
 
   function setProjectScreenshot(gallery, index) {
@@ -399,6 +392,11 @@
     };
 
     document.addEventListener('click', (event) => {
+      const thumb = event.target.closest('.project-screenshot-gallery .screenshot-thumb');
+      if (thumb) {
+        setProjectScreenshot(thumb.closest('.project-screenshot-gallery'), Number(thumb.dataset.index));
+        return;
+      }
       const trigger = event.target.closest('.project-screenshot-main');
       if (!trigger) return;
       activeGallery = trigger.closest('.project-screenshot-gallery');
