@@ -3,19 +3,53 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>MD Iftiur Hossen Riyad — Cyber Security Engineer &amp; Founder</title>
-  <meta name="description" content="Founder & CEO @ MyGenie | Cyber Security Engineering Student | Security Researcher & Tech Innovator." />
-  <meta name="author" content="MD Iftiur Hossen Riyad" />
+  <title data-i18n="page_title">Md Iftiur Hossen Riyad — Cyber Security Engineer &amp; Founder</title>
+  <meta name="description" content="Founder & CEO @ MyGenie | Cyber Security Engineering Student | Security Researcher & Tech Innovator." data-i18n-content="page_description" />
+  <meta name="author" content="Md Iftiur Hossen Riyad" />
+  <link rel="canonical" href="https://iftiurhossenriyad.github.io/" />
+  <link rel="alternate" type="application/rss+xml" title="Thoughts &amp; Poetry RSS Feed" href="rss.xml" />
+  <meta name="theme-color" content="#00d9ff" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Md Iftiur Hossen Riyad — Cyber Security Engineer &amp; Founder" />
+  <meta property="og:description" content="Cyber Security Engineering student, Founder &amp; CEO of MyGenie, and Security Researcher. Interactive portfolio with terminal, projects, and certifications." />
+  <meta property="og:url" content="https://iftiurhossenriyad.github.io/" />
+  <meta property="og:image" content="https://iftiurhossenriyad.github.io/profile.jpg" />
+  <meta property="og:site_name" content="Md Iftiur Hossen Riyad Portfolio" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Md Iftiur Hossen Riyad — Cyber Security Engineer" />
+  <meta name="twitter:description" content="Cyber Security Engineering student, Founder &amp; CEO of MyGenie, and Security Researcher." />
+  <meta name="twitter:image" content="https://iftiurhossenriyad.github.io/profile.jpg" />
+  <!--
+    GA4 Measurement ID: G-82EWL4BGPD. Analytics loads only after consent.
+  -->
+  <meta name="ga4-measurement-id" content="G-82EWL4BGPD" />
   <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png" />
   <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png" />
   <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png" />
   <link rel="manifest" href="site.webmanifest" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&family=Noto+Sans+Bengali:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="style.css" />
+  <script src="data-certifications.js" defer></script>
+  <script src="data-projects.js" defer></script>
+  <script src="data-skills.js" defer></script>
+  <script src="data-achievements.js" defer></script>
+  <script src="data-testimonials.js" defer></script>
+  <script src="data-social.js" defer></script>
+  <script src="data-education.js" defer></script>
+  <script src="data-research.js" defer></script>
+  <script src="data-roadmap.js" defer></script>
+  <script src="data-services.js" defer></script>
+  <script src="data-uses.js" defer></script>
+  <script src="data-resources.js" defer></script>
+  <script src="posts-data.js" defer></script>
+  <script src="translations.js" defer></script>
+  <script src="script.js" defer></script>
 </head>
 <body>
+
+  <a class="skip-link" href="#home" data-i18n="skip_to_content">Skip to main content</a>
 
   <!-- ============ NAVIGATION ============ -->
   <header class="navbar" id="navbar">
@@ -27,26 +61,33 @@
       </a>
 
       <nav class="nav-menu" id="navMenu">
-        <a href="#home" class="nav-link">Home</a>
-        <a href="#about" class="nav-link">About</a>
-        <a href="#skills" class="nav-link">Skills</a>
-        <a href="#projects" class="nav-link">Projects</a>
-        <a href="#mygenie" class="nav-link">MyGenie</a>
-        <a href="#research" class="nav-link">Research</a>
-        <a href="#certifications" class="nav-link">Certifications</a>
-        <a href="#achievements" class="nav-link">Achievements</a>
-        <a href="#terminal" class="nav-link">Terminal</a>
-        <a href="#creative" class="nav-link">Creative</a>
-        <a href="#education" class="nav-link">Education</a>
-        <a href="#contact" class="nav-link">Contact</a>
+        <a href="#home" class="nav-link" data-i18n="nav_home">Home</a>
+        <a href="#about" class="nav-link" data-i18n="nav_about">About</a>
+        <a href="#skills" class="nav-link" data-i18n="nav_skills">Skills</a>
+        <a href="#projects" class="nav-link" data-i18n="nav_projects">Projects</a>
+        <a href="#mygenie" class="nav-link" data-i18n="nav_mygenie">MyGenie</a>
+        <a href="#research" class="nav-link" data-i18n="nav_research">Research</a>
+        <a href="#certifications" class="nav-link" data-i18n="nav_certifications">Certifications</a>
+        <a href="#achievements" class="nav-link" data-i18n="nav_achievements">Achievements</a>
+        <a href="#testimonials" class="nav-link" data-i18n="testimonials_nav" hidden>Testimonials</a>
+        <a href="#services" class="nav-link" data-i18n="nav_services">Services</a>
+        <a href="blog.html" class="nav-link" data-i18n="nav_blog">Blog</a>
+        <a href="#terminal" class="nav-link" data-i18n="nav_terminal">Terminal</a>
+        <a href="#creative" class="nav-link" data-i18n="nav_creative">Creative</a>
+        <a href="#education" class="nav-link" data-i18n="nav_education">Education</a>
+        <a href="#contact" class="nav-link" data-i18n="nav_contact">Contact</a>
       </nav>
 
       <div class="nav-actions">
-        <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+        <button class="lang-toggle" id="langToggle" type="button" aria-label="Toggle language" data-i18n-aria-label="lang_toggle_label">
+          <span class="lang-en active">EN</span>
+          <span class="lang-bn">বাং</span>
+        </button>
+        <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme" data-i18n-aria-label="theme_toggle_label">
           <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
           <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
         </button>
-        <button class="hamburger" id="hamburger" aria-label="Menu">
+        <button class="hamburger" id="hamburger" type="button" aria-label="Menu" aria-controls="navMenu" aria-expanded="false" data-i18n-aria-label="menu_toggle_label">
           <span></span><span></span><span></span>
         </button>
       </div>
@@ -54,59 +95,62 @@
   </header>
 
   <!-- ============ HERO ============ -->
-  <section class="hero" id="home">
+  <section class="hero" id="home" tabindex="-1">
     <div class="hero-bg-grid"></div>
     <div class="hero-glow"></div>
     <div class="hero-container">
       <div class="hero-content">
         <div class="hero-status">
           <span class="status-dot"></span>
-          <span>Available for Internships &amp; Research</span>
+          <span data-i18n="hero_status">Available for Internships &amp; Research</span>
         </div>
         <h1 class="hero-name">
           MD IFTIUR <br />
           <span class="gradient-text">HOSSEN RIYAD</span>
         </h1>
-        <p class="hero-tagline">
+        <p class="hero-tagline" data-i18n="hero_tagline" data-i18n-html>
           Founder &amp; CEO <span class="accent">@ MyGenie</span> · Cyber Security Engineering Student · Security Researcher &amp; Tech Innovator
         </p>
-        <p class="hero-subtitle">
+        <p class="hero-subtitle" data-i18n="hero_subtitle">
           Engineering Secure Digital Ecosystems, AI Assistants, Incident Response &amp; OffSec Systems
         </p>
 
         <div class="hero-meta">
           <span class="meta-item">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-            Gazipur, Dhaka, Bangladesh
+            <span id="heroLocation"></span>
           </span>
         </div>
 
         <div class="hero-cta">
           <a href="Iftiur_Hossen_Riyad_CV.pdf" class="btn btn-primary" download>
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-            Download CV
+            <span data-i18n="hero_download_cv">Download CV</span>
+          </a>
+          <a href="cover-letter.html" class="btn btn-secondary" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+              <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+              <polyline points="14 2 14 8 20 8"/>
+              <line x1="16" y1="13" x2="8" y2="13"/>
+              <line x1="16" y1="17" x2="8" y2="17"/>
+            </svg>
+            <span data-i18n="cover_letter_btn">Cover Letter</span>
           </a>
           <a href="#projects" class="btn btn-secondary">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg>
-            Explore Projects
+            <span data-i18n="hero_explore_projects">Explore Projects</span>
           </a>
           <a href="#contact" class="btn btn-outline">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-            Hire Me
+            <span data-i18n="hero_hire_me">Hire Me</span>
+          </a>
+          <a href="#book-call" class="btn btn-outline">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="4" width="18" height="17" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/><path d="m9 15 2 2 4-4"/></svg>
+            <span data-i18n="book_call_button">Book a Call</span>
           </a>
         </div>
 
-        <div class="hero-socials">
-          <a href="https://github.com/iftiurhossenriyad" target="_blank" rel="noopener" aria-label="GitHub">
-            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
-          </a>
-          <a href="https://tryhackme.com/p/mdiftiruhossenriyad" target="_blank" rel="noopener" aria-label="TryHackMe">
-            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L2 7v10l10 5 10-5V7L12 2zm0 2.18L19.5 8 12 11.82 4.5 8 12 4.18zM4 9.5l7 3.5v6.32l-7-3.5V9.5zm9 9.82V13l7-3.5v6.32l-7 3.5z"/></svg>
-          </a>
-          <a href="https://profile.hackthebox.com/profile/019f80ab-844a-7102-8df5-1b20f6f5dc45" target="_blank" rel="noopener" aria-label="Hack The Box">
-            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l9 5v10l-9 5-9-5V7l9-5zm0 2.3L5.3 8 12 11.7 18.7 8 12 4.3zM5 9.7v6.6l6 3.3v-6.6L5 9.7zm14 0l-6 3.3v6.6l6-3.3V9.7z"/></svg>
-          </a>
-        </div>
+        <div class="hero-socials" id="heroSocials"></div>
       </div>
 
       <div class="hero-visual">
@@ -119,17 +163,18 @@
           </div>
           <div class="terminal-body" id="heroTerminalBody">
             <p><span class="prompt">$</span> whoami</p>
-            <p class="output">MD Iftiur Hossen Riyad</p>
+            <p class="output">Md Iftiur Hossen Riyad</p>
             <p><span class="prompt">$</span> cat role.txt</p>
-            <p class="output">Founder &amp; CEO @ MyGenie</p>
-            <p class="output">Cyber Security Engineering Student</p>
+            <p class="output" data-i18n="hero_preview_role">Founder &amp; CEO @ MyGenie</p>
+            <p class="output" data-i18n="hero_preview_student">Cyber Security Engineering Student</p>
             <p><span class="prompt">$</span> ls specializations/</p>
             <p class="output">IDS/ Threat-Detection/ RAG-AI/ GRC/</p>
-            <p class="output muted">Type <strong>help</strong> below to explore ↓</p>
+            <p class="output muted" data-i18n="hero_terminal_hint" data-i18n-html>Type <strong>help</strong> below to explore ↓</p>
           </div>
           <div class="hero-terminal-input">
             <span class="prompt">$</span>
-            <input type="text" id="heroTerminalInput" autocomplete="off" spellcheck="false" placeholder="try: help, whoami, cat about.txt..." />
+            <input type="text" id="heroTerminalInput" autocomplete="off" spellcheck="false" aria-label="Try a portfolio command" data-i18n-aria-label="hero_terminal_input_label" placeholder="try: help, whoami, cat about.txt..." data-i18n-placeholder="hero_terminal_placeholder" />
+            <button type="button" class="terminal-submit" id="heroTerminalSubmit" data-i18n="terminal_enter_button">Enter</button>
           </div>
         </div>
       </div>
@@ -140,23 +185,23 @@
   <section class="section" id="about">
     <div class="container">
       <div class="section-header">
-        <span class="section-label">01 — About</span>
-        <h2 class="section-title">Personal Profile</h2>
+        <span class="section-label" data-i18n="about_label">01 — About</span>
+        <h2 class="section-title" data-i18n="about_title">Personal Profile</h2>
       </div>
 
       <div class="about-grid">
         <div class="about-main">
           <div class="about-photo">
-            <img src="profile.jpg" alt="MD Iftiur Hossen Riyad" />
+            <img src="profile.jpg" alt="Md Iftiur Hossen Riyad" />
           </div>
           <div class="about-text">
-            <p>
+            <p data-i18n="about_p1" data-i18n-html>
               I am a dedicated <strong>Cyber Security Engineering undergraduate</strong> at the University of Frontier Technology, Bangladesh (UFTB), driven by a deep commitment to building secure, resilient, and human-centric technology ecosystems.
             </p>
-            <p>
+            <p data-i18n="about_p2" data-i18n-html>
               As the <strong>Founder &amp; CEO of MyGenie</strong>, I merge security architecture with artificial intelligence to solve real-world accessibility and automation challenges for businesses and individuals across South Asia.
             </p>
-            <p>
+            <p data-i18n="about_p3" data-i18n-html>
               My journey spans offensive and defensive security research, full-stack application development, and technical leadership. Beyond engineering intrusion detection systems, threat-monitoring platforms, and AI knowledge tools, I hold a strong passion for <strong>creative literature</strong> — actively writing contemporary Bengali poetry, recording travel narratives, and researching the socio-political history of the Indian Subcontinent.
             </p>
           </div>
@@ -167,22 +212,22 @@
             <div class="info-icon">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
             </div>
-            <h4>Focus</h4>
-            <p>Security-by-Design &amp; Zero Trust Architecture</p>
+            <h4 data-i18n="about_focus_title">Focus</h4>
+            <p data-i18n="about_focus_desc">Security-by-Design &amp; Zero Trust Architecture</p>
           </div>
           <div class="info-card">
             <div class="info-icon">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
             </div>
-            <h4>Location</h4>
-            <p>Gazipur, Dhaka, Bangladesh</p>
+            <h4 data-i18n="about_location_title">Location</h4>
+            <p id="aboutLocation"></p>
           </div>
           <div class="info-card">
             <div class="info-icon">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
             </div>
-            <h4>Education</h4>
-            <p>B.Sc. Cyber Security Engineering, UFTB</p>
+            <h4 data-i18n="about_education_title">Education</h4>
+            <p data-i18n="about_education_desc">B.Sc. Cyber Security Engineering, UFTB</p>
           </div>
         </div>
       </div>
@@ -193,69 +238,32 @@
   <section class="section section-alt" id="skills">
     <div class="container">
       <div class="section-header">
-        <span class="section-label">02 — Skills</span>
-        <h2 class="section-title">Technical Skills &amp; Tooling Matrix</h2>
+        <span class="section-label" data-i18n="skills_label">02 — Skills</span>
+        <h2 class="section-title" data-i18n="skills_title">Technical Skills &amp; Tooling Matrix</h2>
       </div>
 
-      <div class="skills-grid">
-        <div class="skill-card">
-          <h3>Programming Languages</h3>
-          <div class="skill-tags">
-            <span>C</span><span>C++</span><span>Java</span><span>Python</span><span>PHP</span><span>JavaScript</span>
-          </div>
-        </div>
-        <div class="skill-card">
-          <h3>Web &amp; App Engineering</h3>
-          <div class="skill-tags">
-            <span>HTML5</span><span>CSS3</span><span>Bootstrap</span><span>PHP</span><span>MySQL</span><span>XAMPP</span><span>FastAPI</span><span>REST APIs</span>
-          </div>
-        </div>
-        <div class="skill-card">
-          <h3>Security &amp; Auditing Tools</h3>
-          <div class="skill-tags">
-            <span>Nmap</span><span>Lynis</span><span>Nikto</span><span>tcpdump</span><span>Wireshark</span><span>Kali Linux</span>
-          </div>
-        </div>
-        <div class="skill-card">
-          <h3>AI &amp; Systems Architecture</h3>
-          <div class="skill-tags">
-            <span>RAG</span><span>Chroma Vector DB</span><span>scikit-learn</span><span>Multi-Agent Orchestration</span>
-          </div>
-        </div>
-        <div class="skill-card">
-          <h3>Core Security Concepts</h3>
-          <div class="skill-tags">
-            <span>GRC</span><span>IDS</span><span>RBAC</span><span>Cryptography</span><span>Log Analysis</span><span>Audit Logging</span>
-          </div>
-        </div>
-        <div class="skill-card">
-          <h3>Compliance Frameworks</h3>
-          <div class="skill-tags">
-            <span>ISO 27001</span><span>NIST SP 800-53</span><span>Bangladesh PDPA 2026</span>
-          </div>
-        </div>
-        <div class="skill-card">
-          <h3>Languages</h3>
-          <div class="skill-tags">
-            <span>Bengali (Native)</span><span>English (Working Proficiency)</span>
-          </div>
-        </div>
+      <div class="skills-grid" id="skillsGrid"></div>
+
+      <div class="skill-evidence-section">
+        <h3 class="subsection-title" data-i18n="skill_evidence_title">Skills in Practice</h3>
+        <p class="section-note" data-i18n="skill_evidence_note">Rather than self-rated percentages, explore the public project repositories, course certificates, and technical articles listed here. These show work and learning—not a standardized proficiency rating.</p>
+        <div class="skill-evidence-grid" id="skillEvidenceGrid"></div>
       </div>
 
       <div class="lab-box">
-        <h3>Security Lab, Infrastructure &amp; OffSec Environment</h3>
+        <h3 data-i18n="skills_lab_title">Security Lab, Infrastructure &amp; OffSec Environment</h3>
         <div class="lab-grid">
           <div>
-            <h4>Primary OS</h4>
-            <p>Kali Linux · Ubuntu Server · Windows 11 Pro</p>
+            <h4 data-i18n="skills_lab_primary_os">Primary OS</h4>
+            <p data-i18n="skills_lab_primary_os_desc">Kali Linux · Ubuntu Server · Windows 11 Pro</p>
           </div>
           <div>
-            <h4>Infrastructure</h4>
-            <p>Custom C++ / Java Audit Toolkits · SQLite Log Storage · Virtualized Network Testbeds</p>
+            <h4 data-i18n="skills_lab_infrastructure">Infrastructure</h4>
+            <p data-i18n="skills_lab_infrastructure_desc">Custom C++ / Java Audit Toolkits · SQLite Log Storage · Virtualized Network Testbeds</p>
           </div>
           <div>
-            <h4>Core Focus</h4>
-            <p>Red Teaming · AV/EDR Evasion · Bug Bounty · AI-Driven OffSec · Malware Analysis · Threat Hunting</p>
+            <h4 data-i18n="skills_lab_core_focus">Core Focus</h4>
+            <p data-i18n="skills_lab_core_focus_desc">Red Teaming · AV/EDR Evasion · Bug Bounty · AI-Driven OffSec · Malware Analysis · Threat Hunting</p>
           </div>
         </div>
       </div>
@@ -266,141 +274,21 @@
   <section class="section" id="projects">
     <div class="container">
       <div class="section-header">
-        <span class="section-label">03 — Projects</span>
-        <h2 class="section-title">Featured Projects &amp; Prototypes</h2>
-        <p class="section-subtitle">Active prototypes, system proposals, and classic engineering repositories.</p>
+        <span class="section-label" data-i18n="projects_label">03 — Projects</span>
+        <h2 class="section-title" data-i18n="projects_title">Featured Projects &amp; Prototypes</h2>
+        <p class="section-subtitle" data-i18n="projects_subtitle">Active prototypes, system proposals, and classic engineering repositories.</p>
       </div>
 
-      <div class="projects-grid">
-        <article class="project-card">
-          <div class="project-header">
-            <span class="project-status prototype">Prototype</span>
-            <h3>APON</h3>
-            <p class="project-role">Project Lead &amp; Architect</p>
-          </div>
-          <p class="project-desc">Multi-Service Trusted Digital Ecosystem connecting commerce, services, education, community, and agriculture under a unified verified identity and AI coordination layer.</p>
-          <div class="project-features">
-            <span>Trusted Digital Identity</span>
-            <span>Master APON AI</span>
-            <span>Multi-Agent Orchestration</span>
-          </div>
-          <div class="project-tech">
-            <span>AI</span><span>Security</span><span>Ecosystem</span>
-          </div>
-        </article>
-
-        <article class="project-card">
-          <div class="project-header">
-            <span class="project-status prototype">Prototype</span>
-            <h3>CampusNet</h3>
-            <p class="project-role">Project Lead / Security Engineer</p>
-          </div>
-          <p class="project-desc">Secure inter-university academic &amp; collaboration network with verifiable academic identity, research discovery, and embedded platform security.</p>
-          <div class="project-features">
-            <span>Identity Verification</span>
-            <span>Privacy Matrices</span>
-            <span>CTF/Hackathon Hub</span>
-            <span>Encrypted File Sharing</span>
-          </div>
-          <div class="project-tech">
-            <span>Security-First</span><span>Networking</span>
-          </div>
-        </article>
-
-        <article class="project-card">
-          <div class="project-header">
-            <span class="project-status working">Working Prototype</span>
-            <h3>IR Prohori</h3>
-            <p class="project-role">Team Coordinator, AI &amp; Product Lead</p>
-          </div>
-          <p class="project-desc">RAG-based bilingual AI knowledge assistant built on verified cyber laws, safety guides, and helpline directories for Bangladeshi youth.</p>
-          <div class="project-features">
-            <span>RAG Bilingual AI</span>
-            <span>Verified Cyber Laws</span>
-            <span>Campus Ambassadors</span>
-          </div>
-          <div class="project-tech">
-            <span>RAG</span><span>AI</span><span>Social Impact</span>
-          </div>
-          <p class="project-context">DKC Digital Respect &amp; Cohesion Fellowship 2026 (UNDP &amp; SURGE Bangladesh)</p>
-        </article>
-
-        <article class="project-card">
-          <div class="project-header">
-            <span class="project-status working">Working Prototype</span>
-            <h3>NOJORGHOR</h3>
-            <p class="project-role">Team Leader &amp; Backend/Detection Lead</p>
-          </div>
-          <p class="project-desc">Endpoint security monitoring platform for schools, small businesses, and labs. Rule-based + ML detection with Bengali explanations.</p>
-          <div class="project-features">
-            <span>Rule-based Detection</span>
-            <span>Isolation Forest ML</span>
-            <span>Bengali Alert Explanations</span>
-            <span>Guarded Blocking</span>
-          </div>
-          <div class="project-tech">
-            <span>scikit-learn</span><span>IDS</span><span>ML</span>
-          </div>
-          <p class="project-context">Ziaur Rahman Foundation Science Fair 2026</p>
-        </article>
-
-        <article class="project-card">
-          <div class="project-header">
-            <span class="project-status proposal">Pre-Seed Proposal</span>
-            <h3>SURAKSHA</h3>
-            <p class="project-role">Founder &amp; Product/Deployment Lead</p>
-          </div>
-          <p class="project-desc">Privacy-conscious emergency response platform with one-tap SOS, missing-person lifecycle management, location tracking, and tamper-evident audit logging.</p>
-          <div class="project-features">
-            <span>One-Tap SOS</span>
-            <span>Location Tracking</span>
-            <span>Operator Triage Dashboard</span>
-            <span>Audit Logging</span>
-          </div>
-          <div class="project-tech">
-            <span>Emergency</span><span>Privacy</span><span>Tracking</span>
-          </div>
-        </article>
+      <div class="project-search" role="search" aria-label="Search projects" data-i18n-aria-label="projects_search_label">
+        <label for="projectSearch" data-i18n="projects_search_label">Search projects</label>
+        <input id="projectSearch" type="search" autocomplete="off" placeholder="Search by name, technology, or description" data-i18n-placeholder="projects_search_placeholder" />
+        <p class="project-search-status" id="projectSearchStatus" role="status" aria-live="polite"></p>
       </div>
 
-      <h3 class="subsection-title">Classic Engineering Projects &amp; Repositories</h3>
-      <div class="projects-grid">
-        <article class="project-card">
-          <h3>ThreatGuard</h3>
-          <p class="project-role">Intrusion Detection &amp; Authentication System</p>
-          <p class="project-desc">High-performance, lightweight IDS architecture with secure authentication and minimal system overhead.</p>
-          <div class="project-tech"><span>C++</span><span>Cryptography</span><span>OOP</span></div>
-          <p class="project-context">Collaborator: Momtasin Tamanna (2404012) · Abstract submitted to ICCDRM 2026, University of Dhaka</p>
-          <a href="https://github.com/iftiurhossenriyad/ThreatGuard-Intrusion-Detection-System" target="_blank" rel="noopener" class="project-link">View Repository →</a>
-        </article>
+      <div class="projects-grid" id="featuredProjectsGrid"></div>
 
-        <article class="project-card">
-          <h3>SecureAudit</h3>
-          <p class="project-role">GRC Toolkit for Kali Linux</p>
-          <p class="project-desc">Multi-tool compliance auditing for Linux environments integrated into a single automated dynamic risk matrix. Integrates Nmap, Lynis, Nikto, and tcpdump with SQLite logging and HTML dashboard export.</p>
-          <div class="project-tech"><span>Java</span><span>SQLite</span><span>Nmap</span><span>Lynis</span><span>Nikto</span></div>
-          <p class="project-context">Course SEC 115 · Team: Atiqur Rahman (2404029), Md. Eyasin (2404032)</p>
-          <a href="https://github.com/iftiurhossenriyad/SecureAudRT" target="_blank" rel="noopener" class="project-link">View Repository →</a>
-        </article>
-
-        <article class="project-card">
-          <h3>Buy &amp; Sell Platform</h3>
-          <p class="project-role">E-Commerce DSA Application</p>
-          <p class="project-desc">Full-featured console e-commerce system with Admin/User portals, custom search (Linear/Binary), sorting (Quick, Bubble, Selection, Insertion), and a Recycle Bin — built purely on custom Data Structures.</p>
-          <div class="project-tech"><span>C++</span><span>OOP</span><span>File I/O</span><span>DSA</span></div>
-          <p class="project-context">Collaborator: Milton Roy (2404001)</p>
-          <a href="https://github.com/iftiurhossenriyad/Buy-And-Sell-Platform" target="_blank" rel="noopener" class="project-link">View Repository →</a>
-        </article>
-
-        <article class="project-card">
-          <h3>EduQuiz</h3>
-          <p class="project-role">Full-Stack E-Learning Platform (In Progress)</p>
-          <p class="project-desc">Web and Android platform for real-time quiz creation, automated scoring, and student progress tracking in a unified portal.</p>
-          <div class="project-tech"><span>PHP</span><span>MySQL</span><span>Bootstrap</span><span>Java/Kotlin</span></div>
-          <p class="project-context">Course PROG 212 · Team: Md. Eyasin (2404032)</p>
-          <a href="https://github.com/iftiurhossenriyad/eduquiz" target="_blank" rel="noopener" class="project-link">View Repository →</a>
-        </article>
-      </div>
+      <h3 class="subsection-title" data-i18n="projects_classic_title">Classic Engineering Projects &amp; Repositories</h3>
+      <div class="projects-grid" id="classicProjectsGrid"></div>
     </div>
   </section>
 
@@ -408,37 +296,54 @@
   <section class="section section-alt" id="mygenie">
     <div class="container">
       <div class="section-header">
-        <span class="section-label">04 — Startup</span>
-        <h2 class="section-title">MyGenie</h2>
-        <p class="section-subtitle">Intelligent AI-Powered Personal &amp; Business Assistant</p>
+        <span class="section-label" data-i18n="mygenie_label">04 — Startup</span>
+        <h2 class="section-title" data-i18n="mygenie_title">MyGenie</h2>
+        <p class="section-subtitle" data-i18n="mygenie_subtitle">Intelligent AI-Powered Personal &amp; Business Assistant</p>
       </div>
 
       <div class="mygenie-hero">
-        <div class="mygenie-badge">Founder &amp; CEO / Product &amp; Security Lead</div>
-        <p class="mygenie-vision">
+        <div class="mygenie-badge" data-i18n="mygenie_badge">Founder &amp; CEO / Product &amp; Security Lead</div>
+        <p class="mygenie-vision" data-i18n="mygenie_vision" data-i18n-html>
           To empower South Asian small businesses and individuals with a <strong>secure, Bangla-first AI assistant</strong> that bridges automated customer engagement with privacy-conscious workforce management.
         </p>
       </div>
 
+      <figure class="mygenie-product-visual">
+        <img src="screenshots/mockups/mygenie.svg" alt="" loading="lazy" decoding="async">
+        <figcaption data-i18n="mygenie_mockup_caption">UI mockup based on the product proposal — illustrative, not a screenshot of a deployed product.</figcaption>
+      </figure>
+
       <div class="mygenie-grid">
         <div class="mygenie-card">
-          <h4>Co-Founders</h4>
+          <h4 data-i18n="mygenie_cofounders_title">Co-Founders</h4>
           <ul>
-            <li>Md Eyasin — CTO</li>
-            <li>Md Zahed Hossen — COO</li>
+            <li data-i18n="mygenie_cofounder_eyasin">Md Eyasin — CTO</li>
+            <li data-i18n="mygenie_cofounder_zahed">Md Zahed Hossen — COO</li>
           </ul>
         </div>
         <div class="mygenie-card">
-          <h4>Institution</h4>
-          <p>Department of Cyber Security Engineering, UFTB</p>
+          <h4 data-i18n="mygenie_institution_title">Institution</h4>
+          <p data-i18n="mygenie_institution_desc">Department of Cyber Security Engineering, UFTB</p>
         </div>
         <div class="mygenie-card">
-          <h4>Overview</h4>
-          <p>Bilingual AI assistant with workspace isolation, grounded business knowledge, multi-channel messaging (WhatsApp, Messenger, Email), and seamless human staff handoff.</p>
+          <h4 data-i18n="mygenie_overview_title">Overview</h4>
+          <p data-i18n="mygenie_overview_desc">Bilingual AI assistant with workspace isolation, grounded business knowledge, multi-channel messaging (WhatsApp, Messenger, Email), and seamless human staff handoff.</p>
         </div>
         <div class="mygenie-card">
-          <h4>Key Responsibilities</h4>
-          <p>Product vision, security architecture, RBAC, workspace isolation, prompt grounding, and MVP deployment.</p>
+          <h4 data-i18n="mygenie_responsibilities_title">Key Responsibilities</h4>
+          <p data-i18n="mygenie_responsibilities_desc">Product vision, security architecture, RBAC, workspace isolation, prompt grounding, and MVP deployment.</p>
+        </div>
+        <div class="mygenie-card">
+          <h4 data-i18n="mygenie_workflows_title">Proposed MVP Workflows</h4>
+          <p data-i18n="mygenie_workflows_desc">Bilingual AI chat, approved business knowledge, personal productivity, orders and bookings, human handoff, and an administrative dashboard.</p>
+        </div>
+        <div class="mygenie-card">
+          <h4 data-i18n="mygenie_safety_title">Trust &amp; Action Controls</h4>
+          <p data-i18n="mygenie_safety_desc">Separate workspaces and role permissions; confirm consequential actions and hand off uncertain or sensitive conversations to a person.</p>
+        </div>
+        <div class="mygenie-card">
+          <h4 data-i18n="mygenie_roadmap_title">MVP Roadmap</h4>
+          <p data-i18n="mygenie_roadmap_desc">The proposal targets a 12-week MVP. Voice features and broader messaging coverage are planned after core workflows are validated in pilots.</p>
         </div>
       </div>
     </div>
@@ -448,25 +353,12 @@
   <section class="section" id="research">
     <div class="container">
       <div class="section-header">
-        <span class="section-label">05 — Research</span>
-        <h2 class="section-title">Research &amp; Academic Publications</h2>
+        <span class="section-label" data-i18n="research_label">05 — Research</span>
+        <h2 class="section-title" data-i18n="research_title">Research &amp; Academic Publications</h2>
+        <p class="section-subtitle" data-i18n="research_subtitle">Research exploring cybersecurity systems and the history of the Indian Subcontinent.</p>
       </div>
 
-      <div class="research-grid">
-        <div class="research-card">
-          <div class="research-status">Under Peer Review</div>
-          <h3>ThreatGuard — Intrusion Detection &amp; Authentication System Architecture</h3>
-          <p class="research-venue">ICCDRM 2026 · University of Dhaka</p>
-          <p class="research-domain">Domain: Cryptography · Network Security · Intrusion Detection Systems</p>
-          <p class="research-note">Abstract submitted and under peer review for presentation/publication.</p>
-        </div>
-
-        <div class="research-card">
-          <div class="research-status independent">Independent</div>
-          <h3>Historical Research — Indian Subcontinent</h3>
-          <p class="research-domain">Focus: Socio-political narratives, historical analysis, and archival history of the Indian Subcontinent.</p>
-        </div>
-      </div>
+      <div class="research-grid" id="researchGrid"></div>
     </div>
   </section>
 
@@ -474,112 +366,18 @@
   <section class="section section-alt" id="certifications">
     <div class="container">
       <div class="section-header">
-        <span class="section-label">06 — Certifications</span>
-        <h2 class="section-title">Professional Training</h2>
-        <p class="section-subtitle">Issued by Red Team Leaders · TCM Security · 10 Minute School</p>
+        <span class="section-label" data-i18n="certifications_label">06 — Certifications</span>
+        <h2 class="section-title" data-i18n="certifications_title">Professional Training</h2>
+        <p class="section-subtitle" data-i18n="certifications_subtitle">Issued by Red Team Leaders · TCM Security · 10 Minute School</p>
       </div>
 
-      <div class="cert-grid">
-        <a href="https://courses.redteamleaders.com/completion/e9da2843526e87ab" target="_blank" rel="noopener" class="cert-card">
-          <div class="cert-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-          </div>
-          <h4>AV/EDR Evasion Practical Techniques</h4>
-          <p class="cert-issuer">Red Team Leaders</p>
-          <p class="cert-date">Completed: August 9, 2026</p>
-          <span class="cert-verify">Verify Certificate →</span>
-        </a>
-
-        <a href="https://courses.redteamleaders.com/completion/c579ca5f7792ac43" target="_blank" rel="noopener" class="cert-card">
-          <div class="cert-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
-          </div>
-          <h4>Offensive Agent AI Course</h4>
-          <p class="cert-issuer">Red Team Leaders</p>
-          <p class="cert-date">Completed: August 9, 2026</p>
-          <span class="cert-verify">Verify Certificate →</span>
-        </a>
-
-        <a href="https://courses.redteamleaders.com/completion/c2bc61353a3369d4" target="_blank" rel="noopener" class="cert-card">
-          <div class="cert-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>
-          </div>
-          <h4>Introduction to Bug Bounty</h4>
-          <p class="cert-issuer">Red Team Leaders</p>
-          <p class="cert-date">Completed: August 12, 2026</p>
-          <span class="cert-verify">Verify Certificate →</span>
-        </a>
-
-        <a href="https://courses.redteamleaders.com/completion/4d408535454ca821" target="_blank" rel="noopener" class="cert-card">
-          <div class="cert-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
-          </div>
-          <h4>Foundations of Log Analysis for Cyber Defense</h4>
-          <p class="cert-issuer">Red Team Leaders</p>
-          <p class="cert-date">Completed: August 13, 2026</p>
-          <span class="cert-verify">Verify Certificate →</span>
-        </a>
-
-        <a href="https://courses.redteamleaders.com/completion/27092dfb268dea0b" target="_blank" rel="noopener" class="cert-card">
-          <div class="cert-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
-          </div>
-          <h4>Malware Analysis Introduction v1</h4>
-          <p class="cert-issuer">Red Team Leaders</p>
-          <p class="cert-date">Completed: August 13, 2026</p>
-          <span class="cert-verify">Verify Certificate →</span>
-        </a>
-
-        <a href="https://courses.redteamleaders.com/completion/3c7ddf7870fc85aa" target="_blank" rel="noopener" class="cert-card">
-          <div class="cert-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>
-          </div>
-          <h4>Introduction to Offensive Security with AI</h4>
-          <p class="cert-issuer">Red Team Leaders</p>
-          <p class="cert-date">Completed: August 17, 2026</p>
-          <span class="cert-verify">Verify Certificate →</span>
-        </a>
-
-        <a href="https://tcm-security-academy.teachable.com/courses/enrolled/2847663" target="_blank" rel="noopener" class="cert-card">
-          <div class="cert-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
-          </div>
-          <h4>AI 100: Fundamentals</h4>
-          <p class="cert-issuer">TCM Security</p>
-          <p class="cert-date">Completed: August 7, 2026 · ID: cert_112jcpvd</p>
-          <span class="cert-verify">Verify Certificate →</span>
-        </a>
-
-        <a href="https://tcm-security-academy.teachable.com/courses/2635065/certificate" target="_blank" rel="noopener" class="cert-card">
-          <div class="cert-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
-          </div>
-          <h4>Programming 100: Fundamentals</h4>
-          <p class="cert-issuer">TCM Security</p>
-          <p class="cert-date">Completed: August 6, 2026 · ID: cert_4m81tsh0</p>
-          <span class="cert-verify">Verify Certificate →</span>
-        </a>
-
-        <a href="https://tcm-security-academy.teachable.com/courses/2631779/certificate" target="_blank" rel="noopener" class="cert-card">
-          <div class="cert-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="4 17 10 11 4 5"/><line x1="12" y1="19" x2="20" y2="19"/></svg>
-          </div>
-          <h4>Linux 100: Fundamentals</h4>
-          <p class="cert-issuer">TCM Security</p>
-          <p class="cert-date">Completed: January 15, 2026 · ID: cert_szxp4m9</p>
-          <span class="cert-verify">Verify Certificate →</span>
-        </a>
-
-        <a href="https://10minuteschool.com/certificate/69958df0cc57d" target="_blank" rel="noopener" class="cert-card">
-          <div class="cert-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
-          </div>
-          <h4>C Programming Fundamentals</h4>
-          <p class="cert-issuer">10 Minute School</p>
-          <p class="cert-date">Completed: February 18, 2026</p>
-          <span class="cert-verify">Verify Certificate →</span>
-        </a>
+      <div class="cert-search">
+        <label for="certSearch" data-i18n="cert_search_label">Find a certificate</label>
+        <input id="certSearch" type="search" autocomplete="off" placeholder="Search by course or issuer" data-i18n-placeholder="cert_search_placeholder" />
+        <p id="certSearchStatus" role="status" aria-live="polite"></p>
       </div>
+
+      <div class="cert-grid" id="certGrid"></div>
     </div>
   </section>
 
@@ -587,47 +385,41 @@
   <section class="section" id="achievements">
     <div class="container">
       <div class="section-header">
-        <span class="section-label">07 — Achievements</span>
-        <h2 class="section-title">Competitions, Fellowships &amp; Leadership</h2>
+        <span class="section-label" data-i18n="achievements_label">07 — Achievements</span>
+        <h2 class="section-title" data-i18n="achievements_title">Competitions, Fellowships &amp; Leadership</h2>
       </div>
 
-      <div class="achievements-grid">
-        <div class="achievement-card">
-          <span class="achievement-badge">Fellowship 2026</span>
-          <h3>DKC Digital Respect &amp; Cohesion Fellowship</h3>
-          <p class="achievement-org">UNDP &amp; SURGE Bangladesh</p>
-          <p>Team Coordinator for Team Prohori presenting <strong>IR Prohori</strong>. 8-month fellowship program with BDT 50,000 seed grant.</p>
-        </div>
+      <div class="achievements-grid" id="achievementsGrid"></div>
 
-        <div class="achievement-card">
-          <span class="achievement-badge">Science Fair 2026</span>
-          <h3>Ziaur Rahman Foundation Science Fair</h3>
-          <p class="achievement-org">"In Search of Future Scientists 2026"</p>
-          <p>Team Leader presenting <strong>NOJORGHOR</strong> Threat Detection and Response Platform.</p>
-        </div>
+      <h3 class="subsection-title" data-i18n="leadership_title">Leadership &amp; Extra-Curricular</h3>
+      <div class="leadership-grid" id="leadershipGrid"></div>
+    </div>
+  </section>
 
-        <div class="achievement-card">
-          <span class="achievement-badge">Academic</span>
-          <h3>University Academic Competitions</h3>
-          <p class="achievement-org">UFTB</p>
-          <p>Active participant in C++ DSA coding showcases, security audit hackathons, and software engineering exhibitions.</p>
-        </div>
+  <!-- ============ CAREER ROADMAP ============ -->
+  <section class="section section-alt" id="roadmap">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-label" data-i18n="roadmap_label">Career Roadmap</span>
+        <h2 class="section-title" data-i18n="roadmap_title">A Five-Year Career Roadmap</h2>
+        <p class="section-subtitle" data-i18n="roadmap_subtitle">Sample goals for the years ahead — a working plan, not a fixed commitment.</p>
       </div>
+      <div class="roadmap-timeline" id="roadmapTimeline"></div>
+    </div>
+  </section>
 
-      <h3 class="subsection-title">Leadership &amp; Extra-Curricular</h3>
-      <div class="leadership-grid">
-        <div class="leadership-card">
-          <h4>Founder &amp; CEO @ MyGenie</h4>
-          <p>Leading product architecture, business model execution, and technical vision.</p>
-        </div>
-        <div class="leadership-card">
-          <h4>Team Leader / Project Coordinator</h4>
-          <p>Guiding multi-member engineering teams — Team Prohori, Team Nojiorghor, Team Suraksha.</p>
-        </div>
-        <div class="leadership-card">
-          <h4>Peer Mentorship</h4>
-          <p>Assisting junior students at UFTB in Cyber Security fundamentals, Linux, C++ OOP, and DSA.</p>
-        </div>
+  <!-- ============ TESTIMONIALS ============ -->
+  <section class="section" id="testimonials" hidden>
+    <div class="container">
+      <div class="section-header">
+        <span class="section-label" data-i18n="testimonials_label">07 — Testimonials</span>
+        <h2 class="section-title" data-i18n="testimonials_title">What People Say</h2>
+        <p class="section-subtitle" data-i18n="testimonials_subtitle">Recommendations from professors, co-founders, and collaborators</p>
+      </div>
+      <div class="testimonials-grid" id="testimonialsGrid"></div>
+      <div class="testimonials-cta">
+        <p data-i18n="testimonials_cta_text">Worked with me? I'd love to hear your thoughts.</p>
+        <a href="#contact" class="btn btn-outline" data-i18n="testimonials_cta_button">Send a Recommendation →</a>
       </div>
     </div>
   </section>
@@ -636,9 +428,9 @@
   <section class="section section-alt" id="terminal">
     <div class="container">
       <div class="section-header">
-        <span class="section-label">08 — Terminal</span>
-        <h2 class="section-title">Interactive CLI Mode</h2>
-        <p class="section-subtitle">Query portfolio information using shell commands. Type <code>help</code> to begin.</p>
+        <span class="section-label" data-i18n="terminal_label">08 — Terminal</span>
+        <h2 class="section-title" data-i18n="terminal_title">Interactive CLI Mode</h2>
+        <p class="section-subtitle" data-i18n="terminal_subtitle" data-i18n-html>Query portfolio information using shell commands. Type <code>help</code> to begin.</p>
       </div>
 
       <div class="interactive-terminal">
@@ -651,12 +443,13 @@
         <div class="terminal-window" id="terminalWindow">
           <div class="terminal-line">
             <span class="prompt">riyad@security-lab:~$</span>
-            <span class="output">Welcome. Type <strong>help</strong> to see available commands.</span>
+            <span class="output" data-i18n="terminal_welcome" data-i18n-html>Welcome. Type <strong>help</strong> to see available commands.</span>
           </div>
         </div>
         <div class="terminal-input-line">
           <span class="prompt">riyad@security-lab:~$</span>
-          <input type="text" id="terminalInput" autocomplete="off" spellcheck="false" placeholder="type a command..." />
+          <input type="text" id="terminalInput" autocomplete="off" spellcheck="false" aria-label="Enter a portfolio command" data-i18n-aria-label="terminal_input_label" placeholder="type a command..." data-i18n-placeholder="terminal_placeholder" />
+          <button type="button" class="terminal-submit" id="terminalSubmit" data-i18n="terminal_enter_button">Enter</button>
         </div>
       </div>
     </div>
@@ -666,25 +459,25 @@
   <section class="section" id="creative">
     <div class="container">
       <div class="section-header">
-        <span class="section-label">09 — Creative</span>
-        <h2 class="section-title">Creative Writing &amp; Literature Corner</h2>
+        <span class="section-label" data-i18n="creative_label">09 — Creative</span>
+        <h2 class="section-title" data-i18n="creative_title">Creative Writing &amp; Literature Corner</h2>
       </div>
 
       <div class="creative-grid">
         <div class="creative-card">
           <div class="creative-icon">✒️</div>
-          <h3>Bengali Poetry Writing</h3>
-          <p>Active author and Bengali poet publishing contemporary poetry exploring modern philosophy, narrative reflections, and human emotion.</p>
+          <h3 data-i18n="creative_poetry_title">Bengali Poetry Writing</h3>
+          <p data-i18n="creative_poetry_desc">Active author and Bengali poet publishing contemporary poetry exploring modern philosophy, narrative reflections, and human emotion.</p>
         </div>
         <div class="creative-card">
           <div class="creative-icon">🌏</div>
-          <h3>Travel &amp; Narrative Writing</h3>
-          <p>Documenting cultural observations and travel narratives across Bangladesh.</p>
+          <h3 data-i18n="creative_travel_title">Travel &amp; Narrative Writing</h3>
+          <p data-i18n="creative_travel_desc">Documenting cultural observations and travel narratives across Bangladesh.</p>
         </div>
         <div class="creative-card">
           <div class="creative-icon">📜</div>
-          <h3>Independent Historical Research</h3>
-          <p>Researching socio-political narratives, archival history, and historical developments of the Indian Subcontinent.</p>
+          <h3 data-i18n="creative_history_title">Independent Historical Research</h3>
+          <p data-i18n="creative_history_desc">Researching socio-political narratives, archival history, and historical developments of the Indian Subcontinent.</p>
         </div>
       </div>
     </div>
@@ -694,39 +487,36 @@
   <section class="section section-alt" id="education">
     <div class="container">
       <div class="section-header">
-        <span class="section-label">10 — Education</span>
-        <h2 class="section-title">Academic Education</h2>
+        <span class="section-label" data-i18n="education_label">10 — Education</span>
+        <h2 class="section-title" data-i18n="education_title">Academic Education</h2>
       </div>
 
-      <div class="timeline">
-        <div class="timeline-item">
-          <div class="timeline-dot"></div>
-          <div class="timeline-content">
-            <span class="timeline-date">Expected Graduation: June 2029</span>
-            <h3>B.Sc. in Cyber Security Engineering</h3>
-            <p class="timeline-org">University of Frontier Technology, Bangladesh (UFTB)</p>
-            <p>Level 2, Term 1 · Student ID: 2404011</p>
-          </div>
-        </div>
+      <div class="timeline" id="educationTimeline"></div>
+    </div>
+  </section>
 
-        <div class="timeline-item">
-          <div class="timeline-dot"></div>
-          <div class="timeline-content">
-            <span class="timeline-date">Higher Secondary Certificate</span>
-            <h3>HSC — GPA 4.58 / 5.00</h3>
-            <p class="timeline-org">Mymensingh Board</p>
-          </div>
-        </div>
-
-        <div class="timeline-item">
-          <div class="timeline-dot"></div>
-          <div class="timeline-content">
-            <span class="timeline-date">Secondary School Certificate</span>
-            <h3>SSC — GPA 5.00 / 5.00</h3>
-            <p class="timeline-org">Mymensingh Board</p>
-          </div>
-        </div>
+  <!-- ============ SERVICES ============ -->
+  <section class="section" id="services">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-label" data-i18n="services_label">Services</span>
+        <h2 class="section-title" data-i18n="services_title">Security &amp; Engineering Services</h2>
+        <p class="section-subtitle" data-i18n="services_subtitle">Sample service offerings — scope and availability can be discussed.</p>
       </div>
+      <p class="service-scope-note" data-i18n="services_authorization_note">Security testing is considered only with written authorization and a clearly agreed scope. No testing of third-party systems.</p>
+      <div class="services-grid" id="servicesGrid"></div>
+    </div>
+  </section>
+
+  <!-- ============ FREE RESOURCES ============ -->
+  <section class="section section-alt" id="resources">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-label" data-i18n="resources_label">Resources</span>
+        <h2 class="section-title" data-i18n="resources_title">Free Resources</h2>
+        <p class="section-subtitle" data-i18n="resources_subtitle">Downloadable guides and templates for cybersecurity beginners.</p>
+      </div>
+      <div class="resources-grid" id="resourcesGrid"></div>
     </div>
   </section>
 
@@ -734,64 +524,68 @@
   <section class="section" id="contact">
     <div class="container">
       <div class="section-header">
-        <span class="section-label">11 — Contact</span>
-        <h2 class="section-title">Get In Touch</h2>
-        <p class="section-subtitle">Open to cybersecurity internships, security research, software development opportunities, technical collaborations, and startup partnerships.</p>
+        <span class="section-label" data-i18n="contact_label">11 — Contact</span>
+        <h2 class="section-title" data-i18n="contact_title">Get In Touch</h2>
+        <p class="section-subtitle" data-i18n="contact_subtitle">Open to cybersecurity internships, security research, software development opportunities, technical collaborations, and startup partnerships.</p>
+        <p class="contact-book-note"><span data-i18n="contact_prefer_call">Prefer a call?</span> <a href="https://calendly.com/mdiftiurhossenriyad" target="_blank" rel="noopener noreferrer" data-i18n="book_call_direct_link">Schedule a 15-minute call →</a></p>
       </div>
 
       <div class="contact-grid">
-        <div class="contact-info">
-          <a href="mailto:mdiftiurhossenriyad@gmail.com" class="contact-item">
-            <div class="contact-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-            </div>
-            <div>
-              <h4>Email</h4>
-              <p>mdiftiurhossenriyad@gmail.com</p>
-            </div>
-          </a>
-
-          <a href="tel:+8801781981789" class="contact-item">
-            <div class="contact-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-            </div>
-            <div>
-              <h4>Phone</h4>
-              <p>+880 178 198 1789</p>
-            </div>
-          </a>
-
-          <div class="contact-item">
-            <div class="contact-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-            </div>
-            <div>
-              <h4>Location</h4>
-              <p>Gazipur, Dhaka, Bangladesh</p>
-            </div>
-          </div>
-        </div>
+        <div class="contact-info" id="contactInfo"></div>
 
         <form class="contact-form" action="https://formspree.io/f/mgaookro" method="POST">
           <div class="form-group">
-            <label for="name">Full Name</label>
+            <label for="name" data-i18n="contact_name">Full Name</label>
             <input type="text" id="name" name="name" required />
           </div>
           <div class="form-group">
-            <label for="email">Email Address</label>
+            <label for="email" data-i18n="contact_email">Email Address</label>
             <input type="email" id="email" name="email" required />
           </div>
           <div class="form-group">
-            <label for="subject">Subject</label>
+            <label for="subject" data-i18n="contact_subject">Subject</label>
             <input type="text" id="subject" name="subject" required />
           </div>
           <div class="form-group">
-            <label for="message">Message</label>
+            <label for="message" data-i18n="contact_message">Message</label>
             <textarea id="message" name="message" rows="5" required></textarea>
           </div>
-          <button type="submit" class="btn btn-primary">Send Message →</button>
+          <input type="text" name="_gotcha" style="display:none !important" tabindex="-1" autocomplete="off" aria-hidden="true" />
+          <input type="hidden" name="_subject" id="contactSubject" value="Portfolio Contact — New Message" />
+          <input type="hidden" name="_replyto" id="contactReplyTo" value="email" />
+          <input type="hidden" name="_cc" value="mdiftiur@gmail.com" />
+          <p class="contact-privacy-note" data-i18n="contact_privacy_note">Please do not include passwords, private keys, personal documents, or sensitive incident data in this form.</p>
+          <button type="submit" class="btn btn-primary" data-i18n="contact_send">Send Message →</button>
+          <p class="contact-fallback" id="contactFallback"></p>
         </form>
       </div>
+    </div>
+  </section>
+
+  <!-- ============ BOOK A CALL ============ -->
+  <section class="section section-alt" id="book-call">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-label" data-i18n="book_call_label">Book a Call</span>
+        <h2 class="section-title" data-i18n="book_call_title">Let's Talk</h2>
+        <p class="section-subtitle" data-i18n="book_call_subtitle">Schedule a 15-minute call to discuss opportunities.</p>
+      </div>
+      <div class="booking-container">
+        <!-- Update this base URL and the direct links below if your Calendly scheduling URL changes. -->
+        <p class="booking-loading" id="bookingLoading" role="status" aria-live="polite" data-i18n="book_call_loading" hidden>Loading calendar...</p>
+        <div data-calendly-widget data-url="https://calendly.com/mdiftiurhossenriyad" style="min-width:320px;height:700px;display:none;"></div>
+        <div class="booking-placeholder" id="bookingPlaceholder">
+          <div class="booking-icon" aria-hidden="true">📅</div>
+          <h3 data-i18n="book_call_label">Book a Call</h3>
+          <p data-i18n="book_call_fallback_text">Schedule a 15-minute call with me using the form below. Or use the contact form for other inquiries.</p>
+          <a class="btn btn-primary booking-direct-link" href="https://calendly.com/mdiftiurhossenriyad" target="_blank" rel="noopener noreferrer" data-i18n="book_call_direct_link">Schedule a 15-minute call →</a>
+          <a href="#contact" class="btn btn-primary" data-i18n="book_call_fallback">Send a Message</a>
+        </div>
+      </div>
+      <p class="booking-direct-note"><span data-i18n="book_call_widget_note">If the calendar does not load, book directly on Calendly:</span> <a href="https://calendly.com/mdiftiurhossenriyad" target="_blank" rel="noopener noreferrer" data-i18n="book_call_direct_link">Schedule a 15-minute call →</a></p>
+      <noscript>
+        <p class="booking-noscript"><span data-i18n="book_call_noscript">Please enable JavaScript to use the booking widget, or email me directly to schedule a call.</span> <a href="mailto:mdiftiurhossenriyad@gmail.com">mdiftiurhossenriyad@gmail.com</a></p>
+      </noscript>
     </div>
   </section>
 
@@ -805,32 +599,90 @@
             <span class="logo-text">RIYAD</span>
             <span class="logo-bracket">/&gt;</span>
           </a>
-          <p>Engineering Secure Digital Ecosystems, AI Assistants, Incident Response &amp; OffSec Systems.</p>
+          <p data-i18n="footer_tagline">Engineering Secure Digital Ecosystems, AI Assistants, Incident Response &amp; OffSec Systems.</p>
+          <form class="newsletter-form newsletter-section" action="https://formspree.io/f/xnpjppdd" method="POST">
+            <label for="newsletterEmail" data-i18n="newsletter_title">Subscribe to my newsletter</label>
+            <div class="newsletter-controls">
+              <input type="email" id="newsletterEmail" name="email" autocomplete="email" placeholder="Your email address" data-i18n-placeholder="newsletter_placeholder" required />
+              <button class="btn btn-primary" type="submit" data-i18n="newsletter_submit">Subscribe</button>
+            </div>
+            <input type="text" name="_gotcha" style="display:none !important" tabindex="-1" autocomplete="off" />
+            <input type="hidden" name="_subject" value="🎉 New Newsletter Subscriber — Portfolio" />
+            <input type="hidden" name="_replyto" value="email" />
+            <p class="newsletter-note" data-i18n="newsletter_setup_note">Get occasional updates in your inbox.</p>
+            <div class="newsletter-message form-message" role="status" aria-live="polite" style="display:none;"></div>
+          </form>
         </div>
 
         <div class="footer-links">
-          <h4>Quick Links</h4>
-          <a href="#about">About</a>
-          <a href="#projects">Projects</a>
-          <a href="#research">Research</a>
-          <a href="#contact">Contact</a>
+          <h4 data-i18n="footer_quick_links">Quick Links</h4>
+          <a href="#about" data-i18n="nav_about">About</a>
+          <a href="#projects" data-i18n="nav_projects">Projects</a>
+          <a href="#research" data-i18n="nav_research">Research</a>
+          <a href="blog.html" data-i18n="nav_blog">Blog</a>
+          <a href="cover-letter.html" data-i18n="cover_letter_nav">Cover Letter</a>
+          <a href="uses.html" data-i18n="uses_nav">Uses</a>
+          <a href="#book-call" data-i18n="book_call_button">Book a Call</a>
+          <a href="#contact" data-i18n="nav_contact">Contact</a>
         </div>
 
         <div class="footer-social">
-          <h4>Connect</h4>
-          <a href="https://github.com/iftiurhossenriyad" target="_blank" rel="noopener">GitHub</a>
-          <a href="https://tryhackme.com/p/mdiftiruhossenriyad" target="_blank" rel="noopener">TryHackMe</a>
-          <a href="https://profile.hackthebox.com/profile/019f80ab-844a-7102-8df5-1b20f6f5dc45" target="_blank" rel="noopener">Hack The Box</a>
-          <a href="https://www.facebook.com/rsiftiruhossen.riyad" target="_blank" rel="noopener">Facebook</a>
+          <h4 data-i18n="footer_connect">Connect</h4>
+          <div id="footerSocialLinks"></div>
         </div>
       </div>
 
+      <div class="footer-stats" aria-label="Visitor statistics">
+        <div class="stat-item">
+          <span class="stat-value" id="visitorCount" aria-live="polite">—</span>
+          <span class="stat-label" id="visitorCountLabel" data-i18n="stats_visits_total">Total Visits</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-value" id="onlineCount" aria-live="polite">—</span>
+          <span class="stat-label" data-i18n="stats_online">Online here</span>
+        </div>
+        <p class="stats-note" data-i18n="stats_local_note">Online estimate counts active tabs in this browser only.</p>
+        <p class="stats-updated"><span data-i18n="stats_updated">Updated</span> <time id="statsUpdated">—</time></p>
+      </div>
+
       <div class="footer-bottom">
-        <p>© 2026 MD IFTIUR HOSSEN RIYAD. All Rights Reserved.</p>
+        <p data-i18n="footer_copyright">© 2026 Md Iftiur Hossen Riyad. All Rights Reserved.</p>
       </div>
     </div>
   </footer>
 
-  <script src="script.js"></script>
+  <!-- Cookie Consent Banner -->
+  <div class="cookie-banner" id="cookieBanner" role="dialog" aria-label="Cookie consent" data-i18n-aria-label="cookie_dialog_label" aria-describedby="cookieText" style="display:none;">
+    <div class="cookie-content">
+      <div class="cookie-icon" aria-hidden="true">🍪</div>
+      <div class="cookie-text-wrap">
+        <p class="cookie-text" id="cookieText" data-i18n="cookie_text">
+          We use cookies to analyze site traffic and improve your experience. By clicking "Accept", you consent to our use of cookies.
+        </p>
+      </div>
+      <div class="cookie-buttons">
+        <button class="btn btn-primary cookie-btn cookie-accept" type="button" id="cookieAccept" data-i18n="cookie_accept">
+          Accept
+        </button>
+        <button class="btn btn-outline cookie-btn cookie-decline" type="button" id="cookieDecline" data-i18n="cookie_decline">
+          Decline
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Certificate Lightbox -->
+  <div class="cert-lightbox" id="certLightbox" style="display:none;" role="dialog" aria-modal="true" aria-label="Certificate viewer">
+    <button class="cert-lightbox-close" id="certLightboxClose" type="button" aria-label="Close">✕</button>
+    <iframe src="about:blank" title="Certificate" class="cert-lightbox-image" id="certLightboxImage"></iframe>
+  </div>
+
+  <aside class="pwa-install-banner" id="pwaInstallBanner" aria-live="polite" hidden>
+    <span data-i18n="pwa_install_text">Install this portfolio on your device for quick access.</span>
+    <button class="btn btn-primary" type="button" id="pwaInstallButton" data-i18n="pwa_install_button">📱 Install as App</button>
+    <button class="pwa-install-dismiss" type="button" id="pwaInstallDismiss" aria-label="Dismiss install prompt" data-i18n-aria-label="pwa_dismiss">×</button>
+  </aside>
+
+  <script id="calendlyWidgetScript" type="text/plain" data-src="https://assets.calendly.com/assets/external/widget.js"></script>
 </body>
 </html>

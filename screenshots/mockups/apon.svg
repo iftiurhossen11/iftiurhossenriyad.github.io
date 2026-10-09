@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 810" fill="none">
+  <defs>
+    <linearGradient id="page" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#F5F8FC"/><stop offset="1" stop-color="#EAF0F7"/></linearGradient>
+    <linearGradient id="brand" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#13B8A6"/><stop offset="1" stop-color="#1379C8"/></linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="150%"><feDropShadow dx="0" dy="5" stdDeviation="12" flood-color="#17334D" flood-opacity=".1"/></filter>
+  </defs>
+  <rect width="1440" height="810" rx="28" fill="#DCE5EF"/>
+  <rect x="17" y="17" width="1406" height="776" rx="22" fill="url(#page)"/>
+  <rect x="17" y="17" width="1406" height="43" rx="22" fill="#E6ECF3"/>
+  <circle cx="44" cy="38" r="6" fill="#F17B75"/><circle cx="64" cy="38" r="6" fill="#E9B75E"/><circle cx="84" cy="38" r="6" fill="#58B88C"/>
+  <rect x="531" y="27" width="380" height="21" rx="10" fill="#F5F7FA"/><text x="552" y="42" fill="#758499" font-family="Arial,sans-serif" font-size="12">apon.example / dashboard</text>
+  <rect x="1164" y="26" width="236" height="24" rx="12" fill="#142539"/><text x="1184" y="43" fill="#BCECF0" font-family="Arial,sans-serif" font-size="12" font-weight="700" letter-spacing="1.3">PROPOSED UI MOCKUP</text>
+  <rect x="17" y="60" width="237" height="733" fill="#fff"/>
+  <circle cx="55" cy="101" r="18" fill="url(#brand)"/><path d="M47 101h16M55 93v16" stroke="#fff" stroke-width="2.5" stroke-linecap="round"/>
+  <text x="84" y="108" fill="#13283C" font-family="Arial,sans-serif" font-size="22" font-weight="700">APON</text>
+  <rect x="34" y="141" width="203" height="35" rx="10" fill="#E8F7F5"/><rect x="48" y="153" width="12" height="12" rx="3" fill="#18A999"/><text x="72" y="164" fill="#137C74" font-family="Arial,sans-serif" font-size="13" font-weight="700">Overview</text>
+  <g fill="#718096" font-family="Arial,sans-serif" font-size="13"><text x="72" y="211">Marketplace</text><text x="72" y="255">Local services</text><text x="72" y="299">Student hub</text><text x="72" y="343">Communities</text><text x="72" y="387">Agriculture</text></g>
+  <g fill="#9AA8B8"><rect x="48" y="199" width="13" height="13" rx="3"/><rect x="48" y="243" width="13" height="13" rx="3"/><rect x="48" y="287" width="13" height="13" rx="3"/><rect x="48" y="331" width="13" height="13" rx="3"/><rect x="48" y="375" width="13" height="13" rx="3"/></g>
+  <path d="M34 423h203" stroke="#EDF0F4"/>
+  <text x="48" y="456" fill="#A0AABB" font-family="Arial,sans-serif" font-size="10" font-weight="700" letter-spacing="1.5">TRUST &amp; IDENTITY</text>
+  <circle cx="54" cy="487" r="10" fill="#E7F6EF"/><path d="m49 487 4 4 7-8" stroke="#21A676" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="72" y="491" fill="#627287" font-family="Arial,sans-serif" font-size="12">Verified profile</text>
+  <rect x="34" y="680" width="203" height="86" rx="14" fill="#F3F7FA"/><circle cx="57" cy="708" r="13" fill="#DCEBEA"/><path d="M51 709h12" stroke="#289B91" stroke-width="2"/><text x="80" y="706" fill="#26394D" font-family="Arial,sans-serif" font-size="12" font-weight="700">Master APON AI</text><text x="48" y="736" fill="#8190A1" font-family="Arial,sans-serif" font-size="11">Find trusted services and more</text>
+  <rect x="254" y="60" width="1169" height="65" fill="#fff"/>
+  <text x="286" y="100" fill="#25384D" font-family="Arial,sans-serif" font-size="20" font-weight="700">Your trusted digital ecosystem</text>
+  <rect x="1034" y="78" width="210" height="34" rx="10" fill="#F4F7FA" stroke="#E7EBF0"/><circle cx="1052" cy="95" r="6" fill="#98A5B4"/><text x="1068" y="100" fill="#8C99A9" font-family="Arial,sans-serif" font-size="11">Search products and services</text>
+  <circle cx="1280" cy="95" r="17" fill="#E6F2EF"/><text x="1306" y="91" fill="#374B60" font-family="Arial,sans-serif" font-size="12" font-weight="700">Riyad</text><text x="1306" y="106" fill="#8B99A8" font-family="Arial,sans-serif" font-size="10">Verified member</text>
+  <text x="286" y="160" fill="#273A4F" font-family="Arial,sans-serif" font-size="20" font-weight="700">Good morning, Riyad</text><text x="286" y="182" fill="#8491A0" font-family="Arial,sans-serif" font-size="12">One account for the services and people you trust.</text>
+  <g filter="url(#shadow)">
+    <rect x="286" y="202" width="255" height="96" rx="15" fill="#fff"/><rect x="558" y="202" width="255" height="96" rx="15" fill="#fff"/><rect x="830" y="202" width="255" height="96" rx="15" fill="#fff"/><rect x="1102" y="202" width="285" height="96" rx="15" fill="#fff"/>
+  </g>
+  <text x="307" y="229" fill="#7C8998" font-family="Arial,sans-serif" font-size="11">IDENTITY</text><text x="307" y="264" fill="#25384D" font-family="Arial,sans-serif" font-size="23" font-weight="700">Verified</text><circle cx="511" cy="254" r="15" fill="#E8F7F0"/><path d="m505 254 4 4 8-9" stroke="#1C9C71" stroke-width="2.5" stroke-linecap="round"/>
+  <text x="579" y="229" fill="#7C8998" font-family="Arial,sans-serif" font-size="11">TRUSTED LISTINGS</text><text x="579" y="264" fill="#25384D" font-family="Arial,sans-serif" font-size="23" font-weight="700">Browse products</text><text x="579" y="283" fill="#1AA493" font-family="Arial,sans-serif" font-size="11">AponBazar →</text>
+  <text x="851" y="229" fill="#7C8998" font-family="Arial,sans-serif" font-size="11">LOCAL EXPERTS</text><text x="851" y="264" fill="#25384D" font-family="Arial,sans-serif" font-size="23" font-weight="700">Find a service</text><text x="851" y="283" fill="#1AA493" font-family="Arial,sans-serif" font-size="11">AponServices →</text>
+  <text x="1123" y="229" fill="#7C8998" font-family="Arial,sans-serif" font-size="11">CONNECTED COMMUNITY</text><text x="1123" y="264" fill="#25384D" font-family="Arial,sans-serif" font-size="23" font-weight="700">Discover more</text><text x="1123" y="283" fill="#1AA493" font-family="Arial,sans-serif" font-size="11">Students · Community · Agro</text>
+  <text x="286" y="339" fill="#26394D" font-family="Arial,sans-serif" font-size="16" font-weight="700">Explore AponBazar</text><text x="1290" y="339" fill="#168F84" font-family="Arial,sans-serif" font-size="11">See marketplace →</text>
+  <g filter="url(#shadow)">
+    <rect x="286" y="356" width="346" height="232" rx="15" fill="#fff"/><rect x="650" y="356" width="346" height="232" rx="15" fill="#fff"/><rect x="1014" y="356" width="373" height="232" rx="15" fill="#fff"/>
+  </g>
+  <rect x="302" y="372" width="314" height="128" rx="10" fill="#E7F0EA"/><path d="M333 472h245l-20-49h-49l-27-32h-63l-34 32h-39l-13 49Z" fill="#E8C99C"/><circle cx="401" cy="438" r="30" fill="#F3DDAD"/><path d="M354 472h191" stroke="#966F53" stroke-width="7" stroke-linecap="round"/><circle cx="390" cy="478" r="12" fill="#526A5B"/><circle cx="550" cy="478" r="12" fill="#526A5B"/>
+  <text x="307" y="528" fill="#2E4155" font-family="Arial,sans-serif" font-size="14" font-weight="700">Handmade home goods</text><text x="307" y="550" fill="#8491A0" font-family="Arial,sans-serif" font-size="11">Verified local seller</text><text x="307" y="574" fill="#177F74" font-family="Arial,sans-serif" font-size="14" font-weight="700">From ৳ 850</text>
+  <rect x="666" y="372" width="314" height="128" rx="10" fill="#EDF0F7"/><rect x="778" y="392" width="87" height="83" rx="9" fill="#425776"/><rect x="790" y="402" width="63" height="53" rx="5" fill="#E9F4FB"/><circle cx="822" cy="429" r="16" fill="#7EBAD0"/><path d="M777 477h89" stroke="#293B55" stroke-width="7" stroke-linecap="round"/><path d="M795 481v8m51-8v8" stroke="#293B55" stroke-width="6" stroke-linecap="round"/>
+  <text x="671" y="528" fill="#2E4155" font-family="Arial,sans-serif" font-size="14" font-weight="700">Refurbished laptop</text><text x="671" y="550" fill="#8491A0" font-family="Arial,sans-serif" font-size="11">Seller identity verified</text><text x="671" y="574" fill="#177F74" font-family="Arial,sans-serif" font-size="14" font-weight="700">৳ 24,500</text>
+  <rect x="1030" y="372" width="341" height="128" rx="10" fill="#E9F3F1"/><circle cx="1200" cy="435" r="49" fill="#D7EACD"/><path d="M1167 461c17-38 43-57 76-55-4 32-23 55-60 64" fill="#5C9E72"/><path d="M1183 465c14-17 30-30 49-41" stroke="#EAF5E6" stroke-width="3"/>
+  <text x="1035" y="528" fill="#2E4155" font-family="Arial,sans-serif" font-size="14" font-weight="700">Fresh farm produce</text><text x="1035" y="550" fill="#8491A0" font-family="Arial,sans-serif" font-size="11">AponAgro · nearby sellers</text><text x="1035" y="574" fill="#177F74" font-family="Arial,sans-serif" font-size="14" font-weight="700">Explore listings →</text>
+  <rect x="286" y="612" width="1101" height="114" rx="15" fill="#E8F6F3" stroke="#CDEAE4"/><circle cx="326" cy="651" r="20" fill="url(#brand)"/><path d="M317 651h18m-9-9v18" stroke="#fff" stroke-width="2.5" stroke-linecap="round"/>
+  <text x="360" y="646" fill="#1D554E" font-family="Arial,sans-serif" font-size="14" font-weight="700">One trusted identity. Connected services.</text><text x="360" y="670" fill="#52736F" font-family="Arial,sans-serif" font-size="12">Move between local commerce, services, learning, communities, and agriculture with security at the core.</text>
+  <rect x="1075" y="639" width="279" height="46" rx="12" fill="#168F84"/><text x="1103" y="667" fill="#fff" font-family="Arial,sans-serif" font-size="13" font-weight="700">Explore the ecosystem</text>
+</svg>

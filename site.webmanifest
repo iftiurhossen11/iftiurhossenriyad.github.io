@@ -1,21 +1,16 @@
 {
-  "name": "MD Iftiur Hossen Riyad — Portfolio",
+  "name": "Md Iftiur Hossen Riyad — Portfolio",
   "short_name": "Riyad Portfolio",
   "description": "Cyber Security Engineer & Founder of MyGenie",
-  "icons": [
-    {
-      "src": "android-chrome-192x192.png",
-      "sizes": "192x192",
-      "type": "image/png"
-    },
-    {
-      "src": "android-chrome-512x512.png",
-      "sizes": "512x512",
-      "type": "image/png"
-    }
-  ],
-  "theme_color": "#0a0e17",
-  "background_color": "#0a0e17",
+  "start_url": "./",
   "display": "standalone",
-  "start_url": "./"
+  "background_color": "#0a0e17",
+  "theme_color": "#00d9ff",
+  "orientation": "portrait",
+  "scope": "./",
+  "icons": [
+    { "src": "android-chrome-192x192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "android-chrome-512x512.png", "sizes": "512x512", "type": "image/png" },
+    { "src": "apple-touch-icon.png", "sizes": "180x180", "type": "image/png" }
+  ]
 }

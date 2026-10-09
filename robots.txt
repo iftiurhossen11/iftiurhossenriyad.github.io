@@ -1,0 +1,9 @@
+User-agent: *
+Allow: /
+Disallow: /admin.html
+Disallow: /test-newsletter.html
+Disallow: /signature.html
+Disallow: /private-admin/
+Disallow: /dist-admin/
+
+Sitemap: https://iftiurhossenriyad.github.io/sitemap.xml

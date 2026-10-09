@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="noindex, follow" />
+  <meta name="theme-color" content="#0a0e17" />
+  <title>Page Not Found — Md Iftiur Hossen Riyad</title>
+  <style>
+    :root {
+      color-scheme: dark;
+      font-family: Inter, "Noto Sans Bengali", system-ui, sans-serif;
+      background: #0a0e17;
+      color: #e6edf3;
+      font-synthesis: none;
+      text-rendering: optimizeLegibility;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      min-height: 100vh;
+      margin: 0;
+      display: grid;
+      place-items: center;
+      padding: 24px;
+      background:
+        radial-gradient(ellipse at 50% 35%, rgba(0, 217, 255, .12), transparent 55%),
+        #0a0e17;
+    }
+
+    main {
+      width: min(100%, 620px);
+      padding: clamp(28px, 7vw, 56px);
+      text-align: center;
+      background: #111826;
+      border: 1px solid #1e2a3d;
+      border-radius: 20px;
+      box-shadow: 0 16px 48px rgba(0, 0, 0, .35);
+    }
+
+    .language-toggle {
+      min-height: 40px;
+      padding: 8px 14px;
+      color: #9ba8b8;
+      background: transparent;
+      border: 1px solid #2a3850;
+      border-radius: 999px;
+      font: inherit;
+      font-weight: 650;
+      cursor: pointer;
+    }
+
+    .code {
+      margin: 0;
+      color: #00d9ff;
+      font: 800 clamp(4.5rem, 18vw, 8rem)/1 "JetBrains Mono", ui-monospace, monospace;
+      letter-spacing: -.08em;
+    }
+
+    h1 { margin: 20px 0 8px; font-size: clamp(1.5rem, 5vw, 2rem); }
+    p { color: #9ba8b8; line-height: 1.75; }
+    .bn { margin-top: 22px; font-family: "Noto Sans Bengali", system-ui, sans-serif; }
+
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 12px;
+      margin-top: 28px;
+    }
+
+    a {
+      min-height: 46px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 10px 18px;
+      border: 1px solid #2a3850;
+      border-radius: 999px;
+      color: #e6edf3;
+      font-weight: 650;
+      text-decoration: none;
+    }
+
+    a.primary { color: #0a0e17; background: #00d9ff; border-color: #00d9ff; }
+    a:hover { filter: brightness(1.12); }
+    a:focus-visible, button:focus-visible { outline: 3px solid #7c3aed; outline-offset: 3px; }
+  </style>
+</head>
+<body>
+  <main>
+    <button class="language-toggle" id="languageToggle" type="button" aria-label="Switch language">বাংলা</button>
+    <p class="code" aria-hidden="true">404</p>
+    <div data-language="en">
+      <h1>Page not found</h1>
+      <p>The link may be outdated, or the page may have moved. Choose a destination below to continue.</p>
+      <nav class="actions" aria-label="Helpful links">
+        <a class="primary" href="./">Return to portfolio</a>
+        <a href="./blog.html">Browse articles &amp; poetry</a>
+      </nav>
+    </div>
+    <div data-language="bn" lang="bn" hidden>
+      <h1>পাতাটি খুঁজে পাওয়া যায়নি</h1>
+      <p class="bn">লিংকটি পুরোনো হতে পারে অথবা পাতাটি সরানো হয়েছে। নিচের লিংক থেকে এগিয়ে যান।</p>
+      <nav class="actions" aria-label="সহায়ক লিংক">
+        <a class="primary" href="./">পোর্টফোলিওতে ফিরে যান</a>
+        <a href="./blog.html">প্রবন্ধ ও কবিতা দেখুন</a>
+      </nav>
+    </div>
+  </main>
+  <script>
+    const languageToggle = document.getElementById('languageToggle');
+    const languageSections = document.querySelectorAll('[data-language]');
+
+    function setPageLanguage(language, persist = false) {
+      const selected = language === 'bn' ? 'bn' : 'en';
+      document.documentElement.lang = selected;
+      document.title = selected === 'bn'
+        ? 'পাতাটি খুঁজে পাওয়া যায়নি — Md Iftiur Hossen Riyad'
+        : 'Page Not Found — Md Iftiur Hossen Riyad';
+      languageSections.forEach((section) => {
+        section.hidden = section.dataset.language !== selected;
+      });
+      languageToggle.textContent = selected === 'bn' ? 'English' : 'বাংলা';
+      languageToggle.setAttribute('aria-label', selected === 'bn' ? 'Switch to English' : 'ভাষা ইংরেজিতে বদলান');
+
+      if (persist) {
+        try {
+          localStorage.setItem('language', selected);
+        } catch (error) {
+          console.warn('Could not save the language preference.', error);
+        }
+      }
+    }
+
+    let savedLanguage = 'en';
+    try {
+      savedLanguage = localStorage.getItem('language') === 'bn' ? 'bn' : 'en';
+    } catch (error) {
+      console.warn('Could not read the saved language preference.', error);
+    }
+
+    setPageLanguage(savedLanguage);
+    languageToggle.addEventListener('click', () => {
+      setPageLanguage(document.documentElement.lang === 'bn' ? 'en' : 'bn', true);
+    });
+  </script>
+</body>
+</html>

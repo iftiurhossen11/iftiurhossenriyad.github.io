@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Thoughts &amp; Poetry — Md Iftiur Hossen Riyad</title>
+    <link>https://iftiurhossenriyad.github.io/blog.html</link>
+    <description>Technical articles and poetry by Md Iftiur Hossen Riyad.</description>
+    <language>en</language>
+    <lastBuildDate>Fri, 09 Oct 2026 14:45:00 +0600</lastBuildDate>
+    <atom:link href="https://iftiurhossenriyad.github.io/rss.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Designing Privacy-Aware Access Control for CampusNet</title>
+      <link>https://iftiurhossenriyad.github.io/post.html?id=campusnet-privacy-rbac</link>
+      <guid isPermaLink="true">https://iftiurhossenriyad.github.io/post.html?id=campusnet-privacy-rbac</guid>
+      <pubDate>Fri, 09 Oct 2026 14:45:00 +0600</pubDate>
+      <category>Technical</category>
+      <description>A proposal-based look at combining verified academic identity, role-based permissions, and field-level privacy in a multi-university platform.</description>
+      <author>mdiftiurhossenriyad@gmail.com (Md Iftiur Hossen Riyad)</author>
+    </item>
+    <item>
+      <title>Beyond the SOS Button: Designing a Secure Incident Lifecycle</title>
+      <link>https://iftiurhossenriyad.github.io/post.html?id=suraksha-incident-lifecycle</link>
+      <guid isPermaLink="true">https://iftiurhossenriyad.github.io/post.html?id=suraksha-incident-lifecycle</guid>
+      <pubDate>Fri, 09 Oct 2026 13:30:00 +0600</pubDate>
+      <category>Technical</category>
+      <description>How a proposed emergency coordination platform can make incident verification, assignment, status updates, and closure safer and more accountable.</description>
+      <author>mdiftiurhossenriyad@gmail.com (Md Iftiur Hossen Riyad)</author>
+    </item>
+    <item>
+      <title>Building Secure RAG AI Assistants</title>
+      <link>https://iftiurhossenriyad.github.io/post.html?id=building-rag</link>
+      <guid isPermaLink="true">https://iftiurhossenriyad.github.io/post.html?id=building-rag</guid>
+      <pubDate>Sat, 03 Oct 2026 18:45:00 +0600</pubDate>
+      <category>Technical</category>
+      <description>How I designed IR Prohori using RAG, Chroma Vector DB, and prompt grounding to deliver bilingual cyber safety guidance in Bengali for Bangladeshi youth.</description>
+      <author>mdiftiurhossenriyad@gmail.com (Md Iftiur Hossen Riyad)</author>
+    </item>
+    <item>
+      <title>Understanding Intrusion Detection Systems</title>
+      <link>https://iftiurhossenriyad.github.io/post.html?id=understanding-ids</link>
+      <guid isPermaLink="true">https://iftiurhossenriyad.github.io/post.html?id=understanding-ids</guid>
+      <pubDate>Thu, 01 Oct 2026 10:30:00 +0600</pubDate>
+      <category>Technical</category>
+      <description>A beginner&apos;s guide to IDS: signature-based vs anomaly-based detection, and how I built ThreatGuard as a lightweight IDS architecture using C++.</description>
+      <author>mdiftiurhossenriyad@gmail.com (Md Iftiur Hossen Riyad)</author>
+    </item>
+    <item>
+      <title>My Journey into Cyber Security</title>
+      <link>https://iftiurhossenriyad.github.io/post.html?id=journey-cyber</link>
+      <guid isPermaLink="true">https://iftiurhossenriyad.github.io/post.html?id=journey-cyber</guid>
+      <pubDate>Fri, 18 Sep 2026 09:15:00 +0600</pubDate>
+      <category>Technical</category>
+      <description>From a curious student to Founder of MyGenie — the tools, mindset, and lessons that shaped my path into offensive and defensive security research.</description>
+      <author>mdiftiurhossenriyad@gmail.com (Md Iftiur Hossen Riyad)</author>
+    </item>
+    <item>
+      <title>The Market of the Hereafter</title>
+      <link>https://iftiurhossenriyad.github.io/post.html?id=poetry-3</link>
+      <guid isPermaLink="true">https://iftiurhossenriyad.github.io/post.html?id=poetry-3</guid>
+      <pubDate>Thu, 08 Oct 2026 21:10:00 +0600</pubDate>
+      <category>Poetry</category>
+      <description>A soul looks back on worldly distractions and longs to return to repentance, humility, and good deeds.</description>
+      <author>mdiftiurhossenriyad@gmail.com (Md Iftiur Hossen Riyad)</author>
+    </item>
+    <item>
+      <title>Sunlight Behind Tears</title>
+      <link>https://iftiurhossenriyad.github.io/post.html?id=poetry-2</link>
+      <guid isPermaLink="true">https://iftiurhossenriyad.github.io/post.html?id=poetry-2</guid>
+      <pubDate>Tue, 06 Oct 2026 19:40:00 +0600</pubDate>
+      <category>Poetry</category>
+      <description>Even through memory and silence, a little light returns—a poem of sorrow, love, and the promise of morning.</description>
+      <author>mdiftiurhossenriyad@gmail.com (Md Iftiur Hossen Riyad)</author>
+    </item>
+    <item>
+      <title>The Kite Set Adrift</title>
+      <link>https://iftiurhossenriyad.github.io/post.html?id=poetry-1</link>
+      <guid isPermaLink="true">https://iftiurhossenriyad.github.io/post.html?id=poetry-1</guid>
+      <pubDate>Mon, 05 Oct 2026 17:20:00 +0600</pubDate>
+      <category>Poetry</category>
+      <description>When its string breaks, where can a dreaming kite find shelter? A poem of solitude, memory, and bonds left behind.</description>
+      <author>mdiftiurhossenriyad@gmail.com (Md Iftiur Hossen Riyad)</author>
+    </item>
+  </channel>
+</rss>
