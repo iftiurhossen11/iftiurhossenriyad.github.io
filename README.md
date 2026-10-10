@@ -61,3 +61,7 @@ Testimonials are intentionally hidden until genuine recommendations are
 provided with permission. The footer's visit and active-tab counts are local to
 the current browser; they are not site-wide traffic analytics. GA4 loads only
 after a visitor gives consent.
+The **Skills in Practice** repository list in `data-projects.js` includes the
+public project repositories for MyGenie, IR Prohori, EduQuiz, Ortho Mess
+Management, SecureAudit, ThreatGuard, and Buy & Sell Platform. The portfolio
+repository itself is intentionally excluded from that project count.

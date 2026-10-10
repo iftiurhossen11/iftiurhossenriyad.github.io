@@ -619,7 +619,9 @@
       return;
     }
 
-    const repositories = (projectsData.classic || []).filter((project) => project.githubLink);
+    const repositories = (projectsData.publicRepositories || []).filter((repository) =>
+      repository.name && /^https:\/\/github\.com\/iftiurhossenriyad\/[\w.-]+$/i.test(repository.url || '')
+    );
     const technicalArticles = Object.values(postsData).filter((post) => post.category === 'technical');
     const number = (value) => new Intl.NumberFormat(html.lang).format(value);
 
@@ -627,7 +629,7 @@
       <article class="skill-evidence-card">
         <h4>${translations[html.lang].skill_evidence_repositories}</h4>
         <p>${translations[html.lang].skill_evidence_repositories_count.replace('{count}', number(repositories.length))}</p>
-        <ul>${repositories.map((project) => `<li><a href="${escapeHtml(project.githubLink)}" target="_blank" rel="noopener noreferrer">${escapeHtml(project.name)}</a></li>`).join('')}</ul>
+        <ul>${repositories.map((repository) => `<li><a href="${escapeHtml(repository.url)}" target="_blank" rel="noopener noreferrer">${escapeHtml(repository.name)}</a></li>`).join('')}</ul>
       </article>
       <article class="skill-evidence-card">
         <h4>${translations[html.lang].skill_evidence_certificates}</h4>

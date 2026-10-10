@@ -81,5 +81,14 @@ const projectsData = {
         'screenshots/cropped/eduquiz-student-dashboard.jpg'
       ]
     }
+  ],
+  publicRepositories: [
+    { name: 'MyGenie', url: 'https://github.com/iftiurhossenriyad/MyGenie' },
+    { name: 'IR Prohori', url: 'https://github.com/iftiurhossenriyad/IR-Prohori' },
+    { name: 'EduQuiz', url: 'https://github.com/iftiurhossenriyad/eduquiz' },
+    { name: 'Ortho Mess Management', url: 'https://github.com/iftiurhossenriyad/ortho-mess-management' },
+    { name: 'SecureAudit', url: 'https://github.com/iftiurhossenriyad/SecureAudRT' },
+    { name: 'ThreatGuard', url: 'https://github.com/iftiurhossenriyad/ThreatGuard-Intrusion-Detection-System' },
+    { name: 'Buy & Sell Platform', url: 'https://github.com/iftiurhossenriyad/Buy-And-Sell-Platform' }
   ]
 };
