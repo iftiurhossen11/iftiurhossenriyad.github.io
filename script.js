@@ -654,7 +654,7 @@
         <h3>${contentMarkup(service.titleKey, service.title)}</h3>
         <p>${contentMarkup(service.descriptionKey, service.description)}</p>
         ${service.features?.length ? `<ul>${service.features.map((feature) => `<li>${contentMarkup(typeof feature === 'string' ? feature : feature.key, typeof feature === 'string' ? undefined : feature.label)}</li>`).join('')}</ul>` : ''}
-        <a href="#contact" class="btn btn-outline" data-i18n="service_request_quote">Request Quote</a>
+        ${service.projectUrl ? `<a href="${escapeHtml(service.projectUrl)}" class="btn btn-outline" target="_blank" rel="noopener noreferrer" data-i18n="service_view_project">See related project →</a>` : ''}
       </article>
     `).join('');
   }
@@ -704,6 +704,7 @@
         (/^https:\/\//i.test(rawDownloadUrl) && !/[\u0000-\u0020"'<>]/.test(rawDownloadUrl)) ||
         (!/^[a-z][a-z\d+.-]*:/i.test(rawDownloadUrl) && !rawDownloadUrl.startsWith('//') && !/[\u0000-\u0020"'<>]/.test(rawDownloadUrl));
       const downloadUrl = isSafeDownloadUrl ? rawDownloadUrl || '#' : '#';
+      const actionLabel = translations[language][resource.actionKey || 'resource_download'];
       return `
         <article class="resource-card${resource.featured ? ' featured' : ''}">
           <div class="resource-icon" aria-hidden="true">${escapeHtml(resource.icon || '📄')}</div>
@@ -713,11 +714,11 @@
           <div class="resource-meta">
             ${isPlaceholder || !isSafeDownloadUrl
               ? `<span class="resource-filetype" data-i18n="resource_coming_soon_short">${translations[language].resource_coming_soon_short}</span>`
-              : `<span class="resource-filetype">${escapeHtml(resource.fileType || 'FILE')}</span><span>${escapeHtml(resource.fileSize || '')}</span>`}
+              : `<span class="resource-filetype">${escapeHtml(resource.fileType || 'FILE')}</span>${resource.fileSize ? `<span>${escapeHtml(resource.fileSize)}</span>` : ''}`}
           </div>
           ${isPlaceholder || !isSafeDownloadUrl
             ? ''
-            : `<a class="btn btn-primary resource-download" href="${escapeHtml(downloadUrl)}" download>${translations[language].resource_download}</a>`}
+            : `<a class="btn btn-primary resource-download" href="${escapeHtml(downloadUrl)}"${resource.external ? ' target="_blank" rel="noopener noreferrer"' : ''}>${escapeHtml(actionLabel)}</a>`}
         </article>`;
     }).join('');
   }

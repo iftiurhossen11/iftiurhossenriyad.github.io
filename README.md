@@ -54,3 +54,8 @@ Other proposal-based projects use clearly labeled interface mockups from
 captures of deployed products.
 The MyGenie section uses four application screenshots from `Project SS.docx`
 and links to its live website and GitHub repository.
+The Resources section links to a bilingual cyber-safety checklist and the
+official CISA Secure Our World and Have I Been Pwned websites. Project Areas
+describe work shown in the portfolio and are not commercial service claims.
+Testimonials are intentionally hidden until genuine recommendations are
+provided with permission.

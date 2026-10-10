@@ -180,11 +180,12 @@ test installation and offline behavior.
 
 ## Free resources
 
-Edit `data-resources.js` to update the four sample guides. Replace each
-`downloadUrl: '#'` with the relative path to the PDF or document after adding
-the file to the site. Update `fileType` and `fileSize` to match the asset.
-The Resources manager on the protected admin site generates a bilingual entry
-snippet.
+Edit `data-resources.js` to update the bilingual safety guide and trusted
+external references. Add local guides under `resources/` and use their
+relative paths; mark off-site links as external so they open safely in a new
+tab. Keep the descriptions and resource actions bilingual in `translations.js`.
+The Resources manager on the protected admin site can generate bilingual
+entry snippets.
 
 ## Email signature generator
 
@@ -222,21 +223,22 @@ Plain `description` values are rendered as text.
 
 ## Testimonials
 
-Edit `data-testimonials.js` to add, change, or remove recommendations. Each
-entry uses `quote`, `name`, `role`, `organization`, and `relationship`.
-`avatar` may be an image path; leave it empty to show the person's initial.
-`linkedin` is optional and, when provided, links the author details.
+`data-testimonials.js` is intentionally empty until genuine recommendations
+are approved for publication. Add entries only with the person's permission;
+the page hides the testimonials section when there are no entries. Each entry
+uses `quote`, `name`, `role`, `organization`, and `relationship`. `avatar` may
+be an image path; leave it empty to show the person's initial. `linkedin` is
+optional and, when provided, links the author details.
 
 ### 📝 Adding a Real Testimonial
 
 1. Request a testimonial using a template in
    [testimonial-request-template.md](./testimonial-request-template.md).
 2. Open `data-testimonials.js`.
-3. Find the testimonial object you want to replace.
-4. Update the `quote`, `name`, `role`, and `organization` fields using the
-   wording and details approved by the person.
-5. Change `isPlaceholder: true` to `isPlaceholder: false`.
-6. Save the file. Real testimonials will then appear publicly.
+3. Add a testimonial object with the wording and details approved by the
+   person.
+4. Save the file. The section will appear when at least one real testimonial
+   is present.
 
 ### 🚫 Removing a Testimonial
 

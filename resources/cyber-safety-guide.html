@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="A practical bilingual guide to safer accounts, devices, backups, and account recovery.">
+  <meta name="theme-color" content="#080d17">
+  <title>Cyber Safety Checklist | Md Iftiur Hossen Riyad</title>
+  <style>
+    :root { color-scheme: dark; --bg: #080d17; --panel: #111a2b; --text: #edf4ff; --muted: #a8b7ca; --accent: #00d9ff; --border: #26354a; }
+    * { box-sizing: border-box; }
+    body { margin: 0; background: var(--bg); color: var(--text); font: 16px/1.7 system-ui, sans-serif; }
+    header, main, footer { width: min(900px, calc(100% - 32px)); margin-inline: auto; }
+    header { padding: 32px 0 16px; }
+    main { padding-bottom: 32px; }
+    h1, h2 { line-height: 1.25; }
+    h1 { margin-bottom: 8px; font-size: clamp(2rem, 6vw, 3.3rem); }
+    h2 { margin-top: 30px; color: var(--accent); font-size: 1.35rem; }
+    p, li { color: var(--muted); }
+    a { color: var(--accent); }
+    .toolbar { display: flex; flex-wrap: wrap; gap: 10px; margin: 20px 0; }
+    button, .back-link { display: inline-block; padding: 9px 14px; border: 1px solid var(--border); border-radius: 8px; background: var(--panel); color: var(--text); font: inherit; text-decoration: none; cursor: pointer; }
+    button[aria-pressed="true"] { border-color: var(--accent); }
+    .guide { padding: clamp(20px, 5vw, 42px); border: 1px solid var(--border); border-radius: 16px; background: var(--panel); }
+    .notice { padding: 14px 18px; border-left: 3px solid var(--accent); background: #0c2230; }
+    li { padding: 4px 0; }
+    footer { padding: 0 0 32px; color: var(--muted); font-size: .9rem; }
+    [hidden] { display: none !important; }
+    :focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+    @media print {
+      :root { color-scheme: light; --bg: #fff; --panel: #fff; --text: #111; --muted: #222; --accent: #075b78; --border: #bbb; }
+      body { background: #fff; color: #111; font-size: 11pt; }
+      header, main, footer { width: 100%; }
+      .toolbar, .back-link, footer { display: none !important; }
+      .guide { padding: 0; border: 0; }
+      a { color: #075b78; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <a class="back-link" href="../index.html#resources" data-back-language="en">← Back to portfolio</a>
+    <a class="back-link" href="../index.html#resources" data-back-language="bn" hidden>← পোর্টফোলিওতে ফিরুন</a>
+    <div class="toolbar" role="group" aria-label="Guide controls">
+      <button type="button" data-set-language="en" aria-pressed="true">English</button>
+      <button type="button" data-set-language="bn" aria-pressed="false">বাংলা</button>
+      <button type="button" id="printGuide">Print / Save as PDF</button>
+    </div>
+  </header>
+  <main>
+    <article class="guide" data-guide-language="en">
+      <h1>Cyber Safety Checklist</h1>
+      <p>A practical starting point for protecting everyday accounts and devices. Choose one step at a time and use the official recovery options for each service.</p>
+      <h2>Secure your accounts</h2>
+      <ol>
+        <li>Use a password manager to create a long, unique password for every important account. Never reuse your email password elsewhere.</li>
+        <li>Turn on multifactor authentication (MFA) or a passkey wherever available. Prefer phishing-resistant options when the service supports them.</li>
+        <li>Review recovery email addresses, phone numbers, signed-in devices, and active sessions. Remove anything you no longer recognize.</li>
+        <li>Store recovery codes somewhere private and separate from the device you use to sign in. Never share a one-time code with someone who contacts you.</li>
+      </ol>
+      <h2>Spot suspicious messages</h2>
+      <ul>
+        <li>Pause before opening unexpected links, attachments, QR codes, or payment requests—even if the message appears to come from someone you know.</li>
+        <li>Check the complete website address and confirm requests through a separate, trusted channel. Do not use contact details supplied in a suspicious message.</li>
+        <li>Legitimate support staff should not ask you to reveal your password or one-time verification code.</li>
+      </ul>
+      <h2>Protect devices and files</h2>
+      <ul>
+        <li>Install operating-system, browser, and app updates from their official update mechanism; enable automatic updates when practical.</li>
+        <li>Use a screen lock, device encryption where available, and only install software from sources you trust.</li>
+        <li>Keep another copy of important files on a separate or offline backup. Test that you can restore a file.</li>
+        <li>Review app permissions and remove access an app no longer needs.</li>
+      </ul>
+      <h2>If you think an account was compromised</h2>
+      <ol>
+        <li>Use a device you trust and open the service by typing its known address or using its official app.</li>
+        <li>Change the affected password to a new, unique one. Secure the email account used for recovery too.</li>
+        <li>Sign out other sessions, remove unfamiliar recovery methods or connected apps, and enable MFA.</li>
+        <li>Contact the service using its official support process. If money or identity documents may be affected, contact the relevant provider or authority using a verified channel.</li>
+        <li>Save relevant evidence safely, but do not forward harmful content or publish private information.</li>
+      </ol>
+      <p class="notice"><strong>Privacy note:</strong> Never put passwords, recovery codes, private keys, identity documents, or sensitive incident details into a public form or an untrusted website.</p>
+      <h2>Trusted starting points</h2>
+      <ul>
+        <li><a href="https://www.cisa.gov/secure-our-world" target="_blank" rel="noopener noreferrer">CISA Secure Our World</a> — practical guidance on strong passwords, MFA, updates, and phishing.</li>
+        <li><a href="https://haveibeenpwned.com/" target="_blank" rel="noopener noreferrer">Have I Been Pwned</a> — checks an email address against known breach records. Never enter a password there; a result is not proof that an account is currently compromised.</li>
+      </ul>
+      <p>This checklist is general educational information, not legal advice or emergency assistance. For immediate danger, contact local emergency services.</p>
+    </article>
+
+    <article class="guide" data-guide-language="bn" hidden>
+      <h1>সাইবার নিরাপত্তা চেকলিস্ট</h1>
+      <p>দৈনন্দিন অ্যাকাউন্ট ও ডিভাইস সুরক্ষার ব্যবহারিক শুরু। একবারে একটি ধাপ অনুসরণ করুন এবং প্রতিটি সেবার নিজস্ব আনুষ্ঠানিক recovery পদ্ধতি ব্যবহার করুন।</p>
+      <h2>অ্যাকাউন্ট সুরক্ষিত করুন</h2>
+      <ol>
+        <li>Password manager ব্যবহার করে প্রতিটি গুরুত্বপূর্ণ অ্যাকাউন্টের জন্য দীর্ঘ ও আলাদা password তৈরি করুন। ইমেইলের password অন্য কোথাও ব্যবহার করবেন না।</li>
+        <li>যেখানে সম্ভব multifactor authentication (MFA) বা passkey চালু করুন। সেবা সমর্থন করলে phishing-প্রতিরোধী পদ্ধতি বেছে নিন।</li>
+        <li>Recovery email, phone number, sign-in করা device ও active session যাচাই করুন। অপরিচিত বা আর ব্যবহার করেন না এমন কিছু সরিয়ে দিন।</li>
+        <li>Recovery code নিজের কাছে, sign-in-এর device থেকে আলাদা নিরাপদ স্থানে রাখুন। যোগাযোগকারী কাউকে one-time code দেবেন না।</li>
+      </ol>
+      <h2>সন্দেহজনক বার্তা চিনুন</h2>
+      <ul>
+        <li>অপ্রত্যাশিত link, attachment, QR code বা অর্থ চাওয়ার অনুরোধে সাড়া দেওয়ার আগে থামুন—পরিচিত কারও কাছ থেকে এসেছে মনে হলেও।</li>
+        <li>সম্পূর্ণ website address পরীক্ষা করুন এবং আলাদা বিশ্বস্ত মাধ্যমে অনুরোধটি নিশ্চিত করুন। সন্দেহজনক বার্তায় দেওয়া contact তথ্য ব্যবহার করবেন না।</li>
+        <li>বিশ্বস্ত support কর্মী আপনার password বা one-time verification code জানতে চাইবেন না।</li>
+      </ul>
+      <h2>ডিভাইস ও ফাইল সুরক্ষিত রাখুন</h2>
+      <ul>
+        <li>Operating system, browser ও app-এর update তাদের official পদ্ধতিতে install করুন; সম্ভব হলে automatic update চালু রাখুন।</li>
+        <li>Screen lock ব্যবহার করুন, সুবিধা থাকলে device encryption চালু করুন, এবং শুধু বিশ্বস্ত উৎসের software install করুন।</li>
+        <li>গুরুত্বপূর্ণ ফাইলের আরেকটি copy আলাদা বা offline backup-এ রাখুন। অন্তত একটি ফাইল restore করে পরীক্ষা করুন।</li>
+        <li>App permission যাচাই করুন এবং আর প্রয়োজন নেই এমন access সরিয়ে দিন।</li>
+      </ul>
+      <h2>অ্যাকাউন্টে অননুমোদিত প্রবেশের সন্দেহ হলে</h2>
+      <ol>
+        <li>বিশ্বস্ত device ব্যবহার করে সেবার পরিচিত address নিজে লিখে বা official app দিয়ে খুলুন।</li>
+        <li>আক্রান্ত অ্যাকাউন্টের password নতুন ও অনন্য password দিয়ে বদলান। Recovery-তে ব্যবহৃত email account-টিও সুরক্ষিত করুন।</li>
+        <li>অন্য session থেকে sign out করুন, অপরিচিত recovery method বা connected app সরান, এবং MFA চালু করুন।</li>
+        <li>সেবার official support পদ্ধতিতে যোগাযোগ করুন। অর্থ বা পরিচয়পত্র ঝুঁকিতে থাকলে যাচাইকৃত মাধ্যমে সংশ্লিষ্ট প্রতিষ্ঠান বা কর্তৃপক্ষের সঙ্গে যোগাযোগ করুন।</li>
+        <li>প্রয়োজনীয় প্রমাণ নিরাপদে রাখুন; ক্ষতিকর content forward করবেন না বা ব্যক্তিগত তথ্য প্রকাশ করবেন না।</li>
+      </ol>
+      <p class="notice"><strong>গোপনীয়তার সতর্কতা:</strong> Public form বা অবিশ্বস্ত website-এ password, recovery code, private key, পরিচয়পত্র বা ঘটনার সংবেদনশীল বিবরণ দেবেন না।</p>
+      <h2>বিশ্বস্ত প্রাথমিক রিসোর্স</h2>
+      <ul>
+        <li><a href="https://www.cisa.gov/secure-our-world" target="_blank" rel="noopener noreferrer">CISA Secure Our World</a> — যুক্তরাষ্ট্রের CISA-এর শক্তিশালী password, MFA, update ও phishing-বিষয়ক নির্দেশনা।</li>
+        <li><a href="https://haveibeenpwned.com/" target="_blank" rel="noopener noreferrer">Have I Been Pwned</a> — পরিচিত data breach-এর তালিকায় email address আছে কি না পরীক্ষা করে। সেখানে কখনো password দেবেন না; কোনো ফলাফল মানেই অ্যাকাউন্টটি বর্তমানে আক্রান্ত—এমন নয়।</li>
+      </ul>
+      <p>এই চেকলিস্ট সাধারণ শিক্ষামূলক তথ্য; এটি আইনি পরামর্শ বা জরুরি সহায়তার বিকল্প নয়। তাৎক্ষণিক বিপদে স্থানীয় জরুরি সেবায় যোগাযোগ করুন।</p>
+    </article>
+  </main>
+  <footer>
+    <span>Md Iftiur Hossen Riyad · <a href="../index.html#resources">Portfolio resources</a></span>
+  </footer>
+  <script>
+    const articles = [...document.querySelectorAll('[data-guide-language]')];
+    const languageButtons = [...document.querySelectorAll('[data-set-language]')];
+    function setGuideLanguage(language) {
+      const selected = language === 'bn' ? 'bn' : 'en';
+      document.documentElement.lang = selected;
+      articles.forEach((article) => { article.hidden = article.dataset.guideLanguage !== selected; });
+      document.querySelectorAll('[data-back-language]').forEach((link) => {
+        link.hidden = link.dataset.backLanguage !== selected;
+      });
+      languageButtons.forEach((button) => {
+        button.setAttribute('aria-pressed', String(button.dataset.setLanguage === selected));
+      });
+      try {
+        localStorage.setItem('language', selected);
+      } catch (error) {
+        console.warn('Could not save the guide language preference.', error);
+      }
+    }
+    languageButtons.forEach((button) => {
+      button.addEventListener('click', () => setGuideLanguage(button.dataset.setLanguage));
+    });
+    document.getElementById('printGuide').addEventListener('click', () => window.print());
+    let savedLanguage = 'en';
+    try {
+      savedLanguage = localStorage.getItem('language') || 'en';
+    } catch (error) {
+      console.warn('Could not read the saved guide language preference.', error);
+    }
+    setGuideLanguage(savedLanguage);
+  </script>
+</body>
+</html>
