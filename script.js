@@ -730,62 +730,72 @@
     const bookingUrl = widget.dataset.url || '';
     const configured = /^https:\/\/calendly\.com\/[a-z0-9_-]+(?:\/.*)?$/i.test(bookingUrl);
     const directLink = placeholder.querySelector('.booking-direct-link');
+    const loadButton = placeholder.querySelector('#loadCalendly');
     const loading = document.getElementById('bookingLoading');
     widget.dataset.locale = html.lang === 'bn' ? 'bn' : 'en';
     widget.classList.toggle('calendly-inline-widget', configured);
-    widget.style.display = configured ? 'block' : 'none';
-    placeholder.hidden = configured;
-    if (!configured) return;
     if (widget.dataset.calendlyInitializationStarted === 'true') return;
-    widget.dataset.calendlyInitializationStarted = 'true';
-    if (directLink) directLink.hidden = true;
-    if (loading) {
-      loading.hidden = false;
-      window.setTimeout(() => { loading.hidden = true; }, 3000);
-    }
-
-    let settled = false;
-    let observer;
-    const fallbackTimer = window.setTimeout(showFallback, 5000);
-    function showFallback() {
-      if (settled) return;
-      settled = true;
-      window.clearTimeout(fallbackTimer);
-      if (observer) observer.disconnect();
-      widget.style.display = 'none';
-      placeholder.hidden = false;
-      if (loading) loading.hidden = true;
-      const fallbackText = placeholder.querySelector('[data-i18n="book_call_fallback_text"]');
-      if (fallbackText) {
-        fallbackText.dataset.i18n = 'book_call_load_error';
-        fallbackText.textContent = translations[html.lang].book_call_load_error;
+    widget.style.display = 'none';
+    placeholder.hidden = false;
+    if (loadButton) loadButton.hidden = !configured;
+    if (!configured) return;
+    if (!loadButton || loadButton.dataset.calendlyHandler === 'ready') return;
+    loadButton.dataset.calendlyHandler = 'ready';
+    loadButton.addEventListener('click', () => {
+      if (widget.dataset.calendlyInitializationStarted === 'true') return;
+      widget.dataset.calendlyInitializationStarted = 'true';
+      loadButton.hidden = true;
+      widget.style.display = 'block';
+      placeholder.hidden = true;
+      if (directLink) directLink.hidden = true;
+      if (loading) {
+        loading.hidden = false;
+        window.setTimeout(() => { loading.hidden = true; }, 3000);
       }
-      if (directLink) directLink.hidden = false;
-    }
-    function watchForCalendlyFrame() {
-      const iframe = widget.querySelector('iframe');
-      if (!iframe || iframe.dataset.portfolioLoadHandler === 'ready') return;
-      iframe.dataset.portfolioLoadHandler = 'ready';
-      iframe.addEventListener('load', () => {
+
+      let settled = false;
+      let observer;
+      const fallbackTimer = window.setTimeout(showFallback, 5000);
+      function showFallback() {
         if (settled) return;
         settled = true;
         window.clearTimeout(fallbackTimer);
         if (observer) observer.disconnect();
+        widget.style.display = 'none';
+        placeholder.hidden = false;
         if (loading) loading.hidden = true;
-      }, { once: true });
-      iframe.addEventListener('error', showFallback, { once: true });
-    }
-    observer = new MutationObserver(watchForCalendlyFrame);
-    observer.observe(widget, { childList: true, subtree: true });
-    watchForCalendlyFrame();
+        const fallbackText = placeholder.querySelector('[data-i18n="book_call_fallback_text"]');
+        if (fallbackText) {
+          fallbackText.dataset.i18n = 'book_call_load_error';
+          fallbackText.textContent = translations[html.lang].book_call_load_error;
+        }
+        if (directLink) directLink.hidden = false;
+      }
+      function watchForCalendlyFrame() {
+        const iframe = widget.querySelector('iframe');
+        if (!iframe || iframe.dataset.portfolioLoadHandler === 'ready') return;
+        iframe.dataset.portfolioLoadHandler = 'ready';
+        iframe.addEventListener('load', () => {
+          if (settled) return;
+          settled = true;
+          window.clearTimeout(fallbackTimer);
+          if (observer) observer.disconnect();
+          if (loading) loading.hidden = true;
+        }, { once: true });
+        iframe.addEventListener('error', showFallback, { once: true });
+      }
+      observer = new MutationObserver(watchForCalendlyFrame);
+      observer.observe(widget, { childList: true, subtree: true });
+      watchForCalendlyFrame();
 
-    if (!document.querySelector('script[src="https://assets.calendly.com/assets/external/widget.js"]')) {
-      const script = document.createElement('script');
-      script.src = 'https://assets.calendly.com/assets/external/widget.js';
-      script.async = true;
-      script.onerror = showFallback;
-      document.body.appendChild(script);
-    }
+      if (!document.querySelector('script[src="https://assets.calendly.com/assets/external/widget.js"]')) {
+        const script = document.createElement('script');
+        script.src = 'https://assets.calendly.com/assets/external/widget.js';
+        script.async = true;
+        script.onerror = showFallback;
+        document.body.appendChild(script);
+      }
+    });
   }
 
   function initializeServiceWorker() {
@@ -854,7 +864,6 @@
     const updatedDisplay = document.getElementById('statsUpdated');
     if (!visitDisplay && !onlineDisplay && !updatedDisplay) return;
     let visitCountValue = null;
-    let visitCountIsLocal = false;
     let onlineCountValue = null;
 
     const setUpdatedTime = () => {
@@ -881,13 +890,11 @@
 
     const updateLocaleDisplays = () => {
       if (visitDisplay && visitCountValue !== null) {
-        visitDisplay.textContent =
-          `${visitCountValue.toLocaleString(html.lang)}${visitCountIsLocal ? '*' : ''}`;
+        visitDisplay.textContent = visitCountValue.toLocaleString(html.lang);
       }
       if (visitLabel) {
-        const key = visitCountIsLocal ? 'stats_visits_local' : 'stats_visits_total';
-        visitLabel.dataset.i18n = key;
-        visitLabel.textContent = translations[html.lang][key];
+        visitLabel.dataset.i18n = 'stats_visits_local';
+        visitLabel.textContent = translations[html.lang].stats_visits_local;
       }
       if (onlineDisplay && onlineCountValue !== null) {
         onlineDisplay.textContent = onlineCountValue.toLocaleString(html.lang);
@@ -895,34 +902,9 @@
       setUpdatedTime();
     };
 
-    const updateVisitCount = async () => {
+    const updateVisitCount = () => {
       if (!visitDisplay) return;
-      const controller = new AbortController();
-      const timeout = window.setTimeout(() => controller.abort(), 5000);
-      try {
-        const response = await fetch(
-          'https://api.countapi.xyz/hit/iftiurhossenriyad.github.io/visits',
-          { cache: 'no-store', signal: controller.signal }
-        );
-        if (!response.ok) throw new Error(`Visitor counter returned ${response.status}.`);
-        const result = await response.json();
-        const count = Number(result.value);
-        if (!Number.isFinite(count) || count < 0) throw new Error('Visitor counter returned an invalid count.');
-        visitCountValue = count;
-        visitCountIsLocal = false;
-      } catch {
-        visitCountValue = fallbackVisitCount();
-        visitCountIsLocal = visitCountValue !== null;
-        visitDisplay.textContent = visitCountValue === null
-          ? '—'
-          : `${visitCountValue.toLocaleString(html.lang)}*`;
-        if (visitLabel) {
-          visitLabel.dataset.i18n = 'stats_visits_local';
-          visitLabel.textContent = translations[html.lang].stats_visits_local;
-        }
-      } finally {
-        window.clearTimeout(timeout);
-      }
+      visitCountValue = fallbackVisitCount();
       updateLocaleDisplays();
     };
 

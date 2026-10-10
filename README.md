@@ -28,9 +28,9 @@ Pages and must be protected by Cloudflare Access.
 
 ## Calendly booking
 
-The **Book a Call** section embeds Calendly at the base URL
-`https://calendly.com/mdiftiurhossenriyad`. The page also provides a direct
-scheduling link and a no-JavaScript email fallback. See
+The **Book a Call** section loads its Calendly embed only after a visitor clicks
+the explicit load button. A direct scheduling link remains available, along
+with a no-JavaScript email fallback. See
 [`calendly-setup.md`](calendly-setup.md) and
 [`calendly-fix-guide.md`](calendly-fix-guide.md) for event settings and URL
 instructions.
@@ -58,4 +58,6 @@ The Resources section links to a bilingual cyber-safety checklist and the
 official CISA Secure Our World and Have I Been Pwned websites. Project Areas
 describe work shown in the portfolio and are not commercial service claims.
 Testimonials are intentionally hidden until genuine recommendations are
-provided with permission.
+provided with permission. The footer's visit and active-tab counts are local to
+the current browser; they are not site-wide traffic analytics. GA4 loads only
+after a visitor gives consent.

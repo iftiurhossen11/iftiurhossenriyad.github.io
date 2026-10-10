@@ -600,12 +600,13 @@
         <div class="booking-placeholder" id="bookingPlaceholder">
           <div class="booking-icon" aria-hidden="true">📅</div>
           <h3 data-i18n="book_call_label">Book a Call</h3>
-          <p data-i18n="book_call_fallback_text">Schedule a 15-minute call with me using the form below. Or use the contact form for other inquiries.</p>
+          <p data-i18n="book_call_fallback_text">Load the embedded Calendly calendar only if you want to use it. You can also open Calendly directly; use the contact form for other inquiries.</p>
+          <button class="btn btn-secondary" id="loadCalendly" type="button" data-i18n="book_call_load_widget">Load calendar from Calendly</button>
           <a class="btn btn-primary booking-direct-link" href="https://calendly.com/mdiftiurhossenriyad" target="_blank" rel="noopener noreferrer" data-i18n="book_call_direct_link">Schedule a 15-minute call →</a>
           <a href="#contact" class="btn btn-primary" data-i18n="book_call_fallback">Send a Message</a>
         </div>
       </div>
-      <p class="booking-direct-note"><span data-i18n="book_call_widget_note">If the calendar does not load, book directly on Calendly:</span> <a href="https://calendly.com/mdiftiurhossenriyad" target="_blank" rel="noopener noreferrer" data-i18n="book_call_direct_link">Schedule a 15-minute call →</a></p>
+      <p class="booking-direct-note"><span data-i18n="book_call_widget_note">Prefer not to load the embedded calendar? Book directly on Calendly:</span> <a href="https://calendly.com/mdiftiurhossenriyad" target="_blank" rel="noopener noreferrer" data-i18n="book_call_direct_link">Schedule a 15-minute call →</a></p>
       <noscript>
         <p class="booking-noscript"><span data-i18n="book_call_noscript">Please enable JavaScript to use the booking widget, or email me directly to schedule a call.</span> <a href="mailto:mdiftiurhossenriyad@gmail.com">mdiftiurhossenriyad@gmail.com</a></p>
       </noscript>
@@ -658,13 +659,13 @@
       <div class="footer-stats" aria-label="Visitor statistics">
         <div class="stat-item">
           <span class="stat-value" id="visitorCount" aria-live="polite">—</span>
-          <span class="stat-label" id="visitorCountLabel" data-i18n="stats_visits_total">Total Visits</span>
+          <span class="stat-label" id="visitorCountLabel" data-i18n="stats_visits_local">Your Visits in This Browser</span>
         </div>
         <div class="stat-item">
           <span class="stat-value" id="onlineCount" aria-live="polite">—</span>
           <span class="stat-label" data-i18n="stats_online">Online here</span>
         </div>
-        <p class="stats-note" data-i18n="stats_local_note">Online estimate counts active tabs in this browser only.</p>
+        <p class="stats-note" data-i18n="stats_local_note">The visit count and active-tab estimate are stored and counted in this browser only; they are not site-wide totals.</p>
         <p class="stats-updated"><span data-i18n="stats_updated">Updated</span> <time id="statsUpdated">—</time></p>
       </div>
 
