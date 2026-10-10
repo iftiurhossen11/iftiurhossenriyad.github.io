@@ -115,25 +115,28 @@ existing translations. Plain strings are shown as written.
 
 - `data-roadmap.js` contains chronological milestones with `year`, `title`,
   and `description` values (or their `*Key` translation-key equivalents).
-  Current entries are sample goals; edit or remove them to reflect your plan.
+  The current 2026–2030 entries are aspirational career goals, not fixed
+  commitments; revise them as plans and study progress change.
 - Skill levels are not shown as percentages. The portfolio links to the public
   project repositories, listed certificates, and published technical articles
   as evidence of work and learning, not as a standardized proficiency rating.
-- The Career Roadmap remains a set of editable sample goals, not a fixed plan.
 
 ## Services
 
-Edit `data-services.js`. Each service can include an `icon`, `title`,
-`description`, and a `features` array. Current offerings are marked as samples;
-adjust scope, wording, and availability before publishing.
+Edit `data-services.js`. Each entry can include an `icon`, `title`,
+`description`, and a `features` array. These cards describe project-backed
+focus areas, not commercial service offerings. Keep future descriptions
+grounded in public project evidence.
 
 ## Uses page
 
 `uses.html` renders the categories and items from `data-uses.js`. Categories
 have an `id`, `icon`, `title`/`titleKey`, and an `items` array. Each item has
-an `emoji`, `name`/`nameKey`, and `description`/`descriptionKey`. Replace all
-sample device and tool details with the exact setup you want to share. The
-Uses admin tab generates an item snippet for the category you select.
+an `emoji`, `name`/`nameKey`, and `description`/`descriptionKey`. The page
+summarizes technologies documented in public projects and skills; it is not a
+claim that every item is part of a personal daily setup. Keep new entries
+evidence-based. The Uses admin tab generates an item snippet for the category
+you select.
 
 ## Booking and visitor statistics
 
@@ -146,14 +149,11 @@ See [`calendly-setup.md`](calendly-setup.md) and
 [`calendly-fix-guide.md`](calendly-fix-guide.md) for the event setup and
 troubleshooting instructions.
 
-The footer attempts to increment the public CountAPI key configured in
-`script.js`. If CountAPI times out or is unavailable, a counter stored in
-`localStorage` under `portfolio-visit-count` is displayed with an asterisk and
-labeled "Your Visits"; a successful CountAPI response is labeled "Total
-Visits". The online estimate counts active tabs in the current browser
-profile only—it is not a site-wide real-time count.
-GitHub Pages has no backend to provide an accurate global online visitor
-count. No email addresses or form contents are sent to the counter.
+The footer visit count and active-tab estimate are local to the visitor's
+browser. The visit count uses `localStorage`; active tabs coordinate through
+`localStorage` heartbeats and expire after 45 seconds. Neither value is a
+site-wide statistic, and no email addresses or form contents are sent to an
+analytics counter by these displays.
 
 ### Calendly troubleshooting
 

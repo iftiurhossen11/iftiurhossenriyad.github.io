@@ -3982,7 +3982,7 @@ body.cert-lightbox-open { overflow: hidden; }
   padding-top: calc(var(--nav-height) + 54px);
 }
 
-.uses-sample-note {
+.uses-evidence-note {
   max-width: 800px;
   margin: -30px auto 32px;
   color: var(--text-muted);
@@ -4214,7 +4214,7 @@ body.project-image-viewer-open { overflow: hidden; }
   .roadmap-year { padding: 0 0 0 2px; text-align: left; font-size: 1.2rem; }
   .roadmap-content { padding: 18px; }
   .uses-page { padding-top: calc(var(--nav-height) + 36px); }
-  .uses-sample-note { margin: -16px auto 26px; }
+  .uses-evidence-note { margin: -16px auto 26px; }
   .project-screenshot-gallery { margin-inline: -4px; padding: 6px; }
   .screenshot-thumb { flex-basis: 74px; width: 74px; height: 48px; }
   .project-image-viewer { width: 98vw; max-height: 92vh; border-radius: 14px; }

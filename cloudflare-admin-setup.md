@@ -70,6 +70,6 @@ admin page for offline use.
 - Do not put credentials, API tokens, or other secrets in the static admin
   app. Cloudflare Access controls access to the hosted interface, not
   visibility of source files in a public Git repository.
-- ThreatGuard, SecureAudit, Buy & Sell Platform, and EduQuiz have curated
-  16:9 project screenshots. Other project cards remain placeholders until
-  screenshots are supplied.
+- ThreatGuard, SecureAudit, Buy & Sell Platform, EduQuiz, IR Prohori, and
+  MyGenie have project screenshots. Proposal-stage projects use explicitly
+  labeled interface mockups rather than screenshots of deployed products.
