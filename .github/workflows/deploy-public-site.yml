@@ -33,6 +33,7 @@ jobs:
             --exclude='private-admin/' \
             --exclude='scripts/' \
             --exclude='dist-admin/' \
+            --exclude='admin.html' \
             --exclude='test-newsletter.html' \
             --exclude='signature.html' \
             --exclude='*.docx' \

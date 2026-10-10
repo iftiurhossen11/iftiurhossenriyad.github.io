@@ -14,8 +14,8 @@ Pages and must be protected by Cloudflare Access.
 2. Push the project to the repository's `main` branch. If using a different
    default branch, update `.github/workflows/deploy-public-site.yml`.
 3. Run the **Deploy public portfolio** workflow and check the deployed site.
-   It excludes the admin tools, newsletter test page, signature generator, and
-   DOCX files from the public artifact.
+   It excludes the admin page and tools, newsletter test page, signature
+   generator, and DOCX files from the public artifact.
    The public artifact includes `robots.txt` and `sitemap.xml`; update the
    sitemap and `rss.xml` when adding or removing blog posts.
 4. Follow [`cloudflare-admin-setup.md`](cloudflare-admin-setup.md) to deploy
@@ -40,11 +40,11 @@ visitor accepts cookies. The cookie choice and language preference are stored
 in browser local storage.
 
 The contact form uses the configured Formspree endpoint in `index.html`.
-The public `admin.html` is only an unavailable notice. The actual admin tools
-are built from `private-admin/admin.html` and must only be served by the
-Cloudflare Pages project protected with Cloudflare Access. Static files cannot
-enforce authentication themselves. The admin build omits certificate binaries;
-the public site keeps and serves the PDFs and optimized previews from `certs/`.
+The root `admin.html` placeholder is not deployed. The actual admin tools are
+built from `private-admin/admin.html` and must only be served by the Cloudflare
+Pages project protected with Cloudflare Access. Static files cannot enforce
+authentication themselves. The admin build omits certificate binaries; the
+public site keeps and serves the PDFs and optimized previews from `certs/`.
 
 ThreatGuard, SecureAudit, Buy & Sell Platform, and EduQuiz use cropped 16:9
 screenshots from `screenshots/cropped/`. IR Prohori uses four cropped 16:9 screenshots from
@@ -68,7 +68,7 @@ repository itself is intentionally excluded from that project count.
 The career roadmap is an aspirational 2026–2030 plan rather than a promise;
 review its dates as study progress and opportunities change. The creative
 section describes poetry, travel notes, and historical reading as personal
-interests, and links to the poetry posts on the blog.
+interests, and links to the blog, where poetry and other writing are listed.
 The security lab section lists the operating systems, tools, and project
 infrastructure represented in the portfolio, and clarifies that testing is
 limited to owned systems, isolated labs, or explicitly authorized programs.
