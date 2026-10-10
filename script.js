@@ -17,6 +17,7 @@
     tutorials: 'blog_category_tutorials',
     projects: 'blog_category_projects',
     poetry: 'blog_category_poetry',
+    creative: 'blog_category_creative',
     awareness: 'blog_category_awareness',
     personal: 'blog_category_personal'
   };
@@ -2286,6 +2287,7 @@
       tutorials: 'Tutorials',
       projects: 'Projects',
       poetry: 'Poetry',
+      creative: 'Creative Writing',
       awareness: 'Awareness',
       personal: 'Personal'
     };
