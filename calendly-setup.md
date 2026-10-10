@@ -3,18 +3,20 @@
 ## Current event
 
 - Scheduling URL: <https://calendly.com/mdiftiurhossenriyad>
-- Event name to use: 15 Minute Call
-- Intended duration: 15 minutes
-- Intended meeting method: Google Meet
+- Event name: 15 Minute Call
+- Duration: 15 minutes
+- Meeting method: Google Meet
 - Availability: Monday–Friday, 9:00 AM–5:00 PM, and Sunday
 
 Calendly controls the actual event name, duration, availability, time zone, and
 meeting instructions shown to invitees. Keep those settings current in the
-Calendly account.
+Calendly account. The public profile and booking page were checked after the
+event update; the event is listed and available dates are shown.
 
-The previous event title (“30 Minute Meeting”) did not match its 15-minute
-duration and phone-call location. Follow [`calendly-fix-guide.md`](calendly-fix-guide.md)
-to make the event settings consistent with the intended 15-minute Google Meet.
+The previous event title (“30 Minute Meeting”) and phone-call location have
+been corrected. Its existing event slug remains `/30min`, so the portfolio
+uses the profile URL rather than depending on the slug. See
+[`calendly-fix-guide.md`](calendly-fix-guide.md) for verification details.
 
 ## Changing the scheduling URL
 
