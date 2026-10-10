@@ -1,74 +1,76 @@
-# Protecting the admin tools with Cloudflare Access
+# Protecting the private admin tools
 
-The public portfolio remains on GitHub Pages. The admin tools are built as a
-separate Cloudflare Pages project so they are not included in the public Pages
-artifact. A browser-side password is not an access control; Cloudflare Access
-must be enabled before using the Cloudflare deployment.
+The public portfolio is hosted on GitHub Pages. Its `/admin.html` route returns
+404, and the public deployment workflow excludes the admin tools.
 
-## 1. Publish the public site without private tools
+The Cloudflare Pages project `riyad-private-admin` serves the private admin
+tools. Both production and preview deployments are protected by Cloudflare
+Access.
 
-1. In the GitHub repository, open **Settings → Pages** and choose **GitHub
-   Actions** as the build and deployment source before pushing these changes.
-   This prevents GitHub Pages from publishing the `private-admin/` source
-   directory.
-2. Push the project, including `.github/workflows/deploy-public-site.yml`, to
-   the repository's `main` branch. If the default branch has another name,
-   update the workflow trigger to match it.
-3. Run the **Deploy public portfolio** workflow and confirm the deployment
-   succeeds. The existing GitHub Pages deployment may remain live until the
-   new workflow deployment finishes.
-4. Verify requests for `/admin.html`, `/test-newsletter.html`, and
-   `/signature.html` return the public site's 404 page.
+## Public portfolio deployment
 
-The workflow also omits `.docx` files from the published site. If the GitHub
-repository itself is public, files committed to the repository can still be
-downloaded from GitHub; keep the source document out of a public repository or
-make that repository private.
+The public portfolio is deployed through
+`.github/workflows/deploy-public-site.yml`. That workflow excludes the private
+admin tools and `.docx` files from the GitHub Pages artifact. The public site
+returns 404 for `/admin.html`; its `/test-newsletter.html` and
+`/signature.html` files are unavailable notices, not the working admin tools.
 
-## 2. Create the protected admin deployment
+If the GitHub repository is public, files committed to the repository can
+still be downloaded from GitHub even when excluded from the Pages artifact.
+Keep private source documents and admin implementation files out of the
+public repository.
 
-1. In Cloudflare, create a **Pages** project connected to this GitHub
-   repository. A custom domain is not required; the `*.pages.dev` hostname can
-   be protected. Use the repository root as the root directory.
-2. Set the build command to `node scripts/build-admin.mjs` and the output
-   directory to `dist-admin`. Set the `NODE_VERSION` environment variable to
-   `20`. The build includes only the admin tools and their required static
-   assets; it does not include the source DOCX.
-3. Deploy once and note the project's `https://<project-name>.pages.dev`
-   address.
-4. In the Pages project, open **Settings → General** and enable its Access
-   policy. This first protects preview deployments.
-5. In **Zero Trust → Access controls → Applications**, configure the created
-   Access application for the exact production hostname
-   `<project-name>.pages.dev` (remove the `*` wildcard from the production
-   hostname). Add an **Allow** policy restricted to your own sign-in email.
-   Access denies users who do not match an Allow policy.
-6. Re-enable the Pages preview Access policy so preview deployments remain
-   protected as well. Cloudflare documents these steps under [Enable Access on
-   your `*.pages.dev` domain](https://developers.cloudflare.com/pages/platform/known-issues/#enable-access-on-your-pagesdev-domain).
-7. Test in a private browser window: the Cloudflare Pages address must require
-   authentication, and the authenticated account must be your allowlisted
-   email. The GitHub Pages admin page must continue to show only the notice.
+## Access configuration
 
-Use Cloudflare's email one-time PIN or an identity provider you control. Do not
-add an `Everyone` or public Allow rule. The Access policy is enforced at
-Cloudflare's edge; the admin app intentionally has no client-side password
-gate. Its service worker is also disabled so it cannot cache the protected
-admin page for offline use.
+- The production application is `Riyad Admin - Production`, covering only
+  `riyad-private-admin.pages.dev`.
+- Its Allow policy permits only the configured owner email; there is no
+  public bypass or domain-wide allow rule.
+- Users can choose either Cloudflare One-time PIN or Cloudflare account
+  sign-in. The Cloudflare identity provider is restricted to account members,
+  and the application policy still permits only the configured owner email.
+- No admin password is stored in the static site. Cloudflare account
+  credentials are entered only on Cloudflare's own sign-in screen.
+- The separate preview application covers
+  `*.riyad-private-admin.pages.dev` and also uses an owner-email-only Allow
+  policy.
 
-## 3. Operational notes
+Unauthenticated requests to `/`, `/test-newsletter.html`, and
+`/signature.html` on production, and `/` on the preview hostname, were checked
+after deployment and redirected to Cloudflare Access (HTTP 302). The public
+GitHub Pages site still returns 404 for `/admin.html`.
 
-- This workspace cannot create the Cloudflare project or Access policy; those
-  steps require signing in to your Cloudflare account and connecting the
-  repository.
-- The admin tools generate code for manual updates; they do not write changes
-  back to GitHub.
-- The source `test-newsletter.html` and `signature.html` are harmless
-  unavailable notices. The corresponding working tools are bundled from
-  `private-admin/` into the Access-protected deployment.
-- Do not put credentials, API tokens, or other secrets in the static admin
-  app. Cloudflare Access controls access to the hosted interface, not
-  visibility of source files in a public Git repository.
-- ThreatGuard, SecureAudit, Buy & Sell Platform, EduQuiz, IR Prohori, and
-  MyGenie have project screenshots. Proposal-stage projects use explicitly
-  labeled interface mockups rather than screenshots of deployed products.
+## Deploying future admin changes
+
+Keep the Access applications and owner-only policy in place before deploying.
+Build and deploy the private source from the private workspace:
+
+```powershell
+node .\scripts\build-admin.mjs
+npx wrangler pages deploy .\dist-admin --project-name riyad-private-admin --branch main
+```
+
+After deployment, repeat the unauthenticated URL checks above and confirm the
+preview restriction is still active.
+
+## Signing out
+
+Use the **Log out** link shown in the admin tools, newsletter test, and
+signature generator pages. It opens Cloudflare Access's logout endpoint to
+clear the Access session. If the browser offers to confirm logout, confirm it.
+Closing a tab alone does not sign out of Access.
+
+## Security notes
+
+- Never send Cloudflare passwords or one-time PINs in chat. Enter them only on
+  Cloudflare's own sign-in screen.
+- The logout link signs out of the Access session for this application. It
+  does not sign out of the user's Cloudflare dashboard session.
+- Keep the private admin source out of the public GitHub repository. Do not
+  connect the public repository to the admin Pages project.
+- The static admin tool generates code for manual updates; it does not write
+  changes back to GitHub. The working newsletter test and signature
+  generator are bundled only in the Access-protected deployment.
+- The admin service worker is disabled so it cannot cache protected pages for
+  offline use.
+- Do not put API tokens, passwords, or other secrets in the static app.
