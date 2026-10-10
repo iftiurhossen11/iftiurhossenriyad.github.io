@@ -1,11 +1,11 @@
-const CACHE_NAME = 'riyad-portfolio-v37';
+const CACHE_NAME = 'riyad-portfolio-v38';
 const APP_SHELL = [
   './',
   './index.html',
   './404.html',
   './style.css',
-  './script.js?v=37',
-  './translations.js?v=37',
+  './script.js?v=38',
+  './translations.js?v=38',
   './data-certifications.js',
   './data-projects.js',
   './data-skills.js',

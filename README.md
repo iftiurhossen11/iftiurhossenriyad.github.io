@@ -65,3 +65,7 @@ The **Skills in Practice** repository list in `data-projects.js` includes the
 public project repositories for MyGenie, IR Prohori, EduQuiz, Ortho Mess
 Management, SecureAudit, ThreatGuard, and Buy & Sell Platform. The portfolio
 repository itself is intentionally excluded from that project count.
+The career roadmap is an aspirational 2026–2030 plan rather than a promise;
+review its dates as study progress and opportunities change. The creative
+section describes poetry, travel notes, and historical reading as personal
+interests, and links to the poetry posts on the blog.
