@@ -2091,6 +2091,8 @@ input, textarea { font-family: inherit; }
   margin-bottom: 40px;
 }
 
+.footer-grid > * { min-width: 0; }
+
 @media (min-width: 700px) {
   .footer-grid {
     grid-template-columns: 2fr 1fr 1fr;
@@ -2108,6 +2110,7 @@ input, textarea { font-family: inherit; }
 
 .newsletter-form {
   display: grid;
+  grid-template-columns: minmax(0, 1fr);
   gap: 10px;
   margin-top: 22px;
   max-width: 420px;
