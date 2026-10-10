@@ -40,9 +40,9 @@ visitor accepts cookies. The cookie choice and language preference are stored
 in browser local storage.
 
 The contact form uses the configured Formspree endpoint in `index.html`.
-The root `admin.html` placeholder is not deployed. The actual admin tools are
-built from `private-admin/admin.html` and must only be served by the Cloudflare
-Pages project protected with Cloudflare Access. Static files cannot enforce
+There is no public `admin.html` page. The actual admin tools are built from
+`private-admin/admin.html` and must only be served by the Cloudflare Pages
+project protected with Cloudflare Access. Static files cannot enforce
 authentication themselves. The admin build omits certificate binaries; the
 public site keeps and serves the PDFs and optimized previews from `certs/`.
 

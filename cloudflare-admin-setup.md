@@ -17,9 +17,8 @@ must be enabled before using the Cloudflare deployment.
 3. Run the **Deploy public portfolio** workflow and confirm the deployment
    succeeds. The existing GitHub Pages deployment may remain live until the
    new workflow deployment finishes.
-4. Verify the public site's `admin.html`, `test-newsletter.html`, and
-   `signature.html` do not expose the tools. Each page should only show an
-   unavailable notice.
+4. Verify requests for `/admin.html`, `/test-newsletter.html`, and
+   `/signature.html` return the public site's 404 page.
 
 The workflow also omits `.docx` files from the published site. If the GitHub
 repository itself is public, files committed to the repository can still be
