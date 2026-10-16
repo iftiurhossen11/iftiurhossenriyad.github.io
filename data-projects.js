@@ -83,12 +83,13 @@ const projectsData = {
     }
   ],
   publicRepositories: [
-    { name: 'MyGenie', url: 'https://mygenie-pink.vercel.app/' },
-    { name: 'IR Prohori', url: 'https://github.com/iftiurhossenriyad/IR-Prohori' },
+    { name: 'Portfolio Website', url: 'https://github.com/iftiurhossenriyad/iftiurhossenriyad.github.io' },
+    { name: 'MyGenie', url: 'https://github.com/iftiurhossenriyad/MyGenie' },
     { name: 'EduQuiz', url: 'https://github.com/iftiurhossenriyad/eduquiz' },
-    { name: 'Ortho Mess Management', url: 'https://github.com/iftiurhossenriyad/ortho-mess-management' },
-    { name: 'SecureAudit', url: 'https://github.com/iftiurhossenriyad/SecureAudRT' },
     { name: 'ThreatGuard', url: 'https://github.com/iftiurhossenriyad/ThreatGuard-Intrusion-Detection-System' },
-    { name: 'Buy & Sell Platform', url: 'https://github.com/iftiurhossenriyad/Buy-And-Sell-Platform' }
+    { name: 'SecureAudit', url: 'https://github.com/iftiurhossenriyad/SecureAudRT' },
+    { name: 'Buy & Sell Platform', url: 'https://github.com/iftiurhossenriyad/Buy-And-Sell-Platform' },
+    { name: 'IR Prohori', url: 'https://github.com/iftiurhossenriyad/IR-Prohori' },
+    { name: 'Ortho Mess Management', url: 'https://github.com/iftiurhossenriyad/ortho-mess-management' }
   ]
 };
