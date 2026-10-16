@@ -11,6 +11,18 @@ const resourcesData = [
     featured: true
   },
   {
+    icon: '📚',
+    titleEn: 'Course Notes Collection (28 DOCX)',
+    titleBn: 'কোর্স নোটের সংকলন (২৮টি DOCX)',
+    descriptionEn: 'Download 28 personal study notes covering cybersecurity foundations, defensive security, AI, and related topics. These are not official course materials; use offensive-security topics only in authorized labs.',
+    descriptionBn: 'সাইবার নিরাপত্তার ভিত্তি, প্রতিরক্ষামূলক নিরাপত্তা, AI ও সংশ্লিষ্ট বিষয়ে ২৮টি ব্যক্তিগত অধ্যয়ন-নোট একসঙ্গে ডাউনলোড করুন। এগুলো কোনো কোর্সের অফিসিয়াল উপকরণ নয়; আক্রমণাত্মক নিরাপত্তাসংক্রান্ত বিষয় কেবল অনুমোদিত ল্যাবেই চর্চা করুন।',
+    fileType: 'ZIP · 28 DOCX',
+    fileSize: '63.0 MiB',
+    downloadUrl: 'resources/course-notes.zip',
+    actionKey: 'resource_download_notes',
+    featured: false
+  },
+  {
     icon: '🛡️',
     titleEn: 'Secure Our World — CISA',
     titleBn: 'Secure Our World — CISA',

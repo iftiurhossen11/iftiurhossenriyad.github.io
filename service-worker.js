@@ -1,12 +1,12 @@
-const CACHE_NAME = 'riyad-portfolio-v46';
+const CACHE_NAME = 'riyad-portfolio-v47';
 const APP_SHELL = [
   './',
   './index.html',
   './404.html',
-  './style.css?v=45',
-  './script.js?v=45',
-  './translations.js?v=45',
-  './data-certifications.js',
+  './style.css?v=46',
+  './script.js?v=46',
+  './translations.js?v=48',
+  './data-certifications.js?v=46',
   './data-projects.js?v=47',
   './data-skills.js',
   './data-achievements.js',
@@ -17,7 +17,7 @@ const APP_SHELL = [
   './data-roadmap.js',
   './data-services.js',
   './data-uses.js?v=42',
-  './data-resources.js',
+  './data-resources.js?v=43',
   './posts-data.js?v=45',
   './resources/cyber-safety-guide.html',
   './rss.xml',
