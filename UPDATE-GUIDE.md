@@ -184,10 +184,11 @@ test installation and offline behavior.
 
 ## Free resources
 
-Edit `data-resources.js` to update the bilingual safety guide and trusted
-external references. Add local guides under `resources/` and use their
-relative paths; mark off-site links as external so they open safely in a new
-tab. Keep the descriptions and resource actions bilingual in `translations.js`.
+Edit `data-resources.js` to update the bilingual safety guide, course-note
+download, and trusted external references. Add local guides under `resources/`
+and use their relative paths; mark off-site links as external so they open
+safely in a new tab. Keep the descriptions and resource actions bilingual in
+`translations.js`.
 The Resources manager on the protected admin site can generate bilingual
 entry snippets.
 

@@ -64,6 +64,10 @@ after a visitor gives consent.
 The **Skills in Practice** repository list in `data-projects.js` links to the
 public repositories for this portfolio, MyGenie, EduQuiz, ThreatGuard,
 SecureAudit, Buy & Sell Platform, IR Prohori, and Ortho Mess Management.
+The Free Resources section also offers the 28 personal course notes from
+`Skills Hub/Course Note docx` as `resources/course-notes.zip`. They are personal
+study notes, not official course materials; offensive-security topics should
+be practiced only in authorized labs.
 The career roadmap is an aspirational 2026–2030 plan rather than a promise;
 review its dates as study progress and opportunities change. The creative
 section describes poetry, travel notes, and historical reading as personal
