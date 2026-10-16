@@ -25,6 +25,6 @@ const servicesData = [
     titleKey: 'focus_product_title',
     descriptionKey: 'focus_product_desc',
     features: ['focus_product_feature_1', 'focus_product_feature_2', 'focus_product_feature_3'],
-    projectUrl: 'https://github.com/iftiurhossenriyad/MyGenie'
+    projectUrl: 'https://mygenie-pink.vercel.app/'
   }
 ];
