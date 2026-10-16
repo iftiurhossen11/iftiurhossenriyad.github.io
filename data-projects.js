@@ -83,7 +83,7 @@ const projectsData = {
     }
   ],
   publicRepositories: [
-    { name: 'MyGenie', url: 'https://github.com/iftiurhossenriyad/MyGenie' },
+    { name: 'MyGenie', url: 'https://mygenie-pink.vercel.app/' },
     { name: 'IR Prohori', url: 'https://github.com/iftiurhossenriyad/IR-Prohori' },
     { name: 'EduQuiz', url: 'https://github.com/iftiurhossenriyad/eduquiz' },
     { name: 'Ortho Mess Management', url: 'https://github.com/iftiurhossenriyad/ortho-mess-management' },

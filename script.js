@@ -10,6 +10,58 @@
   const html = document.documentElement;
   const languageToggle = document.getElementById('langToggle');
   let currentPost = null;
+  const myGenieWebsite = 'https://mygenie-pink.vercel.app/';
+
+  function linkifyMyGenieMentions(root) {
+    if (!root) return;
+    const textNodes = [];
+    if (root.nodeType === Node.TEXT_NODE) {
+      textNodes.push(root);
+    } else {
+      const walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT);
+      while (walker.nextNode()) textNodes.push(walker.currentNode);
+    }
+
+    textNodes.forEach((textNode) => {
+      const parent = textNode.parentElement;
+      if (!parent || parent.closest('a, button, script, style, textarea, select, option, svg, template, noscript, [contenteditable="true"]')) return;
+      const mentionPattern = /\bMyGenie\b/gi;
+      if (!mentionPattern.test(textNode.textContent)) return;
+      mentionPattern.lastIndex = 0;
+
+      const fragment = document.createDocumentFragment();
+      let lastIndex = 0;
+      let match;
+      while ((match = mentionPattern.exec(textNode.textContent))) {
+        fragment.appendChild(document.createTextNode(textNode.textContent.slice(lastIndex, match.index)));
+        const link = document.createElement('a');
+        link.className = 'mygenie-mention-link';
+        link.href = myGenieWebsite;
+        link.target = '_blank';
+        link.rel = 'noopener noreferrer';
+        link.textContent = match[0];
+        fragment.appendChild(link);
+        lastIndex = match.index + match[0].length;
+      }
+      fragment.appendChild(document.createTextNode(textNode.textContent.slice(lastIndex)));
+      textNode.replaceWith(fragment);
+    });
+  }
+
+  if (document.body) {
+    linkifyMyGenieMentions(document.body);
+    const myGenieLinkObserver = new MutationObserver((records) => {
+      records.forEach((record) => {
+        if (record.type === 'characterData') linkifyMyGenieMentions(record.target);
+        record.addedNodes.forEach(linkifyMyGenieMentions);
+      });
+    });
+    myGenieLinkObserver.observe(document.body, {
+      childList: true,
+      characterData: true,
+      subtree: true
+    });
+  }
 
   const blogCategoryTranslationKeys = {
     technical: 'blog_category_technical',
