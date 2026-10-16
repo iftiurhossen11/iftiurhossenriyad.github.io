@@ -47,13 +47,17 @@ Edit `data-certifications.js`. Add an object to `certificationsData`:
   issuer: 'Issuing organization',
   date: 'Completed: Month Day, Year',
   verifyUrl: 'https://example.com/verify',
+  preview: 'certs/previews/certificate-name.jpg',
+  image: 'certs/certificate-name.pdf',
   icon: 'star'
 }
 ```
 
-The supplied certificate files are PDF documents, so they are stored with
-`.pdf` extensions and shown in embedded PDF previews/lightboxes. Keep the
-`image` path pointed to a PDF file when adding another certificate.
+Certificate PDFs are stored under `certs/`, with optimized JPG previews under
+`certs/previews/`. `preview` is optional; when it is omitted, the card displays
+a translated placeholder. `image` is also optional for verification-only
+certificates. When present, it links to the PDF and enables the preview
+lightbox, so keep it pointed to the matching PDF.
 
 Supported icon names include `star`, `clock`, `target`, `document`, `layers`,
 `pin`, `code`, `terminal`, `education`, `file`, `shield`, and `award`.
