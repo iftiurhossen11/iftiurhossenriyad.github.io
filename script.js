@@ -153,27 +153,31 @@
       award: '<circle cx="12" cy="8" r="6"/><path d="m8.2 13-1.4 9L12 19l5.2 3-1.4-9"/>'
     };
     container.innerHTML = certificationsData.map((cert) => {
-      const title = translations.en[cert.titleKey] || cert.title || 'Certificate';
-      return `
-        <article class="cert-card">
-          <div class="cert-image-wrapper">
-            <img src="${escapeHtml(cert.preview)}" alt="" class="cert-image" loading="lazy" decoding="async">
-            <button class="cert-image-trigger" type="button" data-image="${escapeHtml(cert.image)}#view=FitH" data-title-key="${escapeHtml(cert.titleKey)}" aria-label="${escapeHtml(translations[html.lang]?.cert_view_certificate || translations.en.cert_view_certificate)}" data-i18n-aria-label="cert_view_certificate">
-              <span class="cert-overlay"><span class="cert-view-btn">🔍 ${translatedMarkup('cert_view_certificate')}</span></span>
-            </button>
-          </div>
-          <div class="cert-card-body">
-            <div class="cert-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">${icons[cert.icon] || icons.star}</svg></div>
-            <h4>${contentMarkup(cert.titleKey, cert.title)}</h4>
-            <p class="cert-issuer">${escapeHtml(cert.issuer)}</p>
-            <p class="cert-date">${contentMarkup(cert.dateKey, cert.date)}</p>
-            <div class="cert-actions">
-              <a href="${escapeHtml(cert.verifyUrl)}" target="_blank" rel="noopener noreferrer" class="cert-verify">${translatedMarkup('cert_verify')}</a>
-              <a href="${escapeHtml(cert.image)}" target="_blank" rel="noopener noreferrer" class="cert-pdf-link">${translatedMarkup('cert_open_pdf')}</a>
-            </div>
-          </div>
-        </article>
-      `;
+      const preview = cert.preview && cert.image
+        ? `<div class="cert-image-wrapper"><img src="${escapeHtml(cert.preview)}" alt="" class="cert-image" loading="lazy" decoding="async"><button class="cert-image-trigger" type="button" data-image="${escapeHtml(cert.image)}#view=FitH" data-title-key="${escapeHtml(cert.titleKey || '')}" aria-label="${escapeHtml(translations[html.lang]?.cert_view_certificate || translations.en.cert_view_certificate)}" data-i18n-aria-label="cert_view_certificate"><span class="cert-overlay"><span class="cert-view-btn">🔍 ${translatedMarkup('cert_view_certificate')}</span></span></button></div>`
+        : `<div class="cert-image-wrapper cert-preview-placeholder" role="img" aria-label="${escapeHtml(translations[html.lang]?.cert_preview_unavailable || translations.en.cert_preview_unavailable)}" data-i18n-aria-label="cert_preview_unavailable"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">${icons[cert.icon] || icons.file}</svg><span data-i18n="cert_preview_unavailable">${escapeHtml(translations.en.cert_preview_unavailable)}</span></div>`;
+      const date = cert.dateKey || cert.date
+        ? `<p class="cert-date">${contentMarkup(cert.dateKey, cert.date)}</p>`
+        : '';
+      const verificationLink = cert.verifyUrl
+        ? `<a href="${escapeHtml(cert.verifyUrl)}" target="_blank" rel="noopener noreferrer" class="cert-verify">${translatedMarkup('cert_verify')}</a>`
+        : '';
+      const pdfLink = cert.image
+        ? `<a href="${escapeHtml(cert.image)}" target="_blank" rel="noopener noreferrer" class="cert-pdf-link">${translatedMarkup('cert_open_pdf')}</a>`
+        : '';
+      return [
+        '<article class="cert-card">',
+        preview,
+        '<div class="cert-card-body">',
+        `<div class="cert-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">${icons[cert.icon] || icons.star}</svg></div>`,
+        `<h4>${contentMarkup(cert.titleKey, cert.title)}</h4>`,
+        `<p class="cert-issuer">${escapeHtml(cert.issuer)}</p>`,
+        date,
+        '<div class="cert-actions">',
+        verificationLink,
+        pdfLink,
+        '</div></div></article>'
+      ].join('');
     }).join('');
     container.querySelectorAll('.cert-image').forEach((preview) => {
       preview.addEventListener('load', () => {
