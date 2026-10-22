@@ -677,7 +677,7 @@
     }
 
     const repositories = (projectsData.publicRepositories || []).filter((repository) =>
-      repository.name && /^https:\/\/github\.com\/iftiurhossenriyad\/[\w.-]+$/i.test(repository.url || '')
+      repository.name && /^https:\/\/github\.com\/iftiurhossen11\/[\w.-]+$/i.test(repository.url || '')
     );
     const technicalArticles = Object.values(postsData).filter((post) => post.category === 'technical');
     const number = (value) => new Intl.NumberFormat(html.lang).format(value);
@@ -3258,7 +3258,7 @@
         : null;
 
     if (post) {
-      const postUrl = new URL(`post.html?id=${encodeURIComponent(post.id)}`, 'https://iftiurhossenriyad.github.io/');
+      const postUrl = new URL(`post.html?id=${encodeURIComponent(post.id)}`, 'https://iftiurhossen11.github.io/iftiurhossenriyad.github.io/');
       document.getElementById('ogUrl')?.setAttribute('content', postUrl.href);
       document.getElementById('canonicalUrl')?.setAttribute('href', postUrl.href);
       currentPost = post;

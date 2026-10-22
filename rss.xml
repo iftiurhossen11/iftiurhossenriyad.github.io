@@ -2,15 +2,15 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Thoughts, Poetry &amp; Stories — Md Iftiur Hossen Riyad</title>
-    <link>https://iftiurhossenriyad.github.io/blog.html</link>
+    <link>https://iftiurhossen11.github.io/iftiurhossenriyad.github.io/blog.html</link>
     <description>Technical articles, poetry, and Bengali creative writing by Md Iftiur Hossen Riyad.</description>
     <language>en</language>
     <lastBuildDate>Sat, 10 Oct 2026 16:08:00 +0600</lastBuildDate>
-    <atom:link href="https://iftiurhossenriyad.github.io/rss.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://iftiurhossen11.github.io/iftiurhossenriyad.github.io/rss.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Designing Privacy-Aware Access Control for CampusNet</title>
-      <link>https://iftiurhossenriyad.github.io/post.html?id=campusnet-privacy-rbac</link>
-      <guid isPermaLink="true">https://iftiurhossenriyad.github.io/post.html?id=campusnet-privacy-rbac</guid>
+      <link>https://iftiurhossen11.github.io/iftiurhossenriyad.github.io/post.html?id=campusnet-privacy-rbac</link>
+      <guid isPermaLink="true">https://iftiurhossen11.github.io/iftiurhossenriyad.github.io/post.html?id=campusnet-privacy-rbac</guid>
       <pubDate>Fri, 09 Oct 2026 14:45:00 +0600</pubDate>
       <category>Technical</category>
       <description>A proposal-based look at combining verified academic identity, role-based permissions, and field-level privacy in a multi-university platform.</description>
@@ -18,8 +18,8 @@
     </item>
     <item>
       <title>Beyond the SOS Button: Designing a Secure Incident Lifecycle</title>
-      <link>https://iftiurhossenriyad.github.io/post.html?id=suraksha-incident-lifecycle</link>
-      <guid isPermaLink="true">https://iftiurhossenriyad.github.io/post.html?id=suraksha-incident-lifecycle</guid>
+      <link>https://iftiurhossen11.github.io/iftiurhossenriyad.github.io/post.html?id=suraksha-incident-lifecycle</link>
+      <guid isPermaLink="true">https://iftiurhossen11.github.io/iftiurhossenriyad.github.io/post.html?id=suraksha-incident-lifecycle</guid>
       <pubDate>Fri, 09 Oct 2026 13:30:00 +0600</pubDate>
       <category>Technical</category>
       <description>How a proposed emergency coordination platform can make incident verification, assignment, status updates, and closure safer and more accountable.</description>
@@ -27,8 +27,8 @@
     </item>
     <item>
       <title>Building Secure RAG AI Assistants</title>
-      <link>https://iftiurhossenriyad.github.io/post.html?id=building-rag</link>
-      <guid isPermaLink="true">https://iftiurhossenriyad.github.io/post.html?id=building-rag</guid>
+      <link>https://iftiurhossen11.github.io/iftiurhossenriyad.github.io/post.html?id=building-rag</link>
+      <guid isPermaLink="true">https://iftiurhossen11.github.io/iftiurhossenriyad.github.io/post.html?id=building-rag</guid>
       <pubDate>Sat, 03 Oct 2026 18:45:00 +0600</pubDate>
       <category>Technical</category>
       <description>How I designed IR Prohori using RAG, Chroma Vector DB, and prompt grounding to deliver bilingual cyber safety guidance in Bengali for Bangladeshi youth.</description>
@@ -36,8 +36,8 @@
     </item>
     <item>
       <title>Understanding Intrusion Detection Systems</title>
-      <link>https://iftiurhossenriyad.github.io/post.html?id=understanding-ids</link>
-      <guid isPermaLink="true">https://iftiurhossenriyad.github.io/post.html?id=understanding-ids</guid>
+      <link>https://iftiurhossen11.github.io/iftiurhossenriyad.github.io/post.html?id=understanding-ids</link>
+      <guid isPermaLink="true">https://iftiurhossen11.github.io/iftiurhossenriyad.github.io/post.html?id=understanding-ids</guid>
       <pubDate>Thu, 01 Oct 2026 10:30:00 +0600</pubDate>
       <category>Technical</category>
       <description>A beginner&apos;s guide to IDS: signature-based vs anomaly-based detection, and how I built ThreatGuard as a lightweight IDS architecture using C++.</description>
@@ -45,8 +45,8 @@
     </item>
     <item>
       <title>My Journey into Cyber Security</title>
-      <link>https://iftiurhossenriyad.github.io/post.html?id=journey-cyber</link>
-      <guid isPermaLink="true">https://iftiurhossenriyad.github.io/post.html?id=journey-cyber</guid>
+      <link>https://iftiurhossen11.github.io/iftiurhossenriyad.github.io/post.html?id=journey-cyber</link>
+      <guid isPermaLink="true">https://iftiurhossen11.github.io/iftiurhossenriyad.github.io/post.html?id=journey-cyber</guid>
       <pubDate>Fri, 18 Sep 2026 09:15:00 +0600</pubDate>
       <category>Technical</category>
       <description>From a curious student to Founder of MyGenie — the tools, mindset, and lessons that shaped my path into offensive and defensive security research.</description>
@@ -54,8 +54,8 @@
     </item>
     <item>
       <title>Who Am I?</title>
-      <link>https://iftiurhossenriyad.github.io/post.html?id=poetry-10</link>
-      <guid isPermaLink="true">https://iftiurhossenriyad.github.io/post.html?id=poetry-10</guid>
+      <link>https://iftiurhossen11.github.io/iftiurhossenriyad.github.io/post.html?id=poetry-10</link>
+      <guid isPermaLink="true">https://iftiurhossen11.github.io/iftiurhossenriyad.github.io/post.html?id=poetry-10</guid>
       <pubDate>Sat, 10 Oct 2026 16:08:00 +0600</pubDate>
       <category>Poetry</category>
       <description>An inward portrait of a nameless traveler carrying loneliness, questions, and unfinished stories.</description>
@@ -63,8 +63,8 @@
     </item>
     <item>
       <title>If We Meet After Many Years</title>
-      <link>https://iftiurhossenriyad.github.io/post.html?id=poetry-9</link>
-      <guid isPermaLink="true">https://iftiurhossenriyad.github.io/post.html?id=poetry-9</guid>
+      <link>https://iftiurhossen11.github.io/iftiurhossenriyad.github.io/post.html?id=poetry-9</link>
+      <guid isPermaLink="true">https://iftiurhossen11.github.io/iftiurhossenriyad.github.io/post.html?id=poetry-9</guid>
       <pubDate>Sat, 10 Oct 2026 16:08:00 +0600</pubDate>
       <category>Poetry</category>
       <description>Even after many years, a heart may still recognize someone it once called by name.</description>
@@ -72,8 +72,8 @@
     </item>
     <item>
       <title>The Day I Say Goodbye to the World</title>
-      <link>https://iftiurhossenriyad.github.io/post.html?id=poetry-8</link>
-      <guid isPermaLink="true">https://iftiurhossenriyad.github.io/post.html?id=poetry-8</guid>
+      <link>https://iftiurhossen11.github.io/iftiurhossenriyad.github.io/post.html?id=poetry-8</link>
+      <guid isPermaLink="true">https://iftiurhossen11.github.io/iftiurhossenriyad.github.io/post.html?id=poetry-8</guid>
       <pubDate>Sat, 10 Oct 2026 16:08:00 +0600</pubDate>
       <category>Poetry</category>
       <description>A farewell to the world, remembering its lessons about love, grief, and compassion.</description>
@@ -81,8 +81,8 @@
     </item>
     <item>
       <title>Before the Last Breath</title>
-      <link>https://iftiurhossenriyad.github.io/post.html?id=poetry-7</link>
-      <guid isPermaLink="true">https://iftiurhossenriyad.github.io/post.html?id=poetry-7</guid>
+      <link>https://iftiurhossen11.github.io/iftiurhossenriyad.github.io/post.html?id=poetry-7</link>
+      <guid isPermaLink="true">https://iftiurhossen11.github.io/iftiurhossenriyad.github.io/post.html?id=poetry-7</guid>
       <pubDate>Sat, 10 Oct 2026 16:08:00 +0600</pubDate>
       <category>Poetry</category>
       <description>A quiet reflection on pain, memory, and the hope that kindness will outlast absence.</description>
@@ -90,8 +90,8 @@
     </item>
     <item>
       <title>The Many-Faced People of a Beautiful World</title>
-      <link>https://iftiurhossenriyad.github.io/post.html?id=poetry-6</link>
-      <guid isPermaLink="true">https://iftiurhossenriyad.github.io/post.html?id=poetry-6</guid>
+      <link>https://iftiurhossen11.github.io/iftiurhossenriyad.github.io/post.html?id=poetry-6</link>
+      <guid isPermaLink="true">https://iftiurhossen11.github.io/iftiurhossenriyad.github.io/post.html?id=poetry-6</guid>
       <pubDate>Sat, 10 Oct 2026 16:08:00 +0600</pubDate>
       <category>Poetry</category>
       <description>The world is beautiful, yet betrayal and changing faces leave their marks.</description>
@@ -99,8 +99,8 @@
     </item>
     <item>
       <title>Alone in a Crowded City</title>
-      <link>https://iftiurhossenriyad.github.io/post.html?id=poetry-5</link>
-      <guid isPermaLink="true">https://iftiurhossenriyad.github.io/post.html?id=poetry-5</guid>
+      <link>https://iftiurhossen11.github.io/iftiurhossenriyad.github.io/post.html?id=poetry-5</link>
+      <guid isPermaLink="true">https://iftiurhossen11.github.io/iftiurhossenriyad.github.io/post.html?id=poetry-5</guid>
       <pubDate>Sat, 10 Oct 2026 16:08:00 +0600</pubDate>
       <category>Poetry</category>
       <description>Among crowds and bright city lights, a solitary walker searches for a place to return to.</description>
@@ -108,8 +108,8 @@
     </item>
     <item>
       <title>A Promise to Return One Day</title>
-      <link>https://iftiurhossenriyad.github.io/post.html?id=poetry-4</link>
-      <guid isPermaLink="true">https://iftiurhossenriyad.github.io/post.html?id=poetry-4</guid>
+      <link>https://iftiurhossen11.github.io/iftiurhossenriyad.github.io/post.html?id=poetry-4</link>
+      <guid isPermaLink="true">https://iftiurhossen11.github.io/iftiurhossenriyad.github.io/post.html?id=poetry-4</guid>
       <pubDate>Sat, 10 Oct 2026 16:08:00 +0600</pubDate>
       <category>Poetry</category>
       <description>A promise to return, addressed to the world, reflects on time, absence, and being remembered.</description>
@@ -117,8 +117,8 @@
     </item>
     <item>
       <title>The Market of the Hereafter</title>
-      <link>https://iftiurhossenriyad.github.io/post.html?id=poetry-3</link>
-      <guid isPermaLink="true">https://iftiurhossenriyad.github.io/post.html?id=poetry-3</guid>
+      <link>https://iftiurhossen11.github.io/iftiurhossenriyad.github.io/post.html?id=poetry-3</link>
+      <guid isPermaLink="true">https://iftiurhossen11.github.io/iftiurhossenriyad.github.io/post.html?id=poetry-3</guid>
       <pubDate>Thu, 08 Oct 2026 21:10:00 +0600</pubDate>
       <category>Poetry</category>
       <description>A soul looks back on worldly distractions and longs to return to repentance, humility, and good deeds.</description>
@@ -126,8 +126,8 @@
     </item>
     <item>
       <title>Sunlight Behind Tears</title>
-      <link>https://iftiurhossenriyad.github.io/post.html?id=poetry-2</link>
-      <guid isPermaLink="true">https://iftiurhossenriyad.github.io/post.html?id=poetry-2</guid>
+      <link>https://iftiurhossen11.github.io/iftiurhossenriyad.github.io/post.html?id=poetry-2</link>
+      <guid isPermaLink="true">https://iftiurhossen11.github.io/iftiurhossenriyad.github.io/post.html?id=poetry-2</guid>
       <pubDate>Tue, 06 Oct 2026 19:40:00 +0600</pubDate>
       <category>Poetry</category>
       <description>Even through memory and silence, a little light returns—a poem of sorrow, love, and the promise of morning.</description>
@@ -135,8 +135,8 @@
     </item>
     <item>
       <title>The Kite Set Adrift</title>
-      <link>https://iftiurhossenriyad.github.io/post.html?id=poetry-1</link>
-      <guid isPermaLink="true">https://iftiurhossenriyad.github.io/post.html?id=poetry-1</guid>
+      <link>https://iftiurhossen11.github.io/iftiurhossenriyad.github.io/post.html?id=poetry-1</link>
+      <guid isPermaLink="true">https://iftiurhossen11.github.io/iftiurhossenriyad.github.io/post.html?id=poetry-1</guid>
       <pubDate>Mon, 05 Oct 2026 17:20:00 +0600</pubDate>
       <category>Poetry</category>
       <description>When its string breaks, where can a dreaming kite find shelter? A poem of solitude, memory, and bonds left behind.</description>
@@ -144,8 +144,8 @@
     </item>
     <item>
       <title>রেললাইনের ধারে লেখা প্রিয় নাম</title>
-      <link>https://iftiurhossenriyad.github.io/post.html?id=railway-beloved-name</link>
-      <guid isPermaLink="true">https://iftiurhossenriyad.github.io/post.html?id=railway-beloved-name</guid>
+      <link>https://iftiurhossen11.github.io/iftiurhossenriyad.github.io/post.html?id=railway-beloved-name</link>
+      <guid isPermaLink="true">https://iftiurhossen11.github.io/iftiurhossenriyad.github.io/post.html?id=railway-beloved-name</guid>
       <pubDate>Fri, 10 Jul 2026 18:51:00 +0600</pubDate>
       <category>Creative Writing</category>
       <description>A Bengali epistolary story told through railway stations, unsent letters, and the memory of a beloved name. Originally published by Somikkhon.</description>

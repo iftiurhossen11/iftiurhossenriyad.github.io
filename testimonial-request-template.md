@@ -16,7 +16,7 @@ consider writing a short recommendation based on your experience advising or
 teaching me.
 
 With your permission, I would display your recommendation in the Testimonials
-section of my portfolio: https://iftiurhossenriyad.github.io/
+section of my portfolio: https://iftiurhossen11.github.io/iftiurhossenriyad.github.io/
 
 If helpful, you could mention areas you have directly observed, such as my
 security research, intrusion-detection work, RAG-based AI projects, technical
@@ -41,7 +41,7 @@ Riyad
 সুপারিশ লিখে দিতে পারবে?
 
 তোমাদের অনুমতি থাকলে লেখাটি আমার পোর্টফোলিওর Testimonials বিভাগে প্রকাশ করব:
-https://iftiurhossenriyad.github.io/
+https://iftiurhossen11.github.io/iftiurhossenriyad.github.io/
 
 চাইলে MyGenie-তে আমাদের টিমওয়ার্ক, আমার security-first approach, Bangla-first
 AI assistant-এর কাজ, technical leadership, product vision বা সহযোগিতার অভিজ্ঞতা
@@ -64,7 +64,7 @@ Riyad
 একটি সংক্ষিপ্ত মতামত বা সুপারিশ লিখে দিতে পারবে?
 
 তোমার সম্মতি থাকলে এটি আমার পোর্টফোলিওর Testimonials বিভাগে থাকবে:
-https://iftiurhossenriyad.github.io/
+https://iftiurhossen11.github.io/iftiurhossenriyad.github.io/
 
 আমাদের যে প্রকল্পে একসঙ্গে কাজ হয়েছে, সেখানে আমার technical contribution,
 teamwork, problem-solving, documentation, C++/cryptography, SecureAudit-এর

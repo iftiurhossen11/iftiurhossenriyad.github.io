@@ -4,21 +4,21 @@ const servicesData = [
     titleKey: 'focus_ids_title',
     descriptionKey: 'focus_ids_desc',
     features: ['focus_ids_feature_1', 'focus_ids_feature_2', 'focus_ids_feature_3'],
-    projectUrl: 'https://github.com/iftiurhossenriyad/ThreatGuard-Intrusion-Detection-System'
+    projectUrl: 'https://github.com/iftiurhossen11/ThreatGuard-Intrusion-Detection-System'
   },
   {
     icon: '🛡️',
     titleKey: 'focus_audit_title',
     descriptionKey: 'focus_audit_desc',
     features: ['focus_audit_feature_1', 'focus_audit_feature_2', 'focus_audit_feature_3'],
-    projectUrl: 'https://github.com/iftiurhossenriyad/SecureAudRT'
+    projectUrl: 'https://github.com/iftiurhossen11/SecureAudRT'
   },
   {
     icon: '🤖',
     titleKey: 'focus_rag_title',
     descriptionKey: 'focus_rag_desc',
     features: ['focus_rag_feature_1', 'focus_rag_feature_2', 'focus_rag_feature_3'],
-    projectUrl: 'https://github.com/iftiurhossenriyad/IR-Prohori'
+    projectUrl: 'https://github.com/iftiurhossen11/IR-Prohori'
   },
   {
     icon: '🌐',
