@@ -19,7 +19,7 @@ const projectsData = {
       roleKey: 'project_prohori_role', descriptionKey: 'project_prohori_desc',
       features: [{ key: 'project_prohori_feature_rag' }, { key: 'project_prohori_feature_sources' }, { key: 'project_prohori_feature_laws' }, { key: 'project_prohori_feature_helpline_toolkit' }, { key: 'project_prohori_feature_ambassadors' }],
       tech: ['RAG', 'AI', { key: 'project_tag_social_impact' }], contextKey: 'project_prohori_context',
-      githubLink: 'https://github.com/iftiurhossenriyad/IR-Prohori',
+      githubLink: 'https://github.com/iftiurhossen11/IR-Prohori',
       screenshots: [
         'screenshots/ir-prohori/ir-prohori-01.jpg',
         'screenshots/ir-prohori/ir-prohori-02.jpg',
@@ -47,13 +47,13 @@ const projectsData = {
     {
       name: 'ThreatGuard', roleKey: 'project_threatguard_role', descriptionKey: 'project_threatguard_desc',
       tech: ['C++', 'Cryptography', 'OOP'], contextKey: 'project_threatguard_context',
-      githubLink: 'https://github.com/iftiurhossenriyad/ThreatGuard-Intrusion-Detection-System',
+      githubLink: 'https://github.com/iftiurhossen11/ThreatGuard-Intrusion-Detection-System',
       screenshots: ['screenshots/cropped/threatguard-build.jpg']
     },
     {
       name: 'SecureAudit', roleKey: 'project_secureaudit_role', descriptionKey: 'project_secureaudit_desc',
       tech: ['Java', 'SQLite', 'Nmap', 'Lynis', 'Nikto'], contextKey: 'project_secureaudit_context',
-      githubLink: 'https://github.com/iftiurhossenriyad/SecureAudRT',
+      githubLink: 'https://github.com/iftiurhossen11/SecureAudRT',
       screenshots: [
         'screenshots/cropped/secureaudit-overview.jpg',
         'screenshots/cropped/secureaudit-scan.jpg',
@@ -63,7 +63,7 @@ const projectsData = {
     {
       name: 'Buy & Sell Platform', roleKey: 'project_buysell_role', descriptionKey: 'project_buysell_desc',
       tech: ['C++', 'OOP', { key: 'project_tag_file_io' }, 'DSA'], contextKey: 'project_buysell_context',
-      githubLink: 'https://github.com/iftiurhossenriyad/Buy-And-Sell-Platform',
+      githubLink: 'https://github.com/iftiurhossen11/Buy-And-Sell-Platform',
       screenshots: [
         'screenshots/cropped/buysell-search-product.jpg',
         'screenshots/cropped/buysell-add-product.jpg',
@@ -74,7 +74,7 @@ const projectsData = {
     {
       name: 'EduQuiz', roleKey: 'project_eduquiz_role', descriptionKey: 'project_eduquiz_desc',
       tech: ['PHP', 'MySQL', 'Bootstrap', 'Java/Kotlin'], contextKey: 'project_eduquiz_context',
-      githubLink: 'https://github.com/iftiurhossenriyad/eduquiz',
+      githubLink: 'https://github.com/iftiurhossen11/eduquiz',
       screenshots: [
         'screenshots/cropped/eduquiz-admin-dashboard.jpg',
         'screenshots/cropped/eduquiz-login.jpg',
@@ -83,13 +83,13 @@ const projectsData = {
     }
   ],
   publicRepositories: [
-    { name: 'Portfolio Website', url: 'https://github.com/iftiurhossenriyad/iftiurhossenriyad.github.io' },
-    { name: 'MyGenie', url: 'https://github.com/iftiurhossenriyad/MyGenie' },
-    { name: 'EduQuiz', url: 'https://github.com/iftiurhossenriyad/eduquiz' },
-    { name: 'ThreatGuard', url: 'https://github.com/iftiurhossenriyad/ThreatGuard-Intrusion-Detection-System' },
-    { name: 'SecureAudit', url: 'https://github.com/iftiurhossenriyad/SecureAudRT' },
-    { name: 'Buy & Sell Platform', url: 'https://github.com/iftiurhossenriyad/Buy-And-Sell-Platform' },
-    { name: 'IR Prohori', url: 'https://github.com/iftiurhossenriyad/IR-Prohori' },
-    { name: 'Ortho Mess Management', url: 'https://github.com/iftiurhossenriyad/ortho-mess-management' }
+    { name: 'Portfolio Website', url: 'https://github.com/iftiurhossen11/iftiurhossenriyad.github.io' },
+    { name: 'MyGenie', url: 'https://github.com/iftiurhossen11/MyGenie' },
+    { name: 'EduQuiz', url: 'https://github.com/iftiurhossen11/eduquiz' },
+    { name: 'ThreatGuard', url: 'https://github.com/iftiurhossen11/ThreatGuard-Intrusion-Detection-System' },
+    { name: 'SecureAudit', url: 'https://github.com/iftiurhossen11/SecureAudRT' },
+    { name: 'Buy & Sell Platform', url: 'https://github.com/iftiurhossen11/Buy-And-Sell-Platform' },
+    { name: 'IR Prohori', url: 'https://github.com/iftiurhossen11/IR-Prohori' },
+    { name: 'Ortho Mess Management', url: 'https://github.com/iftiurhossen11/ortho-mess-management' }
   ]
 };
