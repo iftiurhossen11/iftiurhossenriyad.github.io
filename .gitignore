@@ -1,3 +1,4 @@
 /dist-admin/
 /public-site/
+/node_modules/
 /*.docx
