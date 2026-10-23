@@ -23,6 +23,18 @@ const resourcesData = [
     featured: false
   },
   {
+    icon: '📝',
+    titleEn: 'Selected Defensive & General Study Notes (12 TXT)',
+    titleBn: 'বাছাইকৃত প্রতিরক্ষামূলক ও সাধারণ অধ্যয়ন-নোট (১২টি TXT)',
+    descriptionEn: 'A plain-text edition of selected defensive and general notes for easy reading and searching. Operational offensive-security notes are not included; the original DOCX collection remains available above.',
+    descriptionBn: 'সহজে পড়া ও খোঁজার জন্য বাছাইকৃত প্রতিরক্ষামূলক ও সাধারণ নোটের টেক্সট সংস্করণ। অপারেশনাল আক্রমণাত্মক নিরাপত্তার নোট এতে নেই; মূল DOCX সংকলনটি ওপরের লিংকে আছে।',
+    fileType: 'TXT · UTF-8',
+    fileSize: '7.1 MiB',
+    downloadUrl: 'resources/course-notes-text.txt',
+    actionKey: 'resource_read_text_notes',
+    featured: false
+  },
+  {
     icon: '🛡️',
     titleEn: 'Secure Our World — CISA',
     titleBn: 'Secure Our World — CISA',
