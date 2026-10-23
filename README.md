@@ -67,7 +67,9 @@ SecureAudit, Buy & Sell Platform, IR Prohori, and Ortho Mess Management.
 The downloadable CV PDF is regenerated during every public-site deployment
 as a two-page CV modeled on the supplied reference document, using current
 profile, skills, projects, education, achievements, and selected certifications.
-It does not print the full portfolio or blog pages. Generate it locally with
+The CV uses the portrait photo extracted from that reference, stored as
+`cv-profile.png` so the same image is included in each deployment. It does not
+print the full portfolio or blog pages. Generate it locally with
 `npm ci`, `npx playwright install chromium`, then
 `npm run build:cv -- . Iftiur_Hossen_Riyad_CV.pdf`.
 The Certifications section lists certificates with their verification links and

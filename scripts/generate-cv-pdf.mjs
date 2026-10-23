@@ -130,7 +130,6 @@ async function extractPageData(browser, url) {
     return {
       name: clean(first('.hero-name')?.textContent) || text(first('h1')),
       headline: text(first('.hero-tagline')) || text(first('.hero-subtitle')),
-      profilePhoto: first('.about-photo img')?.getAttribute('src') || '',
       email: text(all('#contact .contact-item')[0]),
       phone: text(all('#contact .contact-item')[1]),
       location: text(all('#contact .contact-item')[2]),
@@ -358,6 +357,7 @@ function buildCvHtml(data, baseUrl) {
 
 async function main() {
   await access(join(siteDirectory, 'index.html'));
+  await access(join(siteDirectory, 'cv-profile.png'));
 
   const temporaryDirectory = await mkdtemp(join(tmpdir(), 'portfolio-cv-'));
   const pdfPath = join(temporaryDirectory, 'cv.pdf');
@@ -368,6 +368,7 @@ async function main() {
     browser = await chromium.launch({ headless: true });
     const context = await browser.newContext({ serviceWorkers: 'block' });
     const data = await extractPageData(context, `${server.origin}/index.html`);
+    data.profilePhoto = 'cv-profile.png';
 
     if (!data.name || !data.summary || !data.skills.length || !data.education.length) {
       throw new Error('Portfolio data is incomplete; expected profile, skills, and education content.');
