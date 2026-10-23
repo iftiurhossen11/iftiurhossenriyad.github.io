@@ -273,7 +273,15 @@ function buildCvHtml(data, baseUrl) {
     .contact, .social { font-size: 7.3pt; line-height: 1.35; }
     .social { margin-top: .5mm; }
     .separator { padding: 0 1.2mm; }
-    .profile-photo { position: absolute; top: 0; right: 0; width: 21mm; height: 25mm; object-fit: cover; }
+    .profile-photo {
+      position: absolute;
+      top: 0;
+      right: 4.5pt;
+      width: 63.78pt;
+      height: 82.2pt;
+      object-fit: cover;
+      object-position: center top;
+    }
     .section { margin: 0 0 2mm; }
     h2 { margin: 0 0 1mm; padding-bottom: .6mm; border-bottom: .7pt solid #777; font-size: 9pt; line-height: 1.1; break-after: avoid; }
     .summary { text-align: justify; }
@@ -367,6 +375,13 @@ async function main() {
 
     const page = await context.newPage();
     await page.setContent(buildCvHtml(data, `${server.origin}/`), { waitUntil: 'load' });
+    const photoRatio = await page.locator('.profile-photo').evaluate((image) => {
+      const { width, height } = image.getBoundingClientRect();
+      return width / height;
+    });
+    if (!Number.isFinite(photoRatio) || Math.abs(photoRatio - 0.776) > 0.01) {
+      throw new Error(`Expected a passport-style portrait photo (0.776 ratio), got ${photoRatio}.`);
+    }
     await page.pdf({
       path: pdfPath,
       format: 'A4',
