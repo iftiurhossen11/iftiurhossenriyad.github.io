@@ -1,5 +1,5 @@
 import { createReadStream } from 'node:fs';
-import { access, mkdtemp, readFile, rm, stat, writeFile } from 'node:fs/promises';
+import { access, copyFile, mkdtemp, readFile, rm, stat } from 'node:fs/promises';
 import { createServer } from 'node:http';
 import { tmpdir } from 'node:os';
 import { extname, join, resolve, sep } from 'node:path';
@@ -23,79 +23,6 @@ const mimeTypes = new Map([
   ['.webp', 'image/webp'],
   ['.xml', 'application/xml; charset=utf-8']
 ]);
-
-const printStyles = `
-  @page { size: A4; margin: 12mm 12mm 14mm; }
-  @media print {
-    html, body {
-      width: auto !important;
-      height: auto !important;
-      overflow: visible !important;
-      background: #fff !important;
-      color: #182230 !important;
-    }
-    body { font-size: 9pt !important; line-height: 1.48 !important; }
-    .navbar, .skip-link, .portfolio-return-link, .cookie-banner,
-    .pwa-install-banner, .newsletter-form, .contact-form, .hero-cta, .hero-socials,
-    .hero-terminal-input, .terminal-input-line, .project-search,
-    .blog-filters, .blog-feed-link, .project-image-viewer,
-    .filter-btn, button, input, textarea, select { display: none !important; }
-    a { color: #075985 !important; text-decoration: none !important; }
-    .hero {
-      min-height: 0 !important;
-      padding: 12mm 0 8mm !important;
-      overflow: visible !important;
-      border-bottom: 1px solid #cbd5e1;
-    }
-    .hero-container {
-      max-width: none !important;
-      grid-template-columns: 1fr !important;
-      gap: 0 !important;
-      padding: 0 !important;
-    }
-    .hero-content { padding: 0 !important; }
-    .hero-content::before, .hero-glow, .hero-bg-grid, .hero-visual { display: none !important; }
-    .hero-name { font-size: 28pt !important; margin-bottom: 5mm !important; }
-    .hero-tagline, .hero-subtitle { max-width: none !important; font-size: 10pt !important; }
-    .section {
-      min-height: 0 !important;
-      padding: 8mm 0 !important;
-      overflow: visible !important;
-      background: #fff !important;
-      color: #182230 !important;
-      border-bottom: 1px solid #e2e8f0;
-      break-inside: auto !important;
-    }
-    .section-header { margin: 0 0 5mm !important; text-align: left !important; break-after: avoid; }
-    .section-title, .section-label, h1, h2, h3, h4, strong { color: #102033 !important; }
-    .section-title { font-size: 20pt !important; }
-    p, li, span, time { color: #334155 !important; }
-    .reveal { opacity: 1 !important; transform: none !important; }
-    .about-grid, .skills-grid, .projects-grid, .cert-grid, .research-grid,
-    .achievements-grid, .leadership-grid, .resources-grid, .blog-grid,
-    .creative-grid, .education-grid, .services-grid {
-      grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
-      gap: 4mm !important;
-    }
-    .project-card, .skill-card, .cert-card, .achievement-card, .leadership-card,
-    .info-card, .resource-card, .blog-card, .research-card, .education-card,
-    .service-card, .about-pathway, .lab-box {
-      background: #fff !important;
-      color: #182230 !important;
-      border-color: #cbd5e1 !important;
-      box-shadow: none !important;
-      break-inside: avoid;
-    }
-    .project-card, .resource-card, .blog-card { padding: 5mm !important; }
-    .about-photo { position: static !important; }
-    .about-photo img { width: 32mm !important; height: 32mm !important; }
-    .project-screenshot, .cert-image, .profile-photo { max-height: 48mm !important; object-fit: contain !important; }
-    .footer { background: #fff !important; color: #182230 !important; padding: 8mm 0 !important; }
-    .footer-grid { grid-template-columns: repeat(2, minmax(0, 1fr)) !important; }
-    .footer-bottom { text-align: left !important; }
-    .interactive-terminal, .terminal-window, .hero-terminal-input { display: none !important; }
-  }
-`;
 
 async function serveStaticFiles(root) {
   const server = createServer(async (request, response) => {
@@ -158,24 +85,183 @@ async function serveStaticFiles(root) {
   };
 }
 
-async function renderPage(browser, url, destination) {
+async function extractPageData(browser, url) {
   const page = await browser.newPage();
   await page.addInitScript(() => localStorage.setItem('language', 'en'));
   await page.goto(url, { waitUntil: 'networkidle', timeout: 90000 });
-  await page.addStyleTag({ content: printStyles });
-  await page.evaluate(async () => {
-    document.querySelectorAll('.reveal').forEach((element) => element.classList.add('active'));
-    document.querySelectorAll('img').forEach((image) => { image.loading = 'eager'; });
-    await Promise.allSettled([...document.images].map((image) => image.decode()));
-    await document.fonts.ready;
-  });
-  await page.pdf({
-    path: destination,
-    format: 'A4',
-    printBackground: true,
-    preferCSSPageSize: true
+  const data = await page.evaluate(() => {
+    const clean = (value) => (value || '')
+      .replace(/[·•]/g, ',')
+      .replace(/[—–]/g, '-')
+      .replace(/\s*(?:,|\|)?\s*(?:Student\s+)?ID:\s*[A-Za-z0-9_-]+/gi, '')
+      .replace(/\s+/g, ' ')
+      .trim();
+    const text = (element) => clean(element?.innerText);
+    const all = (selector) => [...document.querySelectorAll(selector)];
+    const first = (selector) => document.querySelector(selector);
+    const cardText = (element) => text(element);
+    const projects = all('#projects .project-card').map((card) => {
+      const title = text(card.querySelector('h3'));
+      const role = text(card.querySelector('.project-role'));
+      const paragraphs = [...card.querySelectorAll('p')]
+        .map(text)
+        .filter((value) => value && value !== role);
+      const technologies = text(card.querySelector('.project-tech'));
+      return {
+        title,
+        role,
+        description: (paragraphs.find((value) => value.length > 50) || paragraphs[0] || '').slice(0, 390),
+        technologies: technologies.slice(0, 110)
+      };
+    }).filter((project) => project.title);
+    const overview = all('#mygenie .mygenie-card')
+      .map(cardText)
+      .find((value) => value.startsWith('Overview')) || '';
+    const certificates = all('.cert-card').map((card) => ({
+      title: text(card.querySelector('h4')),
+      issuer: text(card.querySelector('.cert-issuer')),
+      date: text(card.querySelector('.cert-date'))
+    })).filter((item) => item.title);
+
+    return {
+      name: clean(first('.hero-name')?.textContent) || text(first('h1')),
+      headline: text(first('.hero-tagline')) || text(first('.hero-subtitle')),
+      email: text(all('#contact .contact-item')[0]),
+      phone: text(all('#contact .contact-item')[1]),
+      location: text(all('#contact .contact-item')[2]),
+      summary: all('#about p').map(text).filter(Boolean).slice(0, 2).join(' '),
+      skills: all('.skill-card').map((card) => ({
+        title: text(card.querySelector('h3, h4')),
+        items: [...card.querySelectorAll('li, .skill-item, span')]
+          .map(text).filter((value) => value && value !== text(card.querySelector('h3, h4')))
+          .slice(0, 14)
+      })).filter((item) => item.title),
+      education: all('#education .timeline-content').map(cardText).filter(Boolean),
+      projects,
+      mygenie: {
+        title: text(first('#mygenie h2')),
+        overview: overview.replace(/^Overview\s*/, '').slice(0, 470)
+      },
+      research: all('.research-card').map(cardText).filter(Boolean),
+      achievements: all('.achievement-card').map(cardText).filter(Boolean),
+      leadership: all('.leadership-card').map(cardText).filter(Boolean),
+      certificates,
+      selectedWriting: []
+    };
   });
   await page.close();
+  return data;
+}
+
+async function extractWriting(browser, url) {
+  const page = await browser.newPage();
+  await page.addInitScript(() => localStorage.setItem('language', 'en'));
+  await page.goto(url, { waitUntil: 'networkidle', timeout: 90000 });
+  const writing = await page.evaluate(() => [...document.querySelectorAll('.blog-card')]
+    .map((card) => ({
+      title: card.querySelector('h2, h3, h4')?.innerText?.replace(/\s+/g, ' ').trim() || '',
+      category: card.querySelector('.blog-category, .post-category, .blog-card-category')?.innerText?.replace(/\s+/g, ' ').trim() || ''
+    }))
+    .filter((item) => item.title)
+    .slice(0, 6));
+  await page.close();
+  return writing;
+}
+
+function escapeHtml(value) {
+  return String(value || '').replace(/[&<>"']/g, (character) => ({
+    '&': '&amp;',
+    '<': '&lt;',
+    '>': '&gt;',
+    '"': '&quot;',
+    "'": '&#39;'
+  })[character]);
+}
+
+function section(title, content) {
+  return content ? `<section class="section"><h2>${escapeHtml(title)}</h2>${content}</section>` : '';
+}
+
+function buildCvHtml(data) {
+  const skills = data.skills.map((skill) => `
+    <div class="skill">
+      <strong>${escapeHtml(skill.title)}</strong>
+      <span>${escapeHtml(skill.items.join(', '))}</span>
+    </div>`).join('');
+  const education = data.education.map((item) => `<li>${escapeHtml(item)}</li>`).join('');
+  const projects = data.projects.map((project) => `
+    <article class="project">
+      <div class="entry-heading"><strong>${escapeHtml(project.title)}</strong><span>${escapeHtml(project.role)}</span></div>
+      <p>${escapeHtml(project.description)}</p>
+      ${project.technologies ? `<div class="meta">${escapeHtml(project.technologies)}</div>` : ''}
+    </article>`).join('');
+  const research = data.research.map((item) => `<li>${escapeHtml(item)}</li>`).join('');
+  const achievements = data.achievements.map((item) => `<li>${escapeHtml(item)}</li>`).join('');
+  const leadership = data.leadership.map((item) => `<li>${escapeHtml(item)}</li>`).join('');
+  const certificates = data.certificates.map((item) => `
+    <div class="credential"><strong>${escapeHtml(item.title)}</strong><span>${escapeHtml(item.issuer)}${item.date ? ` - ${escapeHtml(item.date)}` : ''}</span></div>`).join('');
+  const writing = data.selectedWriting.map((item) => `
+    <div class="credential"><strong>${escapeHtml(item.title)}</strong>${item.category ? `<span>${escapeHtml(item.category)}</span>` : ''}</div>`).join('');
+  const contact = [data.email, data.phone, data.location]
+    .map((value) => (value || '').replace(/^(EMAIL|PHONE|LOCATION)\s*/i, '').trim())
+    .filter(Boolean)
+    .map(escapeHtml)
+    .join('<span class="separator">|</span>');
+  const experienceTitle = data.headline.match(/Founder\s*&\s*CEO\s*@\s*MyGenie/i)?.[0] || data.mygenie.title;
+  const experience = data.mygenie.overview
+    ? `<div class="entry-heading"><strong>${escapeHtml(experienceTitle)}</strong><span>AI product &amp; business</span></div><p>${escapeHtml(data.mygenie.overview)}</p>`
+    : '';
+
+  return `<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>CV — ${escapeHtml(data.name)}</title>
+  <style>
+    @page { size: A4; margin: 14mm 15mm 15mm; }
+    * { box-sizing: border-box; }
+    body { margin: 0; color: #172b42; font: 9pt/1.42 Arial, Helvetica, sans-serif; }
+    header { border-bottom: 2px solid #147d92; padding-bottom: 8mm; margin-bottom: 5mm; }
+    h1 { font-size: 25pt; line-height: 1.08; margin: 0 0 2mm; color: #10283f; }
+    .headline { color: #147d92; font-weight: 700; font-size: 11pt; margin: 0 0 3mm; }
+    .contact { color: #526477; font-size: 8pt; }
+    .separator { padding: 0 2mm; color: #91a0ae; }
+    .section { margin: 0 0 4.5mm; break-inside: auto; }
+    h2 { border-bottom: 1px solid #d8e2e9; color: #147d92; font-size: 11pt; letter-spacing: .08em; margin: 0 0 2.5mm; padding-bottom: 1mm; text-transform: uppercase; break-after: avoid; }
+    p { margin: 1mm 0 0; }
+    .columns { display: grid; grid-template-columns: 1fr 1fr; gap: 3mm 7mm; }
+    .skill, .credential { break-inside: avoid; margin-bottom: 2mm; }
+    .skill strong, .credential strong { display: block; font-size: 8.5pt; }
+    .skill span, .credential span, .meta { color: #526477; font-size: 7.7pt; }
+    ul { margin: 0; padding-left: 4mm; }
+    li { margin: 0 0 1.5mm; }
+    .project { margin: 0 0 3mm; break-inside: avoid; }
+    .entry-heading { display: flex; gap: 3mm; justify-content: space-between; align-items: baseline; }
+    .entry-heading strong { font-size: 9pt; }
+    .entry-heading span { color: #526477; font-size: 7.7pt; text-align: right; }
+    .meta { margin-top: 1mm; }
+    .footer { border-top: 1px solid #d8e2e9; color: #738294; font-size: 7pt; margin-top: 5mm; padding-top: 2mm; }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>${escapeHtml(data.name)}</h1>
+    <p class="headline">${escapeHtml(data.headline)}</p>
+    <div class="contact">${contact}</div>
+  </header>
+  ${section('Professional Profile', data.summary ? `<p>${escapeHtml(data.summary)}</p>` : '')}
+  ${section('Core Skills', skills ? `<div class="columns">${skills}</div>` : '')}
+  ${section('Experience', experience)}
+  ${section('Selected Projects', projects)}
+  ${section('Education', education ? `<ul>${education}</ul>` : '')}
+  ${section('Research', research ? `<ul>${research}</ul>` : '')}
+  ${section('Awards & Recognition', achievements ? `<ul>${achievements}</ul>` : '')}
+  ${section('Leadership', leadership ? `<ul>${leadership}</ul>` : '')}
+  ${section('Certifications', certificates ? `<div class="columns">${certificates}</div>` : '')}
+  ${section('Selected Writing', writing ? `<div class="columns">${writing}</div>` : '')}
+  <div class="footer">Generated from the latest portfolio content | ${escapeHtml(data.name)}</div>
+</body>
+</html>`;
 }
 
 async function main() {
@@ -183,31 +269,33 @@ async function main() {
   await access(join(siteDirectory, 'blog.html'));
 
   const temporaryDirectory = await mkdtemp(join(tmpdir(), 'portfolio-cv-'));
-  const indexPdfPath = join(temporaryDirectory, 'portfolio.pdf');
-  const blogPdfPath = join(temporaryDirectory, 'blog.pdf');
+  const pdfPath = join(temporaryDirectory, 'cv.pdf');
   const server = await serveStaticFiles(siteDirectory);
   let browser;
 
   try {
     browser = await chromium.launch({ headless: true });
     const context = await browser.newContext({ serviceWorkers: 'block' });
-    await renderPage(context, `${server.origin}/index.html`, indexPdfPath);
-    await renderPage(context, `${server.origin}/blog.html`, blogPdfPath);
+    const data = await extractPageData(context, `${server.origin}/index.html`);
+    data.selectedWriting = await extractWriting(context, `${server.origin}/blog.html`);
 
-    const combinedPdf = await PDFDocument.create();
-    combinedPdf.setTitle('Portfolio CV — Md Iftiur Hossen Riyad');
-    combinedPdf.setAuthor('Md Iftiur Hossen Riyad');
-    combinedPdf.setSubject('Automatically generated from the latest public portfolio and blog');
-    combinedPdf.setCreator('Portfolio deployment workflow');
-
-    for (const sourcePath of [indexPdfPath, blogPdfPath]) {
-      const sourcePdf = await PDFDocument.load(await readFile(sourcePath));
-      const pages = await combinedPdf.copyPages(sourcePdf, sourcePdf.getPageIndices());
-      pages.forEach((page) => combinedPdf.addPage(page));
+    if (!data.name || !data.summary || !data.skills.length || !data.education.length) {
+      throw new Error('Portfolio data is incomplete; expected profile, skills, and education content.');
     }
 
-    await writeFile(outputPath, await combinedPdf.save());
-    console.log(`Generated ${outputPath} (${combinedPdf.getPageCount()} pages).`);
+    const page = await context.newPage();
+    await page.setContent(buildCvHtml(data), { waitUntil: 'load' });
+    await page.pdf({
+      path: pdfPath,
+      format: 'A4',
+      printBackground: true,
+      preferCSSPageSize: true
+    });
+    await page.close();
+
+    await copyFile(pdfPath, outputPath);
+    const pdf = await PDFDocument.load(await readFile(outputPath));
+    console.log(`Generated ${outputPath} (${pdf.getPageCount()} pages).`);
   } finally {
     if (browser) await browser.close();
     await server.close();
