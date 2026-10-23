@@ -64,6 +64,10 @@ after a visitor gives consent.
 The **Skills in Practice** repository list in `data-projects.js` links to the
 public repositories for this portfolio, MyGenie, EduQuiz, ThreatGuard,
 SecureAudit, Buy & Sell Platform, IR Prohori, and Ortho Mess Management.
+The downloadable CV PDF is regenerated during every public-site deployment
+from the current portfolio and blog pages. Generate it locally with
+`npm ci`, `npx playwright install chromium`, then
+`npm run build:cv -- . Iftiur_Hossen_Riyad_CV.pdf`.
 The Certifications section lists certificates with their verification links and
 available PDF previews. The Free Resources section provides 12 separate UTF-8
 plain-text study notes in `resources/`, each linked from its own card. The

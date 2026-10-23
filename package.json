@@ -1,0 +1,10 @@
+{
+  "private": true,
+  "scripts": {
+    "build:cv": "node scripts/generate-cv-pdf.mjs"
+  },
+  "devDependencies": {
+    "pdf-lib": "1.17.1",
+    "playwright": "1.64.1"
+  }
+}
