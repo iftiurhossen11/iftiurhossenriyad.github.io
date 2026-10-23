@@ -74,7 +74,10 @@ review its dates as study progress and opportunities change. The creative
 section describes poetry, travel notes, and historical reading as personal
 interests, and links to the blog, where poetry and other writing are listed.
 The About section also has three bilingual work pathways (Secure, Build, Write)
-that link visitors directly to the relevant skills, projects, and writing.
+that link visitors directly to the relevant skills, projects, and writing. The
+desktop presentation uses an editorial split hero, a profile-led About layout,
+and a three-column project grid while retaining the responsive narrow-screen
+layout.
 The security lab section lists the operating systems, tools, and project
 infrastructure represented in the portfolio, and clarifies that testing is
 limited to owned systems, isolated labs, or explicitly authorized programs.
