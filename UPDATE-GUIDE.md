@@ -57,7 +57,11 @@ Certificate PDFs are stored under `certs/`, with optimized JPG previews under
 `certs/previews/`. `preview` is optional; when it is omitted, the card displays
 a translated placeholder. `image` is also optional for verification-only
 certificates. When present, it links to the PDF and enables the preview
-lightbox, so keep it pointed to the matching PDF.
+lightbox, so keep it pointed to the matching PDF. Cards are sorted newest first
+using the date in the English translation or `date` string. Use a full date such
+as `Completed: Month Day, Year` or `2026-10-23`; certificates without a
+recognizable date appear last. Certificates with the same date keep their
+source order.
 
 Supported icon names include `star`, `clock`, `target`, `document`, `layers`,
 `pin`, `code`, `terminal`, `education`, `file`, `shield`, and `award`.

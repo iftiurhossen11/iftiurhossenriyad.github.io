@@ -183,6 +183,48 @@
     return `<span data-i18n="${escapeHtml(key)}">${escapeHtml(fallback)}</span>`;
   }
 
+  function getCertificationDateTimestamp(cert) {
+    const dateLabel = cert.dateKey ? translations.en[cert.dateKey] : cert.date;
+    const isoDate = String(dateLabel || '').match(/\b(20\d{2})-(\d{2})-(\d{2})\b/);
+    const monthDate = String(dateLabel || '').match(/\b(January|February|March|April|May|June|July|August|September|October|November|December)\s+(\d{1,2}),?\s+(20\d{2})\b/i);
+    let year;
+    let month;
+    let day;
+
+    if (isoDate) {
+      [, year, month, day] = isoDate;
+      month = Number(month) - 1;
+    } else if (monthDate) {
+      const monthIndex = [
+        'january', 'february', 'march', 'april', 'may', 'june',
+        'july', 'august', 'september', 'october', 'november', 'december'
+      ].indexOf(monthDate[1].toLowerCase());
+      year = Number(monthDate[3]);
+      month = monthIndex;
+      day = Number(monthDate[2]);
+    } else {
+      return Number.NEGATIVE_INFINITY;
+    }
+
+    const timestamp = Date.UTC(Number(year), Number(month), Number(day));
+    const parsedDate = new Date(timestamp);
+    if (
+      parsedDate.getUTCFullYear() !== Number(year)
+      || parsedDate.getUTCMonth() !== Number(month)
+      || parsedDate.getUTCDate() !== Number(day)
+    ) {
+      return Number.NEGATIVE_INFINITY;
+    }
+    return timestamp;
+  }
+
+  function getSortedCertifications() {
+    return certificationsData
+      .map((cert, index) => ({ cert, index, timestamp: getCertificationDateTimestamp(cert) }))
+      .sort((a, b) => b.timestamp - a.timestamp || a.index - b.index)
+      .map(({ cert }) => cert);
+  }
+
   function renderCertifications() {
     const container = document.getElementById('certGrid');
     if (!container) return;
@@ -204,7 +246,7 @@
       shield: '<path d="M12 22s8-4 8-11V5l-8-3-8 3v6c0 7 8 11 8 11z"/><path d="m9 12 2 2 4-4"/>',
       award: '<circle cx="12" cy="8" r="6"/><path d="m8.2 13-1.4 9L12 19l5.2 3-1.4-9"/>'
     };
-    container.innerHTML = certificationsData.map((cert) => {
+    container.innerHTML = getSortedCertifications().map((cert) => {
       const preview = cert.preview && cert.image
         ? `<div class="cert-image-wrapper"><img src="${escapeHtml(cert.preview)}" alt="" class="cert-image" loading="lazy" decoding="async"><button class="cert-image-trigger" type="button" data-image="${escapeHtml(cert.image)}#view=FitH" data-title-key="${escapeHtml(cert.titleKey || '')}" aria-label="${escapeHtml(translations[html.lang]?.cert_view_certificate || translations.en.cert_view_certificate)}" data-i18n-aria-label="cert_view_certificate"><span class="cert-overlay"><span class="cert-view-btn">🔍 ${translatedMarkup('cert_view_certificate')}</span></span></button></div>`
         : `<div class="cert-image-wrapper cert-preview-placeholder" role="img" aria-label="${escapeHtml(translations[html.lang]?.cert_preview_unavailable || translations.en.cert_preview_unavailable)}" data-i18n-aria-label="cert_preview_unavailable"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">${icons[cert.icon] || icons.file}</svg><span data-i18n="cert_preview_unavailable">${escapeHtml(translations.en.cert_preview_unavailable)}</span></div>`;
@@ -1709,7 +1751,7 @@
         { text: '═══════════════════════════════════════', cls: 'info' },
         { text: 'Professional Certifications', cls: 'success' },
         { text: '═══════════════════════════════════════', cls: 'info' },
-        ...certificationsData.map((cert) => ({
+        ...getSortedCertifications().map((cert) => ({
           text: `✓ ${translations[html.lang][cert.titleKey] || cert.title || cert.titleKey} — ${translations[html.lang][cert.dateKey] || cert.date || ''}`,
           cls: ''
         })),
