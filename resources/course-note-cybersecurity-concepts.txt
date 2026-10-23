@@ -1,0 +1,436 @@
+Describe the concepts of cybersecurity.docx
+Plain text edition ? UTF-8
+
+Personal study notes. Text and tables are included; page layout and images are not reproduced. Practice cybersecurity only in systems you own or are explicitly authorized to test.
+========================================================================
+
+Introduction
+Nowadays, we’re inundated with reports of cyberattacks and their ramifications. We hear about attacks on global supply chains that have major economic consequences. Almost routinely, we find out that cybercriminals have stolen the personal information of millions of consumers through platforms used on a daily basis. Sometimes, we even hear about vital government and health services being blocked and extorted for ransom.
+Cyberattacks continuously evolve. Cybersecurity is an important, expanding field in a world where companies and institutions are racing to move and maintain their businesses online. Throughout this module, you'll get a foundational understanding of basic cybersecurity concepts.
+By the end of this module, you'll be able to:
+* Describe the basic threat landscape.
+* Describe different types of malware.
+* Describe basic mitigation strategies.
+Describe what is cybersecurity
+People, organizations, and governments are routinely falling victim to cyberattacks. We constantly hear references to concepts like cybersecurity, cyberattacks, cybercriminals, and more. This can all sound daunting and difficult to grasp. To protect yourself and those around you, you'll need to have a basic understanding of these concepts.
+What is a cyberattack?
+A cyberattack is commonly defined as an attempt to gain illegal access to a computer or computer system to cause damage or harm. But only thinking of computers or computer systems, in a traditional sense, is limiting. The reality is that a cyberattack can occur on almost any modern digital device. The impact can range from an inconvenience for an individual to global economic and social disruption.
+An attacker can use people, computers, phones, applications, messages, and system processes to carry out an attack. Individuals, organizations, institutions, and governments can be victims of an attack. These attackers might:
+* Lock data and processes, and demand a ransom.
+* Remove vital information to cause serious harm.
+* Steal information.
+* Publicly expose private information.
+* Stop vital business processes and systems from running, to cause disruption and malfunction.
+With cyberattacks continuously evolving, it's important for you to remember that attackers don't exclusively need a computer to carry out an attack. Also, attacks can vary widely in their nature and scope. Any digitally connected device or entity can be used as part of an attack, or be subject to an attack.
+What is a cybercriminal?
+A cybercriminal is anyone who carries out a cyberattack. Cybercriminals can be:
+* A single person or a group of people.
+* An organization for hire.
+* A government entity.
+Cybercriminals can be located anywhere, including embedded inside an organization or institution, to cause damage from within.
+What is cybersecurity?
+Cybersecurity refers to technologies, processes, and training that help protect systems, networks, programs, and data from cyberattacks, damage, and unauthorized access. Cybersecurity enables you to achieve the following goals:
+* Confidentiality: Information should only be visible to the right people.
+* Integrity: Information should only be changed by the right people or processes.
+* Availability: Information should be visible and accessible whenever needed.
+This is commonly referred to as the Confidentiality, Integrity, Availability (CIA) model in the context of cybersecurity. Throughout the rest of this module, you'll learn about the types of attacks that cybercriminals use to disrupt these goals, and cause harm. You'll also see some basic threat mitigation strategies.
+Describe the threat landscape
+You've now learned about cyberattacks, cybercriminals, and cybersecurity. But you'll also need to understand the means cybercriminals can use to carry out attacks and achieve their aims. To do this, you'll learn about concepts like the threat landscape, attack vectors, security breaches, and more.
+What is the threat landscape?
+Whether an organization is large or small, the entirety of the digital landscape with which it interacts represents an entry point for a cyberattack. These can include:
+* Email accounts
+* Social media accounts
+* Mobile devices
+* The organization's technology infrastructure
+* Cloud services
+* People
+Collectively, these are referred to as the threat landscape. Notice that the threat landscape can cover more than just computers and mobile phones. It can include any elements that are owned or managed by an organization, or some that are not. As you'll learn next, criminals will use any means they can to mount and carry out an attack.
+What are attack vectors?
+An attack vector is an entry point or route for an attacker to gain access to a system.
+Email is perhaps the most common attack vector. Cybercriminals will send seemingly legitimate emails that result in users taking action. This might include downloading a file, or selecting a link that will compromise their device. Another common attack vector is through wireless networks. Bad actors will often tap into unsecured wireless networks at airports or coffee shops, looking for vulnerabilities in the devices of users who access the wireless network. Monitoring social media accounts, or even accessing devices that are left unsecured, are other commonly used routes for cyberattacks. However, you should know that attackers don’t need to rely on any of these. They can use a variety of less obvious attack vectors. Here are some examples:
+* Removable media. An attacker can use media such as USB drives, smart cables, storage cards, and more to compromise a device. For example, attackers might load malicious code into USB devices that are subsequently provided to users as a free gift, or left in public spaces to be found. When they're plugged in, the damage is done.
+* Browser. Attackers can use malicious websites or browser extensions to get users to download malicious software on their devices, or change a user's browser settings. The device can then become compromised, providing an entry point to the wider system or network.
+* Cloud services. Organizations rely more and more on cloud services for day-to-day business and processes. Attackers can compromise poorly secured resources or services in the cloud. For example, an attacker could compromise an account in a cloud service, and gain control of any resources or services accessible to that account. They could also gain access to another account with even more permissions.
+* Insiders. The employees of an organization can serve as an attack vector in a cyberattack, whether intentionally or not. An employee might become the victim of a cybercriminal who impersonates them as a person of authority to gain unauthorized access to a system. This is a form of social engineering attack. In this scenario, the employee serves as an unintentional attack vector. In some cases, however, an employee with authorized access may use it to intentionally steal or cause harm.
+What are security breaches?
+Any attack that results in someone gaining unauthorized access to devices, services, or networks is considered a security breach. Imagine a security breach as similar to a break-in where an intruder (attacker) successfully breaks into a building (a device, application, or network).
+Security breaches come in different forms, including the following:
+Social engineering attacks
+It's common to think about security breaches as exploiting some flaw or vulnerability in a technology service or piece of equipment. Likewise, you might believe that security breaches only happen because of vulnerabilities in technology. But that’s not the case.
+Attackers can use social engineering attacks to exploit or manipulate users into granting them unauthorized access to a system.
+In social engineering, impersonation attacks happen when an unauthorized user (the attacker), aims to gain the trust of an authorized user by posing as a person of authority to access a system from some nefarious activity. For example, a cybercriminal might pretend to be a support engineer to trick a user into revealing their password to access an organization's systems.
+Attackers also use artificial intelligence (AI) tools to make social engineering attacks more convincing. For example, AI can generate phishing emails that are well written, personalized, and free of the spelling or grammar mistakes that used to help identify fakes. AI can also create realistic fake audio or video of a trusted person, such as a manager or coworker, to trick someone into sharing sensitive information or transferring money. Because these AI-enhanced attacks look and sound more legitimate, it's important to verify unexpected requests through a separate, trusted channel before acting on them.
+Browser attacks
+Whether on a desktop, laptop, or phone, browsers are an important access tool for the internet. Security vulnerabilities in a browser can have a significant impact because of their pervasiveness. For example, suppose a user is working on an important project with a looming deadline. They want to figure out how to solve a particular problem for their project. They find a website that they believe will provide a solution.
+The website asks the user to make some changes to their browser settings so they can install an add-on. The user follows the instructions on the website. Unknown to them, the browser is now compromised. This is a browser modifier attack, one of many different types used by cybercriminals. An attacker can now use the browser to steal information, monitor user behavior, or compromise a device.
+Password attacks
+A password attack is when someone attempts to use authentication for a password-protected account to gain unauthorized access to a device or system. Attackers often use software to speed up the process of cracking and guessing passwords. For example, suppose an attacker has somehow discovered someone's username for their work account.
+The attacker then tries a vast number of possible password combinations to access the user’s account. The password only has to be correct once for the attacker to get access. This is known as a brute force attack and is one of many ways in which a cybercriminal can use password attacks.
+What are data breaches?
+A data breach is when an attacker successfully gains access or control of data. Using the intruder example, this would be similar to that person getting access to, or stealing, vital documents and information inside the building:
+When an attacker achieves a security breach, they'll often want to target data, because it represents vital information. Poor data security can lead to an attacker gaining access and control of data. This can lead to serious consequences for the victim, whether that is a person, organization, or even a government. This is because the victim's data could be abused in many ways. For example, it can be held as ransom or used to cause financial or reputational harm.
+Describe malware
+You've heard about terms like malware, viruses, worms, and so on. But what do these things mean? Is a virus a worm? Exactly what does malware do? These are just some of the basic concepts you’ll learn about in this unit.
+What is malware?
+Malware comes from the combination of the words malicious and software. It’s a piece of software used by cybercriminals to infect systems and carry out actions that will cause harm. This could include stealing data or disrupting normal usage and processes.
+Malware has two main components:
+* Propagation mechanism
+* Payload
+What is a propagation mechanism?
+Propagation is how the malware spreads itself across one or more systems. Here are a few examples of common propagation techniques:
+Virus
+Most of us are already familiar with this term. But what does it actually mean? First, let’s think about viruses in nontechnical terms. In biology, for example, a virus enters the human body, and once inside, can spread and cause harm. Technology-based viruses depend on some means of entry, specifically a user action, to get into a system. For example, a user might download a file or plug in a USB device that contains the virus, and contaminates the system. You now have a security breach.
+Worm
+In contrast to a virus, a worm doesn't need any user action to spread itself across systems. Instead, a worm causes damage by finding vulnerable systems it can exploit. Once inside, the worm can spread to other connected systems. For example, a worm might infect a device by exploiting a vulnerability in an application that runs on it. The worm can then spread across other devices in the same network and other connected networks.
+Trojan
+A trojan horse attack gets its name from classical history, where soldiers hid inside a wooden horse that was presented as a gift to the Trojans. When the Trojans brought the wooden horse into their city, the soldiers emerged from hiding and attacked. In the context of cybersecurity, a trojan is a type of malware that pretends to be a genuine piece of software. When a user installs the program, it can pretend to be working as advertised, but the program also secretly performs malicious actions such as stealing information.
+What is a payload?
+The payload is the action that a piece of malware performs on an infected device or system. Here are some common types of payload:
+* Ransomware is a payload that locks systems or data until the victim has paid a ransom. Suppose there's an unidentified vulnerability in a network of connected devices. A cybercriminal can exploit this to access and then encrypt all files across this network. The attacker then demands a ransom in return for decrypting the files. They might threaten to remove all of the files if the ransom hasn't been paid by a set deadline.
+* Spyware is a type of payload that spies on a device or system. For example, the malware may install keyboard scanning software on a user's device, collect password details, and transmit them back to the attacker, all without the user's knowledge.
+* Backdoors: A backdoor is a payload that enables a cybercriminal to exploit a vulnerability in a system or device to bypass existing security measures and cause harm. Imagine that a cybercriminal infiltrates a software developing company and leaves some code that allows them to carry out attacks. This becomes a backdoor that the cybercriminal could use to hack into the application, the device it's running on, and even the organization's and customers' networks and systems.
+* Botnet is a type of payload that joins a computer, server, or another device to a network of similarly infected devices that can be controlled remotely to carry out some nefarious action. A common application of botnet malware is crypto-mining (often referred to as crypto-mining malware). In this case, the malware connects a device to a botnet that consumes the device's computing power to mine or generate cryptocurrencies. A user might notice their computer is running slower than normal and getting worse by the day.
+Describe basic mitigation strategies
+You've learned that there are many different types of cyberattack. But how do you defend your organization against cybercriminals? There are several different ways that you can keep cyberattackers at bay, from multifactor authentication to improved browser security, and by informing and educating users.
+What is a mitigation strategy?
+A mitigation strategy is a measure or collection of steps that an organization takes to prevent or defend against a cyberattack. This is usually done by implementing technological and organizational policies and processes designed to protect against attacks. Here are some of the many different mitigation strategies available to an organization:
+Multifactor authentication
+Traditionally, if someone's password or username is compromised, this allows a cybercriminal to gain control of the account. But multifactor authentication was introduced to combat this.
+Multifactor authentication works by requiring a user to provide multiple forms of identification to verify that they are who they claim to be. The most common form of identification used to verify or authenticate a user is a password. This represents something the user knows.
+Two other authentication methods provide something the user is, such as a fingerprint or retinal scan (a biometric form of authentication), or provide something the user has, such as a phone, hardware key, or other trusted device. Multifactor authentication employs two or more of these forms of proof to verify a valid user.
+For example, a bank might require a user to provide security codes sent to their mobile device, in addition to their username and password, to access their online account.
+Browser security
+We all rely on browsers to access the internet to work and carry out our daily tasks. As you've learned earlier, attackers can compromise poorly secured browsers. A user might download a malicious file or install a malicious add-on that can compromise the browser, the device and even propagate itself into an organization's systems. Organizations can protect against these types of attacks by implementing security policies that:
+* Prevent the installation of unauthorized browser extensions or add-ons.
+* Only allow permitted browsers to be installed on devices.
+* Block certain sites using web content filters.
+* Keep browsers up to date.
+Educate users
+Social engineering attacks rely on the vulnerabilities of humans to cause harm. Organizations can defend against social engineering attacks by educating their staff. Users should learn how to recognize malicious content they receive or encounter, and know what to do when they spot something suspicious. For example, organizations can teach users to:
+* Identify suspicious elements in a message.
+* Never respond to external requests for personal information.
+* Lock devices when they're not in use.
+* Only store, share, and remove data according to the organization's policies.
+Threat intelligence
+The threat landscape can be vast. Organizations might have many attack vectors that are all possible targets for cybercriminals. This means that organizations need to take as many measures as possible to monitor, prevent, defend against attacks, and even identify possible vulnerabilities before cybercriminals use them to carry out attacks. In short, they need to use threat intelligence.
+Threat intelligence enables an organization to collect systems information, details about vulnerabilities, information on attacks, and more. Based on its understanding of this information, the organization can then implement policies for security, devices, user access, and more, to defend against cyberattacks. The collection of information to gain insights, and respond to cyberattacks, is known as threat intelligence.
+Organizations can use technological solutions to implement threat intelligence across their systems. These are often threat intelligent solutions that can automatically collect information, and even hunt and respond to attacks and vulnerabilities.
+These are just some of the mitigation strategies that organizations can take to protect against cyberattacks. Mitigation strategies enable an organization to take a robust approach to cybersecurity. This will ultimately protect the confidentiality, integrity, and availability of information.
+Module assessment
+This assessment evaluates your understanding of the module. Unlike before, you won't get feedback on individual answers—just whether they're right or wrong. This is meant to measure what you've learned. Take time to review the module materials before starting.
+窗体顶端
+(A).An organization wants to ensure that its employees can identify and report phishing attempts. Which strategy should be implemented?
+* Threat intelligence
+* Multifactor authentication
+* Educate users
+2.What distinguishes a brute force attack from other types of password attacks?
+* It involves trying numerous password combinations until the correct one is found.
+* It exploits vulnerabilities in software to bypass password protection.
+* It uses social engineering techniques to obtain passwords.
+3.Which mitigation strategy involves collecting system information and details about vulnerabilities to proactively defend against cyberattacks?
+* Browser security
+* Threat intelligence
+* Educate users
+4.Your organization wants to prevent social engineering attacks. Which strategy should be implemented to educate employees on identifying suspicious elements in communications?
+Browser security
+Multifactor authentication
+Educate users
+5.Your organization discovers multiple devices acting unusually slow, likely participating in unauthorized crypto-mining. What type of malware is likely responsible?
+Botnet
+Ransomware
+Spyware
+6.Your organization discovers an unauthorized application that seems legitimate but is secretly performing malicious activities. What type of malware is this likely to be?
+Worm
+Virus
+Trojan
+7.After installing a seemingly helpful app, your device starts sending information to unknown servers. What type of malware might this app contain?
+Ransomware
+Spyware
+Botnet
+8.How does a worm differ from a virus in terms of propagation across systems?
+A worm requires user interaction to install, while a virus installs automatically.
+A worm spreads through email attachments, while a virus spreads through network vulnerabilities.
+A worm spreads without needing user action, while a virus requires user action to propagate.
+9.Which attack vector is used by cybercriminals to exploit unsecured wireless networks at public locations?
+Wireless networks
+Insiders
+Removable media
+窗体底端
+Summary and resources
+In this module, you've learned about concepts like cyberattacks, cybersecurity, the threat landscape, and malware. You've also seen how to mitigate against cyberattacks.
+You've learned that cybercriminals use cyberattacks to gain illegal access to, or control over, devices, systems, and data. They can then compromise the confidentiality, integrity, or availability of information (the CIA model).
+Also, you've seen that cybersecurity is how you protect and maintain the confidentiality, integrity, and availability of information. This is because cybersecurity enables you to implement mitigation strategies that you can use to protect against cyberattacks.
+Now you've completed this module, you should be able to:
+* Describe the basic threat landscape.
+* Describe different types of malware.
+* Describe basic mitigation strategies.
+Describe concepts of cryptography
+Cryptography is foundational to protecting the confidentiality, integrity, and availability of information; and defending against cyberattacks. Throughout this module, you'll learn about the different elements of cryptography and their application in cybersecurity.
+Learning objectives
+After completing this module, you'll be able to:
+* Describe some of the basic concepts of cryptography.
+* Describe encryption and is uses in cybersecurity.
+* Describe hashing and digital signing.
+* Describe the concept and use of digital certificates.
+Introduction
+The words cryptography and encryption may conjure visions of spies and clandestine operations, or of hackers sat in windowless rooms. Yet much of today's modern online world wouldn't be possible without what is meant by those two words.
+Cryptography and encryption are the cornerstones of any good cybersecurity solution. For example, they help to keep your emails safe from prying eyes and protect online payments.
+As you continue your journey into the world of cybersecurity, you'll see how we use cryptography and encryption to protect ourselves in day-to-day activities.
+After completing this module, you'll have a good grounding in:
+* The basic concepts of cryptography.
+* How encryption is used in cybersecurity.
+* What hashing and digital signing are used for.
+* How digital certificates support good cybersecurity.
+Describe cryptography
+The desire to keep secrets has been with us since we first learned to communicate. As we developed new methods and ways of communicating over the centuries, the need to share secrets with friends and allies grew.
+Definition of cryptography
+Cryptography, derived from the Greek word "Kryptos, which means hidden or secret, is the application of secure communication in any form between a sender and a recipient. Typically, cryptography is used to obscure the meaning of a written message, but it can also be applied to images.
+The first known use of cryptography can be traced back to ancient Egypt and the use of complex hieroglyphs. One of the first ciphers ever used to secure military communications came from the Roman general Julius Caesar.
+These two examples make clear that cryptography has many uses and isn't limited to the digital world. However, from those humble origins, one thing is sure, cryptography is now a fundamental requirement in helping secure our digitally connected planet.
+* Each time you use a browser to access, for example, an HTTPS address, an online retail store, your bank, or even this Learn site, elements of cryptography are keeping your interactions confidential and secure.
+* Whenever you wirelessly connect a device to a router to access the internet, cryptography helps make it secure.
+* You can use it to secure and protect files on external or internal storage.
+* Smartphones have changed the way we communicate, from video and audio calls to text messaging. Cryptography is used to maintain the confidentiality and integrity of these communications.
+As with all systems, cryptography has its own language of terms and phrases. Two of the important ones are plaintext and ciphertext.
+* The term plaintext represents any message including documents, music, pictures, movies, data, and computer programs, waiting to be cryptographically transformed.
+* When the plaintext has been turned into a secret message, it's called ciphertext. This term represents the encrypted/secured data.
+Describe encryption and its use in cybersecurity
+As you discovered in the previous unit, cryptography is the art of obscuring the meaning of a message to everyone but the intended recipient. This requires the plaintext message to be transformed into ciphertext. The mechanism that enables this is called encryption.
+The methods used to encrypt a message have evolved over thousands of years, from swapping one letter for another to more elaborate mechanical devices like the Enigma machine.
+Encryption now takes place in the digital world. It uses computers and mathematics to combine large random prime numbers to create keys that are used in both symmetric and asymmetric encryption.
+What is encryption?
+Encryption is the mechanism by which plaintext messages are turned into unreadable ciphertext. The use of encryption enhances the confidentiality of data being shared with your recipient, whether they're a friend, a work colleague, or another business.
+Decryption is the mechanism by which the recipient of a ciphertext message can turn it back into readable plaintext.
+To facilitate the encryption and decryption process, you need to use a secret encryption key. This key is much like the one you’d use to open your car, or the door to your house. Encryption keys come in two flavors:
+* Symmetric keys
+* Asymmetric keys
+Symmetric keys
+Symmetric key encryption is based around the idea that the same cryptographic key is used for both the encryption of the plaintext message and the decryption of the ciphertext message. This makes the encryption method quick and provides a degree of confidentiality about the security of the ciphertext.
+With this encryption method, the cryptographic key is treated as a shared secret between two or more parties. The secret must be carefully guarded to avoid it being found by a bad actor. All parties must have the same cryptographic key before secure messages can be sent. Distribution of the key represents one of the challenges associated with symmetric encryption.
+Consider a group or organization where each individual needs the capability to communicate securely with every other person. If the group consists of three individuals, you need only three keys.
+Now let’s consider an organization with only 100 employees, where each person needs to communicate securely with everyone else. In this case, 4,950 keys need to be created, and securely shared and managed. Lastly, imagine a government-based organization with 1,000 employees where each individual needs to communicate securely. The number of keys required is 499500. This growth can be expressed with a formula: p x (p-1) /2, where p is the number of people who need to communicate.
+As the number of people in the organization grows, the number of keys increases significantly. This makes the secure management and distribution of secret keys, which are used in symmetric encryption, difficult and costly.
+Asymmetric or public-key encryption
+Asymmetric encryption was developed in the 1970s. It addresses the secure distribution and proliferation of keys that are associated with symmetric encryption.
+Asymmetric encryption changed the way cryptographic keys were shared. Rather than one encryption key, an asymmetric key is composed of two elements, a private key and a public key, which form a key pair. The public key, as the name suggests, can be shared with anyone, so individuals and organizations don’t need to worry about its secure distribution.
+The private key must be kept safe. It's looked after only by the person who generated the key pair and isn't shared with anyone. A user who needs to encrypt a message would use the public key, and only the person holding the private key could decrypt it.
+Asymmetric encryption, with its use of public and private keys, removes the burden of secure distribution of keys. This concept also addresses the proliferation of keys we saw in symmetric encryption. Consider the example of the government-based organization with 1,000 employees, where each individual must be able to communicate securely. With asymmetric encryption, every person will generate a key pair, resulting in 2,000 keys. With symmetric encryption, this would have required 450,000 keys.
+How does asymmetric encryption work
+While the algorithms and mathematics that underpin asymmetric encryption are complex, the principle of how it works is relatively easy.
+Let's assume that we have two people, Quincy and Monica, who need to communicate securely and privately. Using readily available software tools, Quincy and Monica each create their own key pair.
+The first thing that Quincy and Monica will do is share their public keys with each other. Because public keys aren't secret, they can exchange them via email.
+When Quincy wants to send a secured message to Monica, he uses her public key to encrypt the plaintext and create the ciphertext. Quincy then sends the ciphertext to Monica using whatever means he wants, such as email. When Monica receives the ciphertext, she uses her private key to decrypt it, turning it back to plaintext.
+When Monica wants to respond, she uses Quincy's public key to encrypt the message before sending it. Quincy then uses his private key to decrypt it.
+Let's assume that Eve is interested in what Quincy and Monica are saying. Eve intercepts a ciphertext message sent from Quincy to Monica. Additionally, Eve knows Monica's public key.
+Because Eve doesn’t know Monica’s private key, she has no way of decrypting the ciphertext. If Eve tries to decrypt the ciphertext with Monica’s public key, she will see gibberish.
+Given the nature of asymmetric encryption, even if you know the public key, it's impossible to discover the private key.
+In this two-minute video, we'll demonstrate how symmetric and asymmetric encryption work, and how they protect your documents from being read by unauthorized people.
+Different types of encryptions
+There are several different types of symmetric and asymmetric encryption, and new versions are being invented all the time. Here are some that you may encounter:
+* Data Encryption Standard (DES) and Triple-DES. This was one of the first symmetric encryption standards used.
+* Advanced encryption standard (AES). AES replaced DES and Triple DES, and is still widely used today.
+* RSA. This was one of the first asymmetric encryption standards, and variations are still being used today.
+Where is encryption used?
+Encryption is used worldwide in almost every facet of our lives, from making a call on your smartphone to using your credit card for a purchase in a shop. Encryption is used even more when you browse the web.
+Web browsing - you may not realize it, but every time you go to a website where the address starts with HTTPS, or there is a padlock icon, encryption is being used. In the address bar for this web page, you will notice it starts with https://. Similarly, when you connect to your bank through the web or make an online purchase where you provide sensitive information, such as a credit card number, you should make sure you see https:// in the address bar.
+Device encryption – many operating systems provide tools to enable encryption of hard drives and portable devices. For example, Windows BitLocker, a feature of the Windows operating system, provides encryption for your PC hard drive or portable drives that may connect via USB.
+Messaging applications – some commonly known and available messaging applications encrypt messages.
+Mobile communications - whether you're using a smartphone or other mobile communications device, encryption is used to securely register it with the nearest mast or cell tower. This ensures you always have the best signal strength.
+Describe hashing and its application in digital signing
+So far, you've seen how cryptography, through the use of encryption, is used to keep messages safe from prying eyes. Cryptography is also used to verify that data, like documents and images, haven't been tampered with. This is done through a process called hashing.
+What is hashing?
+Hashing uses an algorithm, also known as a hashing function, to convert the original text to a unique fixed-length value. This is called a hash value. Each time the same text is hashed using the same algorithm, the same hash value is produced. That hash can then be used as a unique identifier of its associated data.
+Hashing is different to encryption in that it doesn't use keys, and the hashed value can’t decrypt back to the original.
+There are many different types of hash functions. One that's common, and you may hear in discussions with security professionals, is the Secure Hash Algorithm (SHA). SHA is a family of hash algorithms that each work differently. The details are beyond the scope of this content, but one of the more commonly used SHAs is SHA-256, which produces a hash value that is 256 bits long.
+What is a digital signature?
+A common application of hashing is in digital signing. Like a signature on a piece of paper, a digital signature validates that the document bears the signature, which actually comes from the person who signed it. Additionally, a digital signature is used to validate that the document hasn't been tampered with.
+How does a digital signature work?
+A digital signature will always be unique to each person signing a document, much like one that's been handwritten. All digital signatures use an asymmetric key pair: the private and public keys.
+Using a digital signing service, Monica can assign a digital signature to the document to prove that it hasn’t changed. Signing the document creates a time-stamped hash for it. This hash is then encrypted using Monica’s private key. Next, the signing service appends the hash to the original document, which isn't encrypted. Finally, both the digitally signed document and Monica’s public key are sent to Victoria.
+When Victoria receives the digitally signed document, she uses the same digital signing service to extract Monica’s hash from the document, and generate a fresh hash for the original plaintext document. Then, using Monica’s public key, the encrypted hash is decrypted. If Monica’s decrypted hash matches the one Victoria created for the document, then the digital signature is valid. Victoria then knows that the document hasn’t been tampered with.
+The following two-minute video demonstrates how digital signatures work, and how they show if a document has been tampered with.
+Digital signing requires using a digital signing service. Many companies offer this capability. Two of the most popular are DocuSign and Adobe Sign.
+Describe digital certificates
+Cryptography has many applications in today's modern world. You've seen how encryption can ensure the confidentiality of messages. You also learned how hashing is used in digital signatures to verify a message hasn't been tampered with. In this unit, you'll learn about digital certificates and how they provide an added layer of security.
+Certificates address the possibility of an unethical person intercepting, altering, or counterfeiting messages that can occur in digital communication.
+Essentially, a digital certificate is a credential issued by a certificate authority (CA) that can be used to verify the identity of an individual or entity to whom the certificate is issued, referred to as the subject. In this sense, a digital certificate is like a passport or other identity credential issued by a trusted authority or government agency, it's used to verify an identity. The data in a certificate includes information about the subject, the subject’s public key from their public/private key pair, and has been verified by the CA.
+To obtain a digital certificate, the individual or entity submits a certification request to a reputable CA. Details of the requestor's identity and their public key, from the public/private key pair generated from an available tool, are included in the certificate request. In some cases, the requestor may look to have the CA issue a key pair on their behalf, as part of the request. In either case, the private key is always kept secret by the individual or entity. The CA reviews all the identity information submitted in the request to determine whether it meets the CA's criteria for issuing a certificate. If the CA approves the request, it signs and issues a certificate containing information about the subject and the subject's public key.
+The lifespan of a digital certificate tends to be one year, after which the certificate expires. When that happens, you'll see a warning message about expired certificates. The warning indicates that the subject’s identity can't be confirmed.
+A common application of digital certificates, that is visible to the user, is in web-based communication. Digital certificates are employed by websites that use secure HTTPS communication, and is denoted by a padlock icon in the browser's address bar. Selecting the padlock on the address bar provides several options that can be selected and provide additional information.
+Selecting "Connection is secure," provides information about the connection, as shown in the image below.
+Selecting the certificate icon provides details about the digital certificate.
+Why do we need digital certificates?
+In an earlier unit, we described the process of asymmetric encryption and how the public/private key pairs are used. In the example, Quincy and Monica want to communicate securely so they each generate their key pair, using readily available software. Monica and Quincy share their public key with each other but keep their private key secret. When Quincy wants to send a secure message to Monica, Quincy uses Monica's public key to encrypt and send the message. Monica uses her private key to decrypt the message.
+The use of asymmetric encryption, described in the example, ensures the confidentiality of the message. Because public keys are public, there's nothing that validates the public key used by Quincy really came from Monica. Similarly, there's nothing that validates the message was actually sent by Quincy. There's a potential for an unethical person to intercept, alter, or counterfeit the messages. Digital certificates play an important role in addressing this risk.
+Let's assume that Monica has been issued a digital certificate through a reputable CA and it's shared with Quincy. The certificate links Monica's identity with the public key. Because Quincy uses the public key in Monica's certificate, Quincy is assured the public key came from Monica and only Monica's private key will decrypt the message.
+Let's assume that Quincy has also been issued a digital certificate through a reputable CA. Quincy's uses his private key to digitally sign the message. Quincy sends the signed message to Monica along with the digital certificate containing his public key. The digital certificate links Quincy's identity to the public key, so using public key in the certificate serves to verify the message hasn't been tampered and verifies the message came from Quincy. Without the digital certificate, a digital signature only serves to verify the message hasn't been tampered with.
+Summary and resources
+Cryptography is foundational to protecting the confidentiality, integrity, and availability of information. It also defends against cyberattacks.
+On our journey through cryptography and encryption, you've seen how secret messages evolved from symmetric encryption to the modern application of asymmetric key encryption on email and online cybersecurity.
+Next, you saw how hashing and digital signatures use encryption to validate identity and the authenticity of the message and content you send. Finally, you now understand why certificates are essential for maintaining good cybersecurity.
+After completing this module, you should be able to:
+* Describe some of the basic concepts of cryptography.
+* Describe encryption and its uses in cybersecurity.
+* Describe hashing and digital signing.
+* Describe digital certificates.
+Describe application-based threats and how to protect against them
+The proliferation of applications across the digital landscape presents an increased opportunity for cybercriminals. Throughout this module, you’ll learn about the threat landscape of application-based attacks and how to protect your applications.
+Learning objectives
+* Describe what are applications.
+* Describe the threat landscape of applications.
+* Describe how to protect your applications.
+Introduction
+In today’s digitally connected world, there's an application to do just about anything. Applications influence and shape so many aspects of our everyday life, including how we interact with our friends, how we work, what goods and services we buy and how we buy them, how we learn, and even how we spend our free time. Because applications play such an important role in our personal and professional lives, they're an attractive target for cybercriminals looking to exploit any opportunity.
+Here, you’ll learn to describe what applications are, relative to other types of software, and how they can become attack vectors for cybercriminals. You'll also see the steps you can take to reduce the risk and be confident that the apps you use are safe.
+After completing this module, you'll be able to:
+* Describe what applications are.
+* Describe the threat landscape of applications.
+* Describe common application-based security controls.
+Describe what are applications
+Nowadays, many of us talk about applications even in our most casual conversations. But do we really know what an application is? To better understand how applications can become attack vectors for cybercriminals, we'll first need to identify what they know about us.
+What is software?
+Software is a collection or set of commands in the form of code that instructs a computer or device to do some form of work. Software runs on top of the hardware (physical components) of a device. Broadly speaking, software comes in two types:
+* System software
+* Application software
+System software
+System software is the first thing that runs when you turn on your device, and manages the different components that make it work. It also creates a framework that enables applications to run properly and to mitigate problems when they stop working.
+System software can be characterized by the following:
+* It controls or facilitates the hardware and processes of a system such as the keyboard, mouse, network, and video.
+* It can run independently.
+* It typically runs in the background.
+For example, your computer's operating system and utilities, like the antivirus and firewall, are all system software.
+System software is a large and complex area, and is well outside the scope of this unit. But it's worth noting that system software can also be the target of cybercriminal attacks.
+Application software
+Application software, also known as applications, are designed with a specific purpose. These include word processing, spreadsheets, email, and instant messaging, to name a few. These applications are designed to work on specific instances of system software, and the majority are available for the most popular systems.
+Application software can be characterized by the following:
+* Doing specialized work, such as word processing, video editing, and messaging.
+* Designed for the user to interact with directly.
+* Typically, it doesn't run independently and needs system software.
+* Typically, it needs to be installed by a user and/or managed by a user, although many systems come preloaded with application software.
+Word processors, email apps, internet browsers, and image editors, are all examples of application software. More than ever, we’re using application software to do all sorts of things, so they now come in all shapes and sizes. Applications can run on all types of devices, such as desktops, mobiles, and appliances. For example, games are applications that can run on desktops, mobile devices, and even smart televisions.
+Applications are also becoming proactive and intelligent. For instance, the map application on your mobile phone could be tracking your location to provide real-time traffic information, even if you’re not interacting with it. Apps on your devices are collecting important data about you, like your location, how long you stay at a given place, your browser search history, and more.
+Typically, the information collected is shared with other apps. For example, your browser search history is often shared with social media sites, so they can provide targeted advertisements based on that information.
+Because applications are so intertwined with our daily lives, and run on all sorts of devices, they've become the key to information about us. Cybercriminals are aware of this, and will attempt to compromise applications to get their hands on our information.
+Describe the threat landscape of applications
+Applications are widely available and used for just about anything, from home and personal use, to work and school. They're a fundamental part of our daily life. They empower us by making difficult things easier. At the same time, applications actively collect and hold vast amounts of data about us. This includes what we do, who our friends are, where we've been, what we spend our money on, and what our hobbies are. Cybercriminals are fully aware of how much data these applications hold and will look for any weaknesses they can exploit.
+Protecting our data, whether you're an individual or a large corporation, is essential. Understanding how applications can be compromised, and where these threats come from, will improve your application security and the confidentiality of any stored or accessed data.
+Applications from untrustworthy origins
+The ability to download applications to your device, be that a computer, smartphone, or tablet, has become easier. Most us use the larger well-established application stores. Some of these verify the authenticity of the applications before they list them, and prohibit certain types being sold through their platform.
+There are, however, other places where you can download applications. There's little or no restriction on the apps available and minimal verification on their authenticity. Not every app on these stores is bad. However, a cybercriminal can create and package source code, and give it the name of a legitimate application that users might be familiar with. They then upload it to a hosting site alongside legitimate applications.
+If you install or run applications from untrustworthy sources, you could become the victim of a cyberattack.
+Applications with inherent vulnerabilities
+While application developers strive to ensure their apps are secure, it's impossible to guarantee 100 percent protection. Cybercriminals look for any vulnerability they can exploit. There are many different types of application vulnerabilities—open source and zero day are two of the more common ones.
+Open-source vulnerabilities
+Software developers will often create libraries of common functions to solve a specific problem. Everyone can access open-source libraries, and the source code is freely available. When an application developer wants to solve a specific problem, they check to see if there's an open-source solution first.
+One of the benefits of open source is that issues and vulnerabilities are publicly identified and fixed. However, these libraries are also available to cybercriminals who look for ways to take advantage. Developers need to stay current on the latest version of any open-source libraries they've used as components in their applications, to avoid cyberattacks.
+Zero-day vulnerabilities
+Cybercriminals conduct detailed reconnaissance of applications, searching the code for flaws they might exploit. Any flaw that's previously unknown to the application owner and left unpatched is considered a zero-day vulnerability. When a cybercriminal finds a zero-day vulnerability, they won’t publicize it. Instead, they take full advantage. For example, a cybercriminal might have noticed that a banking app has a zero-day vulnerability, and used this to quietly steal information and money from application users. The zero-day name stems from the number of days (zero) a developer has to fix the vulnerability from when a vulnerability is identified to when it's exploited.
+Supply chain attacks
+A supply chain attack happens when a cybercriminal compromises a trusted piece of software before it reaches you. Most applications are built using code libraries and tools from many different sources. If an attacker manages to insert malicious code into one of those sources, every application that uses it can become compromised. Because the software comes from a source that you trust, these attacks are especially hard to detect. Organizations protect against supply chain attacks by verifying the integrity of the software they use and monitoring for unexpected changes in their tools and libraries.
+Browser-based threats
+Browsers may be our gateway to the internet, but they're also applications. That's why most threats that you come across manifest themselves through browser activity. Here's two of the more common browser-based threats:
+Cookie-based attacks
+You may have heard about cookies, but do you really know what they are? A cookie is a simple plaintext file that contains small bits of data—your user credentials, last search you made, last purchased item, and so on. The purpose of cookies is to enhance your browser experience and make surfing easier, by simplifying the need to continuously sign in to the site.
+One common type of cookie attack is a session replay. If the cybercriminal can intercept or eavesdrop on your communications, they're able to steal the cookie data, and your sign in data, then use it to access the website posing as you.
+Typosquatting
+Typosquatting is a type of browser-based attack where a cybercriminal obtains deliberately misspelled domain names. These are based on popular websites, where they can put their own malicious code, disguised as a legitimate website for the domain. Users might then mistake the malicious website for the legitimate one they wanted to visit. If a user enters any personal information or follows instructions on the website, they’ve become victims of a cyberattack.
+Describe the threat landscape of applications
+Applications are widely available and used for just about anything, from home and personal use, to work and school. They're a fundamental part of our daily life. They empower us by making difficult things easier. At the same time, applications actively collect and hold vast amounts of data about us. This includes what we do, who our friends are, where we've been, what we spend our money on, and what our hobbies are. Cybercriminals are fully aware of how much data these applications hold and will look for any weaknesses they can exploit.
+Protecting our data, whether you're an individual or a large corporation, is essential. Understanding how applications can be compromised, and where these threats come from, will improve your application security and the confidentiality of any stored or accessed data.
+Applications from untrustworthy origins
+The ability to download applications to your device, be that a computer, smartphone, or tablet, has become easier. Most us use the larger well-established application stores. Some of these verify the authenticity of the applications before they list them, and prohibit certain types being sold through their platform.
+There are, however, other places where you can download applications. There's little or no restriction on the apps available and minimal verification on their authenticity. Not every app on these stores is bad. However, a cybercriminal can create and package source code, and give it the name of a legitimate application that users might be familiar with. They then upload it to a hosting site alongside legitimate applications.
+If you install or run applications from untrustworthy sources, you could become the victim of a cyberattack.
+Applications with inherent vulnerabilities
+While application developers strive to ensure their apps are secure, it's impossible to guarantee 100 percent protection. Cybercriminals look for any vulnerability they can exploit. There are many different types of application vulnerabilities—open source and zero day are two of the more common ones.
+Open-source vulnerabilities
+Software developers will often create libraries of common functions to solve a specific problem. Everyone can access open-source libraries, and the source code is freely available. When an application developer wants to solve a specific problem, they check to see if there's an open-source solution first.
+One of the benefits of open source is that issues and vulnerabilities are publicly identified and fixed. However, these libraries are also available to cybercriminals who look for ways to take advantage. Developers need to stay current on the latest version of any open-source libraries they've used as components in their applications, to avoid cyberattacks.
+Zero-day vulnerabilities
+Cybercriminals conduct detailed reconnaissance of applications, searching the code for flaws they might exploit. Any flaw that's previously unknown to the application owner and left unpatched is considered a zero-day vulnerability. When a cybercriminal finds a zero-day vulnerability, they won’t publicize it. Instead, they take full advantage. For example, a cybercriminal might have noticed that a banking app has a zero-day vulnerability, and used this to quietly steal information and money from application users. The zero-day name stems from the number of days (zero) a developer has to fix the vulnerability from when a vulnerability is identified to when it's exploited.
+Supply chain attacks
+A supply chain attack happens when a cybercriminal compromises a trusted piece of software before it reaches you. Most applications are built using code libraries and tools from many different sources. If an attacker manages to insert malicious code into one of those sources, every application that uses it can become compromised. Because the software comes from a source that you trust, these attacks are especially hard to detect. Organizations protect against supply chain attacks by verifying the integrity of the software they use and monitoring for unexpected changes in their tools and libraries.
+Browser-based threats
+Browsers may be our gateway to the internet, but they're also applications. That's why most threats that you come across manifest themselves through browser activity. Here's two of the more common browser-based threats:
+Cookie-based attacks
+You may have heard about cookies, but do you really know what they are? A cookie is a simple plaintext file that contains small bits of data—your user credentials, last search you made, last purchased item, and so on. The purpose of cookies is to enhance your browser experience and make surfing easier, by simplifying the need to continuously sign in to the site.
+One common type of cookie attack is a session replay. If the cybercriminal can intercept or eavesdrop on your communications, they're able to steal the cookie data, and your sign in data, then use it to access the website posing as you.
+Typosquatting
+Typosquatting is a type of browser-based attack where a cybercriminal obtains deliberately misspelled domain names. These are based on popular websites, where they can put their own malicious code, disguised as a legitimate website for the domain. Users might then mistake the malicious website for the legitimate one they wanted to visit. If a user enters any personal information or follows instructions on the website, they’ve become victims of a cyberattack.
+Summary and resources
+The proliferation of applications across the digital landscape presents an increased opportunity for cybercriminals.
+Applications shape how we interact with our friends, and conduct our business. You've seen how a robust software design can improve the confidentiality of the data being accessed via an application. Also, you saw how applications are attacked, creating vectors that cybercriminals can utilize to obtain data about you or your business. Finally, you learned some steps you can take to protect your applications from attack.
+Now you've completed this module, you should be able to:
+* Describe what applications are.
+* Describe the threat landscape of applications.
+* Describe common application-based security controls.
+Describe device-based threats and security controls
+Internet connected devices are everywhere, and users and organizations depend on them for pretty much every facet of daily life and business use. Throughout this module, you'll learn about device threats and mitigation techniques.
+Learning objectives
+* Describe what your device knows about you.
+* Describe how devices and become cybersecurity threats.
+* Describe how to mitigate against device-related threats.
+Introduction
+In our modern world, people and organizations rely on connected devices to meet their most vital day-to-day needs. Devices access and store important business and personal data, while continuously collecting information about us. As a result, cybercriminals target devices to gain unauthorized access and control of valuable data, creating havoc to users and organizations. In this module, you'll learn how to guard against device-based cyberattacks to protect data and mitigate the impact for people and organizations.
+By the end of this module, you'll be able to:
+* Describe what your device knows about you.
+* Describe how devices become cybersecurity threats.
+* Describe how to mitigate against device-related threats.
+Describe what your device knows about you
+Devices are an important part of everyday life and we depend on them for so many things. To do their job efficiently, devices need to capture, store, and share all kinds of sensitive information about us. We might not realize the extent to which we use some devices; they’ve become almost invisible to us. To protect the sensitive information to which our devices have access, we should be aware of how we’re using them, either consciously or subconsciously.
+What are devices?
+When you hear about a "device," what's the first thing that comes to mind? You'll probably think about the ones you're familiar with, such as your phone, laptop, or tablet. Devices encompass a lot more than this. For example:
+* USB drives.
+* Any device connected to your home network, including always-on home assistance devices, printers, TVs, appliances, door cameras, printers, and more.
+* Car dashboards, including the navigation system and voice control.
+* Wi-Fi hotspots.
+From our homes to our offices and everywhere in between, we come into contact with devices.
+Let’s look at Kayla. At home, she's surrounded by devices like her phone, always-on home assistant, tablet, smart watch, wireless router, and more.
+Kayla uses her car to get to work. The vehicle has built-in devices that she can use while driving, like the navigation system and the wireless access point that allows her car to serve as a mobile hotspot.
+At work, Kayla's mobile phone and computer connect wirelessly to her organization's network to access corporate resources, including a printer. She also uses a USB drive to store certain files and presentations.
+In the context of cybersecurity, anything you can touch or interact with, and that can also connect to something else, is considered to be a device. You might be using a device consciously, like when you're on your phone, or when you insert a USB drive into your laptop. Or you might not realize you're using a device, either because a connection happens automatically, like when your phone connects to a Wi-Fi hotspot, or because you set it up once and then forgot about it—such as the router in your home network.
+The takeaway here is that we should expand what comes to mind when we think about devices. It's important to do this because, in the context of cybersecurity, these can all be considered as threat vectors—targets for cybercriminals who want to cause harm.
+Devices and data
+Why are devices an integral part of our lives? It's largely because they collect and store information, and keep us connected to other devices and services.
+Think about the convenience of receiving real-time traffic information on your cell phone or the annoyance when adverts are delivered to your device, based on your internet search history. This type of targeted content is sent because our devices, through their applications, collect enormous amounts of information about us. This includes location details, websites visited, how long we stay on a site, and much more.
+Connected devices also enable us to easily access and share information. For example, you've probably used your cell phone to share family photos with your friends, access a work document, or pay for something at a store.
+Whether you use the device for work or personal business—or both—the accessible information is often sensitive and private. Cybercriminals know this and try to compromise devices as a means to access data.
+Describe how devices become cybersecurity threats
+You’ve learned that devices are all around us, and that they hold all kinds of personal information. Also, you've seen that cybercriminals target devices to get their hands on this information. But how do they do this?
+Devices as threat vectors
+While devices help us to get our work done, and go about our daily lives, they also present opportunities to cybercriminals who want to cause harm. This is because they're threat vectors—they provide different ways in which cybercriminals can carry out attacks. For example:
+* Phone, laptop, or tablet – downloading a malicious app might result in the device being contaminated with malware that can exfiltrate sensitive data stored locally, without the user’s knowledge. This compromises confidentiality and integrity because the cybercriminal can now view or modify the data.
+* USB drives – cybercriminals can put malicious software or files on a USB drive and insert it into a device like a laptop. The drive could, for example, run ransomware, meaning the availability of the data has been compromised because it's locked in return for a ransom.
+* Always-on home assistant devices – these devices are always listening or watching. A cybercriminal can put malicious software on the app stores for these devices. If a user then installs it, the cybercriminal could, for example, attack the device with spyware to secretly record information, and compromise data confidentiality. They could also move laterally to other home devices, and compromise their data.
+* QR codes – attackers can create fake QR codes that direct your phone to a malicious website when scanned. These fake codes might appear in emails, on printed posters, or even placed over legitimate ones in public spaces. Because your phone opens the link automatically, QR code attacks can bypass the email security tools that normally detect suspicious links. Always preview the URL before visiting it, and treat QR codes from unknown sources with the same caution as any suspicious link.
+Device vulnerabilities
+A device can become compromised because of poor health, either because it doesn't have the latest security updates, or it has weak authentication. If you connect this type of device to a Wi-Fi hotspot—in an airport, for example, it's an easy target for attackers. They know the common vulnerabilities of devices and applications, and how to gain unauthorized access.
+After an attacker gains access, they can run scripts to install malware. In most cases, malware like back doors or botnets can persist on the device even after it's updated. This causes further damage when a user connects the infected device to a work or home network.
+Some users want to gain more control of their devices for customization or other purposes, and might resort to jailbreaking. This is where a user finds unofficial ways to get full access to the core systems of a device. The device becomes vulnerable because this action might circumvent security measures. This gives cybercriminals the opportunity to provide false guidance or software that compromises the device.
+Any connected device has the potential to be a threat vector if it’s not properly secured. Having learned this, we can now think about the different ways in which we protect our devices.
+Describe how to mitigate against device-related threats
+We've learned that devices can be threat vectors for cybercriminals who want to gain access to, or control of, data to cause harm. But what can we do to protect ourselves?
+Mitigation measures
+There are different ways to protect devices and data. Let’s look at a few of the common ones:
+Device hardening
+Device hardening is how you minimize the possibility of having device vulnerabilities that can be exploited. You can use the following methods:
+* Make sure devices have the latest security updates.
+* Turn off any unused devices.
+* Enable security features supported through the device operating system.
+* Require PIN or biometrics, such as facial recognition, to access devices.
+Many modern operating systems have capabilities that support device hardening. For example, users can enable automatic operating system updates to help protect against known vulnerabilities and ensure continued availability of the device. Updates also support security features such as virus and threat protection, and firewall functionality.
+These features are easily enabled and can help keep your connected device secure to maintain the confidentiality and integrity of accessible data.
+Encryption
+Encryption is a process that turns information on the device into unintelligible data. The only way to make this information useful is to reverse the encryption. This requires a specific password or key that's only available to the authorized user. When the information is encrypted, it becomes useless without the correct key or password. This way, data confidentiality is maintained. The contents of a device can be encrypted in many different ways. For example, some operating systems come with built-in tools that enable you to encrypt your computer’s hard drive or any storage device you connect to it.
+Limit application device access
+So far, we've looked at the different ways in which applications and devices might be compromised, and the steps you can take to mitigate threats. However, one of the more overlooked attack vectors is when someone directly uses your apps on the physical device.
+Suppose you've left your smartphone on the desk and hurried off for an urgent meeting. A bad actor could use your phone to access any of your apps. They could send messages, access bank accounts, and make purchases—all by using apps from your device. If they're smart, they'd leave the device where they found it, so you would never know.
+This threat also applies to your work computer. Suppose you're busy working on important and sensitive data, and step away from your computer to get a coffee. A criminal could now use the unsecured computer to look up secret or sensitive data, or download it to a USB drive.
+In these two cases, everything the bad actor does will be logged and tracked in your name. There's little chance that the bad actor's actions will be traced back to them, and you'll have to deal with the fallout and clean-up.
+The best way to limit access to your applications is to ensure that they're closed or secured when you aren't using them. You do this by locking a device when you step away from it. If the device is small enough, keep it with you.
+Summary and resources
+You've learned that devices can be the key to vital information on individuals and organizations, and that cybercriminals target them to gain unauthorized access to data. Cybercriminals use various means to compromise devices. If you look after data, you protect people and organizations. You’ve learned how to protect devices through cybersecurity measures that help you to achieve and maintain the confidentiality, integrity, and availability of data.
+Now you've completed this module, you should be able to:
+* Describe what your device knows about you.
+* Describe how devices can become cybersecurity threats.
+* Describe how to mitigate against device-related threats.
