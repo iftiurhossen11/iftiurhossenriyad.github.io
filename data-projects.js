@@ -3,6 +3,7 @@ const projectsData = {
     {
       name: 'APON', status: 'prototype', statusKey: 'projects_status_prototype',
       roleKey: 'project_apon_role', descriptionKey: 'project_apon_desc',
+      caseStudy: { problemKey: 'case_apon_problem', technologyKey: 'case_apon_technology', outcomeKey: 'case_apon_outcome' },
       features: [{ key: 'project_apon_feature_identity' }, { key: 'project_apon_feature_bazar' }, { key: 'project_apon_feature_services' }, { key: 'project_apon_feature_student_community_agro' }, { key: 'project_apon_feature_master_ai' }, { key: 'project_apon_feature_agents' }],
       tech: ['AI', { key: 'project_tag_security' }, { key: 'project_tag_ecosystem' }], contextKey: 'project_apon_context',
       visualType: 'mockup', screenshots: ['screenshots/mockups/apon.svg']
@@ -10,6 +11,7 @@ const projectsData = {
     {
       name: 'CampusNet', status: 'prototype', statusKey: 'projects_status_prototype',
       roleKey: 'project_campusnet_role', descriptionKey: 'project_campusnet_desc',
+      caseStudy: { problemKey: 'case_campusnet_problem', technologyKey: 'case_campusnet_technology', outcomeKey: 'case_campusnet_outcome' },
       features: [{ key: 'project_campusnet_feature_identity' }, { key: 'project_campusnet_feature_verification' }, { key: 'project_campusnet_feature_privacy' }, { key: 'project_campusnet_feature_discovery' }, { key: 'project_campusnet_feature_ctf' }, { key: 'project_campusnet_feature_files' }],
       tech: [{ key: 'project_tag_security_first' }, { key: 'project_tag_networking' }],
       visualType: 'mockup', screenshots: ['screenshots/mockups/campusnet.svg']
@@ -17,6 +19,7 @@ const projectsData = {
     {
       name: 'IR Prohori', status: 'working', statusKey: 'projects_status_working',
       roleKey: 'project_prohori_role', descriptionKey: 'project_prohori_desc',
+      caseStudy: { problemKey: 'case_prohori_problem', technologyKey: 'case_prohori_technology', outcomeKey: 'case_prohori_outcome' },
       features: [{ key: 'project_prohori_feature_rag' }, { key: 'project_prohori_feature_sources' }, { key: 'project_prohori_feature_laws' }, { key: 'project_prohori_feature_helpline_toolkit' }, { key: 'project_prohori_feature_ambassadors' }],
       tech: ['RAG', 'AI', { key: 'project_tag_social_impact' }], contextKey: 'project_prohori_context',
       githubLink: 'https://github.com/iftiurhossen11/IR-Prohori',
@@ -30,6 +33,7 @@ const projectsData = {
     {
       name: 'NOJORGHOR', status: 'working', statusKey: 'projects_status_working',
       roleKey: 'project_nojorghor_role', descriptionKey: 'project_nojorghor_desc',
+      caseStudy: { problemKey: 'case_nojorghor_problem', technologyKey: 'case_nojorghor_technology', outcomeKey: 'case_nojorghor_outcome' },
       features: [{ key: 'project_nojorghor_feature_agents' }, { key: 'project_nojorghor_feature_rules' }, { key: 'project_nojorghor_feature_isolation' }, { key: 'project_nojorghor_feature_alerts' }, { key: 'project_nojorghor_feature_context' }, { key: 'project_nojorghor_feature_blocking' }],
       tech: ['scikit-learn', 'IDS', 'ML'], contextKey: 'project_nojorghor_context',
       visualType: 'mockup', screenshots: ['screenshots/mockups/nojorghor.svg']
@@ -37,6 +41,7 @@ const projectsData = {
     {
       name: 'SURAKSHA', status: 'proposal', statusKey: 'projects_status_proposal',
       roleKey: 'project_suraksha_role', descriptionKey: 'project_suraksha_desc',
+      caseStudy: { problemKey: 'case_suraksha_problem', technologyKey: 'case_suraksha_technology', outcomeKey: 'case_suraksha_outcome' },
       features: [{ key: 'project_suraksha_feature_sos' }, { key: 'project_suraksha_feature_location' }, { key: 'project_suraksha_feature_lifecycle' }, { key: 'project_suraksha_feature_dashboard' }, { key: 'project_suraksha_feature_privacy' }, { key: 'project_suraksha_feature_audit' }],
       tech: [{ key: 'project_tag_emergency' }, { key: 'project_tag_privacy' }, { key: 'project_tag_tracking' }],
       contextKey: 'project_suraksha_context',

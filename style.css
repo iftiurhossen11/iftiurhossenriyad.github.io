@@ -1210,6 +1210,65 @@ input, textarea { font-family: inherit; }
   margin-top: auto;
 }
 
+.project-case-study {
+  margin: 8px 0 14px;
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+
+.project-case-study > summary {
+  padding: 12px 2px;
+  color: var(--accent);
+  font-size: .84rem;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.project-case-study > summary:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+  border-radius: 3px;
+}
+
+.project-case-study-content {
+  padding: 0 2px 14px;
+}
+
+.project-case-study-note {
+  color: var(--text-muted);
+  font-size: .76rem;
+  line-height: 1.5;
+}
+
+.project-case-study-content dl {
+  display: grid;
+  gap: 10px;
+  margin: 12px 0 0;
+}
+
+.project-case-study-content dl > div {
+  display: grid;
+  gap: 3px;
+}
+
+.project-case-study-content dt {
+  color: var(--text-secondary);
+  font-size: .75rem;
+  font-weight: 700;
+}
+
+.project-case-study-content dd {
+  margin: 0;
+  color: var(--text-secondary);
+  font-size: .82rem;
+  line-height: 1.6;
+}
+
+.mygenie-case-study {
+  max-width: 980px;
+  margin: -12px auto 30px;
+}
+
 .project-link {
   display: inline-block;
   margin-top: 12px;

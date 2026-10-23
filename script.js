@@ -385,6 +385,20 @@
       const context = project.contextKey || project.context
         ? `<p class="project-context">${contentMarkup(project.contextKey, project.context)}</p>`
         : '';
+      const caseStudy = project.caseStudy
+        ? `<details class="project-case-study">
+            <summary>${translatedMarkup('case_study_summary')}</summary>
+            <div class="project-case-study-content">
+              <p class="project-case-study-note">${translatedMarkup('case_study_note')}</p>
+              <dl>
+                <div><dt>${translatedMarkup('case_study_problem')}</dt><dd>${contentMarkup(project.caseStudy.problemKey, project.caseStudy.problem)}</dd></div>
+                <div><dt>${translatedMarkup('case_study_role')}</dt><dd>${contentMarkup(project.roleKey, project.role)}</dd></div>
+                <div><dt>${translatedMarkup('case_study_technology')}</dt><dd>${contentMarkup(project.caseStudy.technologyKey, project.caseStudy.technology)}</dd></div>
+                <div><dt>${translatedMarkup('case_study_outcome')}</dt><dd>${contentMarkup(project.caseStudy.outcomeKey, project.caseStudy.outcome)}</dd></div>
+              </dl>
+            </div>
+          </details>`
+        : '';
       const link = project.githubLink
         ? `<a href="${escapeHtml(project.githubLink)}" target="_blank" rel="noopener" class="project-link">${translatedMarkup('project_view_repository')}</a>`
         : '';
@@ -403,7 +417,7 @@
             </div>` : ''}
           </div>`
         : '';
-      return `<article class="project-card">${screenshots}${header}<p class="project-desc">${contentMarkup(project.descriptionKey, project.description)}</p>${features}${tech}${context}${link}</article>`;
+      return `<article class="project-card">${screenshots}${header}<p class="project-desc">${contentMarkup(project.descriptionKey, project.description)}</p>${features}${tech}${caseStudy}${context}${link}</article>`;
     }).join('');
   }
 
