@@ -96,6 +96,11 @@ GitHub link. Existing items use `*Key` properties where translations already
 exist; those preserve the current bilingual wording. The terminal's
 `ls prototypes/` and `fetch projects` commands also read these project arrays,
 including repository links.
+Featured proposal projects may also include a `caseStudy` object with
+`problemKey`, `technologyKey`, and `outcomeKey` translation keys. The project
+role is reused as the case study's role. Describe proposed technologies,
+planned targets, and expected outcomes as such; do not present them as
+measured results unless the proposal reports evidence.
 Each project may also include a `screenshots` array of local image paths. Store
 originals in `screenshots/` and curated 16:9 previews in `screenshots/cropped/`;
 update that project's paths in `data-projects.js`. The first image is displayed
