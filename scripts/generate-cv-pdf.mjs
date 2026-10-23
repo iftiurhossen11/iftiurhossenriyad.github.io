@@ -103,24 +103,28 @@ async function extractPageData(browser, url) {
     const projects = all('#projects .project-card').map((card) => {
       const title = text(card.querySelector('h3'));
       const role = text(card.querySelector('.project-role'));
-      const paragraphs = [...card.querySelectorAll('p')]
-        .map(text)
-        .filter((value) => value && value !== role);
-      const technologies = text(card.querySelector('.project-tech'));
+      const description = text(card.querySelector('.project-desc'));
+      const status = text(card.querySelector('.project-status'));
+      const context = text(card.querySelector('.project-context'));
+      const technologies = [...card.querySelectorAll('.project-tech span')].map(text).filter(Boolean);
       return {
         title,
         role,
-        description: (paragraphs.find((value) => value.length > 50) || paragraphs[0] || '').slice(0, 390),
-        technologies: technologies.slice(0, 110)
+        status,
+        description: description.slice(0, 300),
+        context,
+        technologies,
+        repository: card.querySelector('.project-link')?.href || ''
       };
     }).filter((project) => project.title);
-    const overview = all('#mygenie .mygenie-card')
-      .map(cardText)
-      .find((value) => value.startsWith('Overview')) || '';
+    const genieCards = all('#mygenie .mygenie-card').map(cardText);
+    const overview = genieCards.find((value) => value.startsWith('Overview')) || '';
+    const cofounders = genieCards.find((value) => value.startsWith('Co-Founders')) || '';
     const certificates = all('.cert-card').map((card) => ({
       title: text(card.querySelector('h4')),
       issuer: text(card.querySelector('.cert-issuer')),
-      date: text(card.querySelector('.cert-date'))
+      date: text(card.querySelector('.cert-date')),
+      verifyUrl: card.querySelector('.cert-verify')?.href || ''
     })).filter((item) => item.title);
 
     return {
@@ -130,6 +134,10 @@ async function extractPageData(browser, url) {
       email: text(all('#contact .contact-item')[0]),
       phone: text(all('#contact .contact-item')[1]),
       location: text(all('#contact .contact-item')[2]),
+      socialLinks: all('#heroSocials a').map((link) => ({
+        name: link.getAttribute('aria-label') || link.title || text(link),
+        url: link.href
+      })),
       summary: all('#about p').map(text).filter(Boolean).slice(0, 2).join(' '),
       skills: all('.skill-card').map((card) => ({
         title: text(card.querySelector('h3, h4')),
@@ -137,36 +145,37 @@ async function extractPageData(browser, url) {
           .map(text).filter((value) => value && value !== text(card.querySelector('h3, h4')))
           .slice(0, 14)
       })).filter((item) => item.title),
-      education: all('#education .timeline-content').map(cardText).filter(Boolean),
+      education: all('#education .timeline-content').map((card) => ({
+        date: text(card.querySelector('.timeline-date')),
+        title: text(card.querySelector('h3')),
+        organization: text(card.querySelector('.timeline-org')),
+        details: [...card.querySelectorAll('p:not(.timeline-org)')].map(text).filter(Boolean)
+      })).filter((item) => item.title),
       projects,
       mygenie: {
         title: text(first('#mygenie h2')),
-        overview: overview.replace(/^Overview\s*/, '').slice(0, 470)
+        overview: overview.replace(/^Overview\s*/, '').slice(0, 470),
+        cofounders: cofounders.replace(/^Co-Founders\s*/, '').replace(/\s+/g, ' ').trim()
       },
-      research: all('.research-card').map(cardText).filter(Boolean),
-      achievements: all('.achievement-card').map(cardText).filter(Boolean),
+      achievements: all('.achievement-card').map((card) => ({
+        title: text(card.querySelector('h3')),
+        organization: text(card.querySelector('.achievement-org')),
+        description: [...card.querySelectorAll('p:not(.achievement-org)')].map(text).filter(Boolean).join(' ')
+      })).filter((item) => item.title),
       leadership: all('.leadership-card').map(cardText).filter(Boolean),
-      certificates,
-      selectedWriting: []
+      interests: all('#creative .creative-card')
+        .filter((card) => !/blog/i.test(text(card.querySelector('h3'))))
+        .map((card) => {
+          const title = text(card.querySelector('h3'));
+          const description = text(card.querySelector('p'));
+          return description ? `${title} - ${description}` : title;
+        })
+        .filter(Boolean),
+      certificates
     };
   });
   await page.close();
   return data;
-}
-
-async function extractWriting(browser, url) {
-  const page = await browser.newPage();
-  await page.addInitScript(() => localStorage.setItem('language', 'en'));
-  await page.goto(url, { waitUntil: 'networkidle', timeout: 90000 });
-  const writing = await page.evaluate(() => [...document.querySelectorAll('.blog-card')]
-    .map((card) => ({
-      title: card.querySelector('h2, h3, h4')?.innerText?.replace(/\s+/g, ' ').trim() || '',
-      category: card.querySelector('.blog-category, .post-category, .blog-card-category')?.innerText?.replace(/\s+/g, ' ').trim() || ''
-    }))
-    .filter((item) => item.title)
-    .slice(0, 6));
-  await page.close();
-  return writing;
 }
 
 function escapeHtml(value) {
@@ -179,190 +188,168 @@ function escapeHtml(value) {
   })[character]);
 }
 
-function section(title, content) {
-  return content ? `<section class="section"><h2>${escapeHtml(title)}</h2>${content}</section>` : '';
-}
-
 function buildCvHtml(data, baseUrl) {
   const skills = data.skills.map((skill) => `
-    <div class="skill">
-      <strong>${escapeHtml(skill.title)}</strong>
-      <span>${escapeHtml(skill.items.join(', '))}</span>
+    <div class="skill-row"><strong>${escapeHtml(skill.title)}:</strong> ${escapeHtml(skill.items.join(', '))}</div>`).join('');
+  const education = data.education.map((item) => `
+    <div class="education-entry">
+      <strong>${escapeHtml(item.organization || item.title)}</strong>
+      <div>${escapeHtml(item.title)}${item.details.length ? ` - ${escapeHtml(item.details.join(' | '))}` : ''}${item.date ? ` | ${escapeHtml(item.date)}` : ''}</div>
     </div>`).join('');
-  const education = data.education.map((item) => `<li>${escapeHtml(item)}</li>`).join('');
-  const projects = data.projects.map((project) => `
-    <article class="project">
-      <div class="entry-heading"><strong>${escapeHtml(project.title)}</strong><span>${escapeHtml(project.role)}</span></div>
-      <p>${escapeHtml(project.description)}</p>
-      ${project.technologies ? `<div class="meta">${escapeHtml(project.technologies)}</div>` : ''}
-    </article>`).join('');
-  const research = data.research.map((item) => `<li>${escapeHtml(item)}</li>`).join('');
-  const achievements = data.achievements.map((item) => `<li>${escapeHtml(item)}</li>`).join('');
-  const leadership = data.leadership.map((item) => `<li>${escapeHtml(item)}</li>`).join('');
-  const certificates = data.certificates.map((item) => `
-    <div class="credential"><strong>${escapeHtml(item.title)}</strong><span>${escapeHtml(item.issuer)}${item.date ? ` - ${escapeHtml(item.date)}` : ''}</span></div>`).join('');
-  const writing = data.selectedWriting.map((item) => `
-    <div class="credential"><strong>${escapeHtml(item.title)}</strong>${item.category ? `<span>${escapeHtml(item.category)}</span>` : ''}</div>`).join('');
   const contact = [data.email, data.phone, data.location]
     .map((value) => (value || '').replace(/^(EMAIL|PHONE|LOCATION)\s*/i, '').trim())
     .filter(Boolean)
     .map(escapeHtml)
     .join('<span class="separator">|</span>');
-  const experienceTitle = data.headline.match(/Founder\s*&\s*CEO\s*@\s*MyGenie/i)?.[0] || data.mygenie.title;
-  const experience = data.mygenie.overview
-    ? `<div class="entry-heading"><strong>${escapeHtml(experienceTitle)}</strong><span>AI product &amp; business</span></div><p>${escapeHtml(data.mygenie.overview)}</p>`
-    : '';
+  const socialLinks = data.socialLinks
+    .filter((link) => /github|tryhackme|hack the box/i.test(link.name))
+    .map((link) => `<a href="${escapeHtml(link.url)}">${escapeHtml(link.name)}</a>`)
+    .join('<span class="separator">|</span>');
+  const preferredCertificateTitles = [
+    'AV/EDR Evasion Practical Techniques',
+    'Offensive Agent AI Course',
+    'Introduction to Bug Bounty',
+    'Foundations of Log Analysis for Cyber Defense',
+    'Malware Analysis Introduction',
+    'Introduction to Offensive Security with AI',
+    'AI 100: Fundamentals',
+    'Programming 100: Fundamentals',
+    'Linux 100: Fundamentals',
+    'C Programming Fundamentals'
+  ];
+  const certificatesByTitle = new Map(data.certificates.map((certificate) => [certificate.title.toLowerCase(), certificate]));
+  const selectedCertificates = preferredCertificateTitles
+    .map((title) => certificatesByTitle.get(title.toLowerCase())
+      || data.certificates.find((certificate) => certificate.title.toLowerCase().startsWith(title.toLowerCase())))
+    .filter(Boolean);
+  const certificates = (selectedCertificates.length ? selectedCertificates : data.certificates.slice(0, 10))
+    .map((item) => `
+      <div class="certificate-entry">
+        ${item.verifyUrl ? `<a href="${escapeHtml(item.verifyUrl)}"><strong>${escapeHtml(item.title)}</strong></a>` : `<strong>${escapeHtml(item.title)}</strong>`} - ${escapeHtml(item.issuer)}${item.date ? `, ${escapeHtml(item.date.replace(/^(Issued|Completed):\s*/i, ''))}` : ''}
+        ${item.verifyUrl ? `<div class="certificate-url"><a href="${escapeHtml(item.verifyUrl)}">${escapeHtml(item.verifyUrl)}</a></div>` : ''}
+      </div>`).join('');
+  const projectOrder = ['NOJORGHOR', 'IR PROHORI', 'THREATGUARD', 'SECUREAUDIT', 'CAMPUSNET', 'SURAKSHA', 'APON', 'BUY & SELL PLATFORM', 'EDUQUIZ'];
+  const orderedProjects = [...data.projects].sort((a, b) => {
+    const aIndex = projectOrder.indexOf(a.title.toUpperCase());
+    const bIndex = projectOrder.indexOf(b.title.toUpperCase());
+    return (aIndex < 0 ? projectOrder.length : aIndex) - (bIndex < 0 ? projectOrder.length : bIndex);
+  });
+  const renderProject = (project) => `
+    <article class="project">
+      <div class="project-heading"><strong>${escapeHtml(project.title)}${project.role ? ` - ${escapeHtml(project.role)}` : ''}</strong>${project.repository ? ` <a href="${escapeHtml(project.repository)}">GitHub</a>` : ''}</div>
+      ${project.context ? `<div class="project-context">${escapeHtml(project.context)}</div>` : ''}
+      ${project.description ? `<div class="project-description"><span class="bullet">•</span> ${escapeHtml(project.description)}</div>` : ''}
+    </article>`;
+  const firstPageProjects = orderedProjects.slice(0, 6).map(renderProject).join('');
+  const secondPageProjects = orderedProjects.slice(6).map(renderProject).join('');
+  const leadership = data.leadership.map((item) => `<div class="leadership-entry">${escapeHtml(item)}</div>`).join('');
+  const achievements = data.achievements.map((item) => `
+    <div class="achievement-entry"><strong>${escapeHtml(item.title)}</strong>${item.organization ? ` (${escapeHtml(item.organization)})` : ''}${item.description ? ` - ${escapeHtml(item.description)}` : ''}</div>`).join('');
+  const languageSkill = data.skills.find((skill) => /language/i.test(skill.title));
+  const interests = data.interests.join(', ');
 
   return `<!doctype html>
 <html lang="en">
 <head>
   <meta charset="utf-8">
   <base href="${escapeHtml(baseUrl)}">
-  <title>CV — ${escapeHtml(data.name)}</title>
+  <title>CV - ${escapeHtml(data.name)}</title>
   <style>
-    @page { size: A4; margin: 12mm 13mm 14mm; }
+    @page {
+      size: A4;
+      margin: 12mm 13mm 14mm;
+      @bottom-right {
+        color: #777;
+        font: 8pt "Times New Roman", serif;
+        content: "Md Iftiur Hossen Riyad  |  Page " counter(page);
+      }
+    }
     * { box-sizing: border-box; }
-    body {
-      margin: 0;
-      color: #e6edf3;
-      background: #0a0e17;
-      font: 8.5pt/1.42 Inter, "Segoe UI", Arial, sans-serif;
-      -webkit-print-color-adjust: exact;
-      print-color-adjust: exact;
-    }
-    .hero {
-      position: relative;
-      display: grid;
-      grid-template-columns: 1fr 30mm;
-      gap: 7mm;
-      align-items: center;
-      overflow: hidden;
-      margin-bottom: 5mm;
-      padding: 7mm;
-      border: 1px solid #2a3850;
-      border-radius: 4mm;
-      background: linear-gradient(125deg, #111826 0%, #111826 62%, #17172b 100%);
-      break-inside: avoid;
-    }
-    .hero::after {
-      position: absolute;
-      top: -24mm;
-      right: 19mm;
-      width: 56mm;
-      height: 56mm;
-      border: 1px solid rgba(0, 217, 255, .2);
-      border-radius: 50%;
-      content: "";
-    }
-    .eyebrow {
-      margin-bottom: 2mm;
-      color: #00d9ff;
-      font-size: 7pt;
-      font-weight: 700;
-      letter-spacing: .17em;
-      text-transform: uppercase;
-    }
-    h1 { position: relative; z-index: 1; margin: 0 0 2mm; color: #e6edf3; font-size: 23pt; line-height: 1.08; }
-    .headline { margin: 0 0 3mm; color: #00d9ff; font-size: 9.5pt; font-weight: 700; }
-    .contact { position: relative; z-index: 1; color: #9ba8b8; font-size: 7.1pt; }
-    .separator { padding: 0 1.5mm; color: #7c3aed; }
-    .profile-photo {
-      position: relative;
-      z-index: 1;
-      width: 27mm;
-      height: 27mm;
-      border: 1.1mm solid #1e2a3d;
-      border-radius: 50%;
-      object-fit: cover;
-      outline: .45mm solid #00d9ff;
-    }
-    .section { margin: 0 0 4mm; break-inside: auto; }
-    h2 {
-      display: flex;
-      align-items: center;
-      gap: 2mm;
-      margin: 0 0 2mm;
-      padding-bottom: 1.1mm;
-      border-bottom: 1px solid #1e2a3d;
-      color: #00d9ff;
-      font-size: 10pt;
-      letter-spacing: .1em;
-      text-transform: uppercase;
-      break-after: avoid;
-    }
-    h2::before { color: #7c3aed; content: "//"; font-size: 8pt; letter-spacing: 0; }
-    p { margin: 1mm 0 0; color: #c1ccd7; }
-    .section > p { padding: 2.5mm 3mm; border-left: .7mm solid #00d9ff; border-radius: 0 2mm 2mm 0; background: #111826; }
-    .columns { display: grid; grid-template-columns: 1fr 1fr; gap: 2mm 3mm; }
-    .skill, .credential {
-      min-width: 0;
-      padding: 2mm 2.5mm;
-      border: 1px solid #1e2a3d;
-      border-radius: 2mm;
-      background: #111826;
-      break-inside: avoid;
-    }
-    .skill strong, .credential strong { display: block; margin-bottom: .6mm; color: #e6edf3; font-size: 8pt; }
-    .skill span, .credential span, .meta { color: #9ba8b8; font-size: 7pt; }
-    ul { display: grid; gap: 1.5mm; margin: 0; padding: 0; list-style: none; }
-    li {
-      padding: 2mm 2.5mm;
-      border: 1px solid #1e2a3d;
-      border-left: .7mm solid #7c3aed;
-      border-radius: 0 2mm 2mm 0;
-      background: #111826;
-      color: #c1ccd7;
-      break-inside: avoid;
-    }
-    .project {
-      margin: 0 0 2mm;
-      padding: 2.5mm 3mm;
-      border: 1px solid #1e2a3d;
-      border-radius: 2mm;
-      background: #111826;
-      break-inside: avoid;
-    }
-    .entry-heading { display: flex; gap: 3mm; justify-content: space-between; align-items: baseline; }
-    .entry-heading strong { color: #e6edf3; font-size: 8.5pt; }
-    .entry-heading span { color: #00d9ff; font-size: 7pt; text-align: right; }
-    .meta { margin-top: 1mm; color: #00d9ff; }
-    .footer {
-      margin-top: 4mm;
-      padding-top: 2mm;
-      border-top: 1px solid #1e2a3d;
-      color: #6b7688;
-      font-size: 7pt;
-    }
+    body { margin: 0; color: #111; background: #fff; font: 8pt/1.17 "Times New Roman", Times, serif; }
+    a { color: #174f88; text-decoration: none; }
+    .header { position: relative; min-height: 29mm; margin-bottom: 2mm; padding: 0 25mm 3mm 0; border-bottom: 1.2pt solid #222; }
+    h1 { margin: 0 0 1mm; font-size: 17pt; line-height: 1.08; }
+    .headline { margin: 0 0 1mm; font-size: 9pt; font-style: italic; }
+    .contact, .social { font-size: 7.3pt; line-height: 1.35; }
+    .social { margin-top: .5mm; }
+    .separator { padding: 0 1.2mm; }
+    .profile-photo { position: absolute; top: 0; right: 0; width: 21mm; height: 25mm; object-fit: cover; }
+    .section { margin: 0 0 2mm; }
+    h2 { margin: 0 0 1mm; padding-bottom: .6mm; border-bottom: .7pt solid #777; font-size: 9pt; line-height: 1.1; break-after: avoid; }
+    .summary { text-align: justify; }
+    .education-entry { margin: 0 0 .8mm; }
+    .education-entry:last-child { margin-bottom: 0; }
+    .skill-row { margin: 0 0 .55mm; }
+    .skill-row:last-child { margin-bottom: 0; }
+    .leadership-entry { margin: 0 0 .6mm; }
+    .project { margin: 0 0 1.2mm; break-inside: avoid; }
+    .project-heading { font-weight: 700; }
+    .project-context { color: #444; font-size: 7.5pt; font-style: italic; }
+    .project-description { padding-left: 3.3mm; text-indent: -2.3mm; }
+    .bullet { font-size: 8.3pt; }
+    .page-two { break-before: page; }
+    .running-header { display: flex; justify-content: space-between; margin-bottom: 2mm; padding-bottom: 1mm; border-bottom: .5pt solid #aaa; color: #555; font-size: 7pt; }
+    .achievement-entry { margin: 0 0 .7mm; }
+    .certificate-entry { position: relative; margin: 0 0 .55mm; padding-left: 3mm; text-indent: -2.5mm; }
+    .certificate-entry::before { content: "• "; }
+    .certificate-url { padding-left: 2.5mm; font-size: 6.8pt; text-indent: 0; overflow-wrap: anywhere; }
+    .languages, .interests { margin: 0 0 .6mm; }
   </style>
 </head>
 <body>
-  <header class="hero">
-    <div>
-      <div class="eyebrow">Cyber Security · AI · Product</div>
-      <h1>${escapeHtml(data.name)}</h1>
-      <p class="headline">${escapeHtml(data.headline)}</p>
-      <div class="contact">${contact}</div>
-    </div>
+  <header class="header">
+    <h1>${escapeHtml(data.name)}</h1>
+    <div class="headline">${escapeHtml(data.headline.replace(/,\s*/g, ' | '))}</div>
+    <div class="contact">${contact}</div>
+    <div class="social">${socialLinks}</div>
     ${data.profilePhoto ? `<img class="profile-photo" src="${escapeHtml(data.profilePhoto)}" alt="">` : ''}
   </header>
-  ${section('Professional Profile', data.summary ? `<p>${escapeHtml(data.summary)}</p>` : '')}
-  ${section('Core Skills', skills ? `<div class="columns">${skills}</div>` : '')}
-  ${section('Experience', experience)}
-  ${section('Selected Projects', projects)}
-  ${section('Education', education ? `<ul>${education}</ul>` : '')}
-  ${section('Research', research ? `<ul>${research}</ul>` : '')}
-  ${section('Awards & Recognition', achievements ? `<ul>${achievements}</ul>` : '')}
-  ${section('Leadership', leadership ? `<ul>${leadership}</ul>` : '')}
-  ${section('Certifications', certificates ? `<div class="columns">${certificates}</div>` : '')}
-  ${section('Selected Writing', writing ? `<div class="columns">${writing}</div>` : '')}
-  <div class="footer">Generated from the latest portfolio content | ${escapeHtml(data.name)}</div>
+  <section class="section">
+    <h2>PROFESSIONAL SUMMARY</h2>
+    <div class="summary">${escapeHtml(data.summary)}</div>
+  </section>
+  <section class="section">
+    <h2>EDUCATION</h2>
+    ${education}
+  </section>
+  <section class="section">
+    <h2>TECHNICAL SKILLS</h2>
+    ${skills}
+  </section>
+  <section class="section">
+    <h2>STARTUP &amp; LEADERSHIP</h2>
+    <div class="leadership-entry"><strong>${escapeHtml(data.mygenie.title || 'MyGenie')}</strong> - ${escapeHtml(data.headline)}</div>
+    ${data.mygenie.cofounders ? `<div class="leadership-entry"><em>Co-founders: ${escapeHtml(data.mygenie.cofounders)}</em></div>` : ''}
+    ${data.mygenie.overview ? `<div class="leadership-entry"><span class="bullet">•</span> ${escapeHtml(data.mygenie.overview)}</div>` : ''}
+    ${leadership}
+  </section>
+  <section class="section">
+    <h2>FEATURED PROJECTS</h2>
+    ${firstPageProjects}
+  </section>
+  <div class="page-two">
+    <div class="running-header"><span>${escapeHtml(data.name)}</span><span>Page 2</span></div>
+    <section class="section">${secondPageProjects}</section>
+    <section class="section">
+      <h2>COMPETITIONS &amp; FELLOWSHIPS</h2>
+      ${achievements}
+    </section>
+    <section class="section">
+      <h2>CERTIFICATIONS &amp; PROFESSIONAL DEVELOPMENT</h2>
+      ${certificates}
+    </section>
+    <section class="section">
+      <h2>LANGUAGES &amp; INTERESTS</h2>
+      ${languageSkill ? `<div class="languages"><strong>Languages:</strong> ${escapeHtml(languageSkill.items.join(', '))}</div>` : ''}
+      ${interests ? `<div class="interests"><strong>Interests:</strong> ${escapeHtml(interests)}</div>` : ''}
+    </section>
+  </div>
 </body>
 </html>`;
 }
 
 async function main() {
   await access(join(siteDirectory, 'index.html'));
-  await access(join(siteDirectory, 'blog.html'));
 
   const temporaryDirectory = await mkdtemp(join(tmpdir(), 'portfolio-cv-'));
   const pdfPath = join(temporaryDirectory, 'cv.pdf');
@@ -373,7 +360,6 @@ async function main() {
     browser = await chromium.launch({ headless: true });
     const context = await browser.newContext({ serviceWorkers: 'block' });
     const data = await extractPageData(context, `${server.origin}/index.html`);
-    data.selectedWriting = await extractWriting(context, `${server.origin}/blog.html`);
 
     if (!data.name || !data.summary || !data.skills.length || !data.education.length) {
       throw new Error('Portfolio data is incomplete; expected profile, skills, and education content.');
@@ -389,8 +375,11 @@ async function main() {
     });
     await page.close();
 
+    const pdf = await PDFDocument.load(await readFile(pdfPath));
+    if (pdf.getPageCount() !== 2) {
+      throw new Error(`Expected a two-page reference-style CV, generated ${pdf.getPageCount()} pages.`);
+    }
     await copyFile(pdfPath, outputPath);
-    const pdf = await PDFDocument.load(await readFile(outputPath));
     console.log(`Generated ${outputPath} (${pdf.getPageCount()} pages).`);
   } finally {
     if (browser) await browser.close();
