@@ -1,0 +1,400 @@
+Introduction to security, compliance, and identity concepts.docx
+Plain text edition ? UTF-8
+
+Personal study notes. Text and tables are included; page layout and images are not reproduced. Practice cybersecurity only in systems you own or are explicitly authorized to test.
+========================================================================
+
+Describe security and compliance concepts
+Learn about common security and compliance concepts that are foundational to Microsoft solutions. Topics include the shared responsibility and Zero Trust models, encryption, data residency and data sovereignty, and more.
+Learning objectives
+After completing this module, you'll be able to:
+* Describe the shared responsibility model and how responsibilities shift across on-premises, IaaS, PaaS, and SaaS environments, including AI services.
+* Describe defense-in-depth as a layered security strategy and explain the confidentiality, integrity, and availability (CIA) triad.
+* Describe the Zero Trust model, its guiding principles, and its seven foundational pillars.
+* Describe encryption and hashing as mechanisms for protecting data at rest, in transit, and in use.
+* Describe Governance, Risk, and Compliance (GRC) concepts, including data residency, data sovereignty, and data privacy.
+Introduction
+As more business data is accessed from locations outside the traditional corporate network, security and compliance are critical concerns for organizations of all sizes. Organizations need to understand how to protect their data, regardless of where it's accessed from and whether it sits on a corporate network, in the cloud, or in AI-powered services. They also need to stay compliant with the growing number of industry and regulatory requirements that govern how data must be handled, stored, and protected.
+This module introduces the foundational security and compliance concepts that underpin the Microsoft security, compliance, and identity portfolio. You start with the shared responsibility model, which clarifies which security responsibilities belong to you and which belong to your cloud provider. From there, you explore how a defense-in-depth strategy layers multiple controls to slow and stop attacks, and how the confidentiality, integrity, and availability (CIA) triad frames the goals of any security effort. You learn about the Zero Trust model—and why trusting the network perimeter alone is no longer sufficient in a world where work happens from anywhere. You then explore encryption and hashing as technical mechanisms for protecting data.
+Finally, you learn about governance, risk, and compliance (GRC) as the structured approach organizations use to manage their obligations and responsibilities.
+After completing this module, you'll be able to:
+* Describe the shared responsibility model and how responsibilities shift across on-premises, IaaS, PaaS, and SaaS environments, including AI services.
+* Describe defense-in-depth as a layered security strategy and explain the confidentiality, integrity, and availability (CIA) triad.
+* Describe the Zero Trust model, its guiding principles, and its seven foundational pillars.
+* Describe encryption and hashing as mechanisms for protecting data at rest, in transit, and in use.
+* Describe Governance, Risk, and Compliance (GRC) concepts, including data residency, data sovereignty, and data privacy.
+Describe the shared responsibility model
+In organizations running only on-premises hardware and software, the organization is responsible for the entire technology stack: the building, physical servers, networking, operating systems, applications, and the data. When you move to cloud services, some of those responsibilities shift to the cloud provider. The shared responsibility model helps you understand exactly who is accountable for which parts of security, so you can plan your security strategy accordingly.
+Shared responsibility in the cloud
+In a traditional on-premises environment, your organization controls every layer of the technology stack. Your team is responsible for the physical security of the building, maintaining and patching hardware, configuring network devices, securing operating systems, deploying and updating applications, protecting identities and access, and safeguarding your data. This full ownership means complete control—but it also places the entire security burden on your team.
+Cloud computing changes this model. When you use cloud services, some of the day-to-day security responsibilities transfer to the cloud provider. The exact split depends on which cloud service model you're using:
+* On-premises: Your organization manages and secures the entire stack—from the physical building and hardware to the operating system, applications, and data.
+* Infrastructure as a Service (IaaS): The cloud provider secures the physical datacenter, the network hardware, and the host machines. You're responsible for the operating systems, applications, network controls you configure, and your data.
+* Platform as a Service (PaaS): The cloud provider also takes on responsibility for the operating system and the runtime environment. You're responsible for your application code, its configuration, access controls, and your data.
+* Software as a Service (SaaS): The cloud provider manages the entire application stack and its underlying infrastructure. You're responsible for access management—controlling who uses the service—your data, and how you configure tenant-level settings.
+As you move from on-premises to IaaS to PaaS to SaaS, the cloud provider takes on more of the underlying security responsibilities. However, moving to the cloud doesn't mean security becomes entirely someone else's problem. Some responsibilities always remain with you, no matter which service model you use.
+The following diagram illustrates the typical division of responsibility between the customer and the cloud provider.
+Responsibilities you always retain
+Regardless of which cloud service model you use, the following responsibilities always stay with you:
+Data: You're responsible for your data, including classifying its sensitivity, choosing how to protect it, making encryption decisions, and ensuring compliance with data governance requirements. The cloud provider secures the infrastructure that stores your data, but you decide what data you collect, who can access it, how long to keep it, and how to protect it.
+Identities and access: Managing user accounts, authentication methods, and access permissions is always your responsibility. A compromised identity can give an attacker access to cloud resources even when everything else is locked down. Implementing strong identity practices—such as requiring multifactor authentication (MFA) and applying least-privilege access—is one of your most important security obligations.
+Endpoints: The devices that connect to your cloud services—laptops, tablets, phones, and desktops—are yours to secure. An attacker who compromises an endpoint can use it to access cloud services as that device's legitimate user. Protecting endpoints through device management, security updates, and threat detection is part of your shared responsibility.
+Configuration choices: The security settings and configurations within your cloud tenant—how you configure services, resource permissions, and network policies—are your responsibility. A misconfigured storage account or an overly permissive access policy can expose your data even when the underlying platform is properly secured.
+Cloud security advantages
+Using cloud services doesn't just transfer some responsibilities—it also gives you access to security capabilities that most individual organizations couldn't build or sustain on their own.
+Cloud providers like Microsoft continuously invest in physical security, hardware reliability, compliance certifications, threat intelligence, and large-scale security monitoring. When you use cloud infrastructure services, you automatically benefit from those investments in the areas the provider is responsible for. This lets your team focus security resources on the responsibilities you retain: your data, your identities, and your configurations.
+In on-premises environments, security gaps often develop because teams are stretched thin. Patches get delayed, hardware ages past its vendor support window, and monitoring tools aren't available for every system. When you move to the cloud, the provider handles infrastructure patching and physical security for its portion of the stack. This shift doesn't remove your security obligations, but it lets you focus your expertise where it has the most impact.
+AI shared responsibility model
+As organizations adopt AI-powered solutions, the shared responsibility model extends to cover AI workloads. AI systems introduce unique considerations: they can be influenced by the data and instructions users provide, and they generate outputs that may drive important decisions. These characteristics create security and oversight responsibilities that go beyond traditional cloud services.
+An AI-enabled application can be thought of in three layers:
+* AI platform: The underlying infrastructure, AI model, and platform-level safety controls—including any built-in content filtering, safety systems, or access controls provided by the service.
+* AI application: The application you build or deploy that connects to the AI platform, including how the app is configured, what data sources or connectors it uses, and what plugins it enables.
+* AI usage: How people in your organization use the AI system—including the inputs they provide, the acceptable use policies you set, and the oversight you put in place.
+What the provider typically handles (AI)
+Depending on whether AI capability is delivered as a SaaS service (for example, Microsoft 365 Copilot) or a PaaS service (for example, Azure AI Foundry), the provider typically handles:
+* Securing the physical infrastructure and the AI model hosting environment
+* Providing platform-level safety controls—such as content filtering and built-in safeguards—depending on the service tier
+* Managing the underlying compute infrastructure and the operational security of the AI service
+What you typically handle (AI)
+Even when the provider secures the AI platform, you're responsible for how AI is used throughout your organization:
+* Protecting your data: You control what sensitive data you share with or allow the AI system to access. If an AI system connects to business-critical data, you must configure appropriate access controls and data governance policies.
+* Identity and access management: You determine who in your organization can access AI applications and what they're permitted to do.
+* Safe configuration: You're responsible for configuring the AI solution appropriately—restricting which users have access, which external connectors or data sources are enabled, how outputs are logged, and how long data is retained.
+* Mitigating AI-specific risks: Prompt injection—where an attacker embeds instructions in user input or external data to manipulate the AI's behavior or outputs—is a key risk you need to address through input validation, access controls, and monitoring.
+* User training and acceptable use policies: Because users directly influence what an AI system does through their inputs and prompts, user education and clear policies are a meaningful part of your security responsibility.
+Key takeaway
+The shared responsibility model—whether for traditional cloud services or AI workloads—creates clarity about who is responsible for what. As you choose higher-level services, you can delegate more of the underlying security work to the cloud provider. But you never delegate accountability for your data, your identities, your endpoint security, and how the technology is used. Understanding where your responsibility begins and ends is fundamental to protecting your organization.
+Describe defense in depth
+A defense-in-depth strategy uses a layered approach to security, rather than relying on a single perimeter. Instead of depending on one mechanism to keep attackers out, defense in depth combines multiple overlapping layers of controls. Each layer provides protection so that, if one layer is breached, the next layer prevents an attacker from gaining unauthorized access to data.
+Think of it like the security measures protecting a high-security vault: a locked outer door, cameras, motion sensors, an access keypad, the vault door itself, and then secured containers inside. If an attacker gets past the outer door, they still face several other barriers. The same principle applies to IT security.
+Defense-in-depth layers
+A defense-in-depth strategy typically includes the following layers of security:
+Physical security limits access to computing infrastructure. This layer includes locked facilities, security guards, badge readers, and surveillance cameras. Ensuring that only authorized personnel can physically access servers, networking equipment, and storage hardware prevents attackers from tampering with or stealing physical components.
+Identity and access controls authenticate and authorize users before granting them access to resources. This layer includes multifactor authentication (MFA), role-based access control (RBAC), and conditional access policies that evaluate signals—such as sign-in location, device compliance, and risk level—before permitting access. Even if an attacker obtains a valid password, strong identity controls at this layer can prevent unauthorized access.
+Perimeter security protects the boundary of a network from large-scale external attacks. This layer includes distributed denial-of-service (DDoS) protection, which filters attack traffic before it can disrupt services for users, and perimeter firewalls that inspect and control traffic entering and leaving the network.
+Network security controls communication between resources within a network. This layer includes network segmentation—dividing the network into isolated zones so that a compromise in one zone doesn't automatically expose everything else—along with network security groups (NSGs) that restrict traffic flow based on defined rules. By limiting which systems can communicate with which other systems, network security reduces the damage an attacker can cause after compromising a single resource.
+Compute security protects virtual machines, containers, and other compute resources. This layer includes keeping operating systems and software patched and up to date, closing unnecessary network ports, restricting administrative access, and monitoring compute resources for unusual behavior. Attackers frequently target unpatched or misconfigured compute resources as an entry point.
+Application security ensures that applications are designed and deployed without exploitable vulnerabilities. This layer covers secure development practices, input validation to prevent common attacks such as SQL injection and cross-site scripting (XSS), and application-level authentication and authorization. Security testing during development—before code reaches production—is much more cost-effective than discovering vulnerabilities after deployment.
+Data security is the innermost and most critical layer, focused on protecting the information that matters most to an organization. This layer includes access controls that limit who can read or modify data, encryption that makes data unreadable without the appropriate keys, and data classification that identifies which data requires the strongest protections.
+Why layered defense matters
+Each layer in a defense-in-depth strategy slows down an attacker and gives defenders more opportunities to detect and respond to a threat before damage is done. A single security control—even a strong one—can fail because of a software vulnerability, a misconfiguration, or a business process that requires an exception. When multiple layers are in place, the failure of one layer doesn't immediately lead to a breach.
+Defense in depth also supports a key principle of modern security: designing your strategy as if attackers will eventually get through your outer defenses, and focusing on limiting what they can do once inside. Perimeters get tested constantly, so each additional layer of protection adds meaningful resilience.
+Confidentiality, integrity, and availability (CIA)
+The defense-in-depth layers described above work toward a common set of security goals, captured in the CIA triad: confidentiality, integrity, and availability. These three properties represent what effective security is ultimately designed to protect.
+Confidentiality
+Confidentiality refers to keeping sensitive information accessible only to those who are authorized to see it. This includes customer records, financial data, passwords, private communications, intellectual property, and any other data that shouldn't be readable by unauthorized individuals.
+Protecting confidentiality requires more than just encryption, though encryption is one of the most important technical controls. You also need access controls that restrict who can read data, secure transmission methods, and policies that define who is permitted to view what information and under what circumstances.
+A confidentiality breach—commonly called a data breach—occurs when unauthorized parties gain access to protected information. These incidents can have serious consequences for individuals whose data is exposed and for the organizations responsible for protecting it, including regulatory penalties, legal liability, and loss of customer trust.
+Integrity
+Integrity means keeping data accurate, complete, and unmodified except through authorized processes. When you send a message or store data in a database, you need assurance that what the recipient reads—or what you retrieve later—is exactly what you originally sent or stored.
+Integrity can be violated by malicious actors who deliberately tamper with data, by software bugs that cause data corruption, or by problems during transmission. Unauthorized deletion—removing records that should exist—is also a form of integrity violation.
+Controls that protect integrity include cryptographic hashing, which generates a unique fingerprint of data that changes if the data is modified, digital signatures, audit logs that record changes to data, and database transaction controls. When you verify the hash of a downloaded software file against the publisher's expected value, you're performing an integrity check.
+Availability
+Availability means ensuring that data and systems are accessible to authorized users when they need them. An organization's systems serve no useful purpose if legitimate users can't access them.
+Availability can be threatened by DDoS attacks that flood services with traffic until they stop responding, ransomware that encrypts data until a ransom is paid, hardware failures, software bugs, and natural disasters. Controls that support availability include redundant infrastructure, load balancing, automatic failover, regular backups and tested recovery plans, and DDoS protection services.
+Balancing the CIA triad
+In practice, confidentiality, integrity, and availability can sometimes pull in different directions. For example, encrypting everything strongly protects confidentiality, but if encryption keys are lost, data becomes permanently inaccessible—hurting availability. Requiring complex authentication protects confidentiality and integrity but adds friction that can affect productivity.
+Security teams work to find the right balance based on the sensitivity of the data, the potential impact of a breach, and the operational requirements of the business. Understanding the tradeoffs between these three properties helps organizations make informed, risk-based security decisions.
+The CIA triad also helps frame the impact of attacks: attackers who steal data are targeting confidentiality, attackers who modify records are targeting integrity, and attackers who take systems offline are targeting availability. Keeping the CIA triad in mind helps organizations think about the full range of threats they need to defend against.
+Describe the Zero Trust model
+Zero Trust is a security strategy—not a single product or technology. It operates on the principle of "trust no one, verify everything." Instead of assuming that everything inside a corporate network is safe and trustworthy, Zero Trust requires that every request for access be authenticated and authorized, regardless of where the request originates.
+Traditional security approaches often relied on a "castle-and-moat" model: strong perimeter controls kept untrusted traffic out, and everything inside the network was assumed to be safe. This model worked reasonably well when employees worked from a fixed office and data lived entirely on-premises. But that environment no longer describes most organizations.
+Today, work happens from anywhere. Employees use personal and corporate devices, connect from home networks and public locations, and access data across multiple cloud services. Corporate data moves between on-premises datacenters, cloud platforms, and third-party applications. In this environment, the network perimeter alone is no longer a reliable security boundary. Attackers routinely bypass perimeter controls through phishing, credential theft, and application vulnerabilities—and once inside, they can move through the network if the inside is assumed to be trusted by default.
+Zero Trust addresses this reality by assuming that no network, device, user, or application should be trusted by default, even those that have already authenticated or are connected to a trusted network.
+Watch this video to learn about Zero Trust.
+Zero Trust guiding principles
+The Zero Trust model is built on three guiding principles that shape how security decisions are made in every part of an organization.
+Verify explicitly: Always authenticate and authorize based on all available signals, not just a single factor like a password or network location. Signals include the user's identity, their sign-in location, the device they're using and its compliance status, the service or application being accessed, the classification of the data involved, and any anomalies such as unusual sign-in times or locations. The more signals you can evaluate, the more confident you can be that the right person is accessing the right resource.
+Use least privileged access: Grant users and systems only the minimum access they need to do their job, for only as long as they need it. This principle is implemented through just-in-time (JIT) access—granting access only when it's needed and revoking it afterward—and just-enough-access (JEA)—granting only the specific permissions required for a task, rather than broad permissions "just in case." Risk-based adaptive policies can also automatically limit access when unusual or risky activity is detected.
+Assume breach: Design your security strategy as if an attacker will eventually get through your defenses. When you assume breach, you segment access so that a compromised account or device can't freely reach everything else. You encrypt data end-to-end so that intercepted data is unreadable. You deploy monitoring and analytics so that when a breach happens, you detect it quickly, understand what was accessed, and can limit the damage.
+These three principles guide how every aspect of security is implemented: how users authenticate, how devices are trusted, how applications are authorized, and how data is protected.
+Seven foundational pillars
+In the Zero Trust model, security is implemented across seven interconnected pillars. Six of these pillars are signal sources, a control plane for enforcement, and critical resources to be defended. The seventh pillar collects signals from all six and provides the visibility, automation, and orchestration needed to respond to and mitigate threats.
+Identities may be users, services, or devices. When an identity attempts to access a resource, it must be verified with strong authentication before access is granted. After authentication, access is governed by least-privilege principles—granting only the access needed for the specific task. Identity is the primary control plane for modern security, because almost all successful attacks eventually rely on compromising or abusing an identity.
+Devices create a large attack surface as data flows from devices to on-premises workloads and the cloud. Every device that accesses your resources represents a potential entry point for attackers. Monitoring devices for health status and compliance—and making access decisions based on that status—is an important aspect of Zero Trust. Devices that are out of compliance or show signs of compromise can be blocked or given restricted access.
+Applications are the way that data is consumed. In a Zero Trust strategy, you need visibility into all the applications being used in your environment, including unsanctioned applications—sometimes called shadow IT—that employees use without formal approval. This pillar also includes managing the permissions that applications request from platforms, and the permissions users grant to applications that access their data.
+Data should be classified, labeled, and encrypted based on its attributes and sensitivity. Security efforts across all the other pillars ultimately serve to protect data. Data must carry its own protection—through classification and encryption—so it stays secure even outside the environments your organization controls.
+Infrastructure, whether on-premises or cloud based, represents a significant attack surface. In Zero Trust, infrastructure is continuously assessed for version currency, configuration compliance, and unusual behavior. Just-in-time access to administrative interfaces limits the window of exposure. Telemetry from infrastructure allows teams to detect attacks and anomalies and respond automatically.
+Networks should be segmented so that a compromise in one part of the network doesn't provide unrestricted access elsewhere. This includes deeper in-network micro-segmentation that creates boundaries within network zones, not just at the perimeter. Real-time threat protection, end-to-end encryption of network traffic, continuous monitoring, and analytics should all be applied at the network layer.
+Visibility, automation, and orchestration is the seventh pillar and the integrating layer that ties all the others together. Each of the six pillars generates its own signals and alerts. Without a way to aggregate, correlate, and act on those signals centrally, security teams face an overwhelming volume of separate alerts—a problem that leads to missed threats and analyst fatigue. This pillar provides an integrated capability to manage that influx of data, giving security teams better information for making trust decisions and enabling automated responses to detected threats. Security information and event management (SIEM) and security orchestration, automated response (SOAR) technologies are central to this pillar—a SIEM ingests and correlates signals across all pillars to detect threats, while a SOAR uses those detections to trigger automated response playbooks.
+Zero Trust in practice
+The seven pillars don't operate in isolation. Consider a real-world scenario: a user signs in from an unfamiliar location on an unmanaged personal device and attempts to access a sensitive financial application.
+In a Zero Trust environment, signals from multiple pillars are evaluated simultaneously. The identity pillar checks the user's credentials and detects the unusual sign-in location as a risk signal. The devices pillar finds the device isn't enrolled or compliant. The applications pillar enforces a policy requiring compliant device access for sensitive apps. The network pillar monitors the connection and logs the attempt. The data pillar ensures the financial data is encrypted and access-controlled at the data layer. The infrastructure pillar records the access attempt in telemetry.
+The visibility, automation, and orchestration pillar integrates all of these signals. Rather than each pillar independently logging a low-severity event, the combined signals are correlated into a high-confidence risk detection. Automated policies—guided by the "assume breach" and "verify explicitly" principles—step up authentication requirements, block access to the sensitive application, and alert the security team, all without manual intervention.
+This is what Zero Trust in practice looks like: continuous verification across every pillar, automated responses that limit damage, and centralized visibility that gives security teams the full picture of what happened and why.
+Describe encryption and hashing
+One way to mitigate against common cybersecurity threats is to encrypt sensitive or valuable data. Encryption is the process of making data unreadable and unusable to unauthorized viewers. To use or read encrypted data, it must be decrypted, which requires the use of a secret key. Even if an attacker intercepts or gains access to encrypted data, it remains useless to them without the corresponding key.
+Types of encryption
+There are two primary types of encryption: symmetric and asymmetric.
+Symmetric encryption
+Symmetric encryption uses the same key to both encrypt and decrypt data. Because only one key is involved, symmetric encryption is computationally fast and well-suited for encrypting large amounts of data—for example, files stored on a hard drive or records in a database.
+The main challenge with symmetric encryption is key distribution: both parties need access to the same secret key, and securely sharing that key—especially over a network—can be difficult.
+Asymmetric encryption
+Asymmetric encryption uses a key pair: a public key and a private key. These keys are mathematically related, but you can't derive the private key from the public key.
+* Data encrypted with the public key can only be decrypted with the corresponding private key.
+* Data signed with the private key can be verified with the corresponding public key.
+Because the public key can be freely shared, asymmetric encryption solves the key distribution problem of symmetric encryption. Anyone can encrypt data using your public key, but only you—holding the private key—can decrypt it. Asymmetric encryption is used in many security protocols you interact with daily, including HTTPS, which secures websites, and email encryption.
+Digital signatures
+Asymmetric encryption also enables digital signatures, which verify both the authenticity and integrity of data. When a sender signs data with their private key, anyone with the sender's public key can verify that:
+* The data came from the expected sender (authenticity).
+* The data wasn't modified after it was signed (integrity).
+Digital signatures are used to verify software downloads, authenticate email messages, and secure electronic documents and transactions.
+Encryption by data state
+Encryption for data at rest
+Data at rest is data stored on a physical device, such as a server hard drive, a database, or a cloud storage account. Encryption of data at rest ensures the data is unreadable without the keys needed to decrypt it.
+If an attacker obtained a hard drive with encrypted data and didn't have access to the encryption keys, they would be unable to read the data. This protection remains even if the physical storage media is stolen or the storage account is accessed without authorization.
+Encryption for data in transit
+Data in transit is data moving from one location to another, such as across the internet, between services, or over a private network. Data in transit is vulnerable to interception by anyone who can observe the network traffic.
+Encrypting data in transit protects it from eavesdropping and interception. HTTPS is the most familiar example: when you access a website over HTTPS, the connection is secured using Transport Layer Security (TLS), which ensures that data exchanged between your browser and the server can't be read by third parties. The same principle applies to data moving between cloud services and to VPN connections that protect traffic over public networks.
+Encryption for data in use
+Data in use refers to data actively being processed—for example, data loaded into a computer's memory (RAM) or being worked on by a CPU. Traditional encryption protects data at rest and in transit, but data is typically decrypted when loaded into memory for processing, creating a window of potential exposure.
+Encryption of data in use is achieved through confidential computing technologies that create protected execution environments, sometimes called secure enclaves, where data can be processed without being exposed even to the operating system or hypervisor. This is especially important in multitenant environments where different customers may share the same physical hardware.
+Key management
+Encryption is only as secure as the keys used to encrypt data. An encryption key that is stolen or exposed makes encrypted data accessible to attackers, defeating the purpose of encryption. Key management covers how encryption keys are generated, stored, protected, rotated, and eventually retired.
+Key management best practices include:
+* Storing keys separately from the data they protect: If keys are stored alongside encrypted data, an attacker who gains access to one automatically has both.
+* Using dedicated hardware for key storage: Hardware security modules (HSMs) are specialized, tamper-resistant devices designed specifically to store and protect cryptographic keys.
+* Rotating keys regularly: Changing encryption keys periodically limits the amount of data exposed if a key is ever compromised.
+* Controlling access to keys tightly: Only authorized users and systems should be able to access decryption keys, enforced through strong authentication and least-privilege access principles.
+Cloud key management services—such as Azure Key Vault—provide a centralized, managed service for storing and managing encryption keys, certificates, and secrets. These services reduce the risk of key exposure, support key rotation workflows, and integrate with other cloud services to provide encryption without exposing key material to application code or administrators.
+Hashing
+Hashing uses an algorithm to convert any input into a fixed-length string of characters called a hash (or digest). Unlike encryption, hashing is a one-way process: you can't reverse a hash to recover the original input. Each time the same input is hashed using the same algorithm, the same hash value is produced, making the hash a reliable unique fingerprint for that data.
+Hashing is different from encryption in that it doesn't use keys, and the hashed value can't be reversed back to the original data. This makes hashing useful for scenarios where you need to verify data without ever needing to store or read the original value.
+How hashing protects passwords
+Hashing is widely used to protect stored passwords. Instead of storing a user's actual password, a system stores only the hash of that password. When a user signs in, the system hashes the password they enter and compares it to the stored hash. If the hashes match, the authentication succeeds—without the system ever storing or transmitting the actual password in plain text.
+This is more secure than storing plain-text passwords because even if the password database is stolen, the attacker gets only hashes. However, basic hashing has a known vulnerability: because hash functions are deterministic, attackers can precompute hashes for millions of common passwords and look them up in tables—called rainbow tables or dictionary attacks—to find matches.
+Salting
+To defend against precomputed attacks, passwords are typically salted before hashing. A salt is a unique, randomly generated value created for each individual password and added to it before hashing. Because every password gets a different salt, two users with the same password produce different hashes in the database. This makes precomputed rainbow tables ineffective, because the attacker would need a separate lookup table for every possible salt value.
+Salting is a standard best practice in secure password storage and is required for any properly implemented authentication system.
+Describe governance, risk, and compliance (GRC) concepts
+Organizations operate in an increasingly complex regulatory environment. New laws govern how customer data must be protected, where it can be stored, and who is accountable when incidents occur. At the same time, organizations face internal and external risks that can disrupt operations, expose sensitive data, or damage customer trust. Governance, risk, and compliance (GRC) is the set of practices organizations use to navigate these challenges in a structured and integrated way.
+As organizations establish GRC competency, they can build a framework that integrates specific policies, operational processes, and technologies. A structured approach to GRC helps organizations:
+* Establish clear accountability for who makes decisions and who is responsible for protecting assets
+* Identify potential threats before they become incidents
+* Demonstrate compliance with laws, regulations, and industry standards
+* Build trust with customers, partners, and regulatory authorities
+An important prerequisite to establishing GRC competency is understanding the key terms.
+Governance
+Governance is the system of rules, practices, and processes an organization uses to direct and control its activities. Many governance activities arise from external standards, obligations, and expectations. For example, organizations establish rules and processes that define who can access corporate resources and applications, who has administrative privileges and for how long, and what must happen when those rules are violated.
+In a security context, governance activities include:
+* Defining and enforcing policies for how data is classified, handled, and retained
+* Establishing standards for identity and access management across the organization
+* Creating approval processes for privileged or administrative access
+* Assigning ownership and accountability for security controls
+* Setting the overall direction for the organization's security strategy
+Effective governance creates the structure on which risk management and compliance activities operate.
+Risk
+Risk management is the process of identifying, assessing, and responding to threats or events that can negatively impact organizational objectives or customer trust. All organizations face risk—the goal of risk management isn't to eliminate all risk, but to understand it well enough to make informed decisions about how to address each threat.
+Organizations face risk from both external and internal sources. External risks can come from cyberattacks, natural disasters, economic disruptions, regulatory changes, and the actions of third-party suppliers. Internal risks come from within the organization itself—examples include accidental data exposure by employees, insider threats, fraud, and gaps in security processes.
+Risk management typically follows a process that includes:
+* Identify: Discover potential risks to the organization's systems, data, and operations through interviews, vulnerability assessments, audit findings, and ongoing monitoring.
+* Assess: Evaluate each risk based on its potential impact and the likelihood of it occurring. This produces a risk score that helps prioritize which risks need the most attention.
+* Respond: Develop a plan for each significant risk. Organizations can accept the risk if its impact is low, mitigate it by implementing controls, transfer it through measures like insurance, or avoid it by changing the process that creates the risk.
+* Monitor: Continuously track identified risks, measure the effectiveness of controls, and update the assessment as the environment changes.
+Compliance
+Compliance refers to adherence to the laws, regulations, standards, and policies that apply to an organization based on its industry, geography, and the types of data it handles. Compliance requirements define what types of data must be protected, what processes must be in place, and what penalties apply to organizations that fail to comply.
+Some familiar compliance frameworks and regulations include:
+* HIPAA (Health Insurance Portability and Accountability Act): US regulations governing the protection and handling of health information.
+* ISO 27001: An international standard for information security management systems.
+* SOC 2 (Service Organization Control 2): An auditing standard for service providers that store or process customer data.
+It's important to understand that compliance is not the same as security. Compliance defines the minimum standards that laws and regulations require. Security is broader—it encompasses all the processes, technologies, and practices that protect data and systems from threats. An organization can be technically compliant while still having significant security vulnerabilities if it only does the minimum required by regulation.
+Some compliance-related concepts include:
+Data residency: Data residency regulations govern the physical locations where data can be stored and how and when it can be transferred, processed, or accessed internationally. These regulations can differ significantly depending on jurisdiction. When using cloud services, organizations need to verify where the cloud provider physically stores their data and whether those locations meet applicable data residency requirements.
+Data sovereignty: Data sovereignty refers to the concept that data is subject to the laws and regulations of the country/region where it's physically collected, held, or processed. This adds complexity when data is handled across multiple jurisdictions: the same piece of data might be collected in one country/region, stored in another, and processed in a third—making it subject to the laws of each location. Organizations that operate globally must understand which legal jurisdictions apply to their data and how those jurisdictions' laws interact.
+Data privacy: Privacy refers to the appropriate handling of personal data—any information that relates to an identified or identifiable individual. This includes obvious personal information such as names, email addresses, and phone numbers, but also information that can be indirectly linked back to a person, such as location history or browsing data. Privacy laws and regulations require organizations to be transparent about what personal data they collect and how it's used, obtain appropriate consent before collecting certain categories of data, give individuals rights over their data—such as the right to access, correct, or delete it—and protect personal data against unauthorized access or exposure. Organizations are subject to privacy laws wherever they operate and wherever their customers are located. Because different jurisdictions have different requirements, organizations with global operations often need to navigate multiple overlapping privacy regulations simultaneously.
+All organizations manage data so understanding terminology and concepts related to compliance is important as they work to meet the minimum, mandated laws and/or regulations.
+Summary and resources
+In this module, you explored foundational security and compliance concepts that underpin Microsoft security, compliance, and identity solutions.
+You learned how the shared responsibility model divides security accountability between you and your cloud provider across on-premises, IaaS, PaaS, and SaaS environments—including AI workloads—and that you always retain responsibility for your data, identities, endpoints, and configuration choices.
+You explored defense in depth as a layered security strategy and the CIA triad—confidentiality, integrity, and availability—as the goals that every security effort ultimately protects.
+You learned about the Zero Trust model and its three guiding principles: verify explicitly, use least privileged access, and assume breach. You saw how these principles are applied across seven foundational pillars—identities, devices, applications, data, infrastructure, networks, and visibility/automation/orchestration—where the seventh pillar integrates signals from the other six to enable coordinated threat detection and response.
+You covered encryption and hashing: symmetric and asymmetric encryption, digital signatures, protecting data at rest, in transit, and in use, key management, and how hashing with salting protects stored passwords.
+Finally, you explored Governance, Risk, and Compliance (GRC) concepts—governance, risk management, and compliance—along with related data concepts: data residency, data sovereignty, and data privacy.
+Now that you've completed this module, you should be able to:
+* Describe the shared responsibility model and how responsibilities shift across on-premises, IaaS, PaaS, and SaaS environments, including AI services.
+* Describe defense-in-depth as a layered security strategy and explain the confidentiality, integrity, and availability (CIA) triad.
+* Describe the Zero Trust model, its guiding principles, and its seven foundational pillars.
+* Describe encryption and hashing as mechanisms for protecting data at rest, in transit, and in use.
+* Describe Governance, Risk, and Compliance (GRC) concepts, including data residency, data sovereignty, and data privacy.
+Learn more
+The following resources provide additional information on the topics covered in this module.
+Shared responsibility model
+* Shared responsibility in the cloud
+* Artificial intelligence (AI) shared responsibility model
+Defense in depth and the CIA triad
+* Security design principles in the Azure Well-Architected Framework
+Zero Trust model
+* Zero Trust overview
+Encryption and hashing
+* Azure encryption overview
+* Key management in Azure
+Governance, risk, and compliance
+* Microsoft compliance offerings
+Describe identity concepts
+Learn about the key concepts of authentication and authorization, why identity is the new security perimeter, how identity providers enable modern authentication and single sign-on, the role of directory services and Microsoft Entra ID, and how federation extends trust across organizational boundaries.
+Learning objectives
+After completing this module, you'll be able to:
+* Define authentication and authorization and explain how they work together to control access.
+* Describe identity as the primary security perimeter and explain the four pillars of an identity infrastructure.
+* Describe the role of an identity provider and how modern authentication uses tokens and single sign-on.
+* Describe directory services, Active Directory Domain Services, and Microsoft Entra ID as its cloud evolution.
+* Describe the concept of federation and how trust relationships enable cross-organizational access.
+Introduction
+Identity is how people, devices, and applications prove who or what they are when accessing digital resources. In a world where work happens from anywhere and data spans cloud and on-premises systems, identity has become the central security control organizations rely on.
+This module introduces the foundational identity concepts that underpin the Microsoft security, compliance, and identity portfolio. It starts with authentication and authorization—the processes of proving identity and determining access. From there, it explores why identity has replaced the network perimeter as the primary security boundary, and why this matters for every organization. It covers how identity providers enable modern, centralized authentication and single sign-on, then looks at how directory services—from traditional Active Directory to cloud-based Microsoft Entra ID—store and manage identity information at scale. Finally, it covers how federation extends trust across organizational boundaries so users can access resources in different domains without separate accounts.
+After completing this module, you'll be able to:
+* Define authentication and authorization and explain how they work together to control access.
+* Describe identity as the primary security perimeter and explain the four pillars of an identity infrastructure.
+* Describe the role of an identity provider and how modern authentication uses tokens and single sign-on.
+* Describe directory services, Active Directory Domain Services, and Microsoft Entra ID as its cloud evolution.
+* Describe the concept of federation and how trust relationships enable cross-organizational access.
+Define authentication and authorization
+Securing access to digital resources requires two distinct but related processes: confirming who is requesting access, and then deciding what that person, device, or application is allowed to do. These two processes—authentication and authorization—are fundamental to identity and access management. Understanding the difference between them is essential because every access decision in a modern organization depends on both.
+Watch the video that follows to learn about authentication and authorization.
+Authentication
+Authentication is the process of proving that you are who you say you are. Every time you sign in to an application, unlock your phone, or access a company system, authentication is happening. The system challenges you to provide proof of your identity, and then verifies that proof before deciding whether to allow access. Authentication answers the question: Who are you?
+Authentication requires credentials—evidence that verifies your identity. A username alone doesn't prove identity—it can be known or guessed by others. Adding a password provides a basic level of verification, but passwords can be stolen, guessed, or phished—making them one of the weakest forms of authentication on their own. Adding a stronger factor, such as a biometric or physical device, raises confidence significantly.
+Authentication methods are built on three categories of proof, called authentication factors:
+* Something you know—a password, PIN, or security question
+* Something you have—a mobile device, hardware security key, or smart card
+* Something you are—a biometric characteristic like a fingerprint or facial scan
+Using only one factor—such as a password alone—is called single-factor authentication. Single-factor authentication is common but vulnerable. If that single factor is compromised—a password stolen through phishing, for example—an attacker has everything they need to impersonate the user.
+Multifactor authentication (MFA) strengthens authentication by requiring two or more factors from different categories. For example, signing in with a password (something you know) and then approving a notification on your phone (something you have). Because an attacker would need to compromise multiple independent credentials, MFA dramatically reduces the risk of account takeover.
+After the system evaluates the credentials, authentication either succeeds or fails. Successful authentication confirms the identity and allows the process to continue. Failed authentication denies access before any resources are exposed. But authentication alone doesn't determine what you can do—it only confirms who you are. That's where authorization comes in.
+Authorization
+Authorization is the process of determining what an authenticated identity is allowed to do. Once authentication confirms your identity, authorization evaluates your permissions and decides whether to grant or deny access to specific resources—applications, files, data, or system features. Authorization answers the question: What are you allowed to do?
+Authorization decisions are typically based on roles (such as employee, manager, or administrator), permissions (read, write, or delete), and attributes (department, location, or job function). The system evaluates these rules for each access request and grants or restricts access accordingly.
+A key authorization concept is the principle of least privilege: users should have only the minimum access they need to perform their job, and no more. Limiting access reduces the potential damage from a compromised account, minimizes the risk of accidental data loss, and helps organizations meet their security and compliance requirements.
+How authentication and authorization work together
+Authentication and authorization are distinct processes, but they work together to protect resources. They always occur in a specific order: authentication happens first—at sign-in—and establishes who you are. Authorization happens after authentication and determines what you can access.
+Think of it like checking into a hotel. You present your ID at the front desk, and the receptionist verifies who you are—that's authentication. You're then given a keycard that opens your room and the fitness center, but not other guests' rooms or staff areas—that's authorization.
+Authorization can only happen after successful authentication. You can't determine what someone is permitted to do without first confirming their identity. And confirming identity alone—without checking permissions—leaves resources exposed. Together, authentication and authorization ensure that the right identities get the right access, and nothing more.
+Define identity as the primary security perimeter
+Digital collaboration has transformed how and where work gets done. Employees and partners now access organizational resources from anywhere—home offices, coffee shops, client sites, and across borders. They use corporate devices, personal devices, and shared workstations. They're accessing both on-premises systems and cloud services using the same identities.
+This shift has fundamentally changed how organizations need to think about security.
+Watch the video that follows to learn about identities and the new security perimeter.
+The traditional security perimeter
+Historically, organizations protected their resources using a network perimeter—a defined boundary, enforced by firewalls and VPN gateways, around corporate systems. Security controls at the edge of the network kept untrusted traffic out and allowed trusted internal traffic to flow freely.
+This model worked well when most employees worked in a single office, accessed applications running on local servers, and used only company-managed devices connected to the corporate network. When everything important was inside the boundary, trusting the network made sense.
+That environment no longer describes most organizations. Several factors have eroded the traditional perimeter:
+* Cloud and SaaS applications: Business-critical workloads like email, collaboration tools, and line-of-business applications now run in the cloud, outside the corporate network entirely.
+* Remote and hybrid work: Employees connect from home networks, public Wi-Fi, and locations around the world. Their traffic may never pass through the corporate perimeter.
+* Personal devices (BYOD): Employees access corporate resources on personal phones, tablets, and laptops that the organization doesn't fully manage or control.
+* Partner and customer access: External users—vendors, contractors, and customers—need access to specific resources without becoming part of the internal network.
+* IoT devices: Connected devices throughout facilities and customer locations access organizational networks, often using credentials and interfaces that are difficult to manage through traditional tools.
+When trusted users and unmanaged devices all connect from outside the traditional network boundary, the perimeter alone is no longer a reliable security control. An attacker who compromises a VPN credential or a cloud account can bypass perimeter defenses entirely.
+Identity as the new security perimeter
+If you can't reliably control who or what is on your network, what can you use as a security boundary? The answer is identity.
+An identity is the set of attributes that define or characterize a person, device, or software component. A user's identity might include their username, their organizational role, their assigned permissions, and the authentication methods registered to their account. A device's identity might include its hardware ID, its management enrollment status, and whether it meets compliance standards.
+When an identity—whether a user, a device, or an application—requests access to a resource, that identity becomes the central point of verification. Rather than asking "Is this request coming from inside our corporate network?", the security question becomes: "Who or what is making this request, and should it be trusted?"
+This is why identity is the new security perimeter. Every access decision starts with identity. Verifying identity—and controlling what each identity is authorized to do—is the fundamental security control for a world where work and data are no longer confined to a fixed location.
+Types of identities
+Identities in a modern environment come in several types:
+* Human identities represent people: employees, contractors, customers, and partners who sign in to access applications and data.
+* Device identities represent hardware: laptops, mobile phones, tablets, and IoT sensors that connect to organizational systems. A device can be enrolled in management, checked for compliance, and trusted or restricted based on its state.
+* Workload identities represent software: applications, services, containerized workloads, and automated processes that access APIs, databases, and other resources without a human user actively involved.
+* Agent identities represent AI agents: assistive or autonomous agents that act on behalf of users or processes, access resources, and interact with other systems. Agent identities require purpose-built identity constructs that go beyond traditional application identities to support authentication, authorization, governance, and lifecycle management at scale.
+All four types of identities need to be authenticated and authorized. A compromised application credential can give an attacker the same access as a compromised user account. A device that doesn't meet compliance standards can be used to access sensitive data. As AI agents become more prevalent, unmanaged agent identities introduce similar risks. Treating identity holistically—across users, devices, workloads, and agents—is essential to a strong security posture.
+Four pillars of an identity infrastructure
+Managing identity across an organization requires more than just usernames and passwords. Organizations need a comprehensive approach that covers the full lifecycle of every identity—from creation through removal. This approach can be organized into four fundamental pillars:
+Administration: The creation, management, and governance of identities for users, devices, and services. Administration covers how identities are created and assigned (provisioning), how they're updated when roles change, and how they're removed when a user leaves the organization (deprovisioning). It also includes defining the policies that govern how identities are managed across the organization.
+Authentication: The process of verifying that an identity is who or what it claims to be. It involves challenging the identity for legitimate credentials to provide sufficient proof before granting access.
+Authorization: The process of determining what an authenticated identity is allowed to do. Authorization evaluates assigned permissions and the context of the access request, then grants or restricts access accordingly. The goal is to ensure that identities can only access what they need for their specific role or task.
+Auditing: The tracking and recording of who did what, when, and from where. Auditing encompasses sign-in logs, activity reports, alerts on anomalous behavior, and forensic investigation capabilities. Auditing is essential for meeting compliance requirements, detecting security incidents, and understanding the scope of a breach.
+Together, these four pillars form the foundation of a comprehensive identity and access management solution. Addressing each pillar—not just authentication—is key to protecting resources in a world where identity is the primary security boundary.
+Describe the role of the identity provider
+Modern authentication is a framework in which authentication and authorization services are provided by a dedicated, centralized service—the identity provider—rather than being built into each individual application. This approach transforms how organizations manage access and significantly improves consistency, visibility, and control.
+The role of the identity provider
+An identity provider (IdP) creates, maintains, and manages identity information, and offers authentication, authorization, and auditing services to applications and services. Instead of each application managing its own user accounts and security policies, applications delegate these responsibilities to the identity provider.
+When a client wants to sign in to an application, the application directs them to the identity provider. The identity provider verifies their credentials and—if verification succeeds—issues a security token that the user client presents back to the application. The application trusts the identity provider and accepts the token as proof of successful authentication.
+This video introduces modern authentication and how it works with a central identity provider:
+Why centralize authentication?
+Without a central identity provider, each application manages its own user accounts and enforces its own security policies. This creates several challenges:
+* Fragmented credentials: Users maintain separate usernames and passwords for each application. This leads to password reuse, weak passwords, and difficulty removing access when someone leaves the organization.
+* Inconsistent security policies: Each application may have different standards for password complexity and MFA requirements, making it difficult to enforce a consistent security baseline.
+* Administrative overhead: When a user's role changes or they leave the organization, administrators must update access in every application separately. Forgotten accounts in disconnected systems become security risks.
+By delegating authentication and authorization to a central identity provider, organizations can:
+* Apply consistent authentication policies—including MFA requirements—across all applications from a single place
+* Monitor sign-in activity and detect suspicious patterns across the entire environment, not just one application
+* Manage the full user lifecycle—provisioning when users join, and deprovisioning when they leave
+Security tokens and claims
+The communication between an identity provider and an application is carried through security tokens. A security token is a structured package of data that the identity provider issues after verifying a user's identity. The application validates the token and uses the information inside it to grant access.
+Tokens carry information in the form of claims—individual pieces of data about the authenticated identity. Claims can include:
+* The user's unique identifier
+* Their display name and email address
+* Their assigned roles or group memberships
+* When the token was issued and when it expires
+* What the token grants permission to do
+There are two primary types of security tokens in modern authentication:
+* ID token: Proof that the user has successfully signed in (authentication). The application uses the ID token to know who the user is—their name, email, and unique identifier.
+* Access token: Permission for the application to access a specific resource on behalf of the user (authorization). An access token specifies what the application is allowed to do, such as reading calendar data or calling an API.
+Tokens are time-limited—they expire after a set period so that a stolen token can't be used indefinitely. The server validates the token through its trust relationship with the identity provider.
+Authentication protocols
+Identity providers and applications communicate using industry-standard protocols. These protocols define how authentication requests and security tokens are formatted and exchanged. The three most common protocols are:
+* OpenID Connect (OIDC): Widely used for authentication in modern cloud and mobile applications. It enables applications to verify a user's identity and obtain basic profile information. OpenID Connect is built on top of OAuth 2.0.
+* OAuth 2.0: Used for authorization. It allows applications to obtain access tokens that grant permission to access protected resources on behalf of the user.
+* Security Assertion Markup Language (SAML): Commonly used in enterprise scenarios, particularly for integrating older applications and for federation between organizations. SAML is often used with on-premises identity systems.
+Standard protocols ensure that identity providers and applications built by different organizations can work together securely, enabling the broad ecosystem of applications and services that organizations rely on today.
+Single sign-on
+One of the most valuable capabilities that a central identity provider enables is single sign-on (SSO). With SSO, a user signs in once to the identity provider and is automatically signed in to all applications that trust that same identity provider—without entering credentials again.
+SSO works because the identity provider issues tokens that the user presents to multiple applications. Each application validates the token against its trust relationship with the identity provider, and grants access without requiring another sign-in.
+The benefits of SSO include:
+* Better user experience: Users don't need to remember separate credentials for each application.
+* Stronger security: Fewer credential prompts reduce the opportunities for phishing or password theft. With fewer passwords, there's less risk of reuse.
+* Centralized control: Disabling a user account in the identity provider immediately removes their access to all connected applications, making offboarding faster and more reliable.
+SSO can happen within a single identity provider—one sign-in, many apps. When two different identity providers trust each other to authenticate users across boundaries, that's called federation, which is explored in the next unit.
+Microsoft Entra ID is an example of a cloud-based identity provider that supports SSO across thousands of applications. Other examples include Google, Amazon, LinkedIn, and GitHub.
+Describe the concept of directory services and Active Directory
+Keeping track of every user, device, and resource in a network—and deciding who can access what—requires a system for storing and managing identity information. That system is a directory service.
+What is a directory service?
+A directory is a structured repository that stores information about objects in a network, such as users, devices, groups, policies, and applications. A directory service is the software that stores this directory data and makes it available to users, administrators, applications, and services. Directory services answer questions like "Who is this user?", "What groups do they belong to?", and "Which resources are they authorized to access?" They form the backbone of user authentication and authorization in an organization's network.
+Active Directory Domain Services
+Active Directory (AD) is a set of directory services developed by Microsoft, first released as part of Windows 2000 Server. It was designed to help organizations manage on-premises, domain-based networks—giving administrators a centralized way to manage users, computers, and resources across the organization.
+The most widely deployed component is Active Directory Domain Services (AD DS). AD DS stores information about every member of a network domain, including users, devices, and groups. It verifies credentials during sign-in and defines each user's access rights to network resources. A server running AD DS is called a domain controller (DC).
+AD DS gives organizations the ability to:
+* Manage multiple on-premises systems using a single identity per user
+* Apply Group Policy settings to control device configurations across the organization
+* Authenticate users to on-premises applications using established protocols like Kerberos and NTLM
+* Organize users and computers into organizational units (OUs) for simplified administration
+For years, AD DS was the foundation of identity and access management for most organizations. It served well when employees worked on organization-provided Windows devices connected to a corporate network, and when applications ran on on-premises servers.
+Limitations of Active Directory for a modern environment
+Active Directory Domain Services was designed for an on-premises world. As organizations adopted cloud services, mobile devices, and remote work, AD DS began to show its limitations:
+* Cloud and SaaS applications: AD DS doesn't natively authenticate users to cloud-based applications or SaaS services. Connecting AD DS to cloud applications typically requires additional synchronization tools or federation services.
+* Mobile devices: AD DS doesn't natively support iOS, Android, or other non-Windows device management without additional solutions.
+* Modern authentication protocols: Many cloud services and modern applications use authentication standards like OAuth 2.0 and OpenID Connect—protocols that AD DS doesn't natively support.
+* Remote access: Users working away from the corporate network can't authenticate directly to AD DS without a VPN connection, adding friction and a potential security gap.
+These limitations created the need for an identity solution built for cloud services, mobile devices, and remote work.
+Microsoft Entra ID
+Microsoft Entra ID is Microsoft's cloud-based identity and access management service—the evolution of directory services for the cloud era. Where Active Directory Domain Services was designed for on-premises networks, Microsoft Entra ID is designed for the internet and the cloud. It provides an Identity as a Service (IDaaS) model, meaning Microsoft operates and maintains the underlying infrastructure while organizations use it to manage users, devices, and access policies.
+Microsoft Entra ID addresses the limitations of AD DS by supporting modern, standards-based authentication, working across platforms and device types, and integrating with cloud and SaaS applications—without requiring a VPN or on-premises infrastructure. Organizations that already run AD DS can connect the two systems so identities are synchronized, a configuration known as hybrid identity, allowing users to access both on-premises and cloud resources with the same credentials.
+A later learning path covers Microsoft Entra ID and its capabilities in detail.
+Describe the concept of federation
+When users need to access resources in a different organization, or when a web application needs to accept sign-ins from users who belong to external identity systems, a challenge arises: how do you let someone authenticate using their own organization's identity provider to access your resources—without requiring them to create a separate account?
+Federation is the answer. Federation enables access to services across organizational or domain boundaries by establishing trust relationships between separate identity providers.
+How federation works
+Think of federation like passport control between countries/regions. Your passport was issued by your home country/region, but many other countries/regions accept it as proof of identity without requiring you to get a new ID from them. Federation works the same way—your organization's identity system vouches for you, and a partner's system accepts that voucher. The user signs in once with credentials they already have. No new account in the other organization is needed.
+In practice, Organization A configures its identity provider to trust Organization B's identity provider. When a user from Organization B tries to access a resource in Organization A, Organization A's identity provider accepts the authentication that Organization B already performed and grants access based on that trust.
+An important point: trust relationships aren't automatically bidirectional. If Organization A trusts Organization B, that doesn't mean Organization B automatically trusts Organization A. A two-way trust must be explicitly configured if both organizations need to access each other's resources.
+Federation in practice
+Federation works across different vendors and platforms because identity providers use industry-standard protocols to exchange security tokens consistently. This interoperability makes federation practical in many common scenarios:
+Business-to-business (B2B) collaboration: When two companies partner on a project, federation lets employees from one company access shared resources—a project workspace, a joint application, a collaboration portal—using their own company credentials. Administrators configure a trust relationship between the two organizations' identity providers rather than creating and managing individual guest accounts.
+Social and consumer identity providers: When a consumer application lets users sign in with their Google, Microsoft, or GitHub account instead of creating a new account, that's a federated sign-in. The application trusts the social identity provider to authenticate the user. This approach is common in customer-facing applications where reducing sign-up friction improves adoption.
+Enterprise application integration with on-premises identity: Organizations with on-premises Active Directory Domain Services can use federation to extend on-premises authentication to cloud services. Active Directory Federation Services (AD FS) is a Microsoft server role that enables organizations to share identity information with external services securely. Through AD FS, on-premises Active Directory users can access cloud applications by authenticating against the on-premises AD FS server, which issues tokens that cloud services accept.
+Microsoft Entra ID supports federation across all of these scenarios, letting organizations extend trust to partners, customers, and external users without requiring those users to create new accounts or learn new credentials.
+Summary and resources
+In this module, you learned about the foundational identity concepts that underpin Microsoft security, compliance, and identity solutions.
+You learned how authentication proves who you are—through credentials, multifactor authentication, and passwordless methods—while authorization determines what you're allowed to do. You explored why identity is the new security perimeter and how organizations manage it through four pillars: administration, authentication, authorization, and auditing.
+You learned how identity providers centralize authentication, issue security tokens, and enable single sign-on. You explored directory services—from on-premises Active Directory Domain Services to Microsoft Entra ID as its cloud-native evolution. Finally, you learned how federation uses trust relationships so users can access resources across organizational boundaries using the identities they already have.
+Now that you've completed this module, you should be able to:
+* Define authentication and authorization and explain how they work together to control access.
+* Describe identity as the primary security perimeter and explain the four pillars of an identity infrastructure.
+* Describe the role of an identity provider and how modern authentication uses tokens and single sign-on.
+* Describe directory services, Active Directory Domain Services, and Microsoft Entra ID as its cloud evolution.
+* Describe the concept of federation and how trust relationships enable cross-organizational access.
+Learn more
+The following resources provide additional information on the topics covered in this module.
+* Identity and access management fundamental concepts
+* Authentication vs. authorization
+* What is Microsoft Entra?
+* Compare Active Directory to Microsoft Entra ID
+* What is federation with Microsoft Entra ID?

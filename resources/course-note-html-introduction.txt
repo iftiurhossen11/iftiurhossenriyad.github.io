@@ -1,0 +1,954 @@
+HTML Introduction.docx
+Plain text edition ? UTF-8
+
+Personal study notes. Text and tables are included; page layout and images are not reproduced. Practice cybersecurity only in systems you own or are explicitly authorized to test.
+========================================================================
+
+HTML Introduction
+HTML is the standard markup language for creating Web pages.
+What is HTML?
+* HTML stands for Hyper Text Markup Language
+* HTML is the standard markup language for creating Web pages
+* HTML describes the structure of a Web page
+* HTML consists of a series of elements
+* HTML elements tell the browser how to display the content
+* HTML elements label pieces of content such as "this is a heading", "this is a paragraph", "this is a link", etc.
+A Simple HTML Document
+Example
+<!DOCTYPE html>
+<html>
+<head>
+<title>Page Title</title>
+</head>
+<body>
+
+<h1>My First Heading</h1>
+<p>My first paragraph.</p>
+
+</body>
+</html>
+Example Explained
+* The <!DOCTYPE html> declaration defines that this document is an HTML5 document
+* The <html> element is the root element of an HTML page
+* The <head> element contains meta information about the HTML page
+* The <title> element specifies a title for the HTML page (which is shown in the browser's title bar or in the page's tab)
+* The <body> element defines the document's body, and is a container for all the visible contents, such as headings, paragraphs, images, hyperlinks, tables, lists, etc.
+* The <h1> element defines a large heading
+* The <p> element defines a paragraph
+What is an HTML Element?
+An HTML element is defined by a start tag, some content, and an end tag:
+<tagname> Content goes here... </tagname>
+The HTML element is everything from the start tag to the end tag:
+<h1>My First Heading</h1>
+<p>My first paragraph.</p>
+Start tag | Element content | End tag
+<h1> | My First Heading | </h1>
+<p> | My first paragraph. | </p>
+<br> | none | none
+Note: Some HTML elements have no content (like the <br> element). These elements are called empty elements. Empty elements do not have an end tag!
+REMOVE ADS
+Web Browsers
+The purpose of a web browser (Chrome, Edge, Firefox, Safari) is to read HTML documents and display them correctly.
+A browser does not display the HTML tags, but uses them to determine how to display the document:
+HTML Page Structure
+Below is a visualization of an HTML page structure:
+<html>
+<head>
+<title>Page title</title>
+</head>
+<body>
+<h1>This is a heading</h1>
+<p>This is a paragraph.</p>
+<p>This is another paragraph.</p>
+</body>
+</html>
+Note: The content inside the <body> section will be displayed in a browser. The content inside the <title> element will be shown in the browser's title bar or in the page's tab.
+HTML History
+Since the early days of the World Wide Web, there have been many versions of HTML:
+Year | Version
+1989 | Tim Berners-Lee invented www
+1991 | Tim Berners-Lee invented HTML
+1993 | Dave Raggett drafted HTML+
+1995 | HTML Working Group defined HTML 2.0
+1997 | W3C Recommendation: HTML 3.2
+1999 | W3C Recommendation: HTML 4.01
+2000 | W3C Recommendation: XHTML 1.0
+2008 | WHATWG HTML5 First Public Draft
+2012 | WHATWG HTML5 Living Standard
+2014 | W3C Recommendation: HTML5
+2016 | W3C Candidate Recommendation: HTML 5.1
+2017 | W3C Recommendation: HTML5.1 2nd Edition
+2017 | W3C Recommendation: HTML5.2
+HTML Basic Examples
+In this chapter we will show some basic HTML examples.
+Don't worry if we use tags you have not learned about yet.
+HTML Documents
+All HTML documents must start with a document type declaration: <!DOCTYPE html>.
+The HTML document itself begins with <html> and ends with </html>.
+The visible part of the HTML document is between <body> and </body>.
+Example
+<!DOCTYPE html>
+<html>
+<body>
+
+<h1>My First Heading</h1>
+<p>My first paragraph.</p>
+
+</body>
+</html>
+The <!DOCTYPE> Declaration
+The <!DOCTYPE> declaration represents the document type, and helps browsers to display web pages correctly.
+It must only appear once, at the top of the page (before any HTML tags).
+The <!DOCTYPE> declaration is not case sensitive.
+The <!DOCTYPE> declaration for HTML5 is:
+<!DOCTYPE html>
+HTML Headings
+HTML headings are defined with the <h1> to <h6> tags.
+<h1> defines the most important heading. <h6> defines the least important heading:
+Example
+<h1>This is heading 1</h1>
+<h2>This is heading 2</h2>
+<h3>This is heading 3</h3>
+REMOVE ADS
+HTML Paragraphs
+HTML paragraphs are defined with the <p> tag:
+Example
+<p>This is a paragraph.</p>
+<p>This is another paragraph.</p>
+HTML Links
+HTML links are defined with the <a> tag:
+Example
+<a href="https://www.w3schools.com">This is a link</a>
+The link's destination is specified in the href attribute.
+Attributes are used to provide additional information about HTML elements.
+You will learn more about attributes in a later chapter.
+HTML Images
+HTML images are defined with the <img> tag.
+The source file (src), alternative text (alt), width, and height are provided as attributes:
+Example
+<img src="w3schools.jpg" alt="W3Schools.com" width="104" height="142">
+How to View HTML Source
+Have you ever seen a Web page and wondered "Hey! How did they do that?"
+View HTML Source Code:
+Click CTRL + U in an HTML page, or right-click on the page and select "View Page Source". This will open a new tab containing the HTML source code of the page.
+Inspect an HTML Element:
+Right-click on an element (or a blank area), and choose "Inspect" to see what elements are made up of (you will see both the HTML and the CSS). You can also edit the HTML or CSS on-the-fly in the Elements or Styles panel that opens.
+HTML Basic Code Challenge
+Challenge: HTML Basics
+Test your understanding of basic HTML by completing these coding challenges.
+Instructions
+Inside the editor, complete the following steps:
+* Add the <!DOCTYPE html> declaration
+* Add an <html> element
+* Inside it, add a <body> element
+* Inside the body, add an <h1> with the text Hello World
+HTML Elements
+An HTML element is defined by a start tag, some content, and an end tag.
+HTML Elements
+The HTML element is everything from the start tag to the end tag:
+<tagname>Content goes here...</tagname>
+Examples of some HTML elements:
+<h1>My First Heading</h1>
+<p>My first paragraph.</p>
+Start tag | Element content | End tag
+<h1> | My First Heading | </h1>
+<p> | My first paragraph. | </p>
+<br> | none | none
+Note: Some HTML elements have no content (like the <br> element). These elements are called empty elements. Empty elements do not have an end tag!
+Nested HTML Elements
+HTML elements can be nested (this means that elements can contain other elements).
+All HTML documents consist of nested HTML elements.
+The following example contains four HTML elements (<html>, <body>, <h1> and <p>):
+Example
+<!DOCTYPE html>
+<html>
+<body>
+
+<h1>My First Heading</h1>
+<p>My first paragraph.</p>
+
+</body>
+</html>
+Example Explained
+The <html> element is the root element and it defines the whole HTML document.
+It has a start tag <html> and an end tag </html>.
+Then, inside the <html> element there is a <body> element:
+<body>
+
+<h1>My First Heading</h1>
+<p>My first paragraph.</p>
+
+</body>
+The <body> element defines the document's body.
+It has a start tag <body> and an end tag </body>.
+Then, inside the <body> element there are two other elements: <h1> and <p>:
+<h1>My First Heading</h1>
+<p>My first paragraph.</p>
+The <h1> element defines a heading.
+It has a start tag <h1> and an end tag </h1>:
+<h1>My First Heading</h1>
+The <p> element defines a paragraph.
+It has a start tag <p> and an end tag </p>:
+<p>My first paragraph.</p>
+REMOVE ADS
+Never Skip the End Tag
+Some HTML elements will display correctly, even if you forget the end tag:
+Example
+<html>
+<body>
+
+<p>This is a paragraph
+<p>This is a paragraph
+
+</body>
+</html>
+However, never rely on this! Unexpected results and errors may occur if you forget the end tag!
+Empty HTML Elements
+HTML elements with no content are called empty elements.
+The <br> tag defines a line break, and is an empty element without a closing tag:
+Example
+<p>This is a <br> paragraph with a line break.</p>
+HTML is Not Case Sensitive
+HTML tags are not case sensitive: <P> means the same as <p>.
+The HTML standard does not require lowercase tags, but W3C recommends lowercase in HTML, and demands lowercase for stricter document types like XHTML.
+At W3Schools we always use lowercase tag names.
+HTML Tag Reference
+W3Schools' tag reference contains additional information about these tags and their attributes.
+Tag | Description
+<html> | Defines the root of an HTML document
+<body> | Defines the document's body
+<h1> to <h6> | Defines HTML headings
+HTML Elements Code Challenge
+Challenge: End Tags and Empty Elements
+Test your understanding of HTML elements by completing this coding challenge.
+Instructions
+Inside the editor, complete the following steps:
+* Close the <h1> element with the correct end tag
+* Add a <p> element with the text My first paragraph.
+* Inside the paragraph, add a <br> after the word first
+* Close the <body> element with the correct end tag
+HTML Attributes
+HTML attributes provide additional information about HTML elements.
+HTML Attributes
+* All HTML elements can have attributes
+* Attributes provide additional information about elements
+* Attributes are always specified in the start tag
+* Attributes usually come in name/value pairs like: name="value"
+The href Attribute
+The <a> tag defines a hyperlink. The href attribute specifies the URL of the page the link goes to:
+Example
+<a href="https://www.w3schools.com">Visit W3Schools</a>
+You will learn more about links in our HTML Links chapter.
+The src Attribute
+The <img> tag is used to embed an image in an HTML page. The src attribute specifies the path to the image to be displayed:
+Example
+<img src="img_girl.jpg">
+There are two ways to specify the URL in the src attribute:
+1. Absolute URL - Links to an external image that is hosted on another website. Example: src="https://www.w3schools.com/images/img_girl.jpg".
+Notes: External images might be under copyright. If you do not get permission to use it, you may be in violation of copyright laws. In addition, you cannot control external images; it can suddenly be removed or changed.
+2. Relative URL - Links to an image that is hosted within the website. Here, the URL does not include the domain name. If the URL begins without a slash, it will be relative to the current page. Example: src="img_girl.jpg". If the URL begins with a slash, it will be relative to the domain. Example: src="/images/img_girl.jpg".
+Tip: It is almost always best to use relative URLs. They will not break if you change domain.
+The width and height Attributes
+The <img> tag should also contain the width and height attributes, which specify the width and height of the image (in pixels):
+Example
+<img src="img_girl.jpg" width="500" height="600">
+The alt Attribute
+The required alt attribute for the <img> tag specifies an alternate text for an image, if the image for some reason cannot be displayed. This can be due to a slow connection, or an error in the src attribute, or if the user uses a screen reader.
+Example
+<img src="img_girl.jpg" alt="Girl with a jacket">
+Example
+See what happens if we try to display an image that does not exist:
+<img src="img_typo.jpg" alt="Girl with a jacket">
+You will learn more about images in our HTML Images chapter.
+REMOVE ADS
+The style Attribute
+The style attribute is used to add styles to an element, such as color, font, size, and more.
+Example
+<p style="color:red;">This is a red paragraph.</p>
+You will learn more about styles in our HTML Styles chapter.
+The lang Attribute
+You should always include the lang attribute inside the <html> tag, to declare the language of the Web page. This is meant to assist search engines and browsers.
+The following example specifies English as the language:
+<!DOCTYPE html>
+<html lang="en">
+<body>
+...
+</body>
+</html>
+Country codes can also be added to the language code in the lang attribute. So, the first two characters define the language of the HTML page, and the last two characters define the country.
+The following example specifies English as the language and United States as the country:
+<!DOCTYPE html>
+<html lang="en-US">
+<body>
+...
+</body>
+</html>
+You can see all the language codes in our HTML Language Code Reference.
+The title Attribute
+The title attribute defines some extra information about an element.
+The value of the title attribute will be displayed as a tooltip when you mouse over the element:
+Example
+<p title="I'm a tooltip">This is a paragraph.</p>
+We Suggest: Always Use Lowercase Attributes
+The HTML standard does not require lowercase attribute names.
+The title attribute (and all other attributes) can be written with uppercase or lowercase like title or TITLE.
+However, W3C recommends lowercase attributes in HTML, and demands lowercase attributes for stricter document types like XHTML.
+At W3Schools we always use lowercase attribute names.
+We Suggest: Always Quote Attribute Values
+The HTML standard does not require quotes around attribute values.
+However, W3C recommends quotes in HTML, and demands quotes for stricter document types like XHTML.
+Good:
+<a href="https://www.w3schools.com/html/">Visit our HTML tutorial</a>
+Bad:
+<a href=https://www.w3schools.com/html/>Visit our HTML tutorial</a>
+Sometimes you have to use quotes. This example will not display the title attribute correctly, because it contains a space:
+Example
+<p title=Description of W3Schools>
+At W3Schools we always use quotes around attribute values.
+Single or Double Quotes?
+Double quotes around attribute values are the most common in HTML, but single quotes can also be used.
+In some situations, when the attribute value itself contains double quotes, it is necessary to use single quotes:
+<p title='John "ShotGun" Nelson'>
+Or vice versa:
+<p title="John 'ShotGun' Nelson">
+Chapter Summary
+* All HTML elements can have attributes
+* The href attribute of <a> specifies the URL of the page the link goes to
+* The src attribute of <img> specifies the path to the image to be displayed
+* The width and height attributes of <img> provide size information for images
+* The alt attribute of <img> provides an alternate text for an image
+* The style attribute is used to add styles to an element, such as color, font, size, and more
+* The lang attribute of the <html> tag declares the language of the Web page
+* The title attribute defines some extra information about an element
+HTML Attribute Reference
+A complete list of all attributes for each HTML element, is listed in our: HTML Attribute Reference.
+HTML Headings
+HTML headings are titles or subtitles that you want to display on a webpage.
+Example
+Heading 1
+Heading 2
+Heading 3
+Heading 4
+Heading 5
+Heading 6
+HTML Headings
+HTML headings are defined with the <h1> to <h6> tags.
+<h1> defines the most important heading. <h6> defines the least important heading.
+Example
+<h1>Heading 1</h1>
+<h2>Heading 2</h2>
+<h3>Heading 3</h3>
+<h4>Heading 4</h4>
+<h5>Heading 5</h5>
+<h6>Heading 6</h6>
+Note: Browsers automatically add some white space (a margin) before and after a heading.
+Headings Are Important
+Search engines use the headings to index the structure and content of your web pages.
+Users often skim a page by its headings. It is important to use headings to show the document structure.
+<h1> headings should be used for main headings, followed by <h2> headings, then the less important <h3>, and so on.
+For example:
+* <h1> - Page title
+* <h2> - Section titles
+* <h3> - Sub-sections
+Example
+<h1>Travel Guide</h1>
+
+<h2>Europe</h2>
+<h3>France</h3>
+<h3>Italy</h3>
+
+<h2>Asia</h2>
+<h3>India</h3>
+<h3>Thailand</h3>
+Tip: Use only one <h1> per page - it represents the main topic or title.
+Note: Use HTML headings for headings only. Don't use headings to make text BIG or bold.
+REMOVE ADS
+Bigger Headings
+Each HTML heading has a default size. However, you can specify the size for any heading with the style attribute, using the CSS font-size property:
+Example
+<h1 style="font-size:60px;">Heading 1</h1>
+HTML Tag Reference
+W3Schools' tag reference contains additional information about these tags and their attributes.
+Tag | Description
+<html> | Defines the root of an HTML document
+<body> | Defines the document's body
+<h1> to <h6> | Defines HTML headings
+For a complete list of all available HTML tags, visit our HTML Tag Reference.
+HTML Paragraphs
+A paragraph always starts on a new line, and is usually a block of text.
+HTML Paragraphs
+The HTML <p> element defines a paragraph.
+A paragraph always starts on a new line, and browsers automatically add some white space (a margin) before and after a paragraph.
+Example
+<p>This is a paragraph.</p>
+<p>This is another paragraph.</p>
+HTML Display
+You cannot be sure how HTML will be displayed.
+Large or small screens, and resized windows will create different results.
+With HTML, you cannot change the display by adding extra spaces or extra lines in your HTML code.
+The browser will automatically remove any extra spaces and lines when the page is displayed:
+Example
+<p>
+This paragraph
+contains a lot of lines
+in the source code,
+but the browser
+ignores it.
+</p>
+
+<p>
+This paragraph
+contains         a lot of spaces
+in the source         code,
+but the        browser
+ignores it.
+</p>
+REMOVE ADS
+HTML Horizontal Rules
+The <hr> tag defines a thematic break in an HTML page, and is most often displayed as a horizontal rule.
+The <hr> element is used to separate content (or define a change) in an HTML page:
+Example
+<h1>This is heading 1</h1>
+<p>This is some text.</p>
+<hr>
+<h2>This is heading 2</h2>
+<p>This is some other text.</p>
+<hr>
+The <hr> tag is an empty tag, which means that it has no end tag.
+HTML Line Breaks
+The HTML <br> element defines a line break.
+Use <br> if you want a line break (a new line) without starting a new paragraph:
+Example
+<p>This is<br>a paragraph<br>with line breaks.</p>
+The <br> tag is an empty tag, which means that it has no end tag.
+The Poem Problem
+This poem will display on a single line:
+Example
+<p>
+  My Bonnie lies over the ocean.
+
+  My Bonnie lies over the sea.
+
+  My Bonnie lies over the ocean.
+
+  Oh, bring back my Bonnie to me.
+</p>
+Solution - The HTML <pre> Element
+The HTML <pre> element defines preformatted text.
+The text inside a <pre> element is displayed in a fixed-width font (usually Courier), and it preserves both spaces and line breaks:
+Example
+<pre>
+  My Bonnie lies over the ocean.
+
+  My Bonnie lies over the sea.
+
+  My Bonnie lies over the ocean.
+
+  Oh, bring back my Bonnie to me.
+</pre>
+HTML Tag Reference
+W3Schools' tag reference contains additional information about HTML elements and their attributes.
+Tag | Description
+<p> | Defines a paragraph
+<hr> | Defines a thematic change in the content
+<br> | Inserts a single line break
+<pre> | Defines pre-formatted text
+For a complete list of all available HTML tags, visit our HTML Tag Reference.
+HTML Paragraphs Code Challenge
+Challenge: Paragraphs, Breaks, and Preformatted Text
+Test your understanding of HTML paragraphs by completing this coding challenge.
+Instructions
+Inside the editor, complete the following steps:
+* Wrap the first two lines in a <p> element
+* Add a <br> after the phrase little star,
+* Add an <hr> after the paragraph to separate the sections
+* Wrap the last two lines in a <pre> element to preserve the formatting
+HTML Styles
+The HTML style attribute is used to add styles to an element, such as color, font, size, and more.
+Example
+I am Red
+I am Blue
+I am Big
+The HTML Style Attribute
+Setting the style of an HTML element, can be done with the style attribute.
+The HTML style attribute has the following syntax:
+<tagname style="property:value;">
+The property is a CSS property. The value is a CSS value.
+You will learn more about CSS later in this tutorial.
+Background Color
+The CSS background-color property defines the background color for an HTML element.
+Example
+Set the background color for a page to powderblue:
+<body style="background-color:powderblue;">
+
+<h1>This is a heading</h1>
+<p>This is a paragraph.</p>
+
+</body>
+Example
+Set background color for two different elements:
+<body>
+
+<h1 style="background-color:powderblue;">This is a heading</h1>
+<p style="background-color:tomato;">This is a paragraph.</p>
+
+</body>
+REMOVE ADS
+Text Color
+The CSS color property defines the text color for an HTML element:
+Example
+<h1 style="color:blue;">This is a heading</h1>
+<p style="color:red;">This is a paragraph.</p>
+Fonts
+The CSS font-family property defines the font to be used for an HTML element:
+Example
+<h1 style="font-family:verdana;">This is a heading</h1>
+<p style="font-family:courier;">This is a paragraph.</p>
+Text Size
+The CSS font-size property defines the text size for an HTML element:
+Example
+<h1 style="font-size:300%;">This is a heading</h1>
+<p style="font-size:160%;">This is a paragraph.</p>
+Text Alignment
+The CSS text-align property defines the horizontal text alignment for an HTML element:
+Example
+<h1 style="text-align:center;">Centered Heading</h1>
+<p style="text-align:center;">Centered paragraph.</p>
+Chapter Summary
+* Use the style attribute for styling HTML elements
+* Use background-color for background color
+* Use color for text colors
+* Use font-family for text fonts
+* Use font-size for text sizes
+* Use text-align for text alignment
+HTML Styles Code Challenge
+Challenge: The Style Attribute
+Test your understanding of HTML styles by completing this coding challenge.
+Instructions
+Inside the editor, complete the following steps:
+* Set the background color of the <body> to powderblue
+* Set the text color of the <h1> to blue
+* Set the font-family of the <h1> to verdana
+* Set the text-align of the <p> to center
+* Set the font-size of the <p> to 20px
+HTML Text Formatting
+HTML contains several elements for defining text with a special meaning.
+Example
+This text is bold
+This text is italic
+This is subscript and superscript
+HTML Formatting Elements
+Formatting elements were designed to display special types of text:
+* <b> - Bold text
+* <strong> - Important text
+* <i> - Italic text
+* <em> - Emphasized text
+* <mark> - Marked text
+* <small> - Smaller text
+* <del> - Deleted text
+* <ins> - Inserted text
+* <sub> - Subscript text
+* <sup> - Superscript text
+HTML <b> and <strong> Elements
+The HTML <b> element defines bold text, without any extra importance.
+Example
+<b>This text is bold</b>
+The HTML <strong> element defines text with strong importance. The content inside is typically displayed in bold.
+Example
+<strong>This text is important!</strong>
+REMOVE ADS
+HTML <i> and <em> Elements
+The HTML <i> element defines a part of text in an alternate voice or mood. The content inside is typically displayed in italic.
+Tip: The <i> tag is often used to indicate a technical term, a phrase from another language, a thought, a ship name, etc.
+Example
+<i>This text is italic</i>
+The HTML <em> element defines emphasized text. The content inside is typically displayed in italic.
+Tip: A screen reader will pronounce the words in <em> with an emphasis, using verbal stress.
+Example
+<em>This text is emphasized</em>
+HTML <small> Element
+The HTML <small> element defines smaller text:
+Example
+<small>This is some smaller text.</small>
+HTML <mark> Element
+The HTML <mark> element defines text that should be marked or highlighted:
+Example
+<p>Do not forget to buy <mark>milk</mark> today.</p>
+HTML <del> Element
+The HTML <del> element defines text that has been deleted from a document. Browsers will usually strike a line through deleted text:
+Example
+<p>My favorite color is <del>blue</del> red.</p>
+HTML <ins> Element
+The HTML <ins> element defines a text that has been inserted into a document. Browsers will usually underline inserted text:
+Example
+<p>My favorite color is <del>blue</del> <ins>red</ins>.</p>
+HTML <sub> Element
+The HTML <sub> element defines subscript text. Subscript text appears half a character below the normal line, and is sometimes rendered in a smaller font. Subscript text can be used for chemical formulas, like H2O:
+Example
+<p>This is <sub>subscripted</sub> text.</p>
+HTML <sup> Element
+The HTML <sup> element defines superscript text. Superscript text appears half a character above the normal line, and is sometimes rendered in a smaller font. Superscript text can be used for footnotes, like WWW[1]:
+Example
+<p>This is <sup>superscripted</sup> text.</p>
+HTML Text Formatting Elements
+Tag | Description
+<b> | Defines bold text
+<em> | Defines emphasized text
+<i> | Defines a part of text in an alternate voice or mood
+<small> | Defines smaller text
+<strong> | Defines important text
+<sub> | Defines subscripted text
+<sup> | Defines superscripted text
+<ins> | Defines inserted text
+<del> | Defines deleted text
+<mark> | Defines marked/highlighted text
+For a complete list of all available HTML tags, visit our HTML Tag Reference.
+HTML Formatting Code Challenge
+Challenge: Formatting Elements
+Test your understanding of HTML formatting by completing this coding challenge.
+Instructions
+Inside the editor, complete the following steps:
+* Wrap the word important in a <strong> element
+* Wrap the word carefully in an <em> element
+* Wrap the word milk in a <mark> element
+* Wrap the 2 in H2O with a <sub> element
+* Wrap the word blue in a <del> element
+HTML Quotation and Citation Elements
+In this chapter we will go through the <blockquote>,<q>, <abbr>, <address>, <cite>, and <bdo> HTML elements.
+Example
+Here is a quote from WWF's website:
+For 60 years, WWF has worked to help people and nature thrive. As the world's leading conservation organization, WWF works in nearly 100 countries. At every level, we collaborate with people around the world to develop and deliver innovative solutions that protect communities, wildlife, and the places in which they live.
+HTML <blockquote> for Quotations
+The HTML <blockquote> element defines a section that is quoted from another source.
+Browsers usually indent <blockquote> elements.
+Example
+<p>Here is a quote from WWF's website:</p>
+<blockquote cite="http://www.worldwildlife.org/who/index.html">
+For 60 years, WWF has worked to help people and nature thrive. As the world's leading conservation organization, WWF works in nearly 100 countries. At every level, we collaborate with people around the world to develop and deliver innovative solutions that protect communities, wildlife, and the places in which they live.
+</blockquote>
+HTML <q> for Short Quotations
+The HTML <q> tag defines a short quotation.
+Browsers normally insert quotation marks around the quotation.
+Example
+<p>WWF's goal is to: <q>Build a future where people live in harmony with nature.</q></p>
+REMOVE ADS
+HTML <abbr> for Abbreviations
+The HTML <abbr> tag defines an abbreviation or an acronym, like "HTML", "CSS", "Mr.", "Dr.", "ASAP", "ATM".
+Marking abbreviations can give useful information to browsers, translation systems and search-engines.
+Tip: Use the global title attribute to show the description for the abbreviation/acronym when you mouse over the element.
+Example
+<p>The <abbr title="World Health Organization">WHO</abbr> was founded in 1948.</p>
+HTML <address> for Contact Information
+The HTML <address> tag defines the contact information for the author/owner of a document or an article.
+The contact information can be an email address, URL, physical address, phone number, social media handle, etc.
+The text in the <address> element usually renders in italic, and browsers will always add a line break before and after the <address> element.
+Example
+<address>
+Written by John Doe.<br>
+Visit us at:<br>
+Example.com<br>
+Box 564, Disneyland<br>
+USA
+</address>
+HTML <cite> for Work Title
+The HTML <cite> tag defines the title of a creative work (e.g. a book, a poem, a song, a movie, a painting, a sculpture, etc.).
+Note: A person's name is not the title of a work.
+The text in the <cite> element usually renders in italic.
+Example
+<p><cite>The Scream</cite> by Edvard Munch. Painted in 1893.</p>
+HTML <bdo> for Bi-Directional Override
+BDO stands for Bi-Directional Override.
+The HTML <bdo> tag is used to override the current text direction:
+Example
+<bdo dir="rtl">This text will be written from right to left</bdo>
+HTML Quotation and Citation Elements
+Tag | Description
+<abbr> | Defines an abbreviation or acronym
+<address> | Defines contact information for the author/owner of a document
+<bdo> | Defines the text direction
+<blockquote> | Defines a section that is quoted from another source
+<cite> | Defines the title of a work
+<q> | Defines a short inline quotation
+For a complete list of all available HTML tags, visit our HTML Tag Reference.
+HTML Quotations Code Challenge
+Challenge: Quotations and Abbreviations
+Test your understanding of HTML quotation elements by completing this coding challenge.
+Instructions
+Inside the editor, complete the following steps:
+* Wrap the quote text in a <blockquote> element
+* Add a cite attribute to the blockquote with the value https://www.w3schools.com
+* Wrap the abbreviation HTML in an <abbr> element
+* Add a title attribute to the abbr with the value Hyper Text Markup Language
+HTML Comments
+HTML comments are not displayed in the browser, but they can help document your HTML source code.
+HTML Comment Tag
+You can add comments to your HTML source by using the following syntax:
+<!-- Write your comments here -->
+Notice that there is an exclamation point (!) in the start tag, but not in the end tag.
+Note: Comments are not displayed by the browser, but they can help document your HTML source code.
+Add Comments
+With comments you can place notifications and reminders in your HTML code:
+Example
+<!-- This is a comment -->
+
+<p>This is a paragraph.</p>
+
+<!-- Remember to add more information here -->
+Hide Content
+Comments can be used to hide content.
+This can be helpful if you hide content temporarily:
+Example
+<p>This is a paragraph.</p>
+
+<!-- <p>This is another paragraph </p> -->
+
+<p>This is a paragraph too.</p>
+You can also hide more than one line. Everything between the <!-- and the --> will be hidden from the display.
+Example
+Hide a section of HTML code:
+<p>This is a paragraph.</p>
+<!--
+<p>Look at this cool image:</p>
+<img border="0" src="pic_trulli.jpg" alt="Trulli">
+-->
+<p>This is a paragraph too.</p>
+Comments are also great for debugging HTML, because you can comment out HTML lines of code, one at a time, to search for errors.
+REMOVE ADS
+Hide Inline Content
+Comments can be used to hide parts in the middle of the HTML code.
+Example
+Hide a part of a paragraph:
+<p>This <!-- great text --> is a paragraph.</p>
+HTML Comments Code Challenge
+Challenge: HTML Comments
+Test your understanding of HTML comments by completing this coding challenge.
+Instructions
+Inside the editor, complete the following steps:
+* Add an HTML comment with the text This is the navigation above the first paragraph
+* Comment out the second paragraph so it is hidden from the browser
+HTML Colors
+HTML colors are specified with predefined color names, or with RGB, HEX, HSL, RGBA, or HSLA values.
+Color Names
+In HTML, a color can be specified by using a color name:
+Tomato
+Orange
+DodgerBlue
+MediumSeaGreen
+Gray
+SlateBlue
+Violet
+LightGray
+HTML supports 140 standard color names.
+Background Color
+You can set the background color for HTML elements:
+Hello World
+Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.
+Example
+<h1 style="background-color:DodgerBlue;">Hello World</h1>
+<p style="background-color:Tomato;">Lorem ipsum...</p>
+Text Color
+You can set the color of text:
+Hello World
+Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.
+Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.
+Example
+<h1 style="color:Tomato;">Hello World</h1>
+<p style="color:DodgerBlue;">Lorem ipsum...</p>
+<p style="color:MediumSeaGreen;">Ut wisi enim...</p>
+Border Color
+You can set the color of borders:
+Hello World
+Hello World
+Hello World
+Example
+<h1 style="border:2px solid Tomato;">Hello World</h1>
+<h1 style="border:2px solid DodgerBlue;">Hello World</h1>
+<h1 style="border:2px solid Violet;">Hello World</h1>
+Color Values
+In HTML, colors can also be specified using RGB values, HEX values, HSL values, RGBA values, and HSLA values.
+The following three <div> elements have their background color set with RGB, HEX, and HSL values:
+rgb(255, 99, 71)
+#ff6347
+hsl(9, 100%, 64%)
+The following two <div> elements have their background color set with RGBA and HSLA values, which add an Alpha channel to the color (here we have 50% transparency):
+rgba(255, 99, 71, 0.5)
+hsla(9, 100%, 64%, 0.5)
+Example
+<h1 style="background-color:rgb(255, 99, 71);">...</h1>
+<h1 style="background-color:#ff6347;">...</h1>
+<h1 style="background-color:hsl(9, 100%, 64%);">...</h1>
+
+<h1 style="background-color:rgba(255, 99, 71, 0.5);">...</h1>
+<h1 style="background-color:hsla(9, 100%, 64%, 0.5);">...</h1>
+Learn more about Color Values
+You will learn more about RGB, HEX and HSL in the next chapters.
+HTML RGB and RGBA Colors
+An RGB color value represents RED, GREEN, and BLUE light sources.
+An RGBA color value is an extension of RGB with an Alpha channel (opacity).
+RGB Color Values
+In HTML, a color can be specified as an RGB value, using this formula:
+rgb(red, green, blue)
+Each parameter (red, green, and blue) defines the intensity of the color with a value between 0 and 255.
+This means that there are 256 x 256 x 256 = 16777216 possible colors!
+For example, rgb(255, 0, 0) is displayed as red, because red is set to its highest value (255), and the other two (green and blue) are set to 0.
+Another example, rgb(0, 255, 0) is displayed as green, because green is set to its highest value (255), and the other two (red and blue) are set to 0.
+To display black, set all color parameters to 0, like this: rgb(0, 0, 0).
+To display white, set all color parameters to 255, like this: rgb(255, 255, 255).
+Example
+rgb(255, 0, 0)
+rgb(0, 0, 255)
+rgb(60, 179, 113)
+rgb(238, 130, 238)
+rgb(255, 165, 0)
+rgb(106, 90, 205)
+Experiment by mixing the RGB values below:
+rgb(255, 99, 71)
+RED
+255
+GREEN
+99
+BLUE
+71
+REMOVE ADS
+Shades of Gray
+Shades of gray are often defined using equal values for all three parameters:
+Example
+rgb(60, 60, 60)
+rgb(100, 100, 100)
+rgb(140, 140, 140)
+rgb(180, 180, 180)
+rgb(200, 200, 200)
+rgb(240, 240, 240)
+RGBA Color Values
+RGBA color values are an extension of RGB color values with an Alpha channel - which specifies the opacity for a color.
+An RGBA color value is specified with:
+rgba(red, green, blue, alpha)
+The alpha parameter is a number between 0.0 (fully transparent) and 1.0 (not transparent at all):
+Example
+rgba(255, 99, 71, 0)
+rgba(255, 99, 71, 0.2)
+rgba(255, 99, 71, 0.4)
+rgba(255, 99, 71, 0.6)
+rgba(255, 99, 71, 0.8)
+rgba(255, 99, 71, 1)
+Experiment by mixing the RGBA values below:
+rgba(255, 99, 71, 0.5)
+RED
+255
+GREEN
+99
+BLUE
+71
+ALPHA
+0.5
+HTML HEX Colors
+A hexadecimal color is specified with: #RRGGBB, where the RR (red), GG (green) and BB (blue) hexadecimal integers specify the components of the color.
+HEX Color Values
+In HTML, a color can be specified using a hexadecimal value in the form:
+#rrggbb
+Where rr (red), gg (green) and bb (blue) are hexadecimal values between 00 and ff (same as decimal 0-255).
+For example, #ff0000 is displayed as red, because red is set to its highest value (ff), and the other two (green and blue) are set to 00.
+Another example, #00ff00 is displayed as green, because green is set to its highest value (ff), and the other two (red and blue) are set to 00.
+To display black, set all color parameters to 00, like this: #000000.
+To display white, set all color parameters to ff, like this: #ffffff.
+Experiment by mixing the HEX values below:
+#ff6347
+RED
+ff
+GREEN
+63
+BLUE
+47
+Example
+#ff0000
+#0000ff
+#3cb371
+#ee82ee
+#ffa500
+#6a5acd
+REMOVE ADS
+Shades of Gray
+Shades of gray are often defined using equal values for all three parameters:
+Example
+#404040
+#686868
+#a0a0a0
+#bebebe
+#dcdcdc
+#f8f8f8
+HTML HSL and HSLA Colors
+HSL stands for hue, saturation, and lightness.
+HSLA color values are an extension of HSL with an Alpha channel (opacity).
+HSL Color Values
+In HTML, a color can be specified using hue, saturation, and lightness (HSL) in the form:
+hsl(hue, saturation, lightness)
+Hue is a degree on the color wheel from 0 to 360. 0 is red, 120 is green, and 240 is blue.
+Saturation is a percentage value. 0% means a shade of gray, and 100% is the full color.
+Lightness is also a percentage value. 0% is black, and 100% is white.
+Experiment by mixing the HSL values below:
+hsl(0, 100%, 50%)
+HUE
+0
+SATURATION
+100%
+LIGHTNESS
+50%
+Example
+hsl(0, 100%, 50%)
+hsl(240, 100%, 50%)
+hsl(147, 50%, 47%)
+hsl(300, 76%, 72%)
+hsl(39, 100%, 50%)
+hsl(248, 53%, 58%)
+Saturation
+Saturation can be described as the intensity of a color.
+100% is pure color, no shades of gray.
+50% is 50% gray, but you can still see the color.
+0% is completely gray; you can no longer see the color.
+Example
+hsl(0, 100%, 50%)
+hsl(0, 80%, 50%)
+hsl(0, 60%, 50%)
+hsl(0, 40%, 50%)
+hsl(0, 20%, 50%)
+hsl(0, 0%, 50%)
+Lightness
+The lightness of a color can be described as how much light you want to give the color, where 0% means no light (black), 50% means 50% light (neither dark nor light), and 100% means full lightness (white).
+Example
+hsl(0, 100%, 0%)
+hsl(0, 100%, 25%)
+hsl(0, 100%, 50%)
+hsl(0, 100%, 75%)
+hsl(0, 100%, 90%)
+hsl(0, 100%, 100%)
+Shades of Gray
+Shades of gray are often defined by setting the hue and saturation to 0, and adjusting the lightness from 0% to 100% to get darker/lighter shades:
+Example
+hsl(0, 0%, 20%)
+hsl(0, 0%, 30%)
+hsl(0, 0%, 40%)
+hsl(0, 0%, 60%)
+hsl(0, 0%, 70%)
+hsl(0, 0%, 90%)
+HSLA Color Values
+HSLA color values are an extension of HSL color values, with an Alpha channel - which specifies the opacity for a color.
+An HSLA color value is specified with:
+hsla(hue, saturation, lightness, alpha)
+The alpha parameter is a number between 0.0 (fully transparent) and 1.0 (not transparent at all):
+Experiment by mixing the HSLA values below:
+hsla(0, 100%, 50%, 0.5)
+HUE
+0
+SATURATION
+100%
+LIGHTNESS
+50%
+ALPHA
+0.5
+Example
+hsla(9, 100%, 64%, 0)
+hsla(9, 100%, 64%, 0.2)
+hsla(9, 100%, 64%, 0.4)
+hsla(9, 100%, 64%, 0.6)
+hsla(9, 100%, 64%, 0.8)
+hsla(9, 100%, 64%, 1)

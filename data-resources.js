@@ -1,3 +1,76 @@
+const textNoteResources = [
+  {
+    titleEn: 'Artificial Intelligence Research',
+    titleBn: 'কৃত্রিম বুদ্ধিমত্তা গবেষণা',
+    file: 'course-note-artificial-intelligence-research.txt'
+  },
+  {
+    titleEn: 'Cyber Security Architecture',
+    titleBn: 'সাইবার নিরাপত্তা আর্কিটেকচার',
+    file: 'course-note-cyber-security-architecture.txt'
+  },
+  {
+    titleEn: 'Cybersecurity for Kids',
+    titleBn: 'শিশুদের জন্য সাইবার নিরাপত্তা',
+    file: 'course-note-cybersecurity-for-kids.txt'
+  },
+  {
+    titleEn: 'Cybersecurity Fundamentals and Insights',
+    titleBn: 'সাইবার নিরাপত্তার মৌলিক বিষয় ও ধারণা',
+    file: 'course-note-cybersecurity-fundamentals.txt'
+  },
+  {
+    titleEn: 'Cybersecurity Concepts — English',
+    titleBn: 'সাইবার নিরাপত্তার ধারণা — ইংরেজি',
+    file: 'course-note-cybersecurity-concepts.txt'
+  },
+  {
+    titleEn: 'Cybersecurity Concepts — Bangla',
+    titleBn: 'সাইবার নিরাপত্তার ধারণা — বাংলা',
+    file: 'course-note-cybersecurity-concepts-bangla.txt'
+  },
+  {
+    titleEn: 'Cybersecurity Concepts — Riyad Edition',
+    titleBn: 'সাইবার নিরাপত্তার ধারণা — রিয়াদ সংস্করণ',
+    file: 'course-note-cybersecurity-concepts-riyad.txt'
+  },
+  {
+    titleEn: 'Foundations of Log Analysis for Cyber Defense',
+    titleBn: 'সাইবার প্রতিরক্ষায় লগ বিশ্লেষণের ভিত্তি',
+    file: 'course-note-defensive-log-analysis.txt'
+  },
+  {
+    titleEn: 'HTML Introduction',
+    titleBn: 'HTML পরিচিতি',
+    file: 'course-note-html-introduction.txt'
+  },
+  {
+    titleEn: 'Introduction to Microsoft Security Solutions',
+    titleBn: 'মাইক্রোসফট নিরাপত্তা সমাধানের পরিচিতি',
+    file: 'course-note-microsoft-security-solutions.txt'
+  },
+  {
+    titleEn: 'Introduction to Python for Defensive Security',
+    titleBn: 'প্রতিরক্ষামূলক নিরাপত্তায় Python পরিচিতি',
+    file: 'course-note-python-defensive-security.txt'
+  },
+  {
+    titleEn: 'Introduction to Security, Compliance, and Identity',
+    titleBn: 'নিরাপত্তা, কমপ্লায়েন্স ও পরিচিতি ব্যবস্থাপনার পরিচিতি',
+    file: 'course-note-security-compliance-identity.txt'
+  }
+].map((note) => ({
+  icon: '📝',
+  titleEn: note.titleEn,
+  titleBn: note.titleBn,
+  descriptionEn: 'Read the plain-text edition of this personal study note.',
+  descriptionBn: 'এই ব্যক্তিগত অধ্যয়ন-নোটের টেক্সট সংস্করণ পড়ুন।',
+  fileType: 'TXT · UTF-8',
+  downloadUrl: `resources/${note.file}`,
+  actionKey: 'resource_read_text_note',
+  featured: false
+}));
+
 const resourcesData = [
   {
     icon: '📄',
@@ -22,18 +95,7 @@ const resourcesData = [
     actionKey: 'resource_download_notes',
     featured: false
   },
-  {
-    icon: '📝',
-    titleEn: 'Selected Defensive & General Study Notes (12 TXT)',
-    titleBn: 'বাছাইকৃত প্রতিরক্ষামূলক ও সাধারণ অধ্যয়ন-নোট (১২টি TXT)',
-    descriptionEn: 'A plain-text edition of selected defensive and general notes for easy reading and searching. Operational offensive-security notes are not included; the original DOCX collection remains available above.',
-    descriptionBn: 'সহজে পড়া ও খোঁজার জন্য বাছাইকৃত প্রতিরক্ষামূলক ও সাধারণ নোটের টেক্সট সংস্করণ। অপারেশনাল আক্রমণাত্মক নিরাপত্তার নোট এতে নেই; মূল DOCX সংকলনটি ওপরের লিংকে আছে।',
-    fileType: 'TXT · UTF-8',
-    fileSize: '7.1 MiB',
-    downloadUrl: 'resources/course-notes-text.txt',
-    actionKey: 'resource_read_text_notes',
-    featured: false
-  },
+  ...textNoteResources,
   {
     icon: '🛡️',
     titleEn: 'Secure Our World — CISA',
