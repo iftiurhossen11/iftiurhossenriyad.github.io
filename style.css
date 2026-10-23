@@ -87,9 +87,7 @@ body {
 
 a { color: inherit; text-decoration: none; }
 .mygenie-mention-link {
-  text-decoration: underline;
-  text-decoration-color: var(--accent);
-  text-underline-offset: .15em;
+  text-decoration: none;
 }
 .mygenie-mention-link:hover,
 .mygenie-mention-link:focus-visible {
