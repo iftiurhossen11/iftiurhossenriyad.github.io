@@ -126,6 +126,7 @@ async function extractPageData(browser, url) {
     return {
       name: clean(first('.hero-name')?.textContent) || text(first('h1')),
       headline: text(first('.hero-tagline')) || text(first('.hero-subtitle')),
+      profilePhoto: first('.about-photo img')?.getAttribute('src') || '',
       email: text(all('#contact .contact-item')[0]),
       phone: text(all('#contact .contact-item')[1]),
       location: text(all('#contact .contact-item')[2]),
@@ -182,7 +183,7 @@ function section(title, content) {
   return content ? `<section class="section"><h2>${escapeHtml(title)}</h2>${content}</section>` : '';
 }
 
-function buildCvHtml(data) {
+function buildCvHtml(data, baseUrl) {
   const skills = data.skills.map((skill) => `
     <div class="skill">
       <strong>${escapeHtml(skill.title)}</strong>
@@ -216,38 +217,133 @@ function buildCvHtml(data) {
 <html lang="en">
 <head>
   <meta charset="utf-8">
+  <base href="${escapeHtml(baseUrl)}">
   <title>CV — ${escapeHtml(data.name)}</title>
   <style>
-    @page { size: A4; margin: 14mm 15mm 15mm; }
+    @page { size: A4; margin: 12mm 13mm 14mm; }
     * { box-sizing: border-box; }
-    body { margin: 0; color: #172b42; font: 9pt/1.42 Arial, Helvetica, sans-serif; }
-    header { border-bottom: 2px solid #147d92; padding-bottom: 8mm; margin-bottom: 5mm; }
-    h1 { font-size: 25pt; line-height: 1.08; margin: 0 0 2mm; color: #10283f; }
-    .headline { color: #147d92; font-weight: 700; font-size: 11pt; margin: 0 0 3mm; }
-    .contact { color: #526477; font-size: 8pt; }
-    .separator { padding: 0 2mm; color: #91a0ae; }
-    .section { margin: 0 0 4.5mm; break-inside: auto; }
-    h2 { border-bottom: 1px solid #d8e2e9; color: #147d92; font-size: 11pt; letter-spacing: .08em; margin: 0 0 2.5mm; padding-bottom: 1mm; text-transform: uppercase; break-after: avoid; }
-    p { margin: 1mm 0 0; }
-    .columns { display: grid; grid-template-columns: 1fr 1fr; gap: 3mm 7mm; }
-    .skill, .credential { break-inside: avoid; margin-bottom: 2mm; }
-    .skill strong, .credential strong { display: block; font-size: 8.5pt; }
-    .skill span, .credential span, .meta { color: #526477; font-size: 7.7pt; }
-    ul { margin: 0; padding-left: 4mm; }
-    li { margin: 0 0 1.5mm; }
-    .project { margin: 0 0 3mm; break-inside: avoid; }
+    body {
+      margin: 0;
+      color: #e6edf3;
+      background: #0a0e17;
+      font: 8.5pt/1.42 Inter, "Segoe UI", Arial, sans-serif;
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
+    .hero {
+      position: relative;
+      display: grid;
+      grid-template-columns: 1fr 30mm;
+      gap: 7mm;
+      align-items: center;
+      overflow: hidden;
+      margin-bottom: 5mm;
+      padding: 7mm;
+      border: 1px solid #2a3850;
+      border-radius: 4mm;
+      background: linear-gradient(125deg, #111826 0%, #111826 62%, #17172b 100%);
+      break-inside: avoid;
+    }
+    .hero::after {
+      position: absolute;
+      top: -24mm;
+      right: 19mm;
+      width: 56mm;
+      height: 56mm;
+      border: 1px solid rgba(0, 217, 255, .2);
+      border-radius: 50%;
+      content: "";
+    }
+    .eyebrow {
+      margin-bottom: 2mm;
+      color: #00d9ff;
+      font-size: 7pt;
+      font-weight: 700;
+      letter-spacing: .17em;
+      text-transform: uppercase;
+    }
+    h1 { position: relative; z-index: 1; margin: 0 0 2mm; color: #e6edf3; font-size: 23pt; line-height: 1.08; }
+    .headline { margin: 0 0 3mm; color: #00d9ff; font-size: 9.5pt; font-weight: 700; }
+    .contact { position: relative; z-index: 1; color: #9ba8b8; font-size: 7.1pt; }
+    .separator { padding: 0 1.5mm; color: #7c3aed; }
+    .profile-photo {
+      position: relative;
+      z-index: 1;
+      width: 27mm;
+      height: 27mm;
+      border: 1.1mm solid #1e2a3d;
+      border-radius: 50%;
+      object-fit: cover;
+      outline: .45mm solid #00d9ff;
+    }
+    .section { margin: 0 0 4mm; break-inside: auto; }
+    h2 {
+      display: flex;
+      align-items: center;
+      gap: 2mm;
+      margin: 0 0 2mm;
+      padding-bottom: 1.1mm;
+      border-bottom: 1px solid #1e2a3d;
+      color: #00d9ff;
+      font-size: 10pt;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      break-after: avoid;
+    }
+    h2::before { color: #7c3aed; content: "//"; font-size: 8pt; letter-spacing: 0; }
+    p { margin: 1mm 0 0; color: #c1ccd7; }
+    .section > p { padding: 2.5mm 3mm; border-left: .7mm solid #00d9ff; border-radius: 0 2mm 2mm 0; background: #111826; }
+    .columns { display: grid; grid-template-columns: 1fr 1fr; gap: 2mm 3mm; }
+    .skill, .credential {
+      min-width: 0;
+      padding: 2mm 2.5mm;
+      border: 1px solid #1e2a3d;
+      border-radius: 2mm;
+      background: #111826;
+      break-inside: avoid;
+    }
+    .skill strong, .credential strong { display: block; margin-bottom: .6mm; color: #e6edf3; font-size: 8pt; }
+    .skill span, .credential span, .meta { color: #9ba8b8; font-size: 7pt; }
+    ul { display: grid; gap: 1.5mm; margin: 0; padding: 0; list-style: none; }
+    li {
+      padding: 2mm 2.5mm;
+      border: 1px solid #1e2a3d;
+      border-left: .7mm solid #7c3aed;
+      border-radius: 0 2mm 2mm 0;
+      background: #111826;
+      color: #c1ccd7;
+      break-inside: avoid;
+    }
+    .project {
+      margin: 0 0 2mm;
+      padding: 2.5mm 3mm;
+      border: 1px solid #1e2a3d;
+      border-radius: 2mm;
+      background: #111826;
+      break-inside: avoid;
+    }
     .entry-heading { display: flex; gap: 3mm; justify-content: space-between; align-items: baseline; }
-    .entry-heading strong { font-size: 9pt; }
-    .entry-heading span { color: #526477; font-size: 7.7pt; text-align: right; }
-    .meta { margin-top: 1mm; }
-    .footer { border-top: 1px solid #d8e2e9; color: #738294; font-size: 7pt; margin-top: 5mm; padding-top: 2mm; }
+    .entry-heading strong { color: #e6edf3; font-size: 8.5pt; }
+    .entry-heading span { color: #00d9ff; font-size: 7pt; text-align: right; }
+    .meta { margin-top: 1mm; color: #00d9ff; }
+    .footer {
+      margin-top: 4mm;
+      padding-top: 2mm;
+      border-top: 1px solid #1e2a3d;
+      color: #6b7688;
+      font-size: 7pt;
+    }
   </style>
 </head>
 <body>
-  <header>
-    <h1>${escapeHtml(data.name)}</h1>
-    <p class="headline">${escapeHtml(data.headline)}</p>
-    <div class="contact">${contact}</div>
+  <header class="hero">
+    <div>
+      <div class="eyebrow">Cyber Security · AI · Product</div>
+      <h1>${escapeHtml(data.name)}</h1>
+      <p class="headline">${escapeHtml(data.headline)}</p>
+      <div class="contact">${contact}</div>
+    </div>
+    ${data.profilePhoto ? `<img class="profile-photo" src="${escapeHtml(data.profilePhoto)}" alt="">` : ''}
   </header>
   ${section('Professional Profile', data.summary ? `<p>${escapeHtml(data.summary)}</p>` : '')}
   ${section('Core Skills', skills ? `<div class="columns">${skills}</div>` : '')}
@@ -284,7 +380,7 @@ async function main() {
     }
 
     const page = await context.newPage();
-    await page.setContent(buildCvHtml(data), { waitUntil: 'load' });
+    await page.setContent(buildCvHtml(data, `${server.origin}/`), { waitUntil: 'load' });
     await page.pdf({
       path: pdfPath,
       format: 'A4',
