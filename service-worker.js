@@ -1,4 +1,4 @@
-const CACHE_NAME = 'riyad-portfolio-v55';
+const CACHE_NAME = 'riyad-portfolio-v56';
 const APP_SHELL = [
   './',
   './index.html',
