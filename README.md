@@ -65,11 +65,9 @@ The **Skills in Practice** repository list in `data-projects.js` links to the
 public repositories for this portfolio, MyGenie, EduQuiz, ThreatGuard,
 SecureAudit, Buy & Sell Platform, IR Prohori, and Ortho Mess Management.
 The Certifications section lists certificates with their verification links and
-available PDF previews. The Free Resources section offers the 28 personal
-course notes from `Skills Hub/Course Note docx` as `resources/course-notes.zip`.
-It also provides 12 separate UTF-8 plain-text files in `resources/`, each linked
-from its own Free Resources card. The text edition is limited to selected
-defensive and general study notes.
+available PDF previews. The Free Resources section provides 12 separate UTF-8
+plain-text study notes in `resources/`, each linked from its own card. The
+selection is limited to defensive and general study notes.
 They are personal study notes, not official course materials; offensive-security
 topics should be practiced only in authorized labs.
 The career roadmap is an aspirational 2026–2030 plan rather than a promise;
