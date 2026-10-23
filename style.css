@@ -911,6 +911,101 @@ input, textarea { font-family: inherit; }
   font-size: 0.9rem;
 }
 
+.about-pathways {
+  margin-top: 48px;
+}
+
+.about-pathways > h3 {
+  margin-bottom: 16px;
+  color: var(--text-muted);
+  font: 600 0.76rem/1.4 'JetBrains Mono', monospace;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.about-pathways-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.about-pathway {
+  position: relative;
+  display: flex;
+  min-width: 0;
+  min-height: 156px;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 9px;
+  padding: 20px;
+  overflow: hidden;
+  background: linear-gradient(145deg, var(--bg-card), var(--bg-secondary));
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  transition: var(--transition);
+}
+
+.about-pathway::before {
+  position: absolute;
+  inset: 0 auto 0 0;
+  width: 2px;
+  background: var(--gradient);
+  content: '';
+  opacity: 0;
+  transition: var(--transition);
+}
+
+.about-pathway:hover,
+.about-pathway:focus-visible {
+  border-color: var(--border-light);
+  box-shadow: var(--shadow-md);
+  transform: translateY(-3px);
+}
+
+.about-pathway:hover::before,
+.about-pathway:focus-visible::before {
+  opacity: 1;
+}
+
+.about-pathway:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+
+.about-pathway-index {
+  color: var(--accent);
+  font: 600 0.68rem/1.4 'JetBrains Mono', monospace;
+  letter-spacing: 0.08em;
+}
+
+.about-pathway-title {
+  padding-right: 22px;
+  color: var(--text-primary);
+  font-size: 0.98rem;
+  font-weight: 700;
+}
+
+.about-pathway-description {
+  color: var(--text-secondary);
+  font-size: 0.8rem;
+  line-height: 1.55;
+}
+
+.about-pathway-arrow {
+  position: absolute;
+  top: 16px;
+  right: 17px;
+  color: var(--text-muted);
+  font-size: 1rem;
+  transition: var(--transition);
+}
+
+.about-pathway:hover .about-pathway-arrow,
+.about-pathway:focus-visible .about-pathway-arrow {
+  color: var(--accent);
+  transform: translate(2px, -2px);
+}
+
 /* ============================================
    SKILLS
    ============================================ */
@@ -2353,10 +2448,21 @@ input, textarea { font-family: inherit; }
 
   .hero-meta { justify-content: center; }
   .hero-cta {
-    flex-direction: column;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
     align-items: stretch;
     width: 100%;
   }
+
+  .hero-cta .btn {
+    min-width: 0;
+    padding: 11px 12px;
+    text-align: center;
+    white-space: normal;
+  }
+
+  .hero-cta .btn:first-child { grid-column: 1 / -1; }
+
   .hero-socials { justify-content: center; }
 
   .btn { justify-content: center; }
@@ -2379,6 +2485,18 @@ input, textarea { font-family: inherit; }
   .leadership-grid,
   .creative-grid {
     grid-template-columns: 1fr;
+  }
+
+  .about-pathways { margin-top: 36px; }
+
+  .about-pathways-grid {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+
+  .about-pathway {
+    min-height: 0;
+    padding: 16px 18px;
   }
 
   .lab-box { padding: 24px; }
