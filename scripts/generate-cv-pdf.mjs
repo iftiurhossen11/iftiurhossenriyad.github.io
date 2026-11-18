@@ -131,8 +131,8 @@ async function extractPageData(browser, url) {
       name: clean(first('.hero-name')?.textContent) || text(first('h1')),
       headline: text(first('.hero-tagline')) || text(first('.hero-subtitle')),
       email: text(all('#contact .contact-item')[0]),
-      phone: text(all('#contact .contact-item')[1]),
-      location: text(all('#contact .contact-item')[2]),
+      phone: '',
+      location: text(first('#contact [data-contact-type="location"]')) || '',
       socialLinks: all('#heroSocials a').map((link) => ({
         name: link.getAttribute('aria-label') || link.title || text(link),
         url: link.href

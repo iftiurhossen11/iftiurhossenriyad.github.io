@@ -1266,11 +1266,10 @@
           ? `${icon}<div><h4>${contentMarkup(item.titleKey, item.title)}</h4><p class="contact-location-value">${escapeHtml(item.value)}</p></div>`
           : contents;
         return item.href
-          ? `<a href="${escapeHtml(item.href)}" class="contact-item">${contactContents}</a>`
-          : `<div class="contact-item">${contactContents}</div>`;
+          ? `<a href="${escapeHtml(item.href)}" class="contact-item" data-contact-type="${escapeHtml(item.type)}">${contactContents}</a>`
+          : `<div class="contact-item" data-contact-type="${escapeHtml(item.type)}">${contactContents}</div>`;
       }).join('');
       const email = socialData.contact.find((item) => item.type === 'email');
-      const phone = socialData.contact.find((item) => item.type === 'phone');
       const location = socialData.contact.find((item) => item.type === 'location');
       const heroLocation = document.getElementById('heroLocation');
       if (heroLocation && location) heroLocation.textContent = location.value;
@@ -1283,9 +1282,6 @@
       const contactForm = document.querySelector('.contact-form');
       if (contactForm && email) {
         contactForm.dataset.contactEmail = email.value;
-      }
-      if (contactForm && phone) {
-        contactForm.dataset.contactPhone = phone.value;
       }
     }
   }
@@ -2673,7 +2669,7 @@
         current: () => socialData.contact,
         currentLabel: (item) => `${item.type}: ${item.value}`,
         fields: [
-          { name: 'type', label: 'Type', type: 'select', options: ['email', 'phone', 'location'], required: true },
+          { name: 'type', label: 'Type', type: 'select', options: ['email', 'location'], required: true },
           { name: 'title', label: 'Label', required: true },
           { name: 'value', label: 'Value', required: true },
           { name: 'href', label: 'Link', placeholder: 'mailto:..., tel:..., or leave empty', allowedProtocols: ['http:', 'https:', 'mailto:', 'tel:'] }
